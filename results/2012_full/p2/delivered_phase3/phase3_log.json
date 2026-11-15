@@ -1,0 +1,347 @@
+{
+  "phase2_plan": "mabpr_out\\2012_full\\loop\\p2\\confirm_round3_2\\plan.json",
+  "baseline_bpmn": "inputs\\2012_full\\BPI_Challenge_2012_full.bpmn",
+  "baseline_params": "inputs\\2012_full\\BPI_Challenge_2012_full.json",
+  "output_dir": "mabpr_out\\2012_full\\loop\\p2\\confirm_round3_2\\phase3",
+  "n_phases": 1,
+  "n_candidates": 12,
+  "entries": [
+    {
+      "phase_id": 1,
+      "candidate_id": "AC-001",
+      "heuristic": "Activity Composition",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "composite_name": "A_SUBMITTED + A_PARTLYSUBMITTED",
+        "timers_removed": 1,
+        "timer_h_removed_per_occurrence": 0.0,
+        "kept_node_id": "node_9c0aa54a-12be-4010-9a50-96114e9daa8d",
+        "merged_node_id": "node_1aa8b37e-267e-4943-8663-649c3374921f",
+        "distributions_folded": 1,
+        "distributions_carried_over": 0,
+        "task_resource_distribution_dropped": 1,
+        "assigned_tasks_removed": 1,
+        "assigned_tasks_added": 0,
+        "event_attributes_dropped": 1,
+        "setup_saving_assumed_h": 0.0,
+        "gateway_reconciliation": {
+          "gateways_dropped": 0,
+          "paths_dropped": 0,
+          "paths_remapped": 0,
+          "paths_renormalized": 0,
+          "ambiguous_rewired_gateways": [],
+          "uncovered_decision_gateways": [
+            "node_004ee6d4-a4d8-4e99-a408-8795db7f1a33",
+            "node_0b4ec57b-36a2-428c-b4de-05e59f870d60",
+            "node_16b7767b-e24b-4085-9abb-8a9aab6063dd",
+            "node_203a748f-2bb5-4708-a774-390bf3a371fe",
+            "node_21ee8f86-af62-435f-b513-98907531f44f",
+            "node_2defda9a-4fe0-40a4-8425-5c55c8721f2a",
+            "node_5cf202b7-da6f-47b5-bdc9-5049f37b6753",
+            "node_674a1ddf-ae8e-450f-90d1-677ad034f59d",
+            "node_6baa8028-ef82-4d06-b1c3-c82b55cd9a74",
+            "node_6f4ca4f6-5f68-4fe7-a871-cb7988beb76c",
+            "node_74a1bfaa-dd5a-4458-864d-f8f03572ce55",
+            "node_860e590e-19a2-4c92-929f-b7de6b403d72",
+            "node_ab7febe6-cc40-436a-9dbd-c8d3d2af378b",
+            "node_b1b9b133-96d1-4187-9510-95ac86c8ead4",
+            "node_dc8dc3a5-0432-453e-b457-b1b28a18537f"
+          ]
+        }
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "AC-002",
+      "heuristic": "Activity Composition",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "composite_name": "O_CREATED + O_SENT",
+        "timers_removed": 0,
+        "timer_h_removed_per_occurrence": 0.0,
+        "kept_node_id": "node_1e901f4b-1b0b-426b-bec9-ecb0ee13fd02",
+        "merged_node_id": "node_aeb0d93d-1643-4f6d-8121-772b9ddf7c9c",
+        "distributions_folded": 64,
+        "distributions_carried_over": 0,
+        "task_resource_distribution_dropped": 1,
+        "assigned_tasks_removed": 64,
+        "assigned_tasks_added": 0,
+        "event_attributes_dropped": 1,
+        "setup_saving_assumed_h": 0.0,
+        "gateway_reconciliation": {
+          "gateways_dropped": 0,
+          "paths_dropped": 0,
+          "paths_remapped": 0,
+          "paths_renormalized": 0,
+          "ambiguous_rewired_gateways": [],
+          "uncovered_decision_gateways": [
+            "node_004ee6d4-a4d8-4e99-a408-8795db7f1a33",
+            "node_0b4ec57b-36a2-428c-b4de-05e59f870d60",
+            "node_16b7767b-e24b-4085-9abb-8a9aab6063dd",
+            "node_203a748f-2bb5-4708-a774-390bf3a371fe",
+            "node_21ee8f86-af62-435f-b513-98907531f44f",
+            "node_2defda9a-4fe0-40a4-8425-5c55c8721f2a",
+            "node_5cf202b7-da6f-47b5-bdc9-5049f37b6753",
+            "node_674a1ddf-ae8e-450f-90d1-677ad034f59d",
+            "node_6baa8028-ef82-4d06-b1c3-c82b55cd9a74",
+            "node_6f4ca4f6-5f68-4fe7-a871-cb7988beb76c",
+            "node_74a1bfaa-dd5a-4458-864d-f8f03572ce55",
+            "node_860e590e-19a2-4c92-929f-b7de6b403d72",
+            "node_ab7febe6-cc40-436a-9dbd-c8d3d2af378b",
+            "node_b1b9b133-96d1-4187-9510-95ac86c8ead4",
+            "node_dc8dc3a5-0432-453e-b457-b1b28a18537f"
+          ]
+        }
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "AE-002",
+      "heuristic": "Activity Elimination",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "deleted_node_id": "node_05f81e07-999d-40e1-8e63-642011554e7f",
+        "task_resource_distribution_dropped": 1,
+        "assigned_tasks_removed": 56,
+        "event_attributes_dropped": 1,
+        "timers_removed": 1,
+        "batch_rules_dropped": 0,
+        "timer_h_removed_per_occurrence": 73.684,
+        "gateways_dropped": 1,
+        "paths_dropped": 0,
+        "paths_remapped": 0,
+        "paths_renormalized": 0,
+        "ambiguous_rewired_gateways": [],
+        "uncovered_decision_gateways": [
+          "node_004ee6d4-a4d8-4e99-a408-8795db7f1a33",
+          "node_0b4ec57b-36a2-428c-b4de-05e59f870d60",
+          "node_16b7767b-e24b-4085-9abb-8a9aab6063dd",
+          "node_203a748f-2bb5-4708-a774-390bf3a371fe",
+          "node_21ee8f86-af62-435f-b513-98907531f44f",
+          "node_2defda9a-4fe0-40a4-8425-5c55c8721f2a",
+          "node_5cf202b7-da6f-47b5-bdc9-5049f37b6753",
+          "node_674a1ddf-ae8e-450f-90d1-677ad034f59d",
+          "node_6baa8028-ef82-4d06-b1c3-c82b55cd9a74",
+          "node_6f4ca4f6-5f68-4fe7-a871-cb7988beb76c",
+          "node_74a1bfaa-dd5a-4458-864d-f8f03572ce55",
+          "node_860e590e-19a2-4c92-929f-b7de6b403d72",
+          "node_ab7febe6-cc40-436a-9dbd-c8d3d2af378b",
+          "node_b1b9b133-96d1-4187-9510-95ac86c8ead4"
+        ]
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "CA-001",
+      "heuristic": "Case Assignment",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "strategy": "intersection",
+        "ca_pool_resource_count": 8,
+        "expected_continuity_after": 0.125,
+        "expected_continuity_before": 0.0156,
+        "pool_before_per_target": {
+          "node_e7a8cea1-9608-405b-ae1c-2b91d9b4bf65": 64,
+          "node_55796b93-5ae8-4dab-9b85-7f9e8b208268": 64,
+          "node_f7a8c446-db26-4456-b4ac-c6eb794a71bc": 10,
+          "node_96a15e95-677e-4224-ac15-50fb911ecbba": 10
+        },
+        "concentration": 0.125,
+        "delivery_note": "with 8 resources eligible for every target, two consecutive steps land on the same person about 12.5% of the time, against 1.6% before. Case Assignment has no other way to deliver continuity here: Prosimos picks by earliest availability and does not remember who handled the previous step.",
+        "resources_already_covering_all_targets": 8,
+        "resources_removed": 116,
+        "task_resources_added": 0,
+        "assigned_tasks_added": 0,
+        "assigned_tasks_removed": 116,
+        "pool_per_target": {
+          "node_e7a8cea1-9608-405b-ae1c-2b91d9b4bf65": 8,
+          "node_55796b93-5ae8-4dab-9b85-7f9e8b208268": 8,
+          "node_f7a8c446-db26-4456-b4ac-c6eb794a71bc": 8,
+          "node_96a15e95-677e-4224-ac15-50fb911ecbba": 8
+        },
+        "note": "the target activities are now performed by one shared pool of 8; with k eligible resources, consecutive steps land on the same person with probability ~1/k, which is how this simulator can express 'the same worker continues the case'"
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "CBW-002",
+      "heuristic": "Case-based Work",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "channel": "extraneous_delay_batch_share",
+        "task_id": "node_3f70240d-8500-4ca6-ad2d-445718c65dcd",
+        "rules_removed": 0,
+        "timers_removed": 0,
+        "timer_h_before": 32.6288,
+        "timer_h_after": 26.0624,
+        "batch_component_h_removed": 6.5664,
+        "share_of_timer_removed": 0.2012,
+        "delta_h_batched_vs_not": 13.5712,
+        "delta_z": 14.12,
+        "note": "scaled the extraneous-delay timer in front of 'W_Valideren aanvraag' by 0.7988: 32.63 h -> 26.06 h per occurrence. Only the batching share is removed (20.1% of the timer, from a 13.5712 h gap between batched and non-batched executions at z=14.12); the rest of the wait is left in place because this heuristic does not claim it."
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "CT-001",
+      "heuristic": "Case Types",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "attribute": "case:AMOUNT_REQ",
+        "gateways_conditioned": 2,
+        "activities_routed": [
+          "A_CANCELLED",
+          "O_SENT_BACK"
+        ],
+        "routes": [
+          {
+            "gateway_id": "node_200c7e15-9288-49c0-b515-b5d2287b1db0",
+            "target_activity": "O_SENT_BACK",
+            "rule": "case:AMOUNT_REQ > 5000",
+            "pooled_probability_replaced": 0.4624
+          },
+          {
+            "gateway_id": "node_4cc49a35-82b2-426f-986a-82826fca5fed",
+            "target_activity": "A_CANCELLED",
+            "rule": "case:AMOUNT_REQ > 5000",
+            "pooled_probability_replaced": 0.3716
+          }
+        ],
+        "gateways_missing": [],
+        "branch_rules_added": 4
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "CR-001",
+      "heuristic": "Contact Reduction",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "heuristic": "Contact Reduction",
+        "target_activity": "W_Beoordelen fraude",
+        "gateway_id": "node_7fc36ed7-163a-44f9-8b77-8343e7250f1e",
+        "loop_probability_before": 0.7126,
+        "loop_probability_after": 0.1781,
+        "loop_probability_reduced": 0.5345,
+        "exit_probability_after": 0.8219,
+        "paths_renormalized": 2,
+        "sum_before": 1.0,
+        "sum_after": 1.0
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "CR-002",
+      "heuristic": "Contact Reduction",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "heuristic": "Contact Reduction",
+        "target_activity": "W_Completeren aanvraag",
+        "gateway_id": "node_eba01cf6-b357-479f-a7eb-6e0d263bd0b1",
+        "loop_probability_before": 0.666,
+        "loop_probability_after": 0.2664,
+        "loop_probability_reduced": 0.3996,
+        "exit_probability_after": 0.7336,
+        "paths_renormalized": 2,
+        "sum_before": 1.0,
+        "sum_after": 1.0
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "SPC-001",
+      "heuristic": "Specialize",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "target_activity": "W_Afhandelen leads",
+        "target_task_id": "node_ccc879bc-183c-43e5-8fe9-8186d312243e",
+        "resources_before": 59,
+        "resources_after": 2,
+        "resources_removed": 57,
+        "assigned_tasks_removed": 57,
+        "specialists_missing": [],
+        "sizing": {
+          "specialist_count": 2,
+          "utilisation_after": 0.6598,
+          "speedup": 8.45,
+          "separation_z": 3.22
+        }
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "SPC-002",
+      "heuristic": "Specialize",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "target_activity": "W_Completeren aanvraag",
+        "target_task_id": "node_d0d327d6-3898-4422-a75d-3df5c4358fd2",
+        "resources_before": 59,
+        "resources_after": 5,
+        "resources_removed": 54,
+        "assigned_tasks_removed": 54,
+        "specialists_missing": [],
+        "sizing": {
+          "specialist_count": 5,
+          "utilisation_after": 0.6214,
+          "speedup": 3.159,
+          "separation_z": 5.57
+        }
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "SPC-003",
+      "heuristic": "Specialize",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "target_activity": "W_Nabellen incomplete dossiers",
+        "target_task_id": "node_b3b58fc7-a2f9-4667-9e65-62171ea08e16",
+        "resources_before": 55,
+        "resources_after": 4,
+        "resources_removed": 51,
+        "assigned_tasks_removed": 51,
+        "specialists_missing": [],
+        "sizing": {
+          "specialist_count": 4,
+          "utilisation_after": 0.6973,
+          "speedup": 6.571,
+          "separation_z": 4.74
+        }
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "SPC-005",
+      "heuristic": "Specialize",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "target_activity": "W_Valideren aanvraag",
+        "target_task_id": "node_3f70240d-8500-4ca6-ad2d-445718c65dcd",
+        "resources_before": 56,
+        "resources_after": 2,
+        "resources_removed": 54,
+        "assigned_tasks_removed": 54,
+        "specialists_missing": [],
+        "sizing": {
+          "specialist_count": 2,
+          "utilisation_after": 0.6227,
+          "speedup": 9.8,
+          "separation_z": 4.02
+        }
+      }
+    }
+  ]
+}

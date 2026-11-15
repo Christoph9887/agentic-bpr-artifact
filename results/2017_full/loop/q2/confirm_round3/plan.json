@@ -1,0 +1,18 @@
+{
+  "goal": "apply_all",
+  "phases": [
+    {
+      "phase_id": 1,
+      "candidates": [
+        "CBW-003",
+        "AC-001",
+        "AC-002",
+        "CA-002",
+        "CA-004",
+        "CR-001",
+        "CR-002"
+      ],
+      "rationale": "apply selected candidates to baseline"
+    }
+  ]
+}

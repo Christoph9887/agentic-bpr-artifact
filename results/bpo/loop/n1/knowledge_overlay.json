@@ -1,0 +1,165 @@
+{
+  "note": "Learned layer over foundation's HI-Graph. foundation is the literature prior and is never edited; everything here was produced by measurement inside the loop.",
+  "contradictions": [
+    {
+      "id": "C1-1",
+      "round": 1,
+      "kind": "hard_wrongly_marked",
+      "subject": [
+        "Case Assignment",
+        "Numerical Involvement"
+      ],
+      "prior_said": "The pair relation is HARD_CONFLICT: both edits cannot be applied together without invalidating their individual effects.",
+      "measured_said": "The pair's structural condition fired, but Phase-3 built the plan with both candidates applied.",
+      "evidence": [
+        "get_pair_relation returned condition_fires=true with shared activities diagnosis 1st and repair",
+        "Phase-3 outcome built=true; CA-001 and NI-001 both applied successfully"
+      ],
+      "action": "downgrade_hard_to_weak",
+      "confidence": "measured",
+      "note": "The edits can coexist legally; the relation should describe interaction or attribution loss rather than impossibility.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-2",
+      "round": 1,
+      "kind": "impact_wrong",
+      "subject": [
+        "Case Assignment"
+      ],
+      "prior_said": "Case Assignment has weak-positive time impact because assigning one case to one resource reduces handover overhead.",
+      "measured_said": "CA-001 harmed the measured plan: replace waiting rose sharply and attributable throughput worsened.",
+      "evidence": [
+        "CA-001 confirmation replace waiting z=+509.00",
+        "CA-001 attributable throughput worsened by 1462.9079 h/case, z=+442.94",
+        "Phase-3 built CA-001 successfully, so this is a measured effect rather than a failed application"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "The time direction is contradicted for this configuration; retain no conclusion about quality or flexibility from this round.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-3",
+      "round": 1,
+      "kind": "impact_wrong",
+      "subject": [
+        "Numerical Involvement"
+      ],
+      "prior_said": "Numerical Involvement has strong-positive time impact because reducing the number of hands on a case removes coordination and intervening waits.",
+      "measured_said": "The applied Numerical Involvement candidates produced harm rather than time improvement.",
+      "evidence": [
+        "NI-001 intake waiting z=+6.05 and duration z=+9.67",
+        "NI-001 attributable throughput worsened by 4.9871 h/case, z=+6.50",
+        "NI-004 produced replace waiting z=+509.00 and duration z=+2.69",
+        "Phase-3 applied NI-001 and NI-004 successfully"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "The strong-positive time prior is not supported for these measured configurations; the result may reflect harmful resource-pool interactions.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-4",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Case-based Work"
+      ],
+      "prior_said": "Case-based Work has strong-positive time impact because removing batch queueing delays improves flow time.",
+      "measured_said": "The batch-component timer was removed and service/repair performance improved, although whole-plan convergence worsened because of other interactions.",
+      "evidence": [
+        "CBW-001 footprint reports removal of the batch-component timer",
+        "Repair waiting and duration improved in the confirmation run",
+        "Whole-plan service duration delta was -29.97 h/case with z=-402.27"
+      ],
+      "action": "note_only",
+      "confidence": "attributed",
+      "note": "The local time direction supports the prior, but shared attribution and the large whole-plan waiting increase prevent treating it as an isolated causal confirmation.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-1",
+      "round": 2,
+      "kind": "hard_wrongly_marked",
+      "subject": [
+        "Exception",
+        "Case Types"
+      ],
+      "prior_said": "These two edits are in a HARD_CONFLICT when they share an affected activity.",
+      "measured_said": "The condition fired on diagnosis 2nd, and Phase 3 successfully built both EXC-001 and CT-001.",
+      "evidence": [
+        "Phase-3 outcome: EXC-001 status success and CT-001 status success",
+        "Pair condition fired with shared activity diagnosis 2nd"
+      ],
+      "action": "downgrade_hard_to_weak",
+      "confidence": "measured",
+      "note": "Successful construction refutes the hard impossibility claim, though it does not show that the combination is beneficial.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-2",
+      "round": 2,
+      "kind": "impact_wrong",
+      "subject": [
+        "Numerical Involvement"
+      ],
+      "prior_said": "Numerical Involvement has a strong positive time impact.",
+      "measured_said": "NI-001 and NI-004 were harmful: NI-001 increased attributable throughput by 12.272 h/case (z=160.75), while NI-004 increased it by 12.3963 h/case (z=186.34) and worsened waiting and duration.",
+      "evidence": [
+        "NI-001 attributable throughput increase: z=160.75",
+        "NI-004 throughput increase: z=186.34",
+        "NI-004 replace waiting worsened: z=75.35",
+        "NI-004 replace duration worsened: z=178.20"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "The strong-positive time component is contradicted; this round does not establish revisions to the other impact dimensions.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-3",
+      "round": 2,
+      "kind": "other",
+      "subject": [
+        "Case Types"
+      ],
+      "prior_said": "Case Types has a strong positive time impact.",
+      "measured_said": "CT-001 was applied but measured neutral, with no candidate-owned significant movement.",
+      "evidence": [
+        "Phase-3 outcome: CT-001 status success",
+        "Measured verdict: CT-001 neutral with no candidate-owned significant movement"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The neutral result is suggestive but lacks an isolated z-scored effect, so the strong-positive prior is not revised yet.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-4",
+      "round": 2,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Exception"
+      ],
+      "prior_said": "Exception has a weak positive time impact.",
+      "measured_said": "EXC-001 produced a significant throughput improvement on diagnosis 2nd.",
+      "evidence": [
+        "EXC-001 throughput improvement of -13.0621 h/case: z=-32.98",
+        "Measured verdict: EXC-001 helped"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "This supports the direction of the Exception time prior, although shared effects prevent full attribution across all exception candidates.",
+      "accepted": true,
+      "refused_reason": ""
+    }
+  ]
+}

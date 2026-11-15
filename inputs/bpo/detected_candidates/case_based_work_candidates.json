@@ -1,0 +1,88 @@
+{
+  "heuristic": "Case-based Work",
+  "total_candidates": 1,
+  "candidates": [
+    {
+      "candidate_id": "CBW-001",
+      "heuristic": "Case-based Work",
+      "target_activity": "repair",
+      "heuristic_context": "Target problem types: delays caused by batch processing or periodic handling of cases, accumulation of waiting cases before execution. Applicable structural situations: activities executed in batches or triggered periodically instead of being processed immediately when a case arrives. How the data is used: Repeated patterns where multiple cases start the same activity at nearly identical timestamps or where long waiting times precede activity execution indicate batch or periodic processing instead of case-by-case handling. Transformation style: redesign the process so that cases are processed individually upon arrival instead of waiting for batch or periodic execution. Feasibility: Yes. Batch patterns and periodic execution behavior can be detected from event log timestamps, and the process can be redesigned to enable case-by-case execution.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "repair",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "replace",
+            "type": "activity",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "return",
+            "type": "activity",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n1",
+            "target": "gw1"
+          },
+          {
+            "source": "gw1",
+            "target": "n4"
+          },
+          {
+            "source": "gw1",
+            "target": "n3"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          }
+        ]
+      },
+      "evidence": {
+        "waiting_time_before": 132.553,
+        "batch_size_mean": 29.98,
+        "batch_interval_mean": 0.771,
+        "periodicity_strength": 0.0,
+        "arrival_rate": 2.44098,
+        "execution_rate": 2.480698,
+        "arrival_execution_gap": -0.039718,
+        "target_remapped_from": null,
+        "extraneous_delay_split": {
+          "event_id": "Event_7ed1ca22-e71a-4b83-94f9-d5669147f3fe",
+          "timer_h": 5.5062,
+          "n": 2998,
+          "n_batched": 1856,
+          "batch_share": 0.6191,
+          "wait_batched_h": 165.6715,
+          "wait_unbatched_h": 78.7286,
+          "delta_h": 86.9429,
+          "z": 33.91,
+          "batch_component_h": 5.5062,
+          "share_of_timer": 1.0
+        }
+      },
+      "additional_context": "The execution rate meets or exceeds the arrival rate, suggesting that case-by-case processing is feasible without additional capacity. The average batch size is 30.0 cases, which is large. Transitioning to case-by-case processing would significantly change the workload pattern for this activity. This activity exhibits rework in 45 cases (1.5% of all cases). Rework in a batched activity may indicate that batch errors propagate across multiple cases. Whether batch execution can be replaced by case-by-case processing depends on system scheduling policies, operational constraints (e.g. external system availability windows), and whether downstream systems require batched input — none of which can be determined from the event log alone."
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+<definitions xmlns="http://www.omg.org/spec/BPMN/20100524/MODEL" xmlns:dc="http://www.omg.org/spec/DD/20100524/DC" xmlns:bpmndi="http://www.omg.org/spec/BPMN/20100524/DI" xmlns:di="http://www.omg.org/spec/DD/20100524/DI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" targetNamespace="http://www.omg.org/bpmn20" exporter="ProM. http://www.promtools.org/prom6" exporterVersion="6.3" xsi:schemaLocation="http://www.omg.org/spec/BPMN/20100524/MODEL BPMN20.xsd">
+  <process id="proc_77269878">
+    <startEvent id="node_c2571d1c-8d0b-4ab4-af9b-615b6e39eba0" name=""/>
+    <endEvent id="node_6bb73568-791b-446f-808b-f6a87f1540a9" name=""/>
+    <task id="node_a98685a4-269d-4c25-8ffc-cf37f575b67e" name="diagnosis 2nd"/>
+    <task id="node_1e6b10ed-56d7-4331-ae70-ee7bbf1fda41" name="intake"/>
+    <task id="node_c1ccf3bd-192f-4016-9a2c-a94204c4fcdf" name="repair"/>
+    <task id="node_c8e750cc-d472-4306-99f7-e04e934fdc2c" name="replace"/>
+    <task id="node_6513c526-668a-4e64-8d95-00ba2e83d872" name="return"/>
+    <task id="node_2a3e755d-14f7-4321-9730-7a8a35ec4562" name="diagnosis 1st"/>
+    <exclusiveGateway id="node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f" name="" gatewayDirection="Diverging">
+      <incoming>
+node_b270528f-f5a0-4e4c-8980-d16607b2e2bd</incoming>
+      <outgoing>
+node_7ddd95ee-a66c-4822-a7fd-d20532c444ce</outgoing>
+      <outgoing>
+node_503beb76-2458-4cde-b402-32d4ae9fc640</outgoing>
+    </exclusiveGateway>
+    <exclusiveGateway id="node_6c397b68-bb21-4c2d-b613-207ea6eb7ddc" name="" gatewayDirection="Converging">
+      <incoming>
+node_3865e3a3-bb35-4da6-823c-4474ff4568a3</incoming>
+      <incoming>
+node_b60f7c00-f8d4-42a6-8c5d-bd13f03c07eb</incoming>
+      <outgoing>
+node_2d7bd79a-52df-4fb4-8b2a-f5fb091e6c63</outgoing>
+    </exclusiveGateway>
+    <exclusiveGateway id="node_b59def6e-b27b-4864-91b5-5eaf789fc579" name="" gatewayDirection="Converging">
+      <incoming>
+node_6bbc95a4-825d-4beb-a593-190fc5c9f521</incoming>
+      <incoming>
+node_4390d9c0-629c-419d-925d-356c4afb8c41</incoming>
+      <outgoing>
+node_f84d8228-98ff-45a0-adab-9453333e6c9f</outgoing>
+    </exclusiveGateway>
+    <exclusiveGateway id="node_dd77791b-f058-4aff-a20f-fed389e24e41" name="" gatewayDirection="Diverging">
+      <incoming>
+node_4b0284d0-5b77-4fdf-9115-aa59fd03603d</incoming>
+      <outgoing>
+node_b60f7c00-f8d4-42a6-8c5d-bd13f03c07eb</outgoing>
+      <outgoing>
+node_23c814a0-7413-493a-af05-701de6c057dd</outgoing>
+    </exclusiveGateway>
+    <sequenceFlow id="node_2d3ff1c9-a7c7-42ca-ac8b-7259657ece64" name="" sourceRef="node_1e6b10ed-56d7-4331-ae70-ee7bbf1fda41" targetRef="node_2a3e755d-14f7-4321-9730-7a8a35ec4562"/>
+    <sequenceFlow id="node_b23c1f52-28c5-433c-9219-a3a0b1b45984" name="" sourceRef="node_c2571d1c-8d0b-4ab4-af9b-615b6e39eba0" targetRef="node_1e6b10ed-56d7-4331-ae70-ee7bbf1fda41"/>
+    <sequenceFlow id="node_4b0284d0-5b77-4fdf-9115-aa59fd03603d" name="" sourceRef="node_2a3e755d-14f7-4321-9730-7a8a35ec4562" targetRef="node_dd77791b-f058-4aff-a20f-fed389e24e41"/>
+    <sequenceFlow id="node_23c814a0-7413-493a-af05-701de6c057dd" name="" sourceRef="node_dd77791b-f058-4aff-a20f-fed389e24e41" targetRef="node_a98685a4-269d-4c25-8ffc-cf37f575b67e"/>
+    <sequenceFlow id="node_b270528f-f5a0-4e4c-8980-d16607b2e2bd" name="" sourceRef="node_c1ccf3bd-192f-4016-9a2c-a94204c4fcdf" targetRef="node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f"/>
+    <sequenceFlow id="node_7ddd95ee-a66c-4822-a7fd-d20532c444ce" name="" sourceRef="node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f" targetRef="node_6513c526-668a-4e64-8d95-00ba2e83d872"/>
+    <sequenceFlow id="node_503beb76-2458-4cde-b402-32d4ae9fc640" name="" sourceRef="node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f" targetRef="node_c8e750cc-d472-4306-99f7-e04e934fdc2c"/>
+    <sequenceFlow id="node_f84d8228-98ff-45a0-adab-9453333e6c9f" name="" sourceRef="node_b59def6e-b27b-4864-91b5-5eaf789fc579" targetRef="node_6bb73568-791b-446f-808b-f6a87f1540a9"/>
+    <sequenceFlow id="node_6bbc95a4-825d-4beb-a593-190fc5c9f521" name="" sourceRef="node_6513c526-668a-4e64-8d95-00ba2e83d872" targetRef="node_b59def6e-b27b-4864-91b5-5eaf789fc579"/>
+    <sequenceFlow id="node_4390d9c0-629c-419d-925d-356c4afb8c41" name="" sourceRef="node_c8e750cc-d472-4306-99f7-e04e934fdc2c" targetRef="node_b59def6e-b27b-4864-91b5-5eaf789fc579"/>
+    <sequenceFlow id="node_2d7bd79a-52df-4fb4-8b2a-f5fb091e6c63" name="" sourceRef="node_6c397b68-bb21-4c2d-b613-207ea6eb7ddc" targetRef="Event_7ed1ca22-e71a-4b83-94f9-d5669147f3fe"/>
+    <sequenceFlow id="node_b60f7c00-f8d4-42a6-8c5d-bd13f03c07eb" name="" sourceRef="node_dd77791b-f058-4aff-a20f-fed389e24e41" targetRef="node_6c397b68-bb21-4c2d-b613-207ea6eb7ddc"/>
+    <sequenceFlow id="node_3865e3a3-bb35-4da6-823c-4474ff4568a3" name="" sourceRef="node_a98685a4-269d-4c25-8ffc-cf37f575b67e" targetRef="node_6c397b68-bb21-4c2d-b613-207ea6eb7ddc"/>
+    <intermediateCatchEvent id="Event_7ed1ca22-e71a-4b83-94f9-d5669147f3fe">
+      <incoming>node_2d7bd79a-52df-4fb4-8b2a-f5fb091e6c63</incoming>
+      <outgoing>Flow_277e9aeb-8c14-4f12-8640-84174f2d9c4e</outgoing>
+      <timerEventDefinition id="TimerEventDefinition_e96284a1-8f6b-491d-bc5d-35dc13f04760"/>
+    </intermediateCatchEvent>
+    <sequenceFlow id="Flow_277e9aeb-8c14-4f12-8640-84174f2d9c4e" sourceRef="Event_7ed1ca22-e71a-4b83-94f9-d5669147f3fe" targetRef="node_c1ccf3bd-192f-4016-9a2c-a94204c4fcdf"/>
+  </process>
+  <bpmndi:BPMNDiagram id="id_-1364800313">
+    <bpmndi:BPMNPlane bpmnElement="proc_77269878"/>
+  </bpmndi:BPMNDiagram>
+</definitions>

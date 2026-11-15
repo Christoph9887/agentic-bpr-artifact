@@ -1,0 +1,46 @@
+{
+  "heuristic": "Specialize",
+  "candidates": [],
+  "rejected": [
+    {
+      "activity": "diagnosis 1st",
+      "rejected_because": [
+        "no subset can carry the load: even all 100 resources run at 118% of the 80% target, so this is a capacity problem (Extra Resources), not a specialisation one"
+      ],
+      "qualified_resources": 100
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "rejected_because": [
+        "only 0 resources have >= 20 observations, so there is no pool to select within (a 'fast' resource measured on a handful of events is a small sample, not a skill)"
+      ]
+    },
+    {
+      "activity": "intake",
+      "rejected_because": [
+        "specialists are only 1.05x faster (<1.5x) — not worth losing the pool for"
+      ],
+      "qualified_resources": 99
+    },
+    {
+      "activity": "repair",
+      "rejected_because": [
+        "no subset can carry the load: even all 100 resources run at 254% of the 80% target, so this is a capacity problem (Extra Resources), not a specialisation one"
+      ],
+      "qualified_resources": 100
+    },
+    {
+      "activity": "replace",
+      "rejected_because": [
+        "specialists are only 1.05x faster (<1.5x) — not worth losing the pool for"
+      ],
+      "qualified_resources": 52
+    },
+    {
+      "activity": "return",
+      "rejected_because": [
+        "only 0 resources have >= 20 observations, so there is no pool to select within (a 'fast' resource measured on a handful of events is a small sample, not a skill)"
+      ]
+    }
+  ]
+}

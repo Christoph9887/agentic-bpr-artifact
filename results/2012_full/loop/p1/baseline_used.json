@@ -1,0 +1,243 @@
+{
+  "source": "mabpr_out\\2012_full\\compare_all\\comparison.json",
+  "recomputed_in_memory_from_n_csvs": null,
+  "shared_file_rewritten": false,
+  "baseline": {
+    "n_cases_mean": 3000.0,
+    "n_cases_std": 0.0,
+    "n_events_mean": 32012.4,
+    "n_events_std": 998.2684165989363,
+    "throughput_h_mean_mean": 203.37948569029726,
+    "throughput_h_mean_std": 7.83613940246397,
+    "throughput_h_median_mean": 20.44809867022222,
+    "throughput_h_median_std": 1.7027598995485513,
+    "throughput_h_p90_mean": 593.9858891233027,
+    "throughput_h_p90_std": 22.98227965388959,
+    "throughput_h_p99_mean": 2222.6782101476147,
+    "throughput_h_p99_std": 206.1890066073571,
+    "throughput_h_max_mean": 7140.763693705556,
+    "throughput_h_max_std": 1870.2020994074464,
+    "waiting_h_per_event_mean_mean": 1.369041767098497,
+    "waiting_h_per_event_mean_std": 0.025851683658205865,
+    "waiting_h_per_case_mean_mean": 14.614387642037755,
+    "waiting_h_per_case_mean_std": 0.6802244068932823,
+    "duration_h_mean_mean": 0.1456542080560379,
+    "duration_h_mean_std": 0.007576570967792545,
+    "utilization_mean_mean": 0.00964064998552922,
+    "utilization_mean_std": 0.0020342733348641968,
+    "obs_window_h_mean": 7462.149277908999,
+    "obs_window_h_std": 1847.8092450813488,
+    "waiting_h_mean_mean": 1.369041767098497,
+    "waiting_h_mean_std": 0.025851683658205865,
+    "per_activity": {
+      "A_ACCEPTED": {
+        "waiting_h_mean": 1.3219555208031664,
+        "waiting_h_std": 0.17169546544947378,
+        "duration_h_mean": 2.7777772794743177e-07,
+        "duration_h_std": 1.2171556743249152e-13,
+        "n_mean": 828.65,
+        "n_runs_observed": 20
+      },
+      "A_ACTIVATED": {
+        "waiting_h_mean": 0.3785102020846438,
+        "waiting_h_std": 0.05022173228845429,
+        "duration_h_mean": 2.7777780143857657e-07,
+        "duration_h_std": 1.0581430899152075e-13,
+        "n_mean": 630.2,
+        "n_runs_observed": 20
+      },
+      "A_APPROVED": {
+        "waiting_h_mean": 0.6465513826405441,
+        "waiting_h_std": 0.11645610319762288,
+        "duration_h_mean": 2.777777777777778e-07,
+        "duration_h_std": 5.431484171161239e-23,
+        "n_mean": 316.55,
+        "n_runs_observed": 20
+      },
+      "A_CANCELLED": {
+        "waiting_h_mean": 1.3966961412783419,
+        "waiting_h_std": 0.20328188038198858,
+        "duration_h_mean": 2.7777780701754393e-07,
+        "duration_h_std": 1.307642092103854e-13,
+        "n_mean": 487.3,
+        "n_runs_observed": 20
+      },
+      "A_DECLINED": {
+        "waiting_h_mean": 1.0278706643241777,
+        "waiting_h_std": 0.0815187935982134,
+        "duration_h_mean": 2.777777776286966e-07,
+        "duration_h_std": 5.303552954741373e-14,
+        "n_mean": 1684.05,
+        "n_runs_observed": 20
+      },
+      "A_FINALIZED": {
+        "waiting_h_mean": 0.34997754998653663,
+        "waiting_h_std": 0.092996652211594,
+        "duration_h_mean": 2.7777780253515553e-07,
+        "duration_h_std": 1.1071835895967427e-13,
+        "n_mean": 587.05,
+        "n_runs_observed": 20
+      },
+      "A_PARTLYSUBMITTED": {
+        "waiting_h_mean": 0.010071167596944444,
+        "waiting_h_std": 0.0038032972153526482,
+        "duration_h_mean": 2.777777731481482e-07,
+        "duration_h_std": 3.648467247796176e-14,
+        "n_mean": 3000.0,
+        "n_runs_observed": 20
+      },
+      "A_PREACCEPTED": {
+        "waiting_h_mean": 1.597763217861957,
+        "waiting_h_std": 0.15060747980771513,
+        "duration_h_mean": 2.77777767489712e-07,
+        "duration_h_std": 4.600962916574022e-14,
+        "n_mean": 1315.95,
+        "n_runs_observed": 20
+      },
+      "A_REGISTERED": {
+        "waiting_h_mean": 0.3546704796452073,
+        "waiting_h_std": 0.06690726888870945,
+        "duration_h_mean": 2.777778211805556e-07,
+        "duration_h_std": 1.9410312304333648e-13,
+        "n_mean": 316.55,
+        "n_runs_observed": 20
+      },
+      "A_SUBMITTED": {
+        "waiting_h_mean": 0.944452288960602,
+        "waiting_h_std": 0.04034864410702304,
+        "duration_h_mean": 2.777777731481482e-07,
+        "duration_h_std": 4.726090606026418e-14,
+        "n_mean": 3000.0,
+        "n_runs_observed": 20
+      },
+      "O_ACCEPTED": {
+        "waiting_h_mean": 0.5956455916657695,
+        "waiting_h_std": 0.05219517800789753,
+        "duration_h_mean": 2.777777777777778e-07,
+        "duration_h_std": 5.431484171161239e-23,
+        "n_mean": 316.55,
+        "n_runs_observed": 20
+      },
+      "O_CANCELLED": {
+        "waiting_h_mean": 1.3290231160192092,
+        "waiting_h_std": 0.14152521336481513,
+        "duration_h_mean": 2.777777777777778e-07,
+        "duration_h_std": 5.431484171161239e-23,
+        "n_mean": 443.55,
+        "n_runs_observed": 20
+      },
+      "O_CREATED": {
+        "waiting_h_mean": 0.1725686752947902,
+        "waiting_h_std": 0.05053030403808142,
+        "duration_h_mean": 2.7777777801231716e-07,
+        "duration_h_std": 1.0691534038603025e-13,
+        "n_mean": 828.65,
+        "n_runs_observed": 20
+      },
+      "O_DECLINED": {
+        "waiting_h_mean": 1.403721569796392,
+        "waiting_h_std": 0.382953749100396,
+        "duration_h_mean": 2.7777802144249516e-07,
+        "duration_h_std": 1.0897017434171784e-12,
+        "n_mean": 68.55,
+        "n_runs_observed": 20
+      },
+      "O_SELECTED": {
+        "waiting_h_mean": 0.7436258935989966,
+        "waiting_h_std": 0.10577148618988795,
+        "duration_h_mean": 2.777777777777778e-07,
+        "duration_h_std": 5.431484171161239e-23,
+        "n_mean": 828.65,
+        "n_runs_observed": 20
+      },
+      "O_SENT": {
+        "waiting_h_mean": 0.08282267020020853,
+        "waiting_h_std": 0.033059170623551244,
+        "duration_h_mean": 2.777777777777778e-07,
+        "duration_h_std": 5.431484171161239e-23,
+        "n_mean": 828.65,
+        "n_runs_observed": 20
+      },
+      "O_SENT_BACK": {
+        "waiting_h_mean": 1.4610717706239187,
+        "waiting_h_std": 0.1229783786706915,
+        "duration_h_mean": 2.7777775027502756e-07,
+        "duration_h_std": 1.2299603836819652e-13,
+        "n_mean": 522.6,
+        "n_runs_observed": 20
+      },
+      "W_Afhandelen leads": {
+        "waiting_h_mean": 1.8274096565163194,
+        "waiting_h_std": 0.12236853429610828,
+        "duration_h_mean": 0.21288818213126492,
+        "duration_h_std": 0.03624430976660917,
+        "n_mean": 1218.05,
+        "n_runs_observed": 20
+      },
+      "W_Beoordelen fraude": {
+        "waiting_h_mean": 0.599086751675208,
+        "waiting_h_std": 0.20127595546388843,
+        "duration_h_mean": 0.018495675997725027,
+        "duration_h_std": 0.022811975649484874,
+        "n_mean": 64.55,
+        "n_runs_observed": 20
+      },
+      "W_Completeren aanvraag": {
+        "waiting_h_mean": 1.0820026104251845,
+        "waiting_h_std": 0.05674308018082435,
+        "duration_h_mean": 0.45692909125401215,
+        "duration_h_std": 0.03549016136050936,
+        "n_mean": 3966.7,
+        "n_runs_observed": 20
+      },
+      "W_Nabellen incomplete dossiers": {
+        "waiting_h_mean": 2.1396604010529803,
+        "waiting_h_std": 0.04549914537656298,
+        "duration_h_mean": 0.27169206774779386,
+        "duration_h_std": 0.022119417600605172,
+        "n_mean": 7122.0,
+        "n_runs_observed": 20
+      },
+      "W_Nabellen offertes": {
+        "waiting_h_mean": 2.817852165711734,
+        "waiting_h_std": 0.08523773304094324,
+        "duration_h_mean": 0.12133756396585008,
+        "duration_h_std": 0.023103915144727864,
+        "n_mean": 2836.5,
+        "n_runs_observed": 20
+      },
+      "W_Valideren aanvraag": {
+        "waiting_h_mean": 2.9362297905455286,
+        "waiting_h_std": 0.19852962475425623,
+        "duration_h_mean": 0.39918915583208603,
+        "duration_h_std": 0.08756652721170811,
+        "n_mean": 801.1,
+        "n_runs_observed": 20
+      }
+    },
+    "case_endings_mean": {
+      "A_ACTIVATED": 315.95,
+      "A_CANCELLED": 487.3,
+      "A_DECLINED": 1684.05,
+      "A_REGISTERED": 0.6,
+      "O_CANCELLED": 443.55,
+      "O_DECLINED": 68.55
+    },
+    "case_endings_std": {
+      "A_ACTIVATED": 16.051401807941883,
+      "A_CANCELLED": 23.983536019528064,
+      "A_DECLINED": 31.27534971826854,
+      "A_REGISTERED": 0.6633249580710799,
+      "O_CANCELLED": 21.921393660075537,
+      "O_DECLINED": 5.817860431464474
+    },
+    "duration_h_per_case_mean_mean": 1.5550473438094954,
+    "duration_h_per_case_mean_std": 0.10528757494546596
+  },
+  "config": {
+    "dataset": "2012_full",
+    "total_cases": 3000,
+    "n_runs": 20,
+    "starting_at": "2011-10-01T00:00:00Z"
+  }
+}

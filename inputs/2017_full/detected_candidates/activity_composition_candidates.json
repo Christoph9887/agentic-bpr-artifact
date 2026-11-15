@@ -1,0 +1,3251 @@
+{
+  "heuristic": "Activity Composition",
+  "candidates": [
+    {
+      "candidate_id": "AC-001",
+      "heuristic": "Activity Composition",
+      "target_activities": [
+        "O_Create Offer",
+        "O_Created"
+      ],
+      "composite_name": "O_Create Offer + O_Created",
+      "evidence": {
+        "pair_frequency": 42995,
+        "follow_prob_forward": 1.0,
+        "follow_prob_backward": 1.0,
+        "duration_a_mean": 0.0,
+        "duration_b_mean": 0.0,
+        "waiting_between_mean": 0.0003,
+        "handover_rate": 0.0,
+        "resource_pool_overlap": 1.0,
+        "recoverable_h_per_occurrence": 0.0003,
+        "recoverable_share": 1.0,
+        "cases_affected": 31509
+      },
+      "heuristic_context": "Target problem types: excessive task fragmentation, repeated setup effort when switching between small activities, high coordination overhead. Applicable when a sequence of small activities is frequently executed together and handled by the same or similar resources.",
+      "additional_context": "'O_Create Offer' is directly followed by 'O_Created' 42995 times across 31509 cases, and the sequence is near-deterministic in both directions (100% forward, 100% backward). ⚠️ THE SEAM A MERGE WOULD REMOVE IS 1 s (0.0003 h), which is 100% of the 0.0003 h the pair occupies end to end — decide for yourself whether that is worth a structural edit; the detector no longer filters on it. The two activities take 0.0000 h and 0.0000 h, so when both are ~0 that share reads 100% however small the seam is. 0% of executions change resources. Their pools overlap at Jaccard 1.00, so a single resource can perform the merged task. The composite is given the SUM of the two service times — no setup saving is assumed, because nothing in the log measures how much of a duration is setup.",
+      "process_fragment": {}
+    },
+    {
+      "candidate_id": "AC-002",
+      "heuristic": "Activity Composition",
+      "target_activities": [
+        "O_Accepted",
+        "A_Pending"
+      ],
+      "composite_name": "O_Accepted + A_Pending",
+      "evidence": {
+        "pair_frequency": 17228,
+        "follow_prob_forward": 1.0,
+        "follow_prob_backward": 1.0,
+        "duration_a_mean": 0.0,
+        "duration_b_mean": 0.0,
+        "waiting_between_mean": 0.0,
+        "handover_rate": 0.0,
+        "resource_pool_overlap": 1.0,
+        "recoverable_h_per_occurrence": 0.0,
+        "recoverable_share": 1.0,
+        "cases_affected": 17228
+      },
+      "heuristic_context": "Target problem types: excessive task fragmentation, repeated setup effort when switching between small activities, high coordination overhead. Applicable when a sequence of small activities is frequently executed together and handled by the same or similar resources.",
+      "additional_context": "'O_Accepted' is directly followed by 'A_Pending' 17228 times across 17228 cases, and the sequence is near-deterministic in both directions (100% forward, 100% backward). ⚠️ THE SEAM A MERGE WOULD REMOVE IS 0 s (0.0000 h), which is 100% of the 0.0000 h the pair occupies end to end — decide for yourself whether that is worth a structural edit; the detector no longer filters on it. The two activities take 0.0000 h and 0.0000 h, so when both are ~0 that share reads 100% however small the seam is. 0% of executions change resources. Their pools overlap at Jaccard 1.00, so a single resource can perform the merged task. The composite is given the SUM of the two service times — no setup saving is assumed, because nothing in the log measures how much of a duration is setup.",
+      "process_fragment": {}
+    },
+    {
+      "candidate_id": "AC-003",
+      "heuristic": "Activity Composition",
+      "target_activities": [
+        "A_Denied",
+        "O_Refused"
+      ],
+      "composite_name": "A_Denied + O_Refused",
+      "evidence": {
+        "pair_frequency": 3720,
+        "follow_prob_forward": 1.0,
+        "follow_prob_backward": 0.7923,
+        "duration_a_mean": 0.0,
+        "duration_b_mean": 0.0,
+        "waiting_between_mean": 0.0,
+        "handover_rate": 0.0,
+        "resource_pool_overlap": 0.9798,
+        "recoverable_h_per_occurrence": 0.0,
+        "recoverable_share": 1.0,
+        "cases_affected": 3720
+      },
+      "heuristic_context": "Target problem types: excessive task fragmentation, repeated setup effort when switching between small activities, high coordination overhead. Applicable when a sequence of small activities is frequently executed together and handled by the same or similar resources.",
+      "additional_context": "'A_Denied' is directly followed by 'O_Refused' 3720 times across 3720 cases, and the sequence is near-deterministic in both directions (100% forward, 79% backward). ⚠️ THE SEAM A MERGE WOULD REMOVE IS 0 s (0.0000 h), which is 100% of the 0.0000 h the pair occupies end to end — decide for yourself whether that is worth a structural edit; the detector no longer filters on it. The two activities take 0.0000 h and 0.0000 h, so when both are ~0 that share reads 100% however small the seam is. 0% of executions change resources. Their pools overlap at Jaccard 0.98, so a single resource can perform the merged task. The composite is given the SUM of the two service times — no setup saving is assumed, because nothing in the log measures how much of a duration is setup.",
+      "process_fragment": {}
+    }
+  ],
+  "rejected": [
+    {
+      "pair": [
+        "W_Complete application",
+        "A_Accepted"
+      ],
+      "rejected_because": [
+        "'A_Accepted' is also reachable from ['A_Concept', 'A_Create Application'], so merging it into 'W_Complete application' would delete that work from every case that arrives the other way"
+      ]
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "W_Validate application"
+      ],
+      "rejected_because": [
+        "'W_Validate application' is also reachable from ['A_Complete', 'A_Incomplete'], so merging it into 'O_Sent (online only)' would delete that work from every case that arrives the other way"
+      ]
+    },
+    {
+      "pair": [
+        "W_Call incomplete files",
+        "A_Incomplete"
+      ],
+      "rejected_because": [
+        "'A_Incomplete' is also reachable from ['A_Validating', 'O_Returned'], so merging it into 'W_Call incomplete files' would delete that work from every case that arrives the other way"
+      ]
+    },
+    {
+      "pair": [
+        "W_Handle leads",
+        "A_Concept"
+      ],
+      "rejected_because": [
+        "'A_Concept' is also reachable from ['A_Create Application', 'A_Submitted'], so merging it into 'W_Handle leads' would delete that work from every case that arrives the other way"
+      ]
+    },
+    {
+      "pair": [
+        "A_Accepted",
+        "O_Create Offer"
+      ],
+      "rejected_because": [
+        "'O_Create Offer' is also reachable from ['A_Complete', 'O_Created'], so merging it into 'A_Accepted' would delete that work from every case that arrives the other way"
+      ]
+    },
+    {
+      "pair": [
+        "W_Assess potential fraud",
+        "A_Denied"
+      ],
+      "rejected_because": [
+        "'A_Denied' is also reachable from ['O_Returned'], so merging it into 'W_Assess potential fraud' would delete that work from every case that arrives the other way"
+      ]
+    },
+    {
+      "pair": [
+        "W_Validate application",
+        "A_Validating"
+      ],
+      "rejected_because": [
+        "'A_Validating' is also reachable from ['A_Complete', 'A_Incomplete'], so merging it into 'W_Validate application' would delete that work from every case that arrives the other way"
+      ]
+    },
+    {
+      "pair": [
+        "W_Call after offers",
+        "A_Complete"
+      ],
+      "rejected_because": [
+        "'A_Complete' is also reachable from ['O_Sent (mail and online)'], so merging it into 'W_Call after offers' would delete that work from every case that arrives the other way"
+      ]
+    },
+    {
+      "pair": [
+        "A_Pending",
+        "O_Cancelled"
+      ],
+      "rejected_because": [
+        "'O_Cancelled' is also reachable from ['A_Cancelled'], so merging it into 'A_Pending' would delete that work from every case that arrives the other way"
+      ]
+    },
+    {
+      "pair": [
+        "A_Concept",
+        "A_Accepted"
+      ],
+      "rejected_because": [
+        "'A_Accepted' is also reachable from ['A_Create Application', 'W_Complete application'], so merging it into 'A_Concept' would delete that work from every case that arrives the other way"
+      ]
+    },
+    {
+      "pair": [
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "rejected_because": [
+        "'O_Cancelled' is also reachable from ['A_Pending'], so merging it into 'A_Cancelled' would delete that work from every case that arrives the other way"
+      ]
+    },
+    {
+      "pair": [
+        "O_Created",
+        "O_Sent (mail and online)"
+      ],
+      "rejected_because": [
+        "not composable in the baseline BPMN: walking forward from 'O_Created' through gateways reaches more than one task, so the merge would force 'O_Sent (mail and online)' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 36200,
+        "fwd": 0.841958367252006,
+        "bwd": 0.9116780416551238,
+        "gap": 0.4285134993324125,
+        "handover": 0.00787292817679558,
+        "overlap": 0.9338842975206612,
+        "cases": 30894,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Accepted",
+        "O_Create Offer"
+      ],
+      "rejected_because": [
+        "not composable in the baseline BPMN: walking forward from 'A_Accepted' through gateways reaches more than one task, so the merge would force 'O_Create Offer' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 31488,
+        "fwd": 0.9993335237551176,
+        "bwd": 0.732364228398651,
+        "gap": 2.601998137023981,
+        "handover": 0.042460619918699184,
+        "overlap": 0.9256198347107438,
+        "cases": 31488,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "A_Complete"
+      ],
+      "rejected_because": [
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'A_Complete' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 30697,
+        "fwd": 0.7734774611333686,
+        "bwd": 0.9787959951533703,
+        "gap": 1.1952534268640075e-05,
+        "handover": 0.0,
+        "overlap": 0.9568965517241379,
+        "cases": 30697,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Validating",
+        "O_Returned"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Returned'|'A_Validating')=0.55, P(prev='A_Validating'|'O_Returned')=0.92 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Validating' through gateways reaches more than one task, so the merge would force 'O_Returned' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 21541,
+        "fwd": 0.5549944606188648,
+        "bwd": 0.9243080883930487,
+        "gap": 0.9956163426076371,
+        "handover": 0.03421382479922009,
+        "overlap": 0.3700787401574803,
+        "cases": 20796,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Concept",
+        "A_Accepted"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Accepted'|'A_Concept')=0.67, P(prev='A_Concept'|'A_Accepted')=0.67 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Concept' through gateways reaches more than one task, so the merge would force 'A_Accepted' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 21019,
+        "fwd": 0.667079247199213,
+        "bwd": 0.667079247199213,
+        "gap": 35.22131333403376,
+        "handover": 0.6221513868404777,
+        "overlap": 0.9568965517241379,
+        "cases": 21019,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Create Application",
+        "A_Submitted"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Submitted'|'A_Create Application')=0.65, P(prev='A_Create Application'|'A_Submitted')=1.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "resource pools barely overlap (Jaccard 0.01) — no single resource performs both, so a composite task executed by one resource is not staffable",
+        "not composable in the baseline BPMN: walking forward from 'A_Create Application' through gateways reaches more than one task, so the merge would force 'A_Submitted' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 20423,
+        "fwd": 0.6481640166301692,
+        "bwd": 1.0,
+        "gap": 9.435060960681584e-05,
+        "handover": 0.0,
+        "overlap": 0.009009009009009009,
+        "cases": 20423,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Submitted",
+        "A_Concept"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Concept'|'A_Submitted')=0.83, P(prev='A_Submitted'|'A_Concept')=0.53 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "resource pools barely overlap (Jaccard 0.01) — no single resource performs both, so a composite task executed by one resource is not staffable",
+        "not composable in the baseline BPMN: walking forward from 'A_Submitted' through gateways reaches more than one task, so the merge would force 'A_Concept' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 16855,
+        "fwd": 0.8252950105273467,
+        "bwd": 0.5349265289282428,
+        "gap": 0.023020059988793303,
+        "handover": 0.0017798872738059924,
+        "overlap": 0.008771929824561403,
+        "cases": 16855,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Validate application",
+        "A_Validating"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Validating'|'W_Validate application')=0.99, P(prev='W_Validate application'|'A_Validating')=0.40 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Validate application' through gateways reaches more than one task, so the merge would force 'A_Validating' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.0,
+        "n": 15670,
+        "fwd": 0.9887682988389702,
+        "bwd": 0.403699505358615,
+        "gap": 0.0,
+        "handover": 0.757498404594767,
+        "overlap": 0.676923076923077,
+        "cases": 10912,
+        "dur_a": 3.090995392688878,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Returned",
+        "A_Incomplete"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Incomplete'|'O_Returned')=0.49, P(prev='O_Returned'|'A_Incomplete')=0.50 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Returned' through gateways reaches more than one task, so the merge would force 'A_Incomplete' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 11527,
+        "fwd": 0.49465734025661934,
+        "bwd": 0.49997831273042725,
+        "gap": 46.26781815216449,
+        "handover": 0.823110956883838,
+        "overlap": 0.45098039215686275,
+        "cases": 11309,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Complete application",
+        "A_Accepted"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Accepted'|'W_Complete application')=0.55, P(prev='W_Complete application'|'A_Accepted')=0.33 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Complete application' through gateways reaches more than one task, so the merge would force 'A_Accepted' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9555735175754289,
+        "n": 10485,
+        "fwd": 0.5488379396984925,
+        "bwd": 0.332762067980577,
+        "gap": 8.576898405420442,
+        "handover": 0.044158321411540295,
+        "overlap": 0.9655172413793104,
+        "cases": 10485,
+        "dur_a": 0.3987567876855342,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Concept",
+        "W_Complete application"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Complete application'|'A_Concept')=0.33, P(prev='A_Concept'|'W_Complete application')=0.55 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Concept' through gateways reaches more than one task, so the merge would force 'W_Complete application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9827839388708935,
+        "n": 10483,
+        "fwd": 0.3326985940524929,
+        "bwd": 0.5487332495812395,
+        "gap": 22.763149103283624,
+        "handover": 0.9039397119145283,
+        "overlap": 0.9243697478991597,
+        "cases": 10483,
+        "dur_a": 0.0,
+        "dur_b": 0.3987567876855342
+      }
+    },
+    {
+      "pair": [
+        "A_Incomplete",
+        "A_Validating"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Validating'|'A_Incomplete')=0.45, P(prev='A_Incomplete'|'A_Validating')=0.27 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Incomplete' through gateways reaches more than one task, so the merge would force 'A_Validating' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 10457,
+        "fwd": 0.45413879961782333,
+        "bwd": 0.2693992168178071,
+        "gap": 57.87686764131948,
+        "handover": 0.9524720283063977,
+        "overlap": 0.7952755905511811,
+        "cases": 8351,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Cancelled'|'A_Cancelled')=1.00, P(prev='A_Cancelled'|'O_Cancelled')=0.49 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Cancelled' through gateways reaches more than one task, so the merge would force 'O_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 10270,
+        "fwd": 1.0,
+        "bwd": 0.4914345870418222,
+        "gap": 1.1813264091745104e-05,
+        "handover": 0.0,
+        "overlap": 0.8120300751879699,
+        "cases": 10270,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Complete",
+        "A_Validating"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Validating'|'A_Complete')=0.30, P(prev='A_Complete'|'A_Validating')=0.24 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Complete' through gateways reaches more than one task, so the merge would force 'A_Validating' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 9387,
+        "fwd": 0.299597855227882,
+        "bwd": 0.24183326463314098,
+        "gap": 213.72836274303705,
+        "handover": 0.997656333226803,
+        "overlap": 0.7142857142857143,
+        "cases": 9387,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Complete",
+        "W_Validate application"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Validate application'|'A_Complete')=0.29, P(prev='A_Complete'|'W_Validate application')=0.58 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Complete' through gateways reaches more than one task, so the merge would force 'W_Validate application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9854429034710621,
+        "n": 9154,
+        "fwd": 0.29216136856887526,
+        "bwd": 0.5776123170116103,
+        "gap": 209.24498702965312,
+        "handover": 0.9811011579637317,
+        "overlap": 0.44680851063829785,
+        "cases": 9154,
+        "dur_a": 0.0,
+        "dur_b": 3.090995392688878
+      }
+    },
+    {
+      "pair": [
+        "W_Complete application",
+        "A_Concept"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Concept'|'W_Complete application')=0.45, P(prev='W_Complete application'|'A_Concept')=0.27 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Complete application' through gateways reaches more than one task, so the merge would force 'A_Concept' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.0,
+        "n": 8586,
+        "fwd": 0.4494346733668342,
+        "bwd": 0.27249357326478146,
+        "gap": 0.0,
+        "handover": 0.20242254833449802,
+        "overlap": 0.9243697478991597,
+        "cases": 8586,
+        "dur_a": 0.3987567876855342,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Validating",
+        "A_Incomplete"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Incomplete'|'A_Validating')=0.22, P(prev='A_Validating'|'A_Incomplete')=0.37 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Validating' through gateways reaches more than one task, so the merge would force 'A_Incomplete' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 8481,
+        "fwd": 0.2185092623605493,
+        "bwd": 0.36785946649316853,
+        "gap": 25.468950445571146,
+        "handover": 0.7697205518217192,
+        "overlap": 0.7952755905511811,
+        "cases": 5869,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Complete",
+        "A_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Cancelled'|'A_Complete')=0.26, P(prev='A_Complete'|'A_Cancelled')=0.77 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Complete' through gateways reaches more than one task, so the merge would force 'A_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 8034,
+        "fwd": 0.25641516660283414,
+        "bwd": 0.7702041990221455,
+        "gap": 656.2927181658853,
+        "handover": 0.9873039581777446,
+        "overlap": 0.8114754098360656,
+        "cases": 8034,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Validating",
+        "O_Accepted"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Accepted'|'A_Validating')=0.18, P(prev='A_Validating'|'O_Accepted')=0.41 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Validating' through gateways reaches more than one task, so the merge would force 'O_Accepted' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 7136,
+        "fwd": 0.1838559245613583,
+        "bwd": 0.4142094265149756,
+        "gap": 22.096505922785877,
+        "handover": 0.9569786995515696,
+        "overlap": 0.31496062992125984,
+        "cases": 7136,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Create Application",
+        "W_Complete application"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Complete application'|'A_Create Application')=0.22, P(prev='A_Create Application'|'W_Complete application')=0.36 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Create Application' through gateways reaches more than one task, so the merge would force 'W_Complete application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.5419649458098536e-05,
+        "n": 6953,
+        "fwd": 0.22066711098416325,
+        "bwd": 0.36395519262981574,
+        "gap": 6.148784697252984e-06,
+        "handover": 0.028764562059542642,
+        "overlap": 0.9316239316239316,
+        "cases": 6953,
+        "dur_a": 0.0,
+        "dur_b": 0.3987567876855342
+      }
+    },
+    {
+      "pair": [
+        "O_Returned",
+        "O_Accepted"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Accepted'|'O_Returned')=0.23, P(prev='O_Returned'|'O_Accepted')=0.31 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Returned' through gateways reaches more than one task, so the merge would force 'O_Accepted' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 5281,
+        "fwd": 0.22662318156460542,
+        "bwd": 0.3065358718365452,
+        "gap": 49.02505890277514,
+        "handover": 0.9083506911569779,
+        "overlap": 0.851063829787234,
+        "cases": 5281,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Incomplete",
+        "O_Accepted"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Accepted'|'A_Incomplete')=0.21, P(prev='A_Incomplete'|'O_Accepted')=0.28 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Incomplete' through gateways reaches more than one task, so the merge would force 'O_Accepted' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 4781,
+        "fwd": 0.20763484756362374,
+        "bwd": 0.2775133503598793,
+        "gap": 141.18832492760697,
+        "handover": 0.8803597573729345,
+        "overlap": 0.39603960396039606,
+        "cases": 4781,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Pending",
+        "O_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Cancelled'|'A_Pending')=1.00, P(prev='A_Pending'|'O_Cancelled')=0.21 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Pending' through gateways reaches more than one task, so the merge would force 'O_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 4436,
+        "fwd": 1.0,
+        "bwd": 0.21226911666188153,
+        "gap": 5.648669972948603e-06,
+        "handover": 0.0,
+        "overlap": 0.3007518796992481,
+        "cases": 4436,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Complete",
+        "O_Create Offer"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Create Offer'|'A_Complete')=0.13, P(prev='A_Complete'|'O_Create Offer')=0.10 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Complete' through gateways reaches more than one task, so the merge would force 'O_Create Offer' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 4135,
+        "fwd": 0.13197370100855355,
+        "bwd": 0.09617397371787417,
+        "gap": 173.34246181647185,
+        "handover": 0.8391777509068924,
+        "overlap": 0.9256198347107438,
+        "cases": 4135,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Create Application",
+        "A_Concept"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Concept'|'A_Create Application')=0.13, P(prev='A_Create Application'|'A_Concept')=0.13 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Create Application' through gateways reaches more than one task, so the merge would force 'A_Concept' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 4133,
+        "fwd": 0.1311688723856676,
+        "bwd": 0.1311688723856676,
+        "gap": 3.844597682608813e-06,
+        "handover": 0.0,
+        "overlap": 0.9736842105263158,
+        "cases": 4133,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Created",
+        "O_Create Offer"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Create Offer'|'O_Created')=0.09, P(prev='O_Created'|'O_Create Offer')=0.09 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Created' through gateways reaches more than one task, so the merge would force 'O_Create Offer' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 3911,
+        "fwd": 0.09096406558902198,
+        "bwd": 0.09096406558902198,
+        "gap": 1.3396813464160913,
+        "handover": 0.006647916133981079,
+        "overlap": 1.0,
+        "cases": 3387,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Incomplete",
+        "W_Validate application"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Validate application'|'A_Incomplete')=0.17, P(prev='A_Incomplete'|'W_Validate application')=0.24 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Incomplete' through gateways reaches more than one task, so the merge would force 'W_Validate application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9553063825830783,
+        "n": 3871,
+        "fwd": 0.16811430556761922,
+        "bwd": 0.24425795053003532,
+        "gap": 66.06866478551336,
+        "handover": 0.3872384396796693,
+        "overlap": 0.8113207547169812,
+        "cases": 3066,
+        "dur_a": 0.0,
+        "dur_b": 3.090995392688878
+      }
+    },
+    {
+      "pair": [
+        "A_Submitted",
+        "W_Handle leads"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Handle leads'|'A_Submitted')=0.17, P(prev='A_Submitted'|'W_Handle leads')=1.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "resource pools barely overlap (Jaccard 0.01) — no single resource performs both, so a composite task executed by one resource is not staffable",
+        "not composable in the baseline BPMN: walking forward from 'A_Submitted' through gateways reaches more than one task, so the merge would force 'W_Handle leads' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9880598091922004,
+        "n": 3476,
+        "fwd": 0.17020026440777555,
+        "bwd": 0.9951331233896364,
+        "gap": 5.9728351012498395,
+        "handover": 0.950517836593786,
+        "overlap": 0.012345679012345678,
+        "cases": 3476,
+        "dur_a": 0.0,
+        "dur_b": 0.07217861723446894
+      }
+    },
+    {
+      "pair": [
+        "W_Call incomplete files",
+        "A_Incomplete"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Incomplete'|'W_Call incomplete files')=1.00, P(prev='W_Call incomplete files'|'A_Incomplete')=0.12 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Call incomplete files' through gateways reaches more than one task, so the merge would force 'A_Incomplete' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.0,
+        "n": 2793,
+        "fwd": 1.0,
+        "bwd": 0.12114508783344177,
+        "gap": 0.0,
+        "handover": 0.9129967776584318,
+        "overlap": 0.7758620689655172,
+        "cases": 2660,
+        "dur_a": 3.608478296733898,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Returned",
+        "W_Call incomplete files"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Call incomplete files'|'O_Returned')=0.10, P(prev='O_Returned'|'W_Call incomplete files')=0.85 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Returned' through gateways reaches more than one task, so the merge would force 'W_Call incomplete files' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9379680963557153,
+        "n": 2371,
+        "fwd": 0.10174655623739433,
+        "bwd": 0.8489079842463301,
+        "gap": 54.56285104737804,
+        "handover": 0.9869253479544496,
+        "overlap": 0.34513274336283184,
+        "cases": 2366,
+        "dur_a": 0.0,
+        "dur_b": 3.608478296733898
+      }
+    },
+    {
+      "pair": [
+        "O_Returned",
+        "A_Denied"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Denied'|'O_Returned')=0.09, P(prev='O_Returned'|'A_Denied')=0.58 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Returned' through gateways reaches more than one task, so the merge would force 'A_Denied' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 2170,
+        "fwd": 0.09312105737458697,
+        "bwd": 0.5782041033839594,
+        "gap": 69.48967439196107,
+        "handover": 0.992626728110599,
+        "overlap": 0.23728813559322035,
+        "cases": 2170,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Handle leads",
+        "A_Concept"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Concept'|'W_Handle leads')=0.55, P(prev='W_Handle leads'|'A_Concept')=0.06 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Handle leads' through gateways reaches more than one task, so the merge would force 'A_Concept' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.8026815576589315,
+        "n": 1935,
+        "fwd": 0.5539650730031491,
+        "bwd": 0.0614110254213082,
+        "gap": 0.2936190060292851,
+        "handover": 0.0,
+        "overlap": 0.6956521739130435,
+        "cases": 1935,
+        "dur_a": 0.07217861723446894,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Created",
+        "O_Sent (online only)"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Sent (online only)'|'O_Created')=0.04, P(prev='O_Created'|'O_Sent (online only)')=0.95 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Created' through gateways reaches more than one task, so the merge would force 'O_Sent (online only)' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 1920,
+        "fwd": 0.04465635539016165,
+        "bwd": 0.947680157946693,
+        "gap": 0.5312264479166667,
+        "handover": 0.011979166666666667,
+        "overlap": 0.8666666666666667,
+        "cases": 1785,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Incomplete",
+        "O_Create Offer"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Create Offer'|'A_Incomplete')=0.07, P(prev='A_Incomplete'|'O_Create Offer')=0.04 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Incomplete' through gateways reaches more than one task, so the merge would force 'O_Create Offer' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 1704,
+        "fwd": 0.07400330061669418,
+        "bwd": 0.039632515408768464,
+        "gap": 44.697301637976,
+        "handover": 0.9947183098591549,
+        "overlap": 0.5899280575539568,
+        "cases": 1635,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "A_Validating"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Validating'|'O_Sent (mail and online)')=0.04, P(prev='O_Sent (mail and online)'|'A_Validating')=0.04 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'A_Validating' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 1643,
+        "fwd": 0.041398946758384354,
+        "bwd": 0.04232790601813685,
+        "gap": 177.38336557313858,
+        "handover": 0.992696287279367,
+        "overlap": 0.7214285714285714,
+        "cases": 1625,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "W_Validate application"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Validate application'|'O_Sent (mail and online)')=0.04, P(prev='O_Sent (mail and online)'|'W_Validate application')=0.10 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'W_Validate application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9839084501476688,
+        "n": 1607,
+        "fwd": 0.0404918487162043,
+        "bwd": 0.10140080767289247,
+        "gap": 188.9971142707253,
+        "handover": 0.9950217797137524,
+        "overlap": 0.45390070921985815,
+        "cases": 1579,
+        "dur_a": 0.0,
+        "dur_b": 3.090995392688878
+      }
+    },
+    {
+      "pair": [
+        "W_Handle leads",
+        "W_Complete application"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Complete application'|'W_Handle leads')=0.45, P(prev='W_Handle leads'|'W_Complete application')=0.08 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Handle leads' through gateways reaches more than one task, so the merge would force 'W_Complete application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.39694440361206046,
+        "n": 1558,
+        "fwd": 0.4460349269968508,
+        "bwd": 0.0815536013400335,
+        "gap": 0.3099799994651262,
+        "handover": 0.9801026957637997,
+        "overlap": 0.6470588235294118,
+        "cases": 1558,
+        "dur_a": 0.07217861723446894,
+        "dur_b": 0.3987567876855342
+      }
+    },
+    {
+      "pair": [
+        "A_Incomplete",
+        "O_Returned"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Returned'|'A_Incomplete')=0.05, P(prev='A_Incomplete'|'O_Returned')=0.05 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Incomplete' through gateways reaches more than one task, so the merge would force 'O_Returned' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 1168,
+        "fwd": 0.050725267089377225,
+        "bwd": 0.05011800042909247,
+        "gap": 31.07879674776446,
+        "handover": 0.3270547945205479,
+        "overlap": 0.45098039215686275,
+        "cases": 1157,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Validating",
+        "A_Denied"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Denied'|'A_Validating')=0.03, P(prev='A_Validating'|'A_Denied')=0.29 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Validating' through gateways reaches more than one task, so the merge would force 'A_Denied' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 1084,
+        "fwd": 0.027928786746708577,
+        "bwd": 0.28883559818811616,
+        "gap": 44.77340525881509,
+        "handover": 0.9861623616236163,
+        "overlap": 0.6865671641791045,
+        "cases": 1084,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "A_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Cancelled'|'O_Sent (mail and online)')=0.03, P(prev='O_Sent (mail and online)'|'A_Cancelled')=0.10 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'A_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 1038,
+        "fwd": 0.0261546602161917,
+        "bwd": 0.09951107276387691,
+        "gap": 662.9335693716548,
+        "handover": 0.9826589595375722,
+        "overlap": 0.8048780487804879,
+        "cases": 1038,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Returned",
+        "A_Validating"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Validating'|'O_Returned')=0.04, P(prev='O_Returned'|'A_Validating')=0.03 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Returned' through gateways reaches more than one task, so the merge would force 'A_Validating' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 1004,
+        "fwd": 0.04308458138437111,
+        "bwd": 0.025865622423742785,
+        "gap": 32.240766299247454,
+        "handover": 0.4681274900398406,
+        "overlap": 0.3700787401574803,
+        "cases": 986,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Created",
+        "O_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Cancelled'|'O_Created')=0.02, P(prev='O_Created'|'O_Cancelled')=0.04 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Created' through gateways reaches more than one task, so the merge would force 'O_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 760,
+        "fwd": 0.017676474008605652,
+        "bwd": 0.03636711647047564,
+        "gap": 2.483271341008772,
+        "handover": 0.019736842105263157,
+        "overlap": 0.8467153284671532,
+        "cases": 740,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Cancelled",
+        "O_Create Offer"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Create Offer'|'O_Cancelled')=0.12, P(prev='O_Cancelled'|'O_Create Offer')=0.02 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Cancelled' through gateways reaches more than one task, so the merge would force 'O_Create Offer' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 753,
+        "fwd": 0.12164781906300484,
+        "bwd": 0.01751366437957902,
+        "gap": 20.658053361369337,
+        "handover": 0.1102257636122178,
+        "overlap": 0.8467153284671532,
+        "cases": 728,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Incomplete",
+        "A_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Cancelled'|'A_Incomplete')=0.03, P(prev='A_Incomplete'|'A_Cancelled')=0.07 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Incomplete' through gateways reaches more than one task, so the merge would force 'A_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 737,
+        "fwd": 0.0320072961000608,
+        "bwd": 0.07065477902406289,
+        "gap": 328.3096411299563,
+        "handover": 0.9932157394843962,
+        "overlap": 0.6076923076923076,
+        "cases": 737,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "O_Create Offer"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Create Offer'|'O_Sent (mail and online)')=0.02, P(prev='O_Sent (mail and online)'|'O_Create Offer')=0.02 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'O_Create Offer' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 675,
+        "fwd": 0.017008088290876106,
+        "bwd": 0.015699499941853705,
+        "gap": 159.58358047860082,
+        "handover": 0.8740740740740741,
+        "overlap": 0.9338842975206612,
+        "cases": 571,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Returned",
+        "W_Validate application"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Validate application'|'O_Returned')=0.02, P(prev='O_Returned'|'W_Validate application')=0.03 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Returned' through gateways reaches more than one task, so the merge would force 'W_Validate application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9327675638233731,
+        "n": 554,
+        "fwd": 0.023773763034802387,
+        "bwd": 0.034957092377587075,
+        "gap": 42.88376870136382,
+        "handover": 0.9205776173285198,
+        "overlap": 0.4838709677419355,
+        "cases": 552,
+        "dur_a": 0.0,
+        "dur_b": 3.090995392688878
+      }
+    },
+    {
+      "pair": [
+        "A_Complete",
+        "O_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Cancelled'|'A_Complete')=0.02, P(prev='A_Complete'|'O_Cancelled')=0.02 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Complete' through gateways reaches more than one task, so the merge would force 'O_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 470,
+        "fwd": 0.015000638325035108,
+        "bwd": 0.02249019044884678,
+        "gap": 51.30501022104019,
+        "handover": 0.3446808510638298,
+        "overlap": 0.8088235294117647,
+        "cases": 470,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "A_Validating"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Validating'|'O_Sent (online only)')=0.23, P(prev='O_Sent (online only)'|'A_Validating')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (online only)' through gateways reaches more than one task, so the merge would force 'A_Validating' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 468,
+        "fwd": 0.2323733862959285,
+        "bwd": 0.012056883759274526,
+        "gap": 88.57815168091167,
+        "handover": 0.9700854700854701,
+        "overlap": 0.75,
+        "cases": 458,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "O_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Cancelled'|'O_Sent (mail and online)')=0.01, P(prev='O_Sent (mail and online)'|'O_Cancelled')=0.02 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'O_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 387,
+        "fwd": 0.009751303953435634,
+        "bwd": 0.018518518518518517,
+        "gap": 18.94589403674993,
+        "handover": 0.11369509043927649,
+        "overlap": 0.8296296296296296,
+        "cases": 379,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "W_Validate application"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Validate application'|'O_Sent (online only)')=0.19, P(prev='O_Sent (online only)'|'W_Validate application')=0.02 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (online only)' through gateways reaches more than one task, so the merge would force 'W_Validate application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.97162628097997,
+        "n": 384,
+        "fwd": 0.1906653426017875,
+        "bwd": 0.024230186774356385,
+        "gap": 105.84768094039352,
+        "handover": 0.9635416666666666,
+        "overlap": 0.5116279069767442,
+        "cases": 378,
+        "dur_a": 0.0,
+        "dur_b": 3.090995392688878
+      }
+    },
+    {
+      "pair": [
+        "A_Validating",
+        "W_Call incomplete files"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Call incomplete files'|'A_Validating')=0.01, P(prev='A_Validating'|'W_Call incomplete files')=0.13 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Validating' through gateways reaches more than one task, so the merge would force 'W_Call incomplete files' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.7348615036527125,
+        "n": 374,
+        "fwd": 0.009635946718882848,
+        "bwd": 0.13390619405657,
+        "gap": 10.001308084521689,
+        "handover": 0.8449197860962567,
+        "overlap": 0.8267716535433071,
+        "cases": 360,
+        "dur_a": 0.0,
+        "dur_b": 3.608478296733898
+      }
+    },
+    {
+      "pair": [
+        "W_Call after offers",
+        "A_Complete"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Complete'|'W_Call after offers')=1.00, P(prev='W_Call after offers'|'A_Complete')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Call after offers' through gateways reaches more than one task, so the merge would force 'A_Complete' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.0,
+        "n": 341,
+        "fwd": 0.9970760233918129,
+        "bwd": 0.010873031056692814,
+        "gap": 0.0,
+        "handover": 0.1495601173020528,
+        "overlap": 0.6896551724137931,
+        "cases": 341,
+        "dur_a": 0.38627816358024686,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Cancelled",
+        "O_Sent (mail and online)"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Sent (mail and online)'|'O_Cancelled')=0.05, P(prev='O_Cancelled'|'O_Sent (mail and online)')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Cancelled' through gateways reaches more than one task, so the merge would force 'O_Sent (mail and online)' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 338,
+        "fwd": 0.05460420032310178,
+        "bwd": 0.008512352985619665,
+        "gap": 0.5897086111111112,
+        "handover": 0.005917159763313609,
+        "overlap": 0.8296296296296296,
+        "cases": 335,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "A_Complete"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Complete'|'O_Sent (online only)')=0.16, P(prev='O_Sent (online only)'|'A_Complete')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (online only)' through gateways reaches more than one task, so the merge would force 'A_Complete' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 324,
+        "fwd": 0.1608738828202582,
+        "bwd": 0.010330973789936866,
+        "gap": 1.2313100137174212e-05,
+        "handover": 0.0,
+        "overlap": 0.8547008547008547,
+        "cases": 324,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "O_Returned"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Returned'|'O_Sent (online only)')=0.14, P(prev='O_Sent (online only)'|'O_Returned')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (online only)' through gateways reaches more than one task, so the merge would force 'O_Returned' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 272,
+        "fwd": 0.13505461767626614,
+        "bwd": 0.011671315168418794,
+        "gap": 56.40245741013072,
+        "handover": 0.9632352941176471,
+        "overlap": 0.1984126984126984,
+        "cases": 270,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Cancelled",
+        "A_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Cancelled'|'O_Cancelled')=0.04, P(prev='O_Cancelled'|'A_Cancelled')=0.02 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Cancelled' through gateways reaches more than one task, so the merge would force 'A_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 258,
+        "fwd": 0.04168012924071082,
+        "bwd": 0.02473396606269773,
+        "gap": 278.4252064416451,
+        "handover": 0.4573643410852713,
+        "overlap": 0.8120300751879699,
+        "cases": 258,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "O_Returned"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Returned'|'O_Sent (mail and online)')=0.01, P(prev='O_Sent (mail and online)'|'O_Returned')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'O_Returned' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 251,
+        "fwd": 0.006324489127422078,
+        "bwd": 0.010770220982621755,
+        "gap": 123.8654510480301,
+        "handover": 0.9880478087649402,
+        "overlap": 0.15827338129496402,
+        "cases": 249,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "W_Call after offers"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Call after offers'|'O_Sent (mail and online)')=0.01, P(prev='O_Sent (mail and online)'|'W_Call after offers')=0.63 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'W_Call after offers' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 2.9710204437291e-05,
+        "n": 215,
+        "fwd": 0.005417391085242019,
+        "bwd": 0.6286549707602339,
+        "gap": 1.1476744186046511e-05,
+        "handover": 0.2186046511627907,
+        "overlap": 0.6554621848739496,
+        "cases": 215,
+        "dur_a": 0.0,
+        "dur_b": 0.38627816358024686
+      }
+    },
+    {
+      "pair": [
+        "A_Incomplete",
+        "A_Denied"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Denied'|'A_Incomplete')=0.01, P(prev='A_Incomplete'|'A_Denied')=0.05 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Incomplete' through gateways reaches more than one task, so the merge would force 'A_Denied' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 189,
+        "fwd": 0.008208112568400937,
+        "bwd": 0.050359712230215826,
+        "gap": 47.063230921516755,
+        "handover": 0.783068783068783,
+        "overlap": 0.5873015873015873,
+        "cases": 189,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Cancelled",
+        "W_Validate application"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Validate application'|'O_Cancelled')=0.03, P(prev='O_Cancelled'|'W_Validate application')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Cancelled' through gateways reaches more than one task, so the merge would force 'W_Validate application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9838962157636002,
+        "n": 183,
+        "fwd": 0.029563812600969304,
+        "bwd": 0.011547198384654215,
+        "gap": 188.85118088797813,
+        "handover": 1.0,
+        "overlap": 0.5886524822695035,
+        "cases": 183,
+        "dur_a": 0.0,
+        "dur_b": 3.090995392688878
+      }
+    },
+    {
+      "pair": [
+        "O_Cancelled",
+        "A_Validating"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Validating'|'O_Cancelled')=0.03, P(prev='O_Cancelled'|'A_Validating')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Cancelled' through gateways reaches more than one task, so the merge would force 'A_Validating' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 164,
+        "fwd": 0.026494345718901455,
+        "bwd": 0.004225061830173124,
+        "gap": 202.4320697594851,
+        "handover": 0.9878048780487805,
+        "overlap": 0.8705035971223022,
+        "cases": 164,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "O_Create Offer"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Create Offer'|'O_Sent (online only)')=0.08, P(prev='O_Sent (online only)'|'O_Create Offer')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (online only)' through gateways reaches more than one task, so the merge would force 'O_Create Offer' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 154,
+        "fwd": 0.07646474677259185,
+        "bwd": 0.003581811838585882,
+        "gap": 124.9454240566378,
+        "handover": 0.7727272727272727,
+        "overlap": 0.8666666666666667,
+        "cases": 138,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Returned",
+        "W_Assess potential fraud"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Assess potential fraud'|'O_Returned')=0.01, P(prev='O_Returned'|'W_Assess potential fraud')=0.52 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Returned' through gateways reaches more than one task, so the merge would force 'W_Assess potential fraud' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.8396195997025017,
+        "n": 146,
+        "fwd": 0.006265287731193408,
+        "bwd": 0.5177304964539007,
+        "gap": 59.230282277397265,
+        "handover": 1.0,
+        "overlap": 0.13725490196078433,
+        "cases": 146,
+        "dur_a": 0.0,
+        "dur_b": 11.313904993104808
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "A_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Cancelled'|'O_Sent (online only)')=0.07, P(prev='O_Sent (online only)'|'A_Cancelled')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (online only)' through gateways reaches more than one task, so the merge would force 'A_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 134,
+        "fwd": 0.06653426017874876,
+        "bwd": 0.012846323458920525,
+        "gap": 594.1874920190713,
+        "handover": 0.9477611940298507,
+        "overlap": 0.7966101694915254,
+        "cases": 134,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "W_Call after offers"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Call after offers'|'O_Sent (online only)')=0.06, P(prev='O_Sent (online only)'|'W_Call after offers')=0.37 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (online only)' through gateways reaches more than one task, so the merge would force 'W_Call after offers' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 2.9967864701351547e-05,
+        "n": 126,
+        "fwd": 0.06256206554121152,
+        "bwd": 0.3684210526315789,
+        "gap": 1.1576278659611994e-05,
+        "handover": 0.031746031746031744,
+        "overlap": 0.6846846846846847,
+        "cases": 126,
+        "dur_a": 0.0,
+        "dur_b": 0.38627816358024686
+      }
+    },
+    {
+      "pair": [
+        "W_Validate application",
+        "A_Incomplete"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Incomplete'|'W_Validate application')=0.01, P(prev='W_Validate application'|'A_Incomplete')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Validate application' through gateways reaches more than one task, so the merge would force 'A_Incomplete' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.709508491835863,
+        "n": 122,
+        "fwd": 0.007698132256436143,
+        "bwd": 0.005291693775753632,
+        "gap": 7.549575177595627,
+        "handover": 0.2540983606557377,
+        "overlap": 0.8113207547169812,
+        "cases": 121,
+        "dur_a": 3.090995392688878,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Assess potential fraud",
+        "A_Denied"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Denied'|'W_Assess potential fraud')=0.43, P(prev='W_Assess potential fraud'|'A_Denied')=0.03 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Assess potential fraud' through gateways reaches more than one task, so the merge would force 'A_Denied' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9241318715598879,
+        "n": 121,
+        "fwd": 0.42907801418439717,
+        "bwd": 0.03224087396749267,
+        "gap": 137.8120221349862,
+        "handover": 0.23140495867768596,
+        "overlap": 0.1111111111111111,
+        "cases": 121,
+        "dur_a": 11.313904993104808,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Created",
+        "A_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Cancelled'|'O_Created')=0.00, P(prev='O_Created'|'A_Cancelled')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Created' through gateways reaches more than one task, so the merge would force 'A_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 119,
+        "fwd": 0.002767763693452727,
+        "bwd": 0.011408302176205542,
+        "gap": 158.14578655695612,
+        "handover": 0.42016806722689076,
+        "overlap": 0.7952755905511811,
+        "cases": 119,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Returned",
+        "O_Create Offer"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Create Offer'|'O_Returned')=0.00, P(prev='O_Returned'|'O_Create Offer')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Returned' through gateways reaches more than one task, so the merge would force 'O_Create Offer' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 101,
+        "fwd": 0.004334205896236536,
+        "bwd": 0.0023491103616699615,
+        "gap": 52.741315376787675,
+        "handover": 0.9801980198019802,
+        "overlap": 0.21014492753623187,
+        "cases": 100,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Complete",
+        "A_Denied"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Denied'|'A_Complete')=0.00, P(prev='A_Complete'|'A_Denied')=0.03 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Complete' through gateways reaches more than one task, so the merge would force 'A_Denied' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 97,
+        "fwd": 0.003095876420273203,
+        "bwd": 0.025845989874766852,
+        "gap": 107.18331048396335,
+        "handover": 0.8041237113402062,
+        "overlap": 0.696,
+        "cases": 97,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Incomplete",
+        "O_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Cancelled'|'A_Incomplete')=0.00, P(prev='A_Incomplete'|'O_Cancelled')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Incomplete' through gateways reaches more than one task, so the merge would force 'O_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 97,
+        "fwd": 0.00421262920177191,
+        "bwd": 0.004641592496889654,
+        "gap": 107.87948078178695,
+        "handover": 1.0,
+        "overlap": 0.6834532374100719,
+        "cases": 97,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Submitted",
+        "W_Complete application"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Complete application'|'A_Submitted')=0.00, P(prev='A_Submitted'|'W_Complete application')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "resource pools barely overlap (Jaccard 0.00) — no single resource performs both, so a composite task executed by one resource is not staffable",
+        "not composable in the baseline BPMN: walking forward from 'A_Submitted' through gateways reaches more than one task, so the merge would force 'W_Complete application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.8890805284597567,
+        "n": 74,
+        "fwd": 0.0036233658130539097,
+        "bwd": 0.003873534338358459,
+        "gap": 3.1962548198198193,
+        "handover": 1.0,
+        "overlap": 0.0,
+        "cases": 74,
+        "dur_a": 0.0,
+        "dur_b": 0.3987567876855342
+      }
+    },
+    {
+      "pair": [
+        "O_Returned",
+        "A_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Cancelled'|'O_Returned')=0.00, P(prev='O_Returned'|'A_Cancelled')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Returned' through gateways reaches more than one task, so the merge would force 'A_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 73,
+        "fwd": 0.003132643865596704,
+        "bwd": 0.006998370242546256,
+        "gap": 171.52035608066973,
+        "handover": 0.9452054794520548,
+        "overlap": 0.19230769230769232,
+        "cases": 73,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Validating",
+        "W_Assess potential fraud"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Assess potential fraud'|'A_Validating')=0.00, P(prev='A_Validating'|'W_Assess potential fraud')=0.24 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Validating' through gateways reaches more than one task, so the merge would force 'W_Assess potential fraud' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.781831471770562,
+        "n": 69,
+        "fwd": 0.0017777548759436272,
+        "bwd": 0.24468085106382978,
+        "gap": 40.54465171497584,
+        "handover": 0.9855072463768116,
+        "overlap": 0.06153846153846154,
+        "cases": 69,
+        "dur_a": 0.0,
+        "dur_b": 11.313904993104808
+      }
+    },
+    {
+      "pair": [
+        "A_Validating",
+        "O_Create Offer"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Create Offer'|'A_Validating')=0.00, P(prev='A_Validating'|'O_Create Offer')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Validating' through gateways reaches more than one task, so the merge would force 'O_Create Offer' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 51,
+        "fwd": 0.0013139927343931157,
+        "bwd": 0.0011861844400511687,
+        "gap": 42.151834978213515,
+        "handover": 0.9215686274509803,
+        "overlap": 0.7642857142857142,
+        "cases": 51,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Assess potential fraud",
+        "A_Incomplete"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Incomplete'|'W_Assess potential fraud')=0.18, P(prev='W_Assess potential fraud'|'A_Incomplete')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Assess potential fraud' through gateways reaches more than one task, so the merge would force 'A_Incomplete' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.8443925562479728,
+        "n": 50,
+        "fwd": 0.1773049645390071,
+        "bwd": 0.002168726957276079,
+        "gap": 61.39408840555556,
+        "handover": 1.0,
+        "overlap": 0.06666666666666667,
+        "cases": 50,
+        "dur_a": 11.313904993104808,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Complete",
+        "O_Sent (mail and online)"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Sent (mail and online)'|'A_Complete')=0.00, P(prev='A_Complete'|'O_Sent (mail and online)')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Complete' through gateways reaches more than one task, so the merge would force 'O_Sent (mail and online)' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 41,
+        "fwd": 0.0013085663219711478,
+        "bwd": 0.0010325635278414385,
+        "gap": 2.378115677506775,
+        "handover": 0.04878048780487805,
+        "overlap": 0.9568965517241379,
+        "cases": 41,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Assess potential fraud",
+        "W_Validate application"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Validate application'|'W_Assess potential fraud')=0.15, P(prev='W_Assess potential fraud'|'W_Validate application')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Assess potential fraud' through gateways reaches more than one task, so the merge would force 'W_Validate application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.7547298768169376,
+        "n": 41,
+        "fwd": 0.1453900709219858,
+        "bwd": 0.002587077233720343,
+        "gap": 44.325858170731706,
+        "handover": 0.9024390243902439,
+        "overlap": 0.10869565217391304,
+        "cases": 41,
+        "dur_a": 11.313904993104808,
+        "dur_b": 3.090995392688878
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "A_Incomplete"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Incomplete'|'O_Sent (mail and online)')=0.00, P(prev='O_Sent (mail and online)'|'A_Incomplete')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'A_Incomplete' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 40,
+        "fwd": 0.0010078867135333988,
+        "bwd": 0.001734981565820863,
+        "gap": 27.04965226388889,
+        "handover": 0.65,
+        "overlap": 0.5357142857142857,
+        "cases": 40,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Validating",
+        "A_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Cancelled'|'A_Validating')=0.00, P(prev='A_Validating'|'A_Cancelled')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Validating' through gateways reaches more than one task, so the merge would force 'A_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 34,
+        "fwd": 0.0008759951562620771,
+        "bwd": 0.0032595149074872974,
+        "gap": 41.11263440359477,
+        "handover": 0.7941176470588235,
+        "overlap": 0.7669172932330827,
+        "cases": 34,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Validating",
+        "W_Validate application"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Validate application'|'A_Validating')=0.00, P(prev='A_Validating'|'W_Validate application')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Validating' through gateways reaches more than one task, so the merge would force 'W_Validate application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9176510466662743,
+        "n": 33,
+        "fwd": 0.0008502305928426043,
+        "bwd": 0.0020822816759212518,
+        "gap": 34.4443376936027,
+        "handover": 0.9696969696969697,
+        "overlap": 0.676923076923077,
+        "cases": 33,
+        "dur_a": 0.0,
+        "dur_b": 3.090995392688878
+      }
+    },
+    {
+      "pair": [
+        "O_Cancelled",
+        "A_Denied"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='A_Denied'|'O_Cancelled')=0.01, P(prev='O_Cancelled'|'A_Denied')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Cancelled' through gateways reaches more than one task, so the merge would force 'A_Denied' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 32,
+        "fwd": 0.005169628432956382,
+        "bwd": 0.008526512123634426,
+        "gap": 23.43213355034722,
+        "handover": 0.125,
+        "overlap": 0.6453900709219859,
+        "cases": 32,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "O_Cancelled"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='O_Cancelled'|'O_Sent (online only)')=0.02, P(prev='O_Sent (online only)'|'O_Cancelled')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (online only)' through gateways reaches more than one task, so the merge would force 'O_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 31,
+        "fwd": 0.015392254220456803,
+        "bwd": 0.0014833955402430855,
+        "gap": 56.13418993727599,
+        "handover": 0.3225806451612903,
+        "overlap": 0.7555555555555555,
+        "cases": 31,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Validate application",
+        "W_Call incomplete files"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='W_Call incomplete files'|'W_Validate application')=0.00, P(prev='W_Validate application'|'W_Call incomplete files')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Validate application' through gateways reaches more than one task, so the merge would force 'W_Call incomplete files' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.3789545576284924,
+        "n": 31,
+        "fwd": 0.001956082786471479,
+        "bwd": 0.011099176512710347,
+        "gap": 4.087939327956989,
+        "handover": 0.967741935483871,
+        "overlap": 0.6752136752136753,
+        "cases": 31,
+        "dur_a": 3.090995392688878,
+        "dur_b": 3.608478296733898
+      }
+    },
+    {
+      "pair": [
+        "O_Created",
+        "A_Denied"
+      ],
+      "rejected_because": [
+        "only 26 occurrences (<30)",
+        "not a deterministic sequence: P(next='A_Denied'|'O_Created')=0.00, P(prev='O_Created'|'A_Denied')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Created' through gateways reaches more than one task, so the merge would force 'A_Denied' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 26,
+        "fwd": 0.0006047214792417723,
+        "bwd": 0.006927791100452971,
+        "gap": 2.9489448183760683,
+        "handover": 0.07692307692307693,
+        "overlap": 0.6846153846153846,
+        "cases": 26,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Created",
+        "A_Validating"
+      ],
+      "rejected_because": [
+        "only 20 occurrences (<30)",
+        "not a deterministic sequence: P(next='A_Validating'|'O_Created')=0.00, P(prev='O_Created'|'A_Validating')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Created' through gateways reaches more than one task, so the merge would force 'A_Validating' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 20,
+        "fwd": 0.00046517036864751713,
+        "bwd": 0.0005152514427040395,
+        "gap": 109.91059380555558,
+        "handover": 0.95,
+        "overlap": 0.7642857142857142,
+        "cases": 20,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "A_Incomplete"
+      ],
+      "rejected_because": [
+        "only 20 occurrences (<30)",
+        "not a deterministic sequence: P(next='A_Incomplete'|'O_Sent (online only)')=0.01, P(prev='O_Sent (online only)'|'A_Incomplete')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (online only)' through gateways reaches more than one task, so the merge would force 'A_Incomplete' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 20,
+        "fwd": 0.009930486593843098,
+        "bwd": 0.0008674907829104315,
+        "gap": 40.69573779166666,
+        "handover": 0.9,
+        "overlap": 0.6015625,
+        "cases": 20,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Complete application",
+        "O_Create Offer"
+      ],
+      "rejected_because": [
+        "only 19 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Create Offer'|'W_Complete application')=0.00, P(prev='W_Complete application'|'O_Create Offer')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Complete application' through gateways reaches more than one task, so the merge would force 'O_Create Offer' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.41663533392146085,
+        "n": 19,
+        "fwd": 0.0009945561139028476,
+        "bwd": 0.0004419118502151413,
+        "gap": 0.28478956140350886,
+        "handover": 0.0,
+        "overlap": 0.9105691056910569,
+        "cases": 19,
+        "dur_a": 0.3987567876855342,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Submitted",
+        "W_Assess potential fraud"
+      ],
+      "rejected_because": [
+        "only 18 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Assess potential fraud'|'A_Submitted')=0.00, P(prev='A_Submitted'|'W_Assess potential fraud')=0.06 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "resource pools barely overlap (Jaccard 0.00) — no single resource performs both, so a composite task executed by one resource is not staffable",
+        "not composable in the baseline BPMN: walking forward from 'A_Submitted' through gateways reaches more than one task, so the merge would force 'W_Assess potential fraud' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.5421565313570906,
+        "n": 18,
+        "fwd": 0.000881359251823924,
+        "bwd": 0.06382978723404255,
+        "gap": 13.397389953703701,
+        "handover": 1.0,
+        "overlap": 0.0,
+        "cases": 18,
+        "dur_a": 0.0,
+        "dur_b": 11.313904993104808
+      }
+    },
+    {
+      "pair": [
+        "A_Accepted",
+        "W_Complete application"
+      ],
+      "rejected_because": [
+        "only 17 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Complete application'|'A_Accepted')=0.00, P(prev='A_Accepted'|'W_Complete application')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Accepted' through gateways reaches more than one task, so the merge would force 'W_Complete application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9896626841527291,
+        "n": 17,
+        "fwd": 0.0005395283887143356,
+        "bwd": 0.0008898659966499162,
+        "gap": 38.1757429738562,
+        "handover": 0.5882352941176471,
+        "overlap": 0.9655172413793104,
+        "cases": 17,
+        "dur_a": 0.0,
+        "dur_b": 0.3987567876855342
+      }
+    },
+    {
+      "pair": [
+        "W_Assess potential fraud",
+        "W_Handle leads"
+      ],
+      "rejected_because": [
+        "only 17 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Handle leads'|'W_Assess potential fraud')=0.06, P(prev='W_Assess potential fraud'|'W_Handle leads')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "resource pools barely overlap (Jaccard 0.01) — no single resource performs both, so a composite task executed by one resource is not staffable",
+        "not composable in the baseline BPMN: walking forward from 'W_Assess potential fraud' through gateways reaches more than one task, so the merge would force 'W_Handle leads' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.05632713041156478,
+        "n": 17,
+        "fwd": 0.06028368794326241,
+        "bwd": 0.004866876610363584,
+        "gap": 0.6796268464052286,
+        "handover": 0.9411764705882353,
+        "overlap": 0.01098901098901099,
+        "cases": 17,
+        "dur_a": 11.313904993104808,
+        "dur_b": 0.07217861723446894
+      }
+    },
+    {
+      "pair": [
+        "O_Created",
+        "W_Validate application"
+      ],
+      "rejected_because": [
+        "only 16 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Validate application'|'O_Created')=0.00, P(prev='O_Created'|'W_Validate application')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Created' through gateways reaches more than one task, so the merge would force 'W_Validate application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9802132199162689,
+        "n": 16,
+        "fwd": 0.00037213629491801375,
+        "bwd": 0.0010095911155981827,
+        "gap": 153.1241836111111,
+        "handover": 0.9375,
+        "overlap": 0.5071428571428571,
+        "cases": 16,
+        "dur_a": 0.0,
+        "dur_b": 3.090995392688878
+      }
+    },
+    {
+      "pair": [
+        "W_Assess potential fraud",
+        "O_Accepted"
+      ],
+      "rejected_because": [
+        "only 16 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Accepted'|'W_Assess potential fraud')=0.06, P(prev='W_Assess potential fraud'|'O_Accepted')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Assess potential fraud' through gateways reaches more than one task, so the merge would force 'O_Accepted' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.8466522906695055,
+        "n": 16,
+        "fwd": 0.05673758865248227,
+        "bwd": 0.0009287206872533086,
+        "gap": 62.46551461805556,
+        "handover": 1.0,
+        "overlap": 0.1590909090909091,
+        "cases": 16,
+        "dur_a": 11.313904993104808,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "A_Denied"
+      ],
+      "rejected_because": [
+        "only 15 occurrences (<30)",
+        "not a deterministic sequence: P(next='A_Denied'|'O_Sent (mail and online)')=0.00, P(prev='O_Sent (mail and online)'|'A_Denied')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'A_Denied' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 15,
+        "fwd": 0.00037795751757502456,
+        "bwd": 0.003996802557953637,
+        "gap": 154.6307303518519,
+        "handover": 0.9333333333333333,
+        "overlap": 0.6640625,
+        "cases": 15,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Created",
+        "W_Complete application"
+      ],
+      "rejected_because": [
+        "only 14 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Complete application'|'O_Created')=0.00, P(prev='O_Created'|'W_Complete application')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Created' through gateways reaches more than one task, so the merge would force 'W_Complete application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9879172945791039,
+        "n": 14,
+        "fwd": 0.000325619258053262,
+        "bwd": 0.0007328308207705192,
+        "gap": 32.60351992063492,
+        "handover": 0.8571428571428571,
+        "overlap": 0.9105691056910569,
+        "cases": 14,
+        "dur_a": 0.0,
+        "dur_b": 0.3987567876855342
+      }
+    },
+    {
+      "pair": [
+        "W_Validate application",
+        "A_Denied"
+      ],
+      "rejected_because": [
+        "only 13 occurrences (<30)",
+        "not a deterministic sequence: P(next='A_Denied'|'W_Validate application')=0.00, P(prev='W_Validate application'|'A_Denied')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Validate application' through gateways reaches more than one task, so the merge would force 'A_Denied' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.6705561877332631,
+        "n": 13,
+        "fwd": 0.0008202927814235235,
+        "bwd": 0.0034638955502264853,
+        "gap": 6.291470683760687,
+        "handover": 0.07692307692307693,
+        "overlap": 0.532258064516129,
+        "cases": 13,
+        "dur_a": 3.090995392688878,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Complete",
+        "W_Assess potential fraud"
+      ],
+      "rejected_because": [
+        "only 12 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Assess potential fraud'|'A_Complete')=0.00, P(prev='A_Complete'|'W_Assess potential fraud')=0.04 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Complete' through gateways reaches more than one task, so the merge would force 'W_Assess potential fraud' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9464352050685397,
+        "n": 12,
+        "fwd": 0.00038299502106472615,
+        "bwd": 0.0425531914893617,
+        "gap": 199.90514303240744,
+        "handover": 1.0,
+        "overlap": 0.06896551724137931,
+        "cases": 12,
+        "dur_a": 0.0,
+        "dur_b": 11.313904993104808
+      }
+    },
+    {
+      "pair": [
+        "W_Complete application",
+        "O_Sent (mail and online)"
+      ],
+      "rejected_because": [
+        "only 12 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Sent (mail and online)'|'W_Complete application')=0.00, P(prev='W_Complete application'|'O_Sent (mail and online)')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Complete application' through gateways reaches more than one task, so the merge would force 'O_Sent (mail and online)' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.8474522250415274,
+        "n": 12,
+        "fwd": 0.000628140703517588,
+        "bwd": 0.0003022137154657869,
+        "gap": 2.2152229166666664,
+        "handover": 0.0,
+        "overlap": 0.9243697478991597,
+        "cases": 12,
+        "dur_a": 0.3987567876855342,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Cancelled",
+        "O_Sent (online only)"
+      ],
+      "rejected_because": [
+        "only 11 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Sent (online only)'|'O_Cancelled')=0.00, P(prev='O_Cancelled'|'O_Sent (online only)')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Cancelled' through gateways reaches more than one task, so the merge would force 'O_Sent (online only)' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 11,
+        "fwd": 0.001777059773828756,
+        "bwd": 0.005429417571569595,
+        "gap": 0.013563383838383836,
+        "handover": 0.0,
+        "overlap": 0.7555555555555555,
+        "cases": 11,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Returned",
+        "O_Cancelled"
+      ],
+      "rejected_because": [
+        "only 11 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Cancelled'|'O_Returned')=0.00, P(prev='O_Returned'|'O_Cancelled')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Returned' through gateways reaches more than one task, so the merge would force 'O_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 11,
+        "fwd": 0.00047204222632279107,
+        "bwd": 0.0005263661594410949,
+        "gap": 168.29924934343435,
+        "handover": 0.5454545454545454,
+        "overlap": 0.2949640287769784,
+        "cases": 11,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Cancelled",
+        "A_Incomplete"
+      ],
+      "rejected_because": [
+        "only 10 occurrences (<30)",
+        "not a deterministic sequence: P(next='A_Incomplete'|'O_Cancelled')=0.00, P(prev='O_Cancelled'|'A_Incomplete')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Cancelled' through gateways reaches more than one task, so the merge would force 'A_Incomplete' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 10,
+        "fwd": 0.0016155088852988692,
+        "bwd": 0.00043374539145521576,
+        "gap": 28.99939175,
+        "handover": 0.8,
+        "overlap": 0.6834532374100719,
+        "cases": 10,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Assess potential fraud",
+        "W_Call incomplete files"
+      ],
+      "rejected_because": [
+        "only 10 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Call incomplete files'|'W_Assess potential fraud')=0.04, P(prev='W_Assess potential fraud'|'W_Call incomplete files')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Assess potential fraud' through gateways reaches more than one task, so the merge would force 'W_Call incomplete files' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.829045778839377,
+        "n": 10,
+        "fwd": 0.03546099290780142,
+        "bwd": 0.0035803795202291443,
+        "gap": 72.3663843611111,
+        "handover": 1.0,
+        "overlap": 0.07407407407407407,
+        "cases": 10,
+        "dur_a": 11.313904993104808,
+        "dur_b": 3.608478296733898
+      }
+    },
+    {
+      "pair": [
+        "O_Created",
+        "A_Incomplete"
+      ],
+      "rejected_because": [
+        "only 9 occurrences (<30)",
+        "not a deterministic sequence: P(next='A_Incomplete'|'O_Created')=0.00, P(prev='O_Created'|'A_Incomplete')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Created' through gateways reaches more than one task, so the merge would force 'A_Incomplete' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 9,
+        "fwd": 0.00020932666589138272,
+        "bwd": 0.0003903708523096942,
+        "gap": 18.044689814814816,
+        "handover": 0.4444444444444444,
+        "overlap": 0.5899280575539568,
+        "cases": 9,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Incomplete",
+        "W_Assess potential fraud"
+      ],
+      "rejected_because": [
+        "only 8 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Assess potential fraud'|'A_Incomplete')=0.00, P(prev='A_Incomplete'|'W_Assess potential fraud')=0.03 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Incomplete' through gateways reaches more than one task, so the merge would force 'W_Assess potential fraud' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.7855398577526377,
+        "n": 8,
+        "fwd": 0.00034743333622861116,
+        "bwd": 0.028368794326241134,
+        "gap": 41.44137565972222,
+        "handover": 0.875,
+        "overlap": 0.06666666666666667,
+        "cases": 8,
+        "dur_a": 0.0,
+        "dur_b": 11.313904993104808
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "O_Accepted"
+      ],
+      "rejected_because": [
+        "only 8 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Accepted'|'O_Sent (online only)')=0.00, P(prev='O_Sent (online only)'|'O_Accepted')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (online only)' through gateways reaches more than one task, so the merge would force 'O_Accepted' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 8,
+        "fwd": 0.003972194637537239,
+        "bwd": 0.0004643603436266543,
+        "gap": 99.77806190972223,
+        "handover": 1.0,
+        "overlap": 0.18032786885245902,
+        "cases": 8,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Concept",
+        "W_Assess potential fraud"
+      ],
+      "rejected_because": [
+        "only 7 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Assess potential fraud'|'A_Concept')=0.00, P(prev='A_Concept'|'W_Assess potential fraud')=0.02 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Concept' through gateways reaches more than one task, so the merge would force 'W_Assess potential fraud' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.5424147236969097,
+        "n": 7,
+        "fwd": 0.00022215874829413818,
+        "bwd": 0.024822695035460994,
+        "gap": 13.411333293650793,
+        "handover": 1.0,
+        "overlap": 0.06837606837606838,
+        "cases": 7,
+        "dur_a": 0.0,
+        "dur_b": 11.313904993104808
+      }
+    },
+    {
+      "pair": [
+        "A_Validating",
+        "O_Cancelled"
+      ],
+      "rejected_because": [
+        "only 7 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Cancelled'|'A_Validating')=0.00, P(prev='A_Validating'|'O_Cancelled')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Validating' through gateways reaches more than one task, so the merge would force 'O_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 7,
+        "fwd": 0.00018035194393631,
+        "bwd": 0.00033496028328069673,
+        "gap": 30.167215357142855,
+        "handover": 1.0,
+        "overlap": 0.8705035971223022,
+        "cases": 7,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Incomplete",
+        "O_Sent (online only)"
+      ],
+      "rejected_because": [
+        "only 6 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Sent (online only)'|'A_Incomplete')=0.00, P(prev='A_Incomplete'|'O_Sent (online only)')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Incomplete' through gateways reaches more than one task, so the merge would force 'O_Sent (online only)' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 6,
+        "fwd": 0.00026057500217145836,
+        "bwd": 0.0029615004935834156,
+        "gap": 1.5860811574074074,
+        "handover": 1.0,
+        "overlap": 0.6015625,
+        "cases": 6,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Cancelled",
+        "O_Returned"
+      ],
+      "rejected_because": [
+        "only 5 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Returned'|'O_Cancelled')=0.00, P(prev='O_Cancelled'|'O_Returned')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Cancelled' through gateways reaches more than one task, so the merge would force 'O_Returned' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 5,
+        "fwd": 0.0008077544426494346,
+        "bwd": 0.00021454623471358077,
+        "gap": 154.26468566666668,
+        "handover": 1.0,
+        "overlap": 0.2949640287769784,
+        "cases": 5,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "A_Denied"
+      ],
+      "rejected_because": [
+        "only 5 occurrences (<30)",
+        "not a deterministic sequence: P(next='A_Denied'|'O_Sent (online only)')=0.00, P(prev='O_Sent (online only)'|'A_Denied')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (online only)' through gateways reaches more than one task, so the merge would force 'A_Denied' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 5,
+        "fwd": 0.0024826216484607746,
+        "bwd": 0.001332267519317879,
+        "gap": 8.430753499999998,
+        "handover": 1.0,
+        "overlap": 0.7350427350427351,
+        "cases": 5,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Assess potential fraud",
+        "A_Accepted"
+      ],
+      "rejected_because": [
+        "only 5 occurrences (<30)",
+        "not a deterministic sequence: P(next='A_Accepted'|'W_Assess potential fraud')=0.02, P(prev='W_Assess potential fraud'|'A_Accepted')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Assess potential fraud' through gateways reaches more than one task, so the merge would force 'A_Accepted' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.7644698124370842,
+        "n": 5,
+        "fwd": 0.01773049645390071,
+        "bwd": 0.0001586848202100987,
+        "gap": 36.72199694444445,
+        "handover": 1.0,
+        "overlap": 0.06896551724137931,
+        "cases": 5,
+        "dur_a": 11.313904993104808,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Validate application",
+        "W_Assess potential fraud"
+      ],
+      "rejected_because": [
+        "only 5 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Assess potential fraud'|'W_Validate application')=0.00, P(prev='W_Validate application'|'W_Assess potential fraud')=0.02 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Validate application' through gateways reaches more than one task, so the merge would force 'W_Assess potential fraud' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.2163565729851953,
+        "n": 5,
+        "fwd": 0.0003154972236244321,
+        "bwd": 0.01773049645390071,
+        "gap": 3.977057388888889,
+        "handover": 1.0,
+        "overlap": 0.10869565217391304,
+        "cases": 5,
+        "dur_a": 3.090995392688878,
+        "dur_b": 11.313904993104808
+      }
+    },
+    {
+      "pair": [
+        "A_Accepted",
+        "W_Assess potential fraud"
+      ],
+      "rejected_because": [
+        "only 4 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Assess potential fraud'|'A_Accepted')=0.00, P(prev='A_Accepted'|'W_Assess potential fraud')=0.01 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Accepted' through gateways reaches more than one task, so the merge would force 'W_Assess potential fraud' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.04253685578004207,
+        "n": 4,
+        "fwd": 0.00012694785616807895,
+        "bwd": 0.014184397163120567,
+        "gap": 0.5026386111111111,
+        "handover": 1.0,
+        "overlap": 0.06896551724137931,
+        "cases": 4,
+        "dur_a": 0.0,
+        "dur_b": 11.313904993104808
+      }
+    },
+    {
+      "pair": [
+        "A_Incomplete",
+        "O_Sent (mail and online)"
+      ],
+      "rejected_because": [
+        "only 4 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Sent (mail and online)'|'A_Incomplete')=0.00, P(prev='A_Incomplete'|'O_Sent (mail and online)')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Incomplete' through gateways reaches more than one task, so the merge would force 'O_Sent (mail and online)' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 4,
+        "fwd": 0.00017371666811430558,
+        "bwd": 0.0001007379051552623,
+        "gap": 26.15248958333333,
+        "handover": 1.0,
+        "overlap": 0.5357142857142857,
+        "cases": 4,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "O_Accepted"
+      ],
+      "rejected_because": [
+        "only 4 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Accepted'|'O_Sent (mail and online)')=0.00, P(prev='O_Sent (mail and online)'|'O_Accepted')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'O_Accepted' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 4,
+        "fwd": 0.00010078867135333989,
+        "bwd": 0.00023218017181332715,
+        "gap": 166.334258125,
+        "handover": 1.0,
+        "overlap": 0.15789473684210525,
+        "cases": 4,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Assess potential fraud",
+        "O_Create Offer"
+      ],
+      "rejected_because": [
+        "only 4 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Create Offer'|'W_Assess potential fraud')=0.01, P(prev='W_Assess potential fraud'|'O_Create Offer')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Assess potential fraud' through gateways reaches more than one task, so the merge would force 'O_Create Offer' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.7478311237256654,
+        "n": 4,
+        "fwd": 0.014184397163120567,
+        "bwd": 9.303407372950344e-05,
+        "gap": 33.55247645833333,
+        "handover": 1.0,
+        "overlap": 0.06504065040650407,
+        "cases": 4,
+        "dur_a": 11.313904993104808,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Cancelled",
+        "W_Call incomplete files"
+      ],
+      "rejected_because": [
+        "only 3 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Call incomplete files'|'O_Cancelled')=0.00, P(prev='O_Cancelled'|'W_Call incomplete files')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Cancelled' through gateways reaches more than one task, so the merge would force 'W_Call incomplete files' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9199743334375511,
+        "n": 3,
+        "fwd": 0.0004846526655896607,
+        "bwd": 0.0010741138560687433,
+        "gap": 41.483033611111104,
+        "handover": 1.0,
+        "overlap": 0.75,
+        "cases": 3,
+        "dur_a": 0.0,
+        "dur_b": 3.608478296733898
+      }
+    },
+    {
+      "pair": [
+        "W_Assess potential fraud",
+        "W_Complete application"
+      ],
+      "rejected_because": [
+        "only 3 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Complete application'|'W_Assess potential fraud')=0.01, P(prev='W_Assess potential fraud'|'W_Complete application')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Assess potential fraud' through gateways reaches more than one task, so the merge would force 'W_Complete application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.1431135813170017,
+        "n": 3,
+        "fwd": 0.010638297872340425,
+        "bwd": 0.000157035175879397,
+        "gap": 1.9561997222222223,
+        "handover": 0.3333333333333333,
+        "overlap": 0.09565217391304348,
+        "cases": 3,
+        "dur_a": 11.313904993104808,
+        "dur_b": 0.3987567876855342
+      }
+    },
+    {
+      "pair": [
+        "A_Complete",
+        "O_Sent (online only)"
+      ],
+      "rejected_because": [
+        "only 2 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Sent (online only)'|'A_Complete')=0.00, P(prev='A_Complete'|'O_Sent (online only)')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Complete' through gateways reaches more than one task, so the merge would force 'O_Sent (online only)' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 2,
+        "fwd": 6.383250351078769e-05,
+        "bwd": 0.0009871668311944718,
+        "gap": 0.014108611111111113,
+        "handover": 0.0,
+        "overlap": 0.8547008547008547,
+        "cases": 2,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Cancelled",
+        "W_Complete application"
+      ],
+      "rejected_because": [
+        "only 2 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Complete application'|'O_Cancelled')=0.00, P(prev='O_Cancelled'|'W_Complete application')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Cancelled' through gateways reaches more than one task, so the merge would force 'W_Complete application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9972173505745614,
+        "n": 2,
+        "fwd": 0.00032310177705977385,
+        "bwd": 0.00010469011725293132,
+        "gap": 142.90236625,
+        "handover": 1.0,
+        "overlap": 0.7841726618705036,
+        "cases": 2,
+        "dur_a": 0.0,
+        "dur_b": 0.3987567876855342
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "W_Call incomplete files"
+      ],
+      "rejected_because": [
+        "only 2 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Call incomplete files'|'O_Sent (mail and online)')=0.00, P(prev='O_Sent (mail and online)'|'W_Call incomplete files')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'W_Call incomplete files' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.8643229052168278,
+        "n": 2,
+        "fwd": 5.0394335676669944e-05,
+        "bwd": 0.0007160759040458289,
+        "gap": 22.9875975,
+        "handover": 1.0,
+        "overlap": 0.6466165413533834,
+        "cases": 2,
+        "dur_a": 0.0,
+        "dur_b": 3.608478296733898
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "W_Call incomplete files"
+      ],
+      "rejected_because": [
+        "only 2 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Call incomplete files'|'O_Sent (online only)')=0.00, P(prev='O_Sent (online only)'|'W_Call incomplete files')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (online only)' through gateways reaches more than one task, so the merge would force 'W_Call incomplete files' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9613615384694598,
+        "n": 2,
+        "fwd": 0.0009930486593843098,
+        "bwd": 0.0007160759040458289,
+        "gap": 89.78235958333333,
+        "handover": 1.0,
+        "overlap": 0.7131147540983607,
+        "cases": 2,
+        "dur_a": 0.0,
+        "dur_b": 3.608478296733898
+      }
+    },
+    {
+      "pair": [
+        "W_Assess potential fraud",
+        "A_Cancelled"
+      ],
+      "rejected_because": [
+        "only 2 occurrences (<30)",
+        "not a deterministic sequence: P(next='A_Cancelled'|'W_Assess potential fraud')=0.01, P(prev='W_Assess potential fraud'|'A_Cancelled')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Assess potential fraud' through gateways reaches more than one task, so the merge would force 'A_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9886216981420555,
+        "n": 2,
+        "fwd": 0.0070921985815602835,
+        "bwd": 0.00019173617102866456,
+        "gap": 983.0264749999999,
+        "handover": 1.0,
+        "overlap": 0.07207207207207207,
+        "cases": 2,
+        "dur_a": 11.313904993104808,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Complete application",
+        "A_Cancelled"
+      ],
+      "rejected_because": [
+        "only 2 occurrences (<30)",
+        "not a deterministic sequence: P(next='A_Cancelled'|'W_Complete application')=0.00, P(prev='W_Complete application'|'A_Cancelled')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Complete application' through gateways reaches more than one task, so the merge would force 'A_Cancelled' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.0,
+        "n": 2,
+        "fwd": 0.00010469011725293132,
+        "bwd": 0.00019173617102866456,
+        "gap": 0.0,
+        "handover": 0.0,
+        "overlap": 0.784,
+        "cases": 2,
+        "dur_a": 0.3987567876855342,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Validate application",
+        "O_Returned"
+      ],
+      "rejected_because": [
+        "only 2 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Returned'|'W_Validate application')=0.00, P(prev='W_Validate application'|'O_Returned')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Validate application' through gateways reaches more than one task, so the merge would force 'O_Returned' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.011503604419724244,
+        "n": 2,
+        "fwd": 0.00012619888944977284,
+        "bwd": 8.58184938854323e-05,
+        "gap": 0.03597138888888889,
+        "handover": 0.5,
+        "overlap": 0.4838709677419355,
+        "cases": 2,
+        "dur_a": 3.090995392688878,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "A_Incomplete",
+        "W_Call after offers"
+      ],
+      "rejected_because": [
+        "only 1 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Call after offers'|'A_Incomplete')=0.00, P(prev='A_Incomplete'|'W_Call after offers')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Incomplete' through gateways reaches more than one task, so the merge would force 'W_Call after offers' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9855932831729551,
+        "n": 1,
+        "fwd": 4.3429167028576395e-05,
+        "bwd": 0.0029239766081871343,
+        "gap": 26.426087777777777,
+        "handover": 1.0,
+        "overlap": 0.5081967213114754,
+        "cases": 1,
+        "dur_a": 0.0,
+        "dur_b": 0.38627816358024686
+      }
+    },
+    {
+      "pair": [
+        "A_Validating",
+        "O_Sent (online only)"
+      ],
+      "rejected_because": [
+        "only 1 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Sent (online only)'|'A_Validating')=0.00, P(prev='A_Validating'|'O_Sent (online only)')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'A_Validating' through gateways reaches more than one task, so the merge would force 'O_Sent (online only)' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 1,
+        "fwd": 2.5764563419472856e-05,
+        "bwd": 0.0004935834155972359,
+        "gap": 0.12181583333333333,
+        "handover": 1.0,
+        "overlap": 0.75,
+        "cases": 1,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Cancelled",
+        "O_Accepted"
+      ],
+      "rejected_because": [
+        "only 1 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Accepted'|'O_Cancelled')=0.00, P(prev='O_Cancelled'|'O_Accepted')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Cancelled' through gateways reaches more than one task, so the merge would force 'O_Accepted' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 1,
+        "fwd": 0.00016155088852988692,
+        "bwd": 5.8045042953331786e-05,
+        "gap": 21.18569722222222,
+        "handover": 1.0,
+        "overlap": 0.3007518796992481,
+        "cases": 1,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Cancelled",
+        "W_Assess potential fraud"
+      ],
+      "rejected_because": [
+        "only 1 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Assess potential fraud'|'O_Cancelled')=0.00, P(prev='O_Cancelled'|'W_Assess potential fraud')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Cancelled' through gateways reaches more than one task, so the merge would force 'W_Assess potential fraud' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.6539366986654181,
+        "n": 1,
+        "fwd": 0.00016155088852988692,
+        "bwd": 0.0035460992907801418,
+        "gap": 21.37926111111111,
+        "handover": 1.0,
+        "overlap": 0.058823529411764705,
+        "cases": 1,
+        "dur_a": 0.0,
+        "dur_b": 11.313904993104808
+      }
+    },
+    {
+      "pair": [
+        "O_Refused",
+        "A_Denied"
+      ],
+      "rejected_because": [
+        "only 1 occurrences (<30)",
+        "not a deterministic sequence: P(next='A_Denied'|'O_Refused')=0.00, P(prev='O_Refused'|'A_Denied')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Refused' through gateways reaches more than one task, so the merge would force 'A_Denied' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 1,
+        "fwd": 0.0010245901639344263,
+        "bwd": 0.0002664535038635758,
+        "gap": 0.027703333333333333,
+        "handover": 0.0,
+        "overlap": 0.9797979797979798,
+        "cases": 1,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "O_Sent (online only)"
+      ],
+      "rejected_because": [
+        "only 1 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Sent (online only)'|'O_Sent (mail and online)')=0.00, P(prev='O_Sent (mail and online)'|'O_Sent (online only)')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'O_Sent (online only)' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 1,
+        "fwd": 2.5197167838334972e-05,
+        "bwd": 0.0004935834155972359,
+        "gap": 0.011322222222222221,
+        "handover": 0.0,
+        "overlap": 0.8166666666666667,
+        "cases": 1,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (mail and online)",
+        "W_Assess potential fraud"
+      ],
+      "rejected_because": [
+        "only 1 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Assess potential fraud'|'O_Sent (mail and online)')=0.00, P(prev='O_Sent (mail and online)'|'W_Assess potential fraud')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (mail and online)' through gateways reaches more than one task, so the merge would force 'W_Assess potential fraud' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.9264043644426397,
+        "n": 1,
+        "fwd": 2.5197167838334972e-05,
+        "bwd": 0.0035460992907801418,
+        "gap": 142.4167463888889,
+        "handover": 1.0,
+        "overlap": 0.059322033898305086,
+        "cases": 1,
+        "dur_a": 0.0,
+        "dur_b": 11.313904993104808
+      }
+    },
+    {
+      "pair": [
+        "O_Sent (online only)",
+        "O_Sent (mail and online)"
+      ],
+      "rejected_because": [
+        "only 1 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Sent (mail and online)'|'O_Sent (online only)')=0.00, P(prev='O_Sent (online only)'|'O_Sent (mail and online)')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'O_Sent (online only)' through gateways reaches more than one task, so the merge would force 'O_Sent (mail and online)' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 1.0,
+        "n": 1,
+        "fwd": 0.0004965243296921549,
+        "bwd": 2.5184476288815575e-05,
+        "gap": 0.003608333333333333,
+        "handover": 0.0,
+        "overlap": 0.8166666666666667,
+        "cases": 1,
+        "dur_a": 0.0,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Assess potential fraud",
+        "A_Validating"
+      ],
+      "rejected_because": [
+        "only 1 occurrences (<30)",
+        "not a deterministic sequence: P(next='A_Validating'|'W_Assess potential fraud')=0.00, P(prev='W_Assess potential fraud'|'A_Validating')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Assess potential fraud' through gateways reaches more than one task, so the merge would force 'A_Validating' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.38704527695216634,
+        "n": 1,
+        "fwd": 0.0035460992907801418,
+        "bwd": 2.576257213520198e-05,
+        "gap": 7.144073333333334,
+        "handover": 1.0,
+        "overlap": 0.06153846153846154,
+        "cases": 1,
+        "dur_a": 11.313904993104808,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Assess potential fraud",
+        "O_Returned"
+      ],
+      "rejected_because": [
+        "only 1 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Returned'|'W_Assess potential fraud')=0.00, P(prev='W_Assess potential fraud'|'O_Returned')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Assess potential fraud' through gateways reaches more than one task, so the merge would force 'O_Returned' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.0016786628062757858,
+        "n": 1,
+        "fwd": 0.0035460992907801418,
+        "bwd": 4.290924694271615e-05,
+        "gap": 0.019024166666666665,
+        "handover": 1.0,
+        "overlap": 0.13725490196078433,
+        "cases": 1,
+        "dur_a": 11.313904993104808,
+        "dur_b": 0.0
+      }
+    },
+    {
+      "pair": [
+        "W_Call after offers",
+        "W_Validate application"
+      ],
+      "rejected_because": [
+        "only 1 occurrences (<30)",
+        "not a deterministic sequence: P(next='W_Validate application'|'W_Call after offers')=0.00, P(prev='W_Call after offers'|'W_Validate application')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Call after offers' through gateways reaches more than one task, so the merge would force 'W_Validate application' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 6.390698822243994e-07,
+        "n": 1,
+        "fwd": 0.0029239766081871343,
+        "bwd": 6.309944472488642e-05,
+        "gap": 2.222222222222222e-06,
+        "handover": 1.0,
+        "overlap": 0.4745762711864407,
+        "cases": 1,
+        "dur_a": 0.38627816358024686,
+        "dur_b": 3.090995392688878
+      }
+    },
+    {
+      "pair": [
+        "W_Validate application",
+        "O_Accepted"
+      ],
+      "rejected_because": [
+        "only 1 occurrences (<30)",
+        "not a deterministic sequence: P(next='O_Accepted'|'W_Validate application')=0.00, P(prev='W_Validate application'|'O_Accepted')=0.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'W_Validate application' through gateways reaches more than one task, so the merge would force 'O_Accepted' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.19153751312509482,
+        "n": 1,
+        "fwd": 6.309944472488642e-05,
+        "bwd": 5.8045042953331786e-05,
+        "gap": 0.7323055555555557,
+        "handover": 0.0,
+        "overlap": 0.43956043956043955,
+        "cases": 1,
+        "dur_a": 3.090995392688878,
+        "dur_b": 0.0
+      }
+    }
+  ]
+}

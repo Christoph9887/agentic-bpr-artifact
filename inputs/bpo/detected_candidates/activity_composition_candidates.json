@@ -1,0 +1,194 @@
+{
+  "heuristic": "Activity Composition",
+  "candidates": [],
+  "rejected": [
+    {
+      "pair": [
+        "diagnosis 2nd",
+        "repair"
+      ],
+      "rejected_because": [
+        "'repair' is also reachable from ['diagnosis 1st'], so merging it into 'diagnosis 2nd' would delete that work from every case that arrives the other way"
+      ]
+    },
+    {
+      "pair": [
+        "intake",
+        "diagnosis 1st"
+      ],
+      "rejected_because": [
+        "resource pools barely overlap (Jaccard 0.00) — no single resource performs both, so a composite task executed by one resource is not staffable"
+      ],
+      "stats": {
+        "share": 0.0,
+        "n": 3000,
+        "fwd": 1.0,
+        "bwd": 0.9762447120078099,
+        "gap": 0.0,
+        "handover": 1.0,
+        "overlap": 0.0,
+        "cases": 3000,
+        "dur_a": 11.937639912800371,
+        "dur_b": 12.038503342894293
+      }
+    },
+    {
+      "pair": [
+        "diagnosis 1st",
+        "repair"
+      ],
+      "rejected_because": [
+        "resource pools barely overlap (Jaccard 0.00) — no single resource performs both, so a composite task executed by one resource is not staffable",
+        "not composable in the baseline BPMN: walking forward from 'diagnosis 1st' through gateways reaches more than one task, so the merge would force 'repair' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.6877785026028481,
+        "n": 2753,
+        "fwd": 0.895867230719167,
+        "bwd": 0.9182788525683789,
+        "gap": 132.4630511501368,
+        "handover": 1.0,
+        "overlap": 0.0,
+        "cases": 2722,
+        "dur_a": 12.038503342894293,
+        "dur_b": 48.09395503342246
+      }
+    },
+    {
+      "pair": [
+        "repair",
+        "replace"
+      ],
+      "rejected_because": [
+        "resource pools barely overlap (Jaccard 0.00) — no single resource performs both, so a composite task executed by one resource is not staffable",
+        "not composable in the baseline BPMN: walking forward from 'repair' through gateways reaches more than one task, so the merge would force 'replace' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.0,
+        "n": 2572,
+        "fwd": 0.8579052701801201,
+        "bwd": 1.0,
+        "gap": 0.0,
+        "handover": 1.0,
+        "overlap": 0.0,
+        "cases": 2572,
+        "dur_a": 48.09395503342246,
+        "dur_b": 12.126480251625843
+      }
+    },
+    {
+      "pair": [
+        "repair",
+        "return"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='return'|'repair')=0.14, P(prev='repair'|'return')=0.85 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "resource pools barely overlap (Jaccard 0.00) — no single resource performs both, so a composite task executed by one resource is not staffable",
+        "not composable in the baseline BPMN: walking forward from 'repair' through gateways reaches more than one task, so the merge would force 'return' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.0,
+        "n": 426,
+        "fwd": 0.14209472981987992,
+        "bwd": 0.8502994011976048,
+        "gap": 0.0,
+        "handover": 1.0,
+        "overlap": 0.0,
+        "cases": 378,
+        "dur_a": 48.09395503342246,
+        "dur_b": 11.982212660051562
+      }
+    },
+    {
+      "pair": [
+        "diagnosis 1st",
+        "diagnosis 2nd"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='diagnosis 2nd'|'diagnosis 1st')=0.10, P(prev='diagnosis 1st'|'diagnosis 2nd')=1.00 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "resource pools barely overlap (Jaccard 0.00) — no single resource performs both, so a composite task executed by one resource is not staffable",
+        "not composable in the baseline BPMN: walking forward from 'diagnosis 1st' through gateways reaches more than one task, so the merge would force 'diagnosis 2nd' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.04569346785875093,
+        "n": 320,
+        "fwd": 0.10413276928083307,
+        "bwd": 1.0,
+        "gap": 1.166476223206597,
+        "handover": 1.0,
+        "overlap": 0.0,
+        "cases": 278,
+        "dur_a": 12.038503342894293,
+        "dur_b": 12.32331316082552
+      }
+    },
+    {
+      "pair": [
+        "diagnosis 2nd",
+        "repair"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='repair'|'diagnosis 2nd')=0.77, P(prev='diagnosis 2nd'|'repair')=0.08 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "not composable in the baseline BPMN: walking forward from 'diagnosis 2nd' through gateways reaches more than one task, so the merge would force 'repair' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.6885428420438731,
+        "n": 245,
+        "fwd": 0.765625,
+        "bwd": 0.08172114743162108,
+        "gap": 133.56532829100792,
+        "handover": 0.9795918367346939,
+        "overlap": 0.95,
+        "cases": 228,
+        "dur_a": 12.32331316082552,
+        "dur_b": 48.09395503342246
+      }
+    },
+    {
+      "pair": [
+        "diagnosis 2nd",
+        "return"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='return'|'diagnosis 2nd')=0.23, P(prev='diagnosis 2nd'|'return')=0.15 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "resource pools barely overlap (Jaccard 0.00) — no single resource performs both, so a composite task executed by one resource is not staffable",
+        "not composable in the baseline BPMN: walking forward from 'diagnosis 2nd' through gateways reaches more than one task, so the merge would force 'return' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.0,
+        "n": 75,
+        "fwd": 0.234375,
+        "bwd": 0.1497005988023952,
+        "gap": 0.0,
+        "handover": 1.0,
+        "overlap": 0.0,
+        "cases": 58,
+        "dur_a": 12.32331316082552,
+        "dur_b": 11.982212660051562
+      }
+    },
+    {
+      "pair": [
+        "return",
+        "diagnosis 1st"
+      ],
+      "rejected_because": [
+        "not a deterministic sequence: P(next='diagnosis 1st'|'return')=1.00, P(prev='return'|'diagnosis 1st')=0.02 — merging a pair that only sometimes runs together would force work into cases that skip it",
+        "resource pools barely overlap (Jaccard 0.00) — no single resource performs both, so a composite task executed by one resource is not staffable",
+        "not composable in the baseline BPMN: walking forward from 'return' through gateways reaches more than one task, so the merge would force 'diagnosis 1st' onto cases that take another branch"
+      ],
+      "stats": {
+        "share": 0.0,
+        "n": 73,
+        "fwd": 1.0,
+        "bwd": 0.023755287992190042,
+        "gap": 0.0,
+        "handover": 1.0,
+        "overlap": 0.0,
+        "cases": 55,
+        "dur_a": 11.982212660051562,
+        "dur_b": 12.038503342894293
+      }
+    }
+  ]
+}

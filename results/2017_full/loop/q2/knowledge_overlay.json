@@ -1,0 +1,330 @@
+{
+  "note": "Learned layer over foundation's HI-Graph. foundation is the literature prior and is never edited; everything here was produced by measurement inside the loop.",
+  "contradictions": [
+    {
+      "id": "C1-1",
+      "round": 1,
+      "kind": "impact_wrong",
+      "subject": [
+        "Case Assignment"
+      ],
+      "prior_said": "Case Assignment has a weak positive impact on time.",
+      "measured_said": "The measured time effect was mixed to harmful: CA-001 worsened throughput and waiting, while CA-002 was flat and CA-004 had no throughput improvement.",
+      "evidence": [
+        "CA-001 sole-owned activity worsened by 0.5005 h/case, z=7.87",
+        "CA-001 increased A_Incomplete waiting, z=5.83, and A_Validating waiting, z=9.69",
+        "CA-002 throughput was nonsignificant and CA-004 sole-owned throughput was nonsignificant"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "The prior's positive time direction is not reliable for this measured case-assignment pattern; resource-pool merging can create contention that dominates handover savings.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-2",
+      "round": 1,
+      "kind": "impact_wrong",
+      "subject": [
+        "Contact Reduction"
+      ],
+      "prior_said": "Contact Reduction has a strong positive impact on time.",
+      "measured_said": "CR-002 made simulated throughput and waiting worse despite the separately reported exogenous log estimate.",
+      "evidence": [
+        "CR-002 O_Sent waiting worsened, z=3.54",
+        "CR-002 throughput worsened by 0.0071 h/case, z=3.50",
+        "The log separately estimates 9.9686 h/case of exogenous saving, which was not netted into the simulated ranking"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "The exogenous saving remains a reported estimate, but it does not support the simulated time-direction prior for CR-002.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-3",
+      "round": 1,
+      "kind": "impact_wrong",
+      "subject": [
+        "Specialize"
+      ],
+      "prior_said": "Specialize has a weak positive impact on time because faster performers reduce service time.",
+      "measured_said": "Specialization was harmful in the built model because the smaller resource pool increased shared waiting; removing SPC-001 improved the affected activity.",
+      "evidence": [
+        "Removing SPC-001 changed W_Complete application waiting from +0.9644 to -0.0266 h/case, z=-3.56",
+        "Phase-3 verdict for SPC-001 was hurt",
+        "The detector's service-time saving was 0.2632 h per occurrence, but the simulation measured queueing harm"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "Service-time improvement alone does not justify a positive overall time prior when specialization changes queueing.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-4",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Activity Composition"
+      ],
+      "prior_said": "Activity Composition has a weak positive impact on time.",
+      "measured_said": "The built activity-composition edits helped throughput without significant resource movement.",
+      "evidence": [
+        "AC-001 improved sole-owned activity hours by 1.4354 h/case, z=-107.85",
+        "AC-002 improved sole-owned activity hours by 0.4324 h/case, z=-60.34",
+        "Both Phase-3 candidates were measured as helped"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The time-direction prior held up.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-5",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Activity Elimination"
+      ],
+      "prior_said": "Activity Elimination has a strong positive impact on time.",
+      "measured_said": "Removing W_Handle leads improved the attributable activity-time measure.",
+      "evidence": [
+        "AE-002 improved sole-owned activity hours by 0.1783 h/case, z=-42.8",
+        "AE-002 Phase-3 verdict was helped"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The strong positive time prior held up.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-6",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Case-based Work"
+      ],
+      "prior_said": "Case-based Work has a strong positive impact on time by removing batching delays.",
+      "measured_said": "The built case-based-work edits improved waiting and, for CBW-002, throughput and duration as well.",
+      "evidence": [
+        "CBW-002 waiting improved, z=-6.35",
+        "CBW-002 duration improved, z=-3.44",
+        "CBW-002 sole-owned throughput improved, z=-4.86",
+        "CBW-001 confirmation run improved W_Complete application waiting, z=-3.56"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The positive time prior was supported by multiple built candidates.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-7",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Contact Reduction",
+        "Interfacing"
+      ],
+      "prior_said": "Contact Reduction and Interfacing are a hard conflict when they affect the same activity.",
+      "measured_said": "The condition fired on O_Sent (online only); CR-002 was built and IF-001 was skipped because the gateway had already been re-rated.",
+      "evidence": [
+        "get_pair_relation reported HARD_CONFLICT with condition_fires=true and shared activity O_Sent (online only)",
+        "Phase-3 built CR-002",
+        "Phase-3 skipped IF-001 because CR-002 had already re-rated the same gateway"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The hard structural conflict was not refuted; both edits were not built together.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-1",
+      "round": 2,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Case-based Work"
+      ],
+      "prior_said": "Case-based work has a strong positive time impact.",
+      "measured_said": "Case-based work improved throughput when individually attributable, while covered candidates did not show individually separable effects.",
+      "evidence": [
+        "CBW-002 improved throughput by 0.3139 h/case with z=-5.05.",
+        "The whole plan improved median throughput with z=-5.07.",
+        "Phase-3 built CBW-001, CBW-002, and CBW-003 successfully."
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The time prior held up; attribution remains limited for CBW-001 and CBW-003.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-2",
+      "round": 2,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Activity Composition"
+      ],
+      "prior_said": "Activity composition has a weak positive time impact.",
+      "measured_said": "Both composition candidates were helped, with individually attributable throughput improvement.",
+      "evidence": [
+        "AC-001 footprint-owned activity hours improved by 1.4354 h/case with z=-107.85.",
+        "AC-002 own A_Pending measure improved by 0.0388 h/case with z=-14.22.",
+        "Phase-3 built AC-001 and AC-002 successfully."
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The measured results support the weak positive time prior.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-3",
+      "round": 2,
+      "kind": "impact_wrong",
+      "subject": [
+        "Case Assignment"
+      ],
+      "prior_said": "Case Assignment has a weak positive time impact.",
+      "measured_said": "The time effect was mixed: CA-001 caused significant harm, CA-002 caused contention, and CA-004 improved waiting.",
+      "evidence": [
+        "CA-001 sole-owner throughput worsened with z=5.69 and A_Validating waiting worsened with z=7.94.",
+        "CA-002 A_Concept waiting worsened with z=6.04.",
+        "CA-004 improved footprint-owned waiting with z=-11.40 and z=-3.01."
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "Revise the generic time impact from weak_positive to neutral or explicitly heterogeneous; case assignment is not reliably time-improving.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-4",
+      "round": 2,
+      "kind": "impact_wrong",
+      "subject": [
+        "Contact Reduction"
+      ],
+      "prior_said": "Contact Reduction has a strong positive time impact.",
+      "measured_said": "Both contact-reduction candidates worsened simulated operational measures, although the log separately estimates exogenous waiting savings.",
+      "evidence": [
+        "CR-001 O_Cancelled waiting still rose with z=3.82.",
+        "CR-002 O_Sent waiting worsened with z=3.26 and throughput worsened with z=3.27.",
+        "The whole-plan throughput improved with z=-5.07, but the candidate-level CR-002 result was independently harmful and its 9.9686 h/case estimate is not simulated."
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "Revise simulated time impact from strong_positive to neutral or weak_negative; retain the exogenous log estimates as separately reported evidence, not as a ranking input.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-5",
+      "round": 2,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Case Assignment",
+        "Contact Reduction"
+      ],
+      "prior_said": "The pair has a weak conflict when both edits affect a shared activity.",
+      "measured_said": "The condition fired on O_Cancelled, Phase-3 built both edits, and shared activity contention was measured.",
+      "evidence": [
+        "get_pair_relation reported WEAK_CONFLICT with condition_fires=true and shared activity O_Cancelled.",
+        "Phase-3 built CA-001 and CR-001 successfully, so no hard incompatibility was observed.",
+        "O_Cancelled waiting rose by 0.198 h/case with z=22.52."
+      ],
+      "action": "note_only",
+      "confidence": "attributed",
+      "note": "The weak-conflict relation was supported; the successful build rules out upgrading it to a hard conflict.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C3-1",
+      "round": 3,
+      "kind": "impact_wrong",
+      "subject": [
+        "Case Assignment"
+      ],
+      "prior_said": "Case Assignment has a weak-positive time impact because assigning a case to one resource reduces handover overhead.",
+      "measured_said": "The measured time effect was harmful or contended: CA-002 increased A_Concept waiting and worsened W_Complete application waiting and duration, while CA-004 increased O_Returned waiting.",
+      "evidence": [
+        "CA-002 A_Concept waiting increased with z=7.76",
+        "CA-002 W_Complete application waiting worsened with z=4.40 and duration with z=4.17",
+        "CA-004 O_Returned waiting increased with z=3.73",
+        "Phase-3 built both CA-002 and CA-004 successfully"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "Revise the time impact away from weak-positive toward mixed or uncertain; the evidence supports contention and queueing harm rather than the predicted improvement.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C3-2",
+      "round": 3,
+      "kind": "impact_wrong",
+      "subject": [
+        "Contact Reduction"
+      ],
+      "prior_said": "Contact Reduction has a strong-positive time impact because consolidating contacts removes repeated wall-clock waiting.",
+      "measured_said": "The simulated operational effect was not consistently positive: CR-001 increased O_Cancelled waiting and produced a small throughput worsening, while CR-002 was flat on throughput; the separately estimated exogenous savings are not simulated evidence.",
+      "evidence": [
+        "CR-001 O_Cancelled waiting increased with z=4.29",
+        "CR-001 throughput increased by +0.019 h/case with z=2.83, indicating a small nonsignificant worsening",
+        "CR-002 throughput was flat and resources improved",
+        "Phase-3 built CR-001 and CR-002 successfully"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "Revise the simulated time impact from strong-positive toward mixed or uncertain. Retain the log-based exogenous savings as a separate reported estimate, not as evidence that the simulator measured improvement.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C3-3",
+      "round": 3,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Activity Composition"
+      ],
+      "prior_said": "Activity Composition has a weak-positive time impact because merging consecutive activities removes a seam or handover.",
+      "measured_said": "Both Activity Composition candidates improved measured throughput without resource deterioration.",
+      "evidence": [
+        "AC-001 edited activities improved by -1.4354 h/case with z=-107.85",
+        "AC-002 A_Pending improved by -0.0388 h/case with z=-14.22",
+        "Phase-3 built AC-001 and AC-002 successfully"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The time-direction prior held up, although the aggregate plan effect remains modest and other dimensions were not directly established.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C3-4",
+      "round": 3,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Case-based Work"
+      ],
+      "prior_said": "Case-based Work has a strong-positive time impact because switching from batch to case-by-case processing removes queueing delays.",
+      "measured_said": "The measured evidence is directionally compatible: the plan significantly reduced waiting, and the Case-based Work edit shared an improvement on O_Accepted, though marginal causation was not proven.",
+      "evidence": [
+        "Whole-plan waiting decreased by 0.4879 h/case with z=-5.95",
+        "CBW-003 shared an O_Accepted improvement of -0.3935 h/case",
+        "Phase-3 built CBW-003 successfully",
+        "CBW-003's batch component was measured with z=40.2 in the log evidence"
+      ],
+      "action": "note_only",
+      "confidence": "attributed",
+      "note": "The prior is supported directionally but not isolated causally from AC-002, so no stronger update is warranted.",
+      "accepted": true,
+      "refused_reason": ""
+    }
+  ]
+}

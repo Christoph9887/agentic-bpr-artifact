@@ -1,0 +1,439 @@
+{
+  "round": 1,
+  "enforced": true,
+  "plan_in": [
+    "AE-001",
+    "CA-001",
+    "CBW-001",
+    "CT-001",
+    "EXC-002",
+    "EXC-001",
+    "XR-001",
+    "NI-001",
+    "NI-002",
+    "NI-003",
+    "NI-004",
+    "NI-005",
+    "NI-006"
+  ],
+  "plan_out": [
+    "CA-001",
+    "CBW-001",
+    "CT-001",
+    "EXC-002",
+    "EXC-001",
+    "XR-001",
+    "NI-001",
+    "NI-002",
+    "NI-003",
+    "NI-004",
+    "NI-005",
+    "NI-006"
+  ],
+  "compliance": [
+    {
+      "activity": "diagnosis 2nd",
+      "deleted_by": "AE-001",
+      "verdict": "must_not_delete",
+      "confidence": "hypothesized",
+      "reason": "As a prior judgment from the activity name alone, a second diagnosis plausibly carries diagnostic, patient-safety, audit, or consumer-protection obligations; I may be wrong because no industry or jurisdiction is provided."
+    }
+  ],
+  "rulings": [
+    {
+      "candidate_id": "AE-001",
+      "ruling": "prune",
+      "basis": "compliance",
+      "reason": "Its sole target, diagnosis 2nd, is subject to a must-not-delete compliance constraint."
+    },
+    {
+      "candidate_id": "CA-001",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "Diagnosis 2nd was removed by AE-001, but diagnosis 1st, repair, replace, and return survive, so the candidate retains part of its function."
+    },
+    {
+      "candidate_id": "CBW-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its repair target survives intact."
+    },
+    {
+      "candidate_id": "CT-001",
+      "ruling": "prune",
+      "basis": "nullified",
+      "reason": "Its only target, diagnosis 2nd, is removed by AE-001, leaving it unable to do anything in the stated order."
+    },
+    {
+      "candidate_id": "EXC-002",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Both repair and return survive when this candidate is applied."
+    },
+    {
+      "candidate_id": "EXC-001",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "Diagnosis 2nd and return are removed by earlier candidates, but diagnosis 1st survives, so the candidate retains a live target."
+    },
+    {
+      "candidate_id": "XR-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its repair target survives intact."
+    },
+    {
+      "candidate_id": "NI-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Diagnosis 1st, intake, and repair all survive intact."
+    },
+    {
+      "candidate_id": "NI-002",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "Diagnosis 2nd is removed by AE-001 and EXC-001, but diagnosis 1st and repair survive."
+    },
+    {
+      "candidate_id": "NI-003",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Diagnosis 1st and intake both survive intact."
+    },
+    {
+      "candidate_id": "NI-004",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Diagnosis 1st, repair, and replace all survive intact."
+    },
+    {
+      "candidate_id": "NI-005",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Repair and replace both survive intact."
+    },
+    {
+      "candidate_id": "NI-006",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "Diagnosis 2nd and return are removed by earlier candidates, but repair survives and remains a live target."
+    }
+  ],
+  "pruned": [
+    "AE-001"
+  ],
+  "blocked": [
+    "AE-001"
+  ],
+  "reorder_suggestion": [
+    "CT-001",
+    "AE-001",
+    "CA-001",
+    "CBW-001",
+    "EXC-002",
+    "EXC-001",
+    "XR-001",
+    "NI-001",
+    "NI-002",
+    "NI-003",
+    "NI-004",
+    "NI-005",
+    "NI-006"
+  ],
+  "survival": {
+    "AE-001": {
+      "candidate_id": "AE-001",
+      "heuristic": "Activity Elimination",
+      "targets": [
+        "diagnosis 2nd"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-001"
+      ],
+      "surviving": [
+        "diagnosis 2nd"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CA-001": {
+      "candidate_id": "CA-001",
+      "heuristic": "Case Assignment",
+      "targets": [
+        "diagnosis 1st",
+        "diagnosis 2nd",
+        "repair",
+        "replace",
+        "return"
+      ],
+      "removed_by_earlier_candidate": [
+        "diagnosis 2nd"
+      ],
+      "removed_by_earlier": [
+        "AE-001"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002"
+      ],
+      "surviving": [
+        "diagnosis 1st",
+        "repair",
+        "replace",
+        "return"
+      ],
+      "fraction_surviving": 0.8,
+      "signal": "some_targets_removed"
+    },
+    "CBW-001": {
+      "candidate_id": "CBW-001",
+      "heuristic": "Case-based Work",
+      "targets": [
+        "repair"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "repair"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CT-001": {
+      "candidate_id": "CT-001",
+      "heuristic": "Case Types",
+      "targets": [
+        "diagnosis 2nd"
+      ],
+      "removed_by_earlier_candidate": [
+        "diagnosis 2nd"
+      ],
+      "removed_by_earlier": [
+        "AE-001"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-001"
+      ],
+      "surviving": [],
+      "fraction_surviving": 0.0,
+      "signal": "all_targets_removed"
+    },
+    "EXC-002": {
+      "candidate_id": "EXC-002",
+      "heuristic": "Exception",
+      "targets": [
+        "repair",
+        "return"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-001"
+      ],
+      "surviving": [
+        "repair",
+        "return"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "EXC-001": {
+      "candidate_id": "EXC-001",
+      "heuristic": "Exception",
+      "targets": [
+        "diagnosis 1st",
+        "diagnosis 2nd",
+        "return"
+      ],
+      "removed_by_earlier_candidate": [
+        "diagnosis 2nd",
+        "return"
+      ],
+      "removed_by_earlier": [
+        "AE-001",
+        "EXC-002"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-002"
+      ],
+      "surviving": [
+        "diagnosis 1st"
+      ],
+      "fraction_surviving": 0.3333333333333333,
+      "signal": "some_targets_removed"
+    },
+    "XR-001": {
+      "candidate_id": "XR-001",
+      "heuristic": "Extra Resources",
+      "targets": [
+        "repair"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "repair"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "NI-001": {
+      "candidate_id": "NI-001",
+      "heuristic": "Numerical Involvement",
+      "targets": [
+        "diagnosis 1st",
+        "intake",
+        "repair"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "diagnosis 1st",
+        "intake",
+        "repair"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "NI-002": {
+      "candidate_id": "NI-002",
+      "heuristic": "Numerical Involvement",
+      "targets": [
+        "diagnosis 1st",
+        "diagnosis 2nd",
+        "repair"
+      ],
+      "removed_by_earlier_candidate": [
+        "diagnosis 2nd"
+      ],
+      "removed_by_earlier": [
+        "AE-001",
+        "EXC-001"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-001"
+      ],
+      "surviving": [
+        "diagnosis 1st",
+        "repair"
+      ],
+      "fraction_surviving": 0.6666666666666666,
+      "signal": "some_targets_removed"
+    },
+    "NI-003": {
+      "candidate_id": "NI-003",
+      "heuristic": "Numerical Involvement",
+      "targets": [
+        "diagnosis 1st",
+        "intake"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "diagnosis 1st",
+        "intake"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "NI-004": {
+      "candidate_id": "NI-004",
+      "heuristic": "Numerical Involvement",
+      "targets": [
+        "diagnosis 1st",
+        "repair",
+        "replace"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "diagnosis 1st",
+        "repair",
+        "replace"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "NI-005": {
+      "candidate_id": "NI-005",
+      "heuristic": "Numerical Involvement",
+      "targets": [
+        "repair",
+        "replace"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "repair",
+        "replace"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "NI-006": {
+      "candidate_id": "NI-006",
+      "heuristic": "Numerical Involvement",
+      "targets": [
+        "diagnosis 2nd",
+        "repair",
+        "return"
+      ],
+      "removed_by_earlier_candidate": [
+        "diagnosis 2nd",
+        "return"
+      ],
+      "removed_by_earlier": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002"
+      ],
+      "surviving": [
+        "repair"
+      ],
+      "fraction_surviving": 0.3333333333333333,
+      "signal": "some_targets_removed"
+    }
+  },
+  "note": "The compliance ruling is a cautious prior judgment from names alone, not a measurement-based conclusion; I may be wrong without industry and jurisdiction context. Moving CT-001 first revives its target, but does not make AE-001 compliant.",
+  "rollback_note": "['CT-001'] were pruned as having no surviving target, but every candidate that would have removed those targets will not run (compliance-blocked, or refused by the build step), so the targets survive and they were given back",
+  "halted": false,
+  "grounding": [
+    "knowledge.check_target_survival({\"candidate_id\": \"AE-001\", \"ordering\": [\"AE-001\", \"CA-001\", \"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CA-001\", \"ordering\": [\"AE-001\", \"CA-001\", \"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CBW-001\", \"ordering\": [\"AE-001\", \"CA-001\", \"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CT-001\", \"ordering\": [\"AE-001\", \"CA-001\", \"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-002\", \"ordering\": [\"AE-001\", \"CA-001\", \"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-001\", \"ordering\": [\"AE-001\", \"CA-001\", \"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"XR-001\", \"ordering\": [\"AE-001\", \"CA-001\", \"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"NI-001\", \"ordering\": [\"AE-001\", \"CA-001\", \"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"NI-002\", \"ordering\": [\"AE-001\", \"CA-001\", \"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"NI-003\", \"ordering\": [\"AE-001\", \"CA-001\", \"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"NI-004\", \"ordering\": [\"AE-001\", \"CA-001\", \"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"NI-005\", \"ordering\": [\"AE-001\", \"CA-001\", \"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"NI-006\", \"ordering\": [\"AE-001\", \"CA-001\", \"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CT-001\", \"ordering\": [\"CT-001\", \"AE-001\", \"CA-001\", \"CBW-001\", \"EXC-002\", \"EXC-001\", \"XR-001\", \"NI-001\", \"NI-002\", \"NI-003\", \"NI-004\", \"NI-005\", \"NI-006\"]})"
+  ],
+  "deleter_probes": {
+    "AE-001": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    }
+  }
+}

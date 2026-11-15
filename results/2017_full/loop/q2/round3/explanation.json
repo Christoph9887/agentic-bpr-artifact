@@ -1,0 +1,565 @@
+{
+  "round": 3,
+  "stage": "proposed",
+  "plan_spillover": {
+    "h_per_case": 1.4567,
+    "z": 19.97,
+    "significant": true,
+    "charged_to": null,
+    "activities": [
+      "O_Create Offer + O_Created",
+      "O_Accepted + A_Pending",
+      "A_Validating",
+      "O_Sent (mail and online)",
+      "A_Incomplete",
+      "A_Create Application",
+      "A_Complete",
+      "W_Handle leads"
+    ],
+    "note": "Change on activities no applied candidate touches — queueing spillover. More than one candidate was applied, so this cannot be split between them without inventing a share; it belongs to the plan, not to any one candidate."
+  },
+  "accounting": {
+    "available": true,
+    "activity_hours_h_per_case": -0.4754,
+    "explained_by_candidates_h_per_case": -0.0817,
+    "activity_hours_unexplained": -0.3937,
+    "activity_hours_unexplained_share": 0.828,
+    "contested_activities": [
+      {
+        "activity": "O_Accepted",
+        "h_per_case": -0.3935,
+        "claimants": [
+          "AC-002",
+          "CBW-003"
+        ],
+        "mechanism_direction": {
+          "activity": "O_Accepted",
+          "measured": "the wait FELL (-0.3935 h per case)",
+          "compatible_with_the_measured_sign": [
+            "CBW-003"
+          ],
+          "ruled_out_by_mechanism": [
+            "AC-002"
+          ],
+          "per_claimant": [
+            {
+              "candidate": "AC-002",
+              "direction": "up",
+              "evidence": "assigned_tasks_removed=125"
+            },
+            {
+              "candidate": "CBW-003",
+              "direction": "down",
+              "evidence": "batch_component_h_removed=1.1218"
+            }
+          ],
+          "note": "the account cannot attribute a shared activity to one candidate, but a transformation that can only push this wait the OTHER way cannot be the source of what was measured. This is the handlers' own reports plus the measured sign -- no isolation was run, and nothing is decided here."
+        }
+      }
+    ],
+    "applied_candidates_owning_no_activity": [],
+    "applied_candidates_that_changed_routing_or_waiting": {
+      "AC-001": {
+        "timers_removed": 1
+      },
+      "CBW-002": {
+        "batch_component_h_removed": 14.0371
+      },
+      "CBW-003": {
+        "batch_component_h_removed": 1.1218
+      },
+      "CR-001": {
+        "loop_probability_reduced": 0.0626
+      },
+      "CR-002": {
+        "loop_probability_reduced": 0.024
+      }
+    },
+    "case_span_h_per_case": -10.1976,
+    "case_span_not_visible_to_any_column": -9.7222,
+    "note": "The columns measure ACTIVITY HOURS; the loop ranks on CASE SPAN. `case_span_not_visible_to_any_column` is the part of the span change that no per-activity column can show — time the case spends with nothing running (fitted extraneous-delay timers, routing that sends cases down longer paths). When it is large, a candidate in `applied_candidates_that_changed_routing_or_waiting` or `applied_candidates_owning_no_activity` may be driving the KPI while reading as 'nothing attributable to it alone'. A fact, not an accusation: settling it is what a confirmation simulation is for.",
+    "case_span_median_delta": -10.5867,
+    "case_span_mean_delta": -10.1976,
+    "median_and_mean_disagree_in_sign": false
+  },
+  "plan_before": [
+    "CBW-003",
+    "AC-001",
+    "AC-002",
+    "CA-002",
+    "CA-004",
+    "CBW-002",
+    "CR-001",
+    "CR-002"
+  ],
+  "plan_after": [
+    "CBW-003",
+    "AC-001",
+    "AC-002",
+    "CA-002",
+    "CBW-002",
+    "CR-001",
+    "CR-002"
+  ],
+  "kept": [
+    {
+      "candidate": "CBW-003",
+      "heuristic": "Case-based Work",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['O_Accepted'] with ['AC-002'] — that part is attributable to neither (-0.394 h per case left unassigned)",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (batch_component_h_removed=1.1218), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice.",
+        "attribution_settled_by": [
+          "'O_Accepted': AC-002 was measured alone at -0.394 h/case in round 1",
+          "'O_Accepted': AC-002 was measured alone at -0.394 h/case in round 1c"
+        ]
+      },
+      "what_the_handler_did": {
+        "channel": "extraneous_delay_batch_share",
+        "timers_removed": 0,
+        "batch_component_h_removed": 1.1218,
+        "share_of_timer_removed": 1.0,
+        "rules_removed": 0,
+        "note": "scaled the extraneous-delay timer in front of 'O_Accepted' by 0.0000: 1.12 h -> 0.00 h per occurrence. Only the batching share is removed (100.0% of the timer, from a 73.2092 h gap between batched and non-batched executions at z=40.2); the rest of the wait is left in place because this heuristic does not claim it."
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "Its only measured activity, O_Accepted, improved by -0.3935 h/case but is shared with AC-002; the batch-delay edit is directionally compatible, but marginal causation is not proven.",
+      "critic_evidence_ref": "activity.O_Accepted",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "flat",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_kept": "Kept because its case-by-case edit is covered rather than disproven, is compatible with the measured -0.3935 h/case O_Accepted improvement, and carries an exogenous batch-delay saving.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "AC-001",
+      "heuristic": "Activity Composition",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -1.4354,
+        "throughput_sd": 0.0595,
+        "throughput_z": -107.85,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -1.435 h per case (z=-107.8)",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (timers_removed=1), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice."
+      },
+      "what_the_handler_did": {
+        "timers_removed": 1,
+        "timer_h_removed_per_occurrence": 0.0,
+        "composite_name": "O_Create Offer + O_Created",
+        "distributions_folded": 130,
+        "distributions_carried_over": 0,
+        "assigned_tasks_removed": 130,
+        "assigned_tasks_added": 0,
+        "setup_saving_assumed_h": 0.0
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Its edited activities improved by -1.4354 h/case in throughput (z=-107.85), consistent with the timer removal in its footprint.",
+      "critic_evidence_ref": "footprint.AC-001",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "flat",
+        "throughput": "better"
+      },
+      "why_kept": "Kept because it was helped in all three measured rounds, producing a significant -1.4354 h/case throughput contribution.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "AC-002",
+      "heuristic": "Activity Composition",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.0388,
+        "throughput_sd": 0.0122,
+        "throughput_z": -14.22,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -0.039 h per case (z=-14.2)",
+        "attribution_caveat": "shares ['O_Accepted'] with ['CBW-003'] — that part is attributable to neither (-0.394 h per case left unassigned)",
+        "attribution_settled_by": [
+          "'O_Accepted': AC-002 was measured alone at -0.394 h/case in round 1",
+          "'O_Accepted': AC-002 was measured alone at -0.394 h/case in round 1c"
+        ]
+      },
+      "what_the_handler_did": {
+        "timers_removed": 0,
+        "timer_h_removed_per_occurrence": 0.0,
+        "composite_name": "O_Accepted + A_Pending",
+        "distributions_folded": 125,
+        "distributions_carried_over": 0,
+        "assigned_tasks_removed": 125,
+        "assigned_tasks_added": 0,
+        "setup_saving_assumed_h": 0.0
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "A_Pending improved by -0.0388 h/case (z=-14.22), while the additional -0.3935 h/case on O_Accepted is shared with CBW-003.",
+      "critic_evidence_ref": "activity.A_Pending",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "flat",
+        "throughput": "better"
+      },
+      "why_kept": "Kept because it was helped in all three measured rounds, including a significant -0.0388 h/case sole-account contribution on A_Pending.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "CA-002",
+      "heuristic": "Case Assignment",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.1242,
+        "throughput_sd": 0.1516,
+        "throughput_z": 3.66,
+        "throughput_significant": true,
+        "waiting": [
+          "A_Concept z=+5.5",
+          "W_Complete application z=+4.9"
+        ],
+        "duration": [
+          "W_Complete application z=+4.0"
+        ],
+        "resources_significant": 1,
+        "summary": "0 improved / 3 worsened activity measures; +0.124 h per case (z=+3.7)"
+      },
+      "what_the_handler_did": {
+        "strategy": "intersection",
+        "resources_removed": 5,
+        "task_resources_added": 0,
+        "ca_pool_resource_count": 128,
+        "assigned_tasks_removed": 5,
+        "assigned_tasks_added": 0,
+        "expected_continuity_before": 0.0076,
+        "expected_continuity_after": 0.0078,
+        "concentration": 0.977,
+        "delivery_note": "with 128 resources eligible for every target, two consecutive steps land on the same person about 0.8% of the time, against 0.8% before. Case Assignment has no other way to deliver continuity here: Prosimos picks by earliest availability and does not remember who handled the previous step.",
+        "note": "the target activities are now performed by one shared pool of 128; with k eligible resources, consecutive steps land on the same person with probability ~1/k, which is how this simulator can express 'the same worker continues the case'"
+      },
+      "critic_verdict": "hurt",
+      "critic_confidence": "measured",
+      "critic_note": "A_Concept waiting rose with z=7.76 and W_Complete application worsened in both waiting (z=4.40) and duration (z=4.17), indicating both queueing and slower work.",
+      "critic_evidence_ref": "activity.W_Complete application",
+      "critic_dimensions": {
+        "waiting": "worse",
+        "duration": "worse",
+        "resources": "shared",
+        "throughput": "flat"
+      },
+      "why_kept": "Kept because the directive explicitly keeps it, despite its significant +0.1242 h/case net harm in round 3 and significant waiting and duration worsening.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "CBW-002",
+      "heuristic": "Case-based Work",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.2637,
+        "throughput_sd": 0.2879,
+        "throughput_z": -4.1,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [
+          "W_Validate application z=-3.1"
+        ],
+        "resources_significant": 1,
+        "summary": "1 improved / 0 worsened activity measures; -0.264 h per case (z=-4.1)",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (batch_component_h_removed=14.0371), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice."
+      },
+      "what_the_handler_did": {
+        "channel": "extraneous_delay_batch_share",
+        "timers_removed": 0,
+        "batch_component_h_removed": 14.0371,
+        "share_of_timer_removed": 0.0743,
+        "rules_removed": 0,
+        "note": "scaled the extraneous-delay timer in front of 'W_Validate application' by 0.9257: 189.02 h -> 174.98 h per occurrence. Only the batching share is removed (7.4% of the timer, from a 30.7861 h gap between batched and non-batched executions at z=13.74); the rest of the wait is left in place because this heuristic does not claim it."
+      },
+      "critic_verdict": null,
+      "critic_confidence": null,
+      "critic_note": null,
+      "critic_evidence_ref": null,
+      "critic_dimensions": {},
+      "why_kept": "Kept to satisfy the directive's add target because its measured history is strongly favorable, including a significant -0.264 h/case throughput result in round 3.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "CR-001",
+      "heuristic": "Contact Reduction",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0156,
+        "throughput_sd": 0.0289,
+        "throughput_z": 2.42,
+        "throughput_significant": false,
+        "waiting": [
+          "O_Cancelled z=+3.9"
+        ],
+        "duration": [],
+        "resources_significant": 2,
+        "summary": "0 improved / 1 worsened activity measures; +0.016 h per case — NOT significant (+/-0.029), do not read as an effect",
+        "exogenous_saving": "the log says it also removes 34.641 h per occurrence (waiting_time_before) — consolidating the exchange removes the idle wait after every repeat contact beyond the first. The simulator cannot see this, so none of the columns above contain it; it is an estimate, not a measurement.",
+        "exogenous_conflict": "the simulator measured this candidate making things WORSE (+0.016 h/case attributable) while the log says it also removes 34.641 h per occurrence of waiting_time_before. Both are real; they are not additive and neither cancels the other. Decide on the measured column and REPORT the estimate — do not net them off."
+      },
+      "what_the_handler_did": {
+        "loop_probability_reduced": 0.0626
+      },
+      "critic_verdict": "hurt",
+      "critic_confidence": "measured",
+      "critic_note": "O_Cancelled waiting increased with z=4.29 and the simulator measured a small nonsignificant throughput increase (+0.019 h/case, z=2.83), while the log separately estimates 21.6158 h/case of exogenous saving.",
+      "critic_evidence_ref": "activity.O_Cancelled",
+      "critic_dimensions": {
+        "waiting": "worse",
+        "duration": "n/a",
+        "resources": "shared",
+        "throughput": "flat"
+      },
+      "why_kept": "Kept because the directive explicitly keeps it, despite its +0.0156 h/case measured net cost and significant O_Cancelled waiting increase; its exogenous saving remains an estimate rather than measured evidence.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "CR-002",
+      "heuristic": "Contact Reduction",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.004,
+        "throughput_sd": 0.0079,
+        "throughput_z": 2.26,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 3,
+        "summary": "0 improved / 0 worsened activity measures; +0.004 h per case — NOT significant (+/-0.008), do not read as an effect",
+        "exogenous_saving": "the log says it also removes 131.165 h per occurrence (waiting_time_before) — consolidating the exchange removes the idle wait after every repeat contact beyond the first. The simulator cannot see this, so none of the columns above contain it; it is an estimate, not a measurement.",
+        "exogenous_conflict": "the simulator measured this candidate making things WORSE (+0.004 h/case attributable) while the log says it also removes 131.165 h per occurrence of waiting_time_before. Both are real; they are not additive and neither cancels the other. Decide on the measured column and REPORT the estimate — do not net them off."
+      },
+      "what_the_handler_did": {
+        "loop_probability_reduced": 0.024
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Its routing edit reduced load on two sole resources with significant utilization changes, while throughput remained flat; the log also estimates 9.9686 h/case of exogenous saving.",
+      "critic_evidence_ref": "footprint.CR-002",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "better",
+        "throughput": "flat"
+      },
+      "why_kept": "Kept because its latest verdict was helped through significant resource-load reductions while throughput remained flat, and it also has recorded exogenous saving.",
+      "reason_is_candidate_specific": true
+    }
+  ],
+  "dropped": [
+    {
+      "candidate": "CA-004",
+      "heuristic": "Case Assignment",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0557,
+        "throughput_sd": 0.2675,
+        "throughput_z": 0.93,
+        "throughput_significant": false,
+        "waiting": [
+          "O_Returned z=+4.2"
+        ],
+        "duration": [],
+        "resources_significant": 1,
+        "summary": "0 improved / 1 worsened activity measures; +0.056 h per case — NOT significant (+/-0.268), do not read as an effect"
+      },
+      "what_the_handler_did": {
+        "strategy": "intersection",
+        "resources_removed": 2,
+        "task_resources_added": 0,
+        "ca_pool_resource_count": 125,
+        "assigned_tasks_removed": 2,
+        "assigned_tasks_added": 0,
+        "expected_continuity_before": 0.0079,
+        "expected_continuity_after": 0.008,
+        "concentration": 0.984,
+        "delivery_note": "with 125 resources eligible for every target, two consecutive steps land on the same person about 0.8% of the time, against 0.8% before. Case Assignment has no other way to deliver continuity here: Prosimos picks by earliest availability and does not remember who handled the previous step.",
+        "note": "the target activities are now performed by one shared pool of 125; with k eligible resources, consecutive steps land on the same person with probability ~1/k, which is how this simulator can express 'the same worker continues the case'"
+      },
+      "critic_verdict": "contended",
+      "critic_confidence": "measured",
+      "critic_note": "O_Returned waiting increased with z=3.73 while no duration worsening was measured, so its footprint shows queueing contention rather than slower handling.",
+      "critic_evidence_ref": "activity.O_Returned",
+      "critic_dimensions": {
+        "waiting": "worse",
+        "duration": "n/a",
+        "resources": "shared",
+        "throughput": "flat"
+      },
+      "why_dropped": "Removed from the previous plan because its latest verdict was contended, with significant O_Returned waiting worsening (z=3.73), while prior throughput effects were not significant.",
+      "reason_is_candidate_specific": true,
+      "responds_to": "critic_round4.directive"
+    }
+  ],
+  "added": [],
+  "directive": {
+    "intent": "add",
+    "targets": [
+      "CBW-002"
+    ],
+    "reason": "The confirmation run that removed CBW-002 materially weakened the plan's throughput improvement: the full plan was significantly better than baseline on median and mean throughput, whereas the confirmation plan was not, and confirmation versus the full plan was significantly worse on both measures.",
+    "avoid": [],
+    "keeps_hurt": [
+      "CA-002",
+      "CR-001"
+    ],
+    "keeps_hurt_cost": [
+      "CA-002 costs +0.1242 h per case on its own account",
+      "CR-001 costs +0.0156 h per case on its own account"
+    ],
+    "keeps_hurt_note": "the Critic's own per_candidate verdict is `hurt` for ['CA-002', 'CR-001'], and this directive leaves them in the plan. CA-002 costs +0.1242 h per case on its own account; CR-001 costs +0.0156 h per case on its own account."
+  },
+  "directive_followthrough": {
+    "intent": "add",
+    "named": [
+      "CBW-002"
+    ],
+    "left_named": [],
+    "left_unnamed": [
+      "CA-004"
+    ],
+    "added_named": [],
+    "added_unnamed": [],
+    "size_before": 8,
+    "size_after": 7,
+    "net_change": -1
+  },
+  "unresolved_attribution": [
+    "CBW-003"
+  ],
+  "generic_reasons": [],
+  "offered_unmeasured": [
+    "EXC-004",
+    "EXC-005",
+    "IF-001"
+  ],
+  "offered_unmeasured_unanswered": [],
+  "dropped_exogenous_only": [],
+  "per_candidate_missing": [
+    "CBW-002"
+  ],
+  "per_candidate_malformed": [],
+  "schema_retry": {
+    "violations": [],
+    "after_retry": [],
+    "retried": false
+  },
+  "clean_probe": {
+    "basis": "r3",
+    "deliverable": [
+      "CBW-003",
+      "AC-001",
+      "AC-002",
+      "CA-002",
+      "CA-004",
+      "CBW-002",
+      "CR-001",
+      "CR-002"
+    ],
+    "rule_basis": "r3c",
+    "round_basis": "r3",
+    "qualifying_measurement": null,
+    "dropped_because": [
+      {
+        "candidate_id": "CA-002",
+        "throughput_h_per_case": 0.1242,
+        "z": null
+      }
+    ],
+    "excluded_exogenous_only": [],
+    "queue": [],
+    "done": [],
+    "current": null,
+    "state": "skipped",
+    "reason": "the loop is not stopping yet"
+  },
+  "plan_vs_baseline": {
+    "verdict": "better",
+    "better_on": [
+      "waiting_h_per_case_mean"
+    ],
+    "worse_on": []
+  },
+  "plan_reading": {
+    "stated": "better",
+    "measured": "better",
+    "consistent": true,
+    "better_on": [
+      "throughput_h_median",
+      "throughput_h_mean",
+      "waiting_h_per_case_mean"
+    ],
+    "worse_on": [],
+    "retried": false
+  },
+  "confirmation_counterfactual": {
+    "removed": [
+      "CBW-002"
+    ],
+    "added": [],
+    "verdict": {
+      "improved": false,
+      "better_on": [],
+      "worse_on": [
+        "throughput_h_median",
+        "throughput_h_mean"
+      ]
+    },
+    "per_measure": [
+      {
+        "measure": "throughput_h_median",
+        "full_pct": -2.4420563517020386,
+        "conf_pct": -0.434394341703384,
+        "vs_full_z": 4.92
+      },
+      {
+        "measure": "throughput_h_mean",
+        "full_pct": -2.0883504202128216,
+        "conf_pct": -0.3809634109228127,
+        "vs_full_z": 4.48
+      },
+      {
+        "measure": "waiting_h_per_case_mean",
+        "full_pct": -1.7858928396716198,
+        "conf_pct": -2.515993796970972,
+        "vs_full_z": -1.89
+      },
+      {
+        "measure": "duration_h_per_case_mean",
+        "full_pct": -9.245809844083674,
+        "conf_pct": -6.860152365853307,
+        "vs_full_z": 0.38
+      },
+      {
+        "measure": "utilization_mean",
+        "full_pct": -9.097968568210645,
+        "conf_pct": -10.59421798147165,
+        "vs_full_z": -0.2
+      }
+    ]
+  },
+  "note": "Contribution numbers are measured (scorecard); verdicts are the Critic's judgment of them; keep/drop is the Proposer's choice, except where the Arbiter overruled it. `generic_reasons` lists candidates whose reason fell back to the plan-level rationale — for those, 'why this one' is not actually answered."
+}

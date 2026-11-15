@@ -1,0 +1,55 @@
+{
+  "phase2_plan": "mabpr_out\\bpo\\loop\\n2\\confirm_round3_2\\plan.json",
+  "baseline_bpmn": "inputs\\bpo\\BPO_ServiceProcess_first_3000_cases.bpmn",
+  "baseline_params": "inputs\\bpo\\BPO_ServiceProcess_first_3000_cases.json",
+  "output_dir": "mabpr_out\\bpo\\loop\\n2\\confirm_round3_2\\phase3",
+  "n_phases": 1,
+  "n_candidates": 2,
+  "entries": [
+    {
+      "phase_id": 1,
+      "candidate_id": "CBW-001",
+      "heuristic": "Case-based Work",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "channel": "extraneous_delay_batch_share",
+        "task_id": "node_c1ccf3bd-192f-4016-9a2c-a94204c4fcdf",
+        "rules_removed": 0,
+        "timers_removed": 0,
+        "timer_h_before": 5.5062,
+        "timer_h_after": 0.0,
+        "batch_component_h_removed": 5.5062,
+        "share_of_timer_removed": 1.0,
+        "delta_h_batched_vs_not": 86.9429,
+        "delta_z": 33.91,
+        "note": "scaled the extraneous-delay timer in front of 'repair' by 0.0000: 5.51 h -> 0.00 h per occurrence. Only the batching share is removed (100.0% of the timer, from a 86.9429 h gap between batched and non-batched executions at z=33.91); the rest of the wait is left in place because this heuristic does not claim it."
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "XR-001",
+      "heuristic": "Extra Resources",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "target_activity": "repair",
+        "target_task_id": "node_c1ccf3bd-192f-4016-9a2c-a94204c4fcdf",
+        "resources_grown": 100,
+        "extra_per_resource": 3,
+        "pool_size_before": 100,
+        "pool_size_after": 400,
+        "sizing": {
+          "extra_per_resource": 3,
+          "offered_load_erlangs": 247.875,
+          "sized_on": "calendar",
+          "servers_now": 100,
+          "servers_needed": 310,
+          "target_utilisation": 0.8,
+          "current_utilisation_implied": 2.4787,
+          "why": "100 servers running at 2.48 of the hours they are open; reaching 80% needs 100 x 2.48 / 0.80 = 310 servers, against the 100 in the pool now, so each resource entry's `amount` goes up by 3"
+        }
+      }
+    }
+  ]
+}

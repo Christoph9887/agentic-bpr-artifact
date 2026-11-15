@@ -1,0 +1,1937 @@
+{
+  "dataset": "2012_full",
+  "run_id": "p2",
+  "gate_enforced": true,
+  "baseline_h": 20.44809867022222,
+  "rounds_measured": 9,
+  "stopped_because": "no significant improvement for 2 consecutive rounds",
+  "best": {
+    "plan": [
+      "AC-001",
+      "AC-002",
+      "AE-002",
+      "CA-001",
+      "CBW-002",
+      "CT-001",
+      "CR-001",
+      "CR-002",
+      "SPC-001",
+      "SPC-002",
+      "SPC-003",
+      "SPC-005"
+    ],
+    "built": [
+      "AC-001",
+      "AC-002",
+      "AE-002",
+      "CA-001",
+      "CBW-002",
+      "CT-001",
+      "CR-001",
+      "CR-002",
+      "SPC-001",
+      "SPC-002",
+      "SPC-003",
+      "SPC-005"
+    ],
+    "changed_nothing": null,
+    "round": 3,
+    "mode": "confirming",
+    "median_h": 12.936122416104165,
+    "pct_vs_baseline": -36.736795803208125,
+    "z_vs_baseline": -19.101735042805142,
+    "all_measures": {
+      "throughput_h_median": {
+        "label": "median h/case",
+        "measures": "case span, the convergence KPI",
+        "base": 20.44809867022222,
+        "redes": 12.936122416104165,
+        "delta": -7.5119762541180535,
+        "pct": -36.736795803208125,
+        "z": -19.1,
+        "significant": true
+      },
+      "throughput_h_mean": {
+        "label": "mean h/case",
+        "measures": "case span, additive",
+        "base": 203.37948569029726,
+        "redes": 46.167131660584246,
+        "delta": -157.21235402971303,
+        "pct": -77.30000569925389,
+        "z": -87.36,
+        "significant": true
+      },
+      "waiting_h_per_case_mean": {
+        "label": "waiting h/case",
+        "measures": "queueing a case sits through",
+        "base": 14.614387642037755,
+        "redes": 5.278838834288366,
+        "delta": -9.33554880774939,
+        "pct": -63.87916508315424,
+        "z": -60.93,
+        "significant": true
+      },
+      "duration_h_per_case_mean": {
+        "label": "service h/case",
+        "measures": "work actually performed",
+        "base": 1.5550473438094954,
+        "redes": 0.20276323342765742,
+        "delta": -1.352284110381838,
+        "pct": -86.9609607556426,
+        "z": -56.75,
+        "significant": true
+      },
+      "utilization_mean": {
+        "label": "utilisation",
+        "measures": "share of the window resources are busy",
+        "base": 0.00964064998552922,
+        "redes": 0.006678736593142201,
+        "delta": -0.0029619133923870188,
+        "pct": -30.723171122620375,
+        "z": -6.12,
+        "significant": true
+      }
+    },
+    "gain_source": {
+      "throughput_pct": -36.736795803208125,
+      "service_pct": -86.9609607556426,
+      "waiting_pct": -63.87916508315424,
+      "service_significant": true,
+      "waiting_significant": true,
+      "verdict": "both",
+      "note": "Service time −87.0% AND waiting −63.9%, both significant: the process does less work AND queues less."
+    },
+    "improvement_rule": {
+      "verdict": "better",
+      "better_on": [
+        "throughput_h_median",
+        "throughput_h_mean",
+        "waiting_h_per_case_mean",
+        "duration_h_per_case_mean"
+      ],
+      "worse_on": [],
+      "no_direction": [
+        "utilization_mean"
+      ],
+      "rule": "significantly better on at least one directional measure and significantly worse on none"
+    },
+    "case_outcome_shift": {
+      "rows": [
+        {
+          "activity": "A_ACTIVATED",
+          "base": 315.9,
+          "redes": 0.0,
+          "delta": -315.9,
+          "pct": -100.0,
+          "z": -88.03,
+          "significant": true
+        },
+        {
+          "activity": "A_CANCELLED",
+          "base": 487.3,
+          "redes": 967.0,
+          "delta": 479.7,
+          "pct": 98.4,
+          "z": 72.73,
+          "significant": true
+        },
+        {
+          "activity": "A_DECLINED",
+          "base": 1684.0,
+          "redes": 1683.0,
+          "delta": -1.0,
+          "pct": -0.1,
+          "z": -0.12,
+          "significant": false
+        },
+        {
+          "activity": "O_CANCELLED",
+          "base": 443.6,
+          "redes": 350.0,
+          "delta": -93.6,
+          "pct": -21.1,
+          "z": -15.65,
+          "significant": true
+        },
+        {
+          "activity": "O_DECLINED",
+          "base": 68.5,
+          "redes": 0.0,
+          "delta": -68.5,
+          "pct": -100.0,
+          "z": -52.69,
+          "significant": true
+        }
+      ],
+      "significant": [
+        {
+          "activity": "A_ACTIVATED",
+          "base": 315.9,
+          "redes": 0.0,
+          "delta": -315.9,
+          "pct": -100.0,
+          "z": -88.03,
+          "significant": true
+        },
+        {
+          "activity": "A_CANCELLED",
+          "base": 487.3,
+          "redes": 967.0,
+          "delta": 479.7,
+          "pct": 98.4,
+          "z": 72.73,
+          "significant": true
+        },
+        {
+          "activity": "O_CANCELLED",
+          "base": 443.6,
+          "redes": 350.0,
+          "delta": -93.6,
+          "pct": -21.1,
+          "z": -15.65,
+          "significant": true
+        },
+        {
+          "activity": "O_DECLINED",
+          "base": 68.5,
+          "redes": 0.0,
+          "delta": -68.5,
+          "pct": -100.0,
+          "z": -52.69,
+          "significant": true
+        }
+      ],
+      "merges_folded": [],
+      "note": "How many cases END on each activity. Every reported measure is a per-case average, so none of them can see a redesign that changes how many cases reach an outcome at all. Which ending is desirable is a domain question this system does not answer.",
+      "cases_moved_between_endings": 478.8,
+      "headline": "479 cases per run end somewhere different: A_ACTIVATED -316, A_CANCELLED +480, O_CANCELLED -94, O_DECLINED -68"
+    },
+    "compliance_cost": null,
+    "artifacts": "mabpr_out\\2012_full\\loop\\p2\\confirm_round3_2"
+  },
+  "no_compliant_plan": null,
+  "trajectory": [
+    {
+      "round": 1,
+      "mode": "normal",
+      "kind": null,
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2012_full\\loop\\p2\\round1",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CA-002",
+        "CA-003",
+        "CBW-002",
+        "CBW-003",
+        "CT-001",
+        "CR-001",
+        "CR-002",
+        "EXC-001",
+        "EXC-010",
+        "EXC-005",
+        "EXC-009",
+        "EXC-003",
+        "EXC-007",
+        "EXC-002",
+        "EXC-004",
+        "EXC-008",
+        "EXC-006",
+        "KO-001",
+        "NI-001",
+        "SPC-001",
+        "SPC-002",
+        "SPC-003",
+        "SPC-005"
+      ],
+      "median_h": 13.143029478909721,
+      "median_std": 0.605596328535699,
+      "pct_vs_baseline": -35.724931247278214,
+      "z_vs_baseline": -18.076820844242715,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -35.724931247278214,
+          "z": -18.08,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -77.46988910034993,
+          "z": -87.85,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -63.8127070874395,
+          "z": -60.4,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -88.20149399136209,
+          "z": -57.45,
+          "significant": true
+        },
+        "utilization_mean": {
+          "pct": -36.02234130257629,
+          "z": -6.88,
+          "significant": true
+        }
+      },
+      "case_outcome_shift": "485 cases per run end somewhere different: A_ACTIVATED -316, A_CANCELLED +486, O_CANCELLED -99, O_DECLINED -68",
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 1,
+      "mode": "confirming",
+      "kind": "confirmation",
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2012_full\\loop\\p2\\confirm_round1",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CA-002",
+        "CBW-002",
+        "CT-001",
+        "CR-001",
+        "CR-002",
+        "NI-001",
+        "SPC-001",
+        "SPC-002",
+        "SPC-003",
+        "SPC-005"
+      ],
+      "median_h": 13.226542862381944,
+      "median_std": 0.5393832671560288,
+      "pct_vs_baseline": -35.31651487165772,
+      "z_vs_baseline": -18.081242310850023,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -35.31651487165772,
+          "z": -18.08,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -77.33217664742642,
+          "z": -88.36,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -63.93075531407973,
+          "z": -61.03,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -86.44462665447027,
+          "z": -55.73,
+          "significant": true
+        },
+        "utilization_mean": {
+          "pct": -26.568443925749552,
+          "z": -4.96,
+          "significant": true
+        }
+      },
+      "case_outcome_shift": "487 cases per run end somewhere different: A_ACTIVATED -316, A_CANCELLED +490, O_CANCELLED -99, O_DECLINED -68",
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 2,
+      "mode": "normal",
+      "kind": null,
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2012_full\\loop\\p2\\round2",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CA-003",
+        "CBW-002",
+        "CT-001",
+        "CR-001",
+        "CR-002",
+        "NI-001",
+        "CA-002",
+        "SPC-001",
+        "SPC-002",
+        "SPC-003",
+        "SPC-005"
+      ],
+      "median_h": 13.43596909292361,
+      "median_std": 0.49538623499485607,
+      "pct_vs_baseline": -34.29233050166226,
+      "z_vs_baseline": -17.68351105684705,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -34.29233050166226,
+          "z": -17.68,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -77.27753920129487,
+          "z": -87.97,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -62.963563853861295,
+          "z": -59.45,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -89.28597100520155,
+          "z": -57.78,
+          "significant": true
+        },
+        "utilization_mean": {
+          "pct": -40.7898940272962,
+          "z": -7.63,
+          "significant": true
+        }
+      },
+      "case_outcome_shift": "486 cases per run end somewhere different: A_ACTIVATED -316, A_CANCELLED +486, O_CANCELLED -102, O_DECLINED -68",
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 2,
+      "mode": "confirming",
+      "kind": "confirmation",
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2012_full\\loop\\p2\\confirm_round2",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CA-003",
+        "CBW-002",
+        "CR-001",
+        "CR-002",
+        "NI-001",
+        "CA-002",
+        "SPC-001",
+        "SPC-002",
+        "SPC-003",
+        "SPC-005"
+      ],
+      "median_h": 16.539126242958336,
+      "median_std": 0.9289787741364635,
+      "pct_vs_baseline": -19.11655694891755,
+      "z_vs_baseline": -9.012505346388627,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -19.11655694891755,
+          "z": -9.01,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -46.54792250779135,
+          "z": -45.66,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -39.26892168546712,
+          "z": -35.67,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -64.95363448623888,
+          "z": -39.16,
+          "significant": true
+        },
+        "utilization_mean": {
+          "pct": -60.10512230192568,
+          "z": -12.04,
+          "significant": true
+        }
+      },
+      "case_outcome_shift": null,
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 3,
+      "mode": "normal",
+      "kind": null,
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2012_full\\loop\\p2\\round3",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CA-003",
+        "CBW-002",
+        "CT-001",
+        "CR-001",
+        "NI-001",
+        "SPC-002",
+        "SPC-003"
+      ],
+      "median_h": 15.62106753070833,
+      "median_std": 0.7329083087624356,
+      "pct_vs_baseline": -23.606259033478295,
+      "z_vs_baseline": -11.64485341731563,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -23.606259033478295,
+          "z": -11.64,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -69.15091520208114,
+          "z": -76.92,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -58.485513901046424,
+          "z": -54.98,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -77.42924127271732,
+          "z": -49.14,
+          "significant": true
+        },
+        "utilization_mean": {
+          "pct": 3.340119098280775,
+          "z": 0.56,
+          "significant": false
+        }
+      },
+      "case_outcome_shift": "487 cases per run end somewhere different: A_ACTIVATED -316, A_CANCELLED +493, O_CANCELLED -97, O_DECLINED -68",
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 3,
+      "mode": "confirming",
+      "kind": "confirmation",
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2012_full\\loop\\p2\\confirm_round3",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "CA-001",
+        "CA-003",
+        "CBW-002",
+        "CT-001",
+        "CR-001",
+        "NI-001",
+        "SPC-002",
+        "SPC-003"
+      ],
+      "median_h": 16.40224339488889,
+      "median_std": 0.8813903190906655,
+      "pct_vs_baseline": -19.785972967868894,
+      "z_vs_baseline": -9.436770717050107,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -19.785972967868894,
+          "z": -9.44,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -54.35746688308926,
+          "z": -60.37,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -55.601220618755754,
+          "z": -51.76,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -76.23981813240462,
+          "z": -48.77,
+          "significant": true
+        },
+        "utilization_mean": {
+          "pct": -23.567111273414483,
+          "z": -4.36,
+          "significant": true
+        }
+      },
+      "case_outcome_shift": "483 cases per run end somewhere different: A_ACTIVATED -316, A_CANCELLED +486, O_CANCELLED -96, O_DECLINED -68",
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 3,
+      "mode": "confirming",
+      "kind": "probe",
+      "probe_reason": "the deliverable without the candidates whose own attributable throughput measured significantly worse",
+      "artifacts": "mabpr_out\\2012_full\\loop\\p2\\confirm_round3_2",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CBW-002",
+        "CT-001",
+        "CR-001",
+        "CR-002",
+        "SPC-001",
+        "SPC-002",
+        "SPC-003",
+        "SPC-005"
+      ],
+      "median_h": 12.936122416104165,
+      "median_std": 0.4401139375659659,
+      "pct_vs_baseline": -36.736795803208125,
+      "z_vs_baseline": -19.101735042805142,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -36.736795803208125,
+          "z": -19.1,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -77.30000569925389,
+          "z": -87.36,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -63.87916508315424,
+          "z": -60.93,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -86.9609607556426,
+          "z": -56.75,
+          "significant": true
+        },
+        "utilization_mean": {
+          "pct": -30.723171122620375,
+          "z": -6.12,
+          "significant": true
+        }
+      },
+      "case_outcome_shift": "479 cases per run end somewhere different: A_ACTIVATED -316, A_CANCELLED +480, O_CANCELLED -94, O_DECLINED -68",
+      "is_best": true,
+      "barred_candidates": []
+    },
+    {
+      "round": 3,
+      "mode": "confirming",
+      "kind": "probe",
+      "probe_reason": "the leanest measurement that SATISFIES the improvement rule, without the candidates whose own attributable throughput measured significantly worse -- the median-best plan cleaned above is not necessarily the one that will be delivered",
+      "artifacts": "mabpr_out\\2012_full\\loop\\p2\\confirm_round3_3",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "CA-001",
+        "CA-003",
+        "CBW-002",
+        "CT-001",
+        "CR-001",
+        "SPC-002",
+        "SPC-003"
+      ],
+      "median_h": 16.563711710180552,
+      "median_std": 0.771755203238491,
+      "pct_vs_baseline": -18.99632343665453,
+      "z_vs_baseline": -9.292103932646357,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -18.99632343665453,
+          "z": -9.29,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -54.85856351891598,
+          "z": -58.62,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -55.722611449191305,
+          "z": -52.8,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -75.13896099451863,
+          "z": -47.07,
+          "significant": true
+        },
+        "utilization_mean": {
+          "pct": -23.410338254080017,
+          "z": -4.48,
+          "significant": true
+        }
+      },
+      "case_outcome_shift": "491 cases per run end somewhere different: A_ACTIVATED -316, A_CANCELLED +501, O_CANCELLED -97, O_DECLINED -68",
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 3,
+      "mode": "confirming",
+      "kind": "probe",
+      "probe_reason": "the leanest plan the loop itself proposed that satisfies the improvement rule, without the candidates whose own attributable throughput measured significantly worse -- both bases above can be confirmations, which are leaner than any round by construction",
+      "artifacts": "mabpr_out\\2012_full\\loop\\p2\\confirm_round3_4",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CA-003",
+        "CBW-002",
+        "CT-001",
+        "CR-001",
+        "SPC-002",
+        "SPC-003"
+      ],
+      "median_h": 15.465195639881946,
+      "median_std": 0.7393652781104418,
+      "pct_vs_baseline": -24.36853964127571,
+      "z_vs_baseline": -12.004290646308794,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -24.36853964127571,
+          "z": -12.0,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -69.50567596650056,
+          "z": -76.73,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -58.96764576242888,
+          "z": -56.09,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -77.0625516934337,
+          "z": -49.76,
+          "significant": true
+        },
+        "utilization_mean": {
+          "pct": 1.9416061250047392,
+          "z": 0.35,
+          "significant": false
+        }
+      },
+      "case_outcome_shift": "487 cases per run end somewhere different: A_ACTIVATED -316, A_CANCELLED +489, O_CANCELLED -100, O_DECLINED -68",
+      "is_best": false,
+      "barred_candidates": []
+    }
+  ],
+  "measures_significant_in_every_round": [
+    "duration_h_per_case_mean",
+    "throughput_h_mean",
+    "throughput_h_median",
+    "waiting_h_per_case_mean"
+  ],
+  "statistically_tied_with_best": [
+    {
+      "round": 1,
+      "mode": "normal",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CA-002",
+        "CA-003",
+        "CBW-002",
+        "CBW-003",
+        "CT-001",
+        "CR-001",
+        "CR-002",
+        "EXC-001",
+        "EXC-010",
+        "EXC-005",
+        "EXC-009",
+        "EXC-003",
+        "EXC-007",
+        "EXC-002",
+        "EXC-004",
+        "EXC-008",
+        "EXC-006",
+        "KO-001",
+        "NI-001",
+        "SPC-001",
+        "SPC-002",
+        "SPC-003",
+        "SPC-005"
+      ],
+      "pct_vs_baseline": -35.724931247278214,
+      "admitted_because": "median_best_measurement",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -35.724931247278214,
+          "z": -18.08,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -77.46988910034993,
+          "z": -87.85,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -63.8127070874395,
+          "z": -60.4,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -88.20149399136209,
+          "z": -57.45,
+          "significant": true
+        },
+        "utilization_mean": {
+          "pct": -36.02234130257629,
+          "z": -6.88,
+          "significant": true
+        }
+      }
+    },
+    {
+      "round": 1,
+      "mode": "confirming",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CA-002",
+        "CBW-002",
+        "CT-001",
+        "CR-001",
+        "CR-002",
+        "NI-001",
+        "SPC-001",
+        "SPC-002",
+        "SPC-003",
+        "SPC-005"
+      ],
+      "pct_vs_baseline": -35.31651487165772,
+      "admitted_because": "not_significantly_worse_on_median",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -35.31651487165772,
+          "z": -18.08,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -77.33217664742642,
+          "z": -88.36,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -63.93075531407973,
+          "z": -61.03,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -86.44462665447027,
+          "z": -55.73,
+          "significant": true
+        },
+        "utilization_mean": {
+          "pct": -26.568443925749552,
+          "z": -4.96,
+          "significant": true
+        }
+      }
+    },
+    {
+      "round": 2,
+      "mode": "normal",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CA-003",
+        "CBW-002",
+        "CT-001",
+        "CR-001",
+        "CR-002",
+        "NI-001",
+        "CA-002",
+        "SPC-001",
+        "SPC-002",
+        "SPC-003",
+        "SPC-005"
+      ],
+      "pct_vs_baseline": -34.29233050166226,
+      "admitted_because": "not_significantly_worse_on_median",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -34.29233050166226,
+          "z": -17.68,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -77.27753920129487,
+          "z": -87.97,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -62.963563853861295,
+          "z": -59.45,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -89.28597100520155,
+          "z": -57.78,
+          "significant": true
+        },
+        "utilization_mean": {
+          "pct": -40.7898940272962,
+          "z": -7.63,
+          "significant": true
+        }
+      }
+    }
+  ],
+  "excluded_as_non_compliant": [],
+  "per_candidate": [
+    {
+      "candidate": "AC-001",
+      "heuristic": "Activity Composition",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.9445,
+        "throughput_sd": 0.0393,
+        "throughput_z": -107.4,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -0.945 h per case (z=-107.4)",
+        "attribution_caveat": "shares ['A_PARTLYSUBMITTED'] with ['CA-003'] — that part is attributable to neither (-0.010 h per case left unassigned)",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (timers_removed=1), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice.",
+        "attribution_settled_by": [
+          "'A_PARTLYSUBMITTED': AC-001 was measured alone at -0.010 h/case in round 1c"
+        ],
+        "share_of_attributed_pct": -8.59,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "timers_removed": 1,
+        "timer_h_removed_per_occurrence": 0.0,
+        "composite_name": "A_SUBMITTED + A_PARTLYSUBMITTED",
+        "distributions_folded": 1,
+        "distributions_carried_over": 0,
+        "assigned_tasks_removed": 1,
+        "assigned_tasks_added": 0,
+        "setup_saving_assumed_h": 0.0
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Its sole-owned A_SUBMITTED time fell by 0.9445 h/case (z=-107.4), while the shared A_PARTLYSUBMITTED change remains unattributed.",
+      "critic_evidence_ref": "activity.A_SUBMITTED",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "flat",
+        "throughput": "better"
+      },
+      "why_kept": "Keep because it twice produced a significant -0.945 h/case throughput contribution and the directive explicitly targets it.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "AC-002",
+      "heuristic": "Activity Composition",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.0228,
+        "throughput_sd": 0.0089,
+        "throughput_z": -11.47,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -0.023 h per case (z=-11.5)",
+        "attribution_caveat": "shares ['O_CREATED'] with ['CT-001'] — that part is attributable to neither (-0.048 h per case left unassigned)",
+        "attribution_settled_by": [
+          "'O_CREATED': AC-002 was measured alone at -0.048 h/case in round 2c"
+        ],
+        "share_of_attributed_pct": -0.21,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "timers_removed": 0,
+        "timer_h_removed_per_occurrence": 0.0,
+        "composite_name": "O_CREATED + O_SENT",
+        "distributions_folded": 64,
+        "distributions_carried_over": 0,
+        "assigned_tasks_removed": 64,
+        "assigned_tasks_added": 0,
+        "setup_saving_assumed_h": 0.0
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "The confirmation run made O_CREATED sole-owned by AC-002 and measured a 0.0477 h/case reduction there, with total sole-owned throughput improvement of 0.0705 h/case (z=-23.66).",
+      "critic_evidence_ref": "activity.O_CREATED",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "flat",
+        "throughput": "better"
+      },
+      "why_kept": "Keep because it twice helped, including a significant -0.023 h/case throughput result and a confirmation-run sole-owned reduction of 0.0705 h/case, and the directive targets it.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "AE-002",
+      "heuristic": "Activity Elimination",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -2.778,
+        "throughput_sd": 0.1291,
+        "throughput_z": -96.24,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -2.778 h per case (z=-96.2)",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (timers_removed=1), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice.",
+        "share_of_attributed_pct": -25.28,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "timers_removed": 1,
+        "timer_h_removed_per_occurrence": 73.684,
+        "batch_rules_dropped": 0,
+        "paths_remapped": 0,
+        "assigned_tasks_removed": 56
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Its targeted activity was removed and its attributable case-time reduction was 2.778 h/case (z=-96.24).",
+      "critic_evidence_ref": "activity.W_Nabellen offertes",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "flat",
+        "throughput": "better"
+      },
+      "why_kept": "Keep because it twice produced a significant -2.778 h/case reduction and removes an exogenous 55.32 h/occurrence wait supported by log evidence; the directive targets it.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "CA-001",
+      "heuristic": "Case Assignment",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.4347,
+        "throughput_sd": 0.036,
+        "throughput_z": -54.05,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -0.435 h per case (z=-54.0)",
+        "share_of_attributed_pct": -3.96,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "strategy": "intersection",
+        "resources_removed": 116,
+        "task_resources_added": 0,
+        "ca_pool_resource_count": 8,
+        "assigned_tasks_removed": 116,
+        "assigned_tasks_added": 0,
+        "expected_continuity_before": 0.0156,
+        "expected_continuity_after": 0.125,
+        "concentration": 0.125,
+        "delivery_note": "with 8 resources eligible for every target, two consecutive steps land on the same person about 12.5% of the time, against 1.6% before. Case Assignment has no other way to deliver continuity here: Prosimos picks by earliest availability and does not remember who handled the previous step.",
+        "note": "the target activities are now performed by one shared pool of 8; with k eligible resources, consecutive steps land on the same person with probability ~1/k, which is how this simulator can express 'the same worker continues the case'"
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Its sole-owned activities improved by 0.4347 h/case (z=-54.05), with no significant adverse column recorded.",
+      "critic_evidence_ref": "footprint.CA-001",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "flat",
+        "throughput": "better"
+      },
+      "why_kept": "Keep because it twice helped with a significant -0.435 h/case sole-owned throughput contribution and no significant adverse column, as required by the directive.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "CA-003",
+      "heuristic": "Case Assignment",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [
+          "W_Afhandelen leads z=-42.5"
+        ],
+        "duration": [
+          "W_Afhandelen leads z=-12.2"
+        ],
+        "resources_significant": 5,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['A_PARTLYSUBMITTED', 'W_Afhandelen leads', 'W_Beoordelen fraude'] with ['AC-001', 'CR-001', 'SPC-001'] — that part is attributable to neither (-0.586 h per case left unassigned)",
+        "attribution_settled_by": [
+          "'A_PARTLYSUBMITTED': AC-001 was measured alone at -0.010 h/case in round 1c",
+          "'W_Afhandelen leads': SPC-001 was measured alone at -0.466 h/case in round 1c",
+          "'W_Beoordelen fraude': CR-001 was measured alone at -0.008 h/case in round 1c"
+        ],
+        "share_of_attributed_pct": 0.0,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "strategy": "intersection",
+        "resources_removed": 48,
+        "task_resources_added": 0,
+        "ca_pool_resource_count": 11,
+        "assigned_tasks_removed": 48,
+        "assigned_tasks_added": 0,
+        "expected_continuity_before": 0.0169,
+        "expected_continuity_after": 0.0909,
+        "concentration": 0.186,
+        "delivery_note": "with 11 resources eligible for every target, two consecutive steps land on the same person about 9.1% of the time, against 1.7% before. Case Assignment has no other way to deliver continuity here: Prosimos picks by earliest availability and does not remember who handled the previous step.",
+        "note": "the target activities are now performed by one shared pool of 11; with k eligible resources, consecutive steps land on the same person with probability ~1/k, which is how this simulator can express 'the same worker continues the case'"
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "All material movement on its footprint is shared with AC-001, CR-001, or SPC-001, so its marginal effect is not established.",
+      "critic_evidence_ref": "activity.W_Afhandelen leads",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_kept": "Keep because the directive targets it and its prior hard conflict with SPC-001 is resolved by removing SPC-001; its marginal result remains covered rather than significantly harmful.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "CBW-002",
+      "heuristic": "Case-based Work",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['W_Valideren aanvraag'] with ['SPC-005'] — that part is attributable to neither (-0.890 h per case left unassigned)",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (batch_component_h_removed=6.5664), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice.",
+        "share_of_attributed_pct": 0.0,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "channel": "extraneous_delay_batch_share",
+        "timers_removed": 0,
+        "batch_component_h_removed": 6.5664,
+        "share_of_timer_removed": 0.2012,
+        "rules_removed": 0,
+        "note": "scaled the extraneous-delay timer in front of 'W_Valideren aanvraag' by 0.7988: 32.63 h -> 26.06 h per occurrence. Only the batching share is removed (20.1% of the timer, from a 13.5712 h gap between batched and non-batched executions at z=14.12); the rest of the wait is left in place because this heuristic does not claim it."
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "W_Valideren aanvraag is shared with SPC-005; the confirmation run instead showed waiting up (z=24.10), so CBW-002's marginal effect is not separable.",
+      "critic_evidence_ref": "activity.W_Valideren aanvraag",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "n/a",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_kept": "Keep because it is covered rather than harmful, its mechanism is compatible with the measured waiting reduction, and the directive targets it; SPC-005 is removed to respect the forbidden pair.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "CT-001",
+      "heuristic": "Case Types",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['O_CREATED'] with ['AC-002'] — that part is attributable to neither (-0.048 h per case left unassigned)",
+        "attribution_settled_by": [
+          "'O_CREATED': AC-002 was measured alone at -0.048 h/case in round 2c"
+        ],
+        "share_of_attributed_pct": 0.0,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "gateways_conditioned": 2,
+        "branch_rules_added": 4
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Removing CT-001 in the confirmation run worsened mean case span from -77.3% to -46.5% and median throughput from -34.3% to -19.1%, measuring a positive plan-level contribution from its case-type routing.",
+      "critic_evidence_ref": "footprint.CT-001",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "n/a",
+        "resources": "flat",
+        "throughput": "shared"
+      },
+      "why_kept": "Keep because the confirmation counterfactual measured its removal as significantly worse for duration and median throughput, exactly supporting the directive.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "CR-001",
+      "heuristic": "Contact Reduction",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 5,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['W_Beoordelen fraude'] with ['CA-003'] — that part is attributable to neither (-0.009 h per case left unassigned)",
+        "exogenous_saving": "the log says it also removes 14.044 h per occurrence (waiting_time_before) — consolidating the exchange removes the idle wait after every repeat contact beyond the first. The simulator cannot see this, so none of the columns above contain it; it is an estimate, not a measurement.",
+        "attribution_settled_by": [
+          "'W_Beoordelen fraude': CR-001 was measured alone at -0.008 h/case in round 1c"
+        ],
+        "share_of_attributed_pct": 0.0,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "loop_probability_reduced": 0.5345
+      },
+      "critic_verdict": "exogenous_only",
+      "critic_confidence": "attributed",
+      "critic_note": "The simulator's columns are flat or shared, but the log measured an estimated 0.2949 h/case saving from reduced repeat-contact idle waits that the simulator cannot represent.",
+      "critic_evidence_ref": "footprint.CR-001",
+      "critic_dimensions": {
+        "waiting": "flat",
+        "duration": "n/a",
+        "resources": "flat",
+        "throughput": "flat"
+      },
+      "exogenous_only": "the simulator cannot represent what this candidate removes, so every measured column is empty by construction. The log evidence is the whole account — this is NOT 'measured and found useless'.",
+      "why_kept": "Keep because it is exogenous_only with a log-supported 0.2949 h/case saving and 14.0442 h/occurrence estimated saving, so flat simulated columns do not justify dropping it.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "NI-001",
+      "heuristic": "Numerical Involvement",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.074,
+        "throughput_sd": 0.0321,
+        "throughput_z": -10.3,
+        "throughput_significant": true,
+        "waiting": [
+          "A_CANCELLED z=+18.0",
+          "O_CANCELLED z=-5.3"
+        ],
+        "duration": [
+          "W_Completeren aanvraag z=-21.4"
+        ],
+        "resources_significant": 5,
+        "summary": "1 improved / 0 worsened activity measures; -0.074 h per case (z=-10.3)",
+        "attribution_caveat": "shares ['A_CANCELLED', 'W_Completeren aanvraag'] with ['CA-002', 'CR-002', 'SPC-002'] — that part is attributable to neither (-0.722 h per case left unassigned)",
+        "share_of_attributed_pct": -0.67,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "task_resources_added": 13,
+        "ca_pool_resource_count": 68,
+        "assigned_tasks_added": 13
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "O_CANCELLED waiting improved (z=-5.25), five sole resources showed significant movement, and its sole-owned throughput improved by 0.074 h/case (z=-10.3), despite shared movements on A_CANCELLED and W_Completeren aanvraag.",
+      "critic_evidence_ref": "activity.O_CANCELLED",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "better",
+        "throughput": "better"
+      },
+      "why_kept": "Keep because round 2 measured a significant -0.074 h/case sole-owned throughput improvement, better resources, and improved O_CANCELLED waiting; it is retained instead of the forbidden CR-002 pair.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "SPC-002",
+      "heuristic": "Specialize",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [
+          "W_Completeren aanvraag z=-21.4"
+        ],
+        "resources_significant": 5,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['W_Completeren aanvraag'] with ['CR-002', 'NI-001'] — that part is attributable to neither (-1.272 h per case left unassigned)",
+        "share_of_attributed_pct": 0.0,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "resources_removed": 63,
+        "assigned_tasks_removed": 63
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "Its footprint overlaps CR-002 and NI-001 on W_Completeren aanvraag, and the observed improvement is structurally opposite to SPC-002's resource-removal mechanism.",
+      "critic_evidence_ref": "activity.W_Completeren aanvraag",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_kept": "Keep because the directive explicitly targets it and its covered result has no significant adverse measurement, although the measured sign rules out its resource-removal mechanism as the cause of the W_Completeren aanvraag improvement.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "SPC-003",
+      "heuristic": "Specialize",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -5.7268,
+        "throughput_sd": 0.6614,
+        "throughput_z": -38.72,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -5.727 h per case (z=-38.7)",
+        "share_of_attributed_pct": -52.11,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "resources_removed": 51,
+        "assigned_tasks_removed": 51
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Its sole-owned activity improved in waiting (z=-125.72), duration (z=-26.01), throughput by 3.7986 h/case (z=-24.62), and one sole resource also improved significantly.",
+      "critic_evidence_ref": "activity.W_Nabellen incomplete dossiers",
+      "critic_dimensions": {
+        "waiting": "better",
+        "duration": "better",
+        "resources": "better",
+        "throughput": "better"
+      },
+      "why_kept": "Keep because it twice helped with a significant -5.727 h/case throughput contribution and significant waiting, duration, and resource improvements.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "CR-002",
+      "heuristic": "Contact Reduction",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [
+          "W_Completeren aanvraag z=-21.4"
+        ],
+        "resources_significant": 5,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['W_Completeren aanvraag'] with ['NI-001', 'SPC-002'] — that part is attributable to neither (-1.272 h per case left unassigned)",
+        "exogenous_saving": "the log says it also removes 74.360 h per occurrence (waiting_time_before) — consolidating the exchange removes the idle wait after every repeat contact beyond the first. The simulator cannot see this, so none of the columns above contain it; it is an estimate, not a measurement.",
+        "share_of_attributed_pct": 0.0,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "loop_probability_reduced": 0.3996
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "W_Completeren aanvraag improved materially, but it is shared with NI-001 and SPC-002; CR-002 is structurally compatible with the reduction but its marginal share is unconfirmed.",
+      "critic_evidence_ref": "activity.W_Completeren aanvraag",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_dropped": "Remove because the directive forbids CR-002 with NI-001, and CR-002 is only covered with no significant marginal contribution while NI-001 has a significant measured benefit.",
+      "reason_is_candidate_specific": true,
+      "responds_to": "critic_round3.directive"
+    },
+    {
+      "candidate": "CA-002",
+      "heuristic": "Case Assignment",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 1.0089,
+        "throughput_sd": 0.127,
+        "throughput_z": 35.53,
+        "throughput_significant": true,
+        "waiting": [
+          "A_ACCEPTED z=+8.8",
+          "A_CANCELLED z=+18.0",
+          "A_DECLINED z=+48.3",
+          "A_PREACCEPTED z=+15.8"
+        ],
+        "duration": [],
+        "resources_significant": 5,
+        "summary": "0 improved / 3 worsened activity measures; +1.009 h per case (z=+35.5)",
+        "attribution_caveat": "shares ['A_CANCELLED'] with ['NI-001'] — that part is attributable to neither (+0.549 h per case left unassigned)",
+        "share_of_attributed_pct": 9.18,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "strategy": "intersection",
+        "resources_removed": 20,
+        "task_resources_added": 0,
+        "ca_pool_resource_count": 59,
+        "assigned_tasks_removed": 20,
+        "assigned_tasks_added": 0,
+        "expected_continuity_before": 0.0147,
+        "expected_continuity_after": 0.0169,
+        "concentration": 0.868,
+        "delivery_note": "with 59 resources eligible for every target, two consecutive steps land on the same person about 1.7% of the time, against 1.5% before. Case Assignment has no other way to deliver continuity here: Prosimos picks by earliest availability and does not remember who handled the previous step.",
+        "note": "the target activities are now performed by one shared pool of 59; with k eligible resources, consecutive steps land on the same person with probability ~1/k, which is how this simulator can express 'the same worker continues the case'"
+      },
+      "critic_verdict": "hurt",
+      "critic_confidence": "measured",
+      "critic_note": "Waiting rose on all four owned activities, including A_DECLINED (z=48.29), and sole-owned throughput worsened by 1.0089 h/case (z=35.53).",
+      "critic_evidence_ref": "activity.A_DECLINED",
+      "critic_dimensions": {
+        "waiting": "worse",
+        "duration": "n/a",
+        "resources": "flat",
+        "throughput": "worse"
+      },
+      "why_dropped": "Remove because its own measured contribution is hurt in both rounds, including +1.0089 h/case throughput worsening and significant waiting increases on all four owned activities, despite the directive's keep instruction.",
+      "reason_is_candidate_specific": true,
+      "responds_to": "critic_round3.directive"
+    },
+    {
+      "candidate": "SPC-001",
+      "heuristic": "Specialize",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [
+          "W_Afhandelen leads z=-42.5"
+        ],
+        "duration": [
+          "W_Afhandelen leads z=-12.2"
+        ],
+        "resources_significant": 1,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['W_Afhandelen leads'] with ['CA-003'] — that part is attributable to neither (-0.568 h per case left unassigned)",
+        "attribution_settled_by": [
+          "'W_Afhandelen leads': SPC-001 was measured alone at -0.466 h/case in round 1c"
+        ],
+        "share_of_attributed_pct": 0.0,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "resources_removed": 10,
+        "assigned_tasks_removed": 10
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "W_Afhandelen leads improved in the plan, but both waiting and duration movement is shared with CA-003, so SPC-001's marginal contribution is not established.",
+      "critic_evidence_ref": "activity.W_Afhandelen leads",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_dropped": "Remove because the directive forbids SPC-001 with CA-003 and SPC-001 remains covered with no significant marginal throughput result.",
+      "reason_is_candidate_specific": true,
+      "responds_to": "critic_round3.directive"
+    },
+    {
+      "candidate": "SPC-005",
+      "heuristic": "Specialize",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['W_Valideren aanvraag'] with ['CBW-002'] — that part is attributable to neither (-0.890 h per case left unassigned)",
+        "share_of_attributed_pct": 0.0,
+        "attributed_h_per_case_magnitude": 10.9897
+      },
+      "what_the_handler_did": {
+        "resources_removed": 54,
+        "assigned_tasks_removed": 54
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "Its shared W_Valideren aanvraag activity worsened in the confirmation run, but CBW-002 also touches it, so the marginal harm is not established.",
+      "critic_evidence_ref": "activity.W_Valideren aanvraag",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "n/a",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_dropped": "Remove because the directive forbids SPC-005 with CBW-002, its specialization mechanism is ruled out by the measured sign on W_Valideren aanvraag, and its marginal effect is covered rather than established.",
+      "reason_is_candidate_specific": true,
+      "responds_to": "critic_round3.directive"
+    }
+  ],
+  "per_candidate_from": "round2",
+  "selection": {
+    "chosen": "round3c",
+    "why": "This plan has the strongest median case-span reduction at -36.7368% and nearly the strongest waiting reduction at -63.8792%, while mean duration, service, and utilisation all show significant measured changes without a significant worsening under the computed rule. It is cleaner than the alternatives because it removes CA-002's significant worsening contribution.",
+    "gain_reading": "both: service fell 86.9610% and waiting fell 63.8792%, so the redesign reflects both less work being done and less queueing. The payload does not provide absolute case-hours for those two measures, but its attributable activity change is -10.7972 h/case net; that activity-hour figure is not directly comparable with case-span hours.",
+    "rule_reading": "better",
+    "passengers": [
+      {
+        "candidate": "CT-001",
+        "kind": "unattributable",
+        "note": "Its measured effect is shared with AC-002 on O_CREATED, so no standalone contribution is attributable."
+      },
+      {
+        "candidate": "CR-001",
+        "kind": "none",
+        "note": "Its simulator columns are flat, but the log records a real exogenous saving of 14.044 h per occurrence that this simulator cannot represent."
+      },
+      {
+        "candidate": "CR-002",
+        "kind": "none",
+        "note": "Its simulator contribution is shared and flat, but the log records a real exogenous saving of 74.360 h per occurrence that this simulator cannot represent."
+      },
+      {
+        "candidate": "SPC-001",
+        "kind": "unattributable",
+        "note": "Its significant waiting and duration changes are shared with CA-003, so no standalone contribution is attributable."
+      },
+      {
+        "candidate": "SPC-002",
+        "kind": "unattributable",
+        "note": "Its significant W_Completeren aanvraag change is shared with NI-001, so no standalone contribution is attributable."
+      },
+      {
+        "candidate": "SPC-005",
+        "kind": "unattributable",
+        "note": "Its effect on W_Valideren aanvraag is shared with CBW-002, so no standalone contribution is attributable."
+      }
+    ],
+    "runner_up": "round2 — I would otherwise have taken it for the stronger service reduction (-89.2860%) and utilisation reduction (-40.7899%), but it costs a weaker median (-34.2923%), weaker waiting reduction (-62.9636%), and retains CA-002, whose own attributable effect worsens activity time by +1.0089 h/case.",
+    "caveat": "Do not read the large service reduction as faster execution of the same work: the gain source is both, and the case-outcome mix changes materially, with 479 cases per run ending somewhere different. The measured averages do not establish whether those changed outcomes are desirable, and several retained candidates have only shared or simulator-invisible evidence rather than standalone attribution.",
+    "fallback": "",
+    "model_text_about": {}
+  },
+  "final_plan_roster": [
+    {
+      "candidate": "AE-001",
+      "heuristic": "Activity Elimination",
+      "target": "W_Completeren aanvraag",
+      "status": "compliance_blocked_in_round",
+      "why": "compliance-blocked in round 1, so it never entered a plan the search measured. A block is irrevocable (DECISIONS B) and is a judgment on prior knowledge alone, which no measurement in this run could overturn — read that round's gate_ruling.json for the reasoning.",
+      "blocked_in_rounds": [
+        1
+      ]
+    },
+    {
+      "candidate": "AE-003",
+      "heuristic": "Activity Elimination",
+      "target": "W_Beoordelen fraude",
+      "status": "compliance_blocked_in_round",
+      "why": "compliance-blocked in round 1, so it never entered a plan the search measured. A block is irrevocable (DECISIONS B) and is a judgment on prior knowledge alone, which no measurement in this run could overturn — read that round's gate_ruling.json for the reasoning.",
+      "blocked_in_rounds": [
+        1
+      ]
+    },
+    {
+      "candidate": "AC-001",
+      "heuristic": "Activity Composition",
+      "target": [
+        "A_SUBMITTED",
+        "A_PARTLYSUBMITTED"
+      ],
+      "status": "in_plan",
+      "why": "0 improved / 0 worsened activity measures; -0.945 h per case (z=-107.4)",
+      "verdict": "helped"
+    },
+    {
+      "candidate": "AC-002",
+      "heuristic": "Activity Composition",
+      "target": [
+        "O_CREATED",
+        "O_SENT"
+      ],
+      "status": "in_plan",
+      "why": "0 improved / 0 worsened activity measures; -0.023 h per case (z=-11.5)",
+      "verdict": "helped"
+    },
+    {
+      "candidate": "AE-002",
+      "heuristic": "Activity Elimination",
+      "target": "W_Nabellen offertes",
+      "status": "in_plan",
+      "why": "0 improved / 0 worsened activity measures; -2.778 h per case (z=-96.2)",
+      "verdict": "helped"
+    },
+    {
+      "candidate": "CA-001",
+      "heuristic": "Case Assignment",
+      "target": [
+        "W_Nabellen offertes",
+        "A_ACTIVATED",
+        "O_SENT_BACK",
+        "A_APPROVED",
+        "O_DECLINED"
+      ],
+      "status": "in_plan",
+      "why": "0 improved / 0 worsened activity measures; -0.435 h per case (z=-54.0)",
+      "verdict": "helped"
+    },
+    {
+      "candidate": "CBW-002",
+      "heuristic": "Case-based Work",
+      "target": "W_Valideren aanvraag",
+      "status": "in_plan",
+      "why": "nothing attributable to it alone — every measure it touches is shared",
+      "verdict": "covered"
+    },
+    {
+      "candidate": "CR-001",
+      "heuristic": "Contact Reduction",
+      "target": "W_Beoordelen fraude",
+      "status": "in_plan",
+      "why": "nothing attributable to it alone — every measure it touches is shared",
+      "verdict": "exogenous_only"
+    },
+    {
+      "candidate": "CR-002",
+      "heuristic": "Contact Reduction",
+      "target": "W_Completeren aanvraag",
+      "status": "in_plan",
+      "why": "nothing attributable to it alone — every measure it touches is shared",
+      "verdict": "covered"
+    },
+    {
+      "candidate": "CT-001",
+      "heuristic": "Case Types",
+      "target": "O_CREATED",
+      "status": "in_plan",
+      "why": "nothing attributable to it alone — every measure it touches is shared",
+      "verdict": "helped"
+    },
+    {
+      "candidate": "SPC-001",
+      "heuristic": "Specialize",
+      "target": "W_Afhandelen leads",
+      "status": "in_plan",
+      "why": "nothing attributable to it alone — every measure it touches is shared",
+      "verdict": "covered"
+    },
+    {
+      "candidate": "SPC-002",
+      "heuristic": "Specialize",
+      "target": "W_Completeren aanvraag",
+      "status": "in_plan",
+      "why": "nothing attributable to it alone — every measure it touches is shared",
+      "verdict": "covered"
+    },
+    {
+      "candidate": "SPC-003",
+      "heuristic": "Specialize",
+      "target": "W_Nabellen incomplete dossiers",
+      "status": "in_plan",
+      "why": "0 improved / 0 worsened activity measures; -5.727 h per case (z=-38.7)",
+      "verdict": "helped"
+    },
+    {
+      "candidate": "SPC-005",
+      "heuristic": "Specialize",
+      "target": "W_Valideren aanvraag",
+      "status": "in_plan",
+      "why": "nothing attributable to it alone — every measure it touches is shared",
+      "verdict": "covered"
+    },
+    {
+      "candidate": "CA-002",
+      "heuristic": "Case Assignment",
+      "target": [
+        "A_PREACCEPTED",
+        "A_CANCELLED",
+        "A_DECLINED",
+        "A_ACCEPTED"
+      ],
+      "status": "dropped",
+      "why": "Remove because its own measured contribution is hurt in both rounds, including +1.0089 h/case throughput worsening and significant waiting increases on all four owned activities, despite the directive's keep instruction.",
+      "verdict": "hurt"
+    },
+    {
+      "candidate": "CA-003",
+      "heuristic": "Case Assignment",
+      "target": [
+        "A_PARTLYSUBMITTED",
+        "W_Beoordelen fraude",
+        "W_Afhandelen leads"
+      ],
+      "status": "dropped",
+      "why": "nothing attributable to it alone — every measure it touches is shared",
+      "verdict": "covered"
+    },
+    {
+      "candidate": "NI-001",
+      "heuristic": "Numerical Involvement",
+      "target": [
+        "A_CANCELLED",
+        "O_CANCELLED",
+        "W_Completeren aanvraag"
+      ],
+      "status": "dropped",
+      "why": "1 improved / 0 worsened activity measures; -0.074 h per case (z=-10.3)",
+      "verdict": "helped"
+    },
+    {
+      "candidate": "CBW-003",
+      "heuristic": "Case-based Work",
+      "target": "W_Completeren aanvraag",
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: nothing in this model is attributable to batching in front of 'W_Completeren aanvraag': batched executions do not demonstrably wait longer (delta -1.10 h at z=-1.08); negative — batches form when a resource frees up and clears the queue, which is selection, not a batching cost. The extraneous-delay timer is deliberately NOT removed — it holds every unexplained wait before the activity, of which batching is only a part."
+    },
+    {
+      "candidate": "EXC-001",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: divergence_point 'A_PARTLYSUBMITTED' not unique in BPMN"
+    },
+    {
+      "candidate": "EXC-002",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: divergence_point 'A_PARTLYSUBMITTED' not unique in BPMN"
+    },
+    {
+      "candidate": "EXC-003",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: divergence_point 'A_PARTLYSUBMITTED' not unique in BPMN"
+    },
+    {
+      "candidate": "EXC-004",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: divergence_point 'A_PARTLYSUBMITTED' not unique in BPMN"
+    },
+    {
+      "candidate": "EXC-005",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: divergence_point 'A_PARTLYSUBMITTED' not unique in BPMN"
+    },
+    {
+      "candidate": "EXC-006",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: divergence_point 'A_PARTLYSUBMITTED' not unique in BPMN"
+    },
+    {
+      "candidate": "EXC-007",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: divergence_point 'A_PARTLYSUBMITTED' not unique in BPMN"
+    },
+    {
+      "candidate": "EXC-008",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: divergence_point 'A_PARTLYSUBMITTED' not unique in BPMN"
+    },
+    {
+      "candidate": "EXC-009",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: divergence_point 'A_PARTLYSUBMITTED' not unique in BPMN"
+    },
+    {
+      "candidate": "EXC-010",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: divergence_point 'A_PARTLYSUBMITTED' not unique in BPMN"
+    },
+    {
+      "candidate": "KO-001",
+      "heuristic": "Knock-out",
+      "target": [
+        "W_Beoordelen fraude",
+        "W_Afhandelen leads"
+      ],
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: current ordering already matches optimal ordering (efficiency_gap = 0); no reordering needed"
+    },
+    {
+      "candidate": "CBW-001",
+      "heuristic": "Case-based Work",
+      "target": "W_Nabellen offertes",
+      "status": "not_selected",
+      "why": "never entered a plan the search measured"
+    },
+    {
+      "candidate": "CR-003",
+      "heuristic": "Contact Reduction",
+      "target": "W_Nabellen offertes",
+      "status": "not_selected",
+      "why": "never entered a plan the search measured"
+    },
+    {
+      "candidate": "IF-001",
+      "heuristic": "Interfacing",
+      "target": "W_Nabellen offertes",
+      "status": "not_selected",
+      "why": "never entered a plan the search measured"
+    },
+    {
+      "candidate": "SPC-004",
+      "heuristic": "Specialize",
+      "target": "W_Nabellen offertes",
+      "status": "not_selected",
+      "why": "never entered a plan the search measured"
+    }
+  ],
+  "per_candidate_covers": [
+    "AC-001",
+    "AC-002",
+    "AE-002",
+    "CA-001",
+    "CA-003",
+    "CBW-002",
+    "CT-001",
+    "CR-001",
+    "CR-002",
+    "NI-001",
+    "CA-002",
+    "SPC-001",
+    "SPC-002",
+    "SPC-003",
+    "SPC-005"
+  ],
+  "per_candidate_unaccounted": [],
+  "per_candidate_caveat": "The winner is a CONFIRMATION (a subset probe inside round 3), which has no per-candidate account of its own. The rows below describe round2's full plan ['AC-001', 'AC-002', 'AE-002', 'CA-001', 'CA-003', 'CBW-002', 'CT-001', 'CR-001', 'NI-001', 'SPC-002', 'SPC-003'], not the confirmed subset ['AC-001', 'AC-002', 'AE-002', 'CA-001', 'CBW-002', 'CT-001', 'CR-001', 'CR-002', 'SPC-001', 'SPC-002', 'SPC-003', 'SPC-005'].",
+  "final_round_plan": [
+    "AC-001",
+    "AC-002",
+    "AE-002",
+    "CA-001",
+    "CA-003",
+    "CBW-002",
+    "CT-001",
+    "CR-001",
+    "NI-001",
+    "SPC-002",
+    "SPC-003"
+  ],
+  "compliance_final": {
+    "candidates_reviewed": [
+      "AC-001",
+      "AC-002",
+      "AE-002",
+      "CA-001",
+      "CA-002",
+      "CA-003",
+      "CBW-002",
+      "CBW-003",
+      "CT-001",
+      "CR-001",
+      "CR-002",
+      "EXC-001",
+      "EXC-010",
+      "EXC-005",
+      "EXC-009",
+      "EXC-003",
+      "EXC-007",
+      "EXC-002",
+      "EXC-004",
+      "EXC-008",
+      "EXC-006",
+      "KO-001",
+      "NI-001",
+      "SPC-001",
+      "SPC-002",
+      "SPC-003",
+      "SPC-005"
+    ],
+    "barred": [],
+    "rulings": [
+      {
+        "activity": "W_Nabellen offertes",
+        "deleted_by": "AE-002",
+        "verdict": "no_objection",
+        "confidence": "hypothesized",
+        "reason": "In this prior assessment of a Dutch bank loan process, I identify no specific legal, regulatory, audit, or consumer-protection obligation that plainly requires this particular follow-up-calling activity to remain, though this judgement may be wrong."
+      }
+    ],
+    "asked": "every round during the loop, and once more here on the union of everything measured",
+    "eligible_measurements": 9,
+    "measurements_total": 9,
+    "per_round_blocks_during_loop": [
+      {
+        "round": 1,
+        "blocked": [
+          "AE-001",
+          "AE-003"
+        ]
+      },
+      {
+        "round": 2,
+        "blocked": []
+      },
+      {
+        "round": 3,
+        "blocked": []
+      }
+    ],
+    "note": "DECISIONS B: judged on prior knowledge alone and never overturnable by measurement. This ruling decides what the deliverable may contain; measurements of plans it bars are kept under `excluded_as_non_compliant` so the cost of the block can still be read."
+  },
+  "compliance_final_overruled": [],
+  "compliance_blocked": [],
+  "note": "`best` is the best MEASUREMENT in the run, which is usually not the last round. ⚠️ `statistically_tied_with_best` is the SELECTOR'S CANDIDATE POOL, not a set of indistinguishable results: a row is admitted either because it is not significantly worse than `best` on the median, or because it is decisively better on ONE directional measure while possibly far worse on the others. Read each row's `admitted_because` before describing it, and never call the list a tie. `per_candidate` is the winning plan's own account: what each surviving candidate contributed on waiting, duration, throughput and resources."
+}

@@ -1,0 +1,855 @@
+[
+  {
+    "candidate_id": "AE-001",
+    "heuristic": "Activity Elimination",
+    "target_activity": "diagnosis 2nd",
+    "heuristic_context": "Target problem types: redundant activities, non-value-adding tasks, excessive verification or control steps. Applicable structural situations: processes where certain activities do not influence the final outcome or mainly act as rechecks or redundant information transfers. How the data is used: Activities with weak causal dependency to subsequent tasks, low impact on case completion, or long waiting times relative to execution time indicate potential non-value-adding steps and become candidates for elimination. Transformation style: remove the redundant activity and reconnect its predecessor and successor tasks (e.g., A → B → C becomes A → C). Feasibility: Maybe. Potentially redundant activities can be detected from event logs, but deciding whether they can be safely removed requires additional compliance or policy information.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "diagnosis 2nd",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "diagnosis 1st",
+          "type": "activity",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw2",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "gw1",
+          "target": "n2"
+        },
+        {
+          "source": "gw2",
+          "target": "n1"
+        },
+        {
+          "source": "gw2",
+          "target": "gw1"
+        },
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "n3",
+          "target": "gw2"
+        }
+      ]
+    },
+    "evidence": {
+      "waiting_time_before": 1.166,
+      "activity_duration": 12.3233,
+      "waiting_to_duration_ratio": 0.1,
+      "bypass_ratio": 0.9183,
+      "activity_frequency": 320,
+      "variant_coverage": 0.0927,
+      "predecessor_activities": [
+        {
+          "name": "diagnosis 1st",
+          "dfg_frequency": 320,
+          "dependency_strength": 1.0
+        }
+      ],
+      "successor_activities": [
+        {
+          "name": "repair",
+          "dfg_frequency": 245,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "return",
+          "dfg_frequency": 75,
+          "dependency_strength": 1.0
+        }
+      ]
+    },
+    "additional_context": "This activity exhibits rework in 27 cases (0.9% of all cases). Rework may indicate a validation or error-correction role; removal could increase downstream error rates. The activity appears in only 9% of cases, meaning the majority of cases already complete successfully without it. This low coverage reduces the structural risk of elimination. The bypass ratio is 0.92: in over 92% of executions that reach the successor, this activity was not traversed, confirming it is structurally non-essential. Whether this activity can be safely removed depends on compliance requirements, regulatory obligations, and organisational policy — none of which can be determined from the event log alone."
+  },
+  {
+    "candidate_id": "CA-001",
+    "heuristic": "Case Assignment",
+    "target_activities": [
+      "diagnosis 1st",
+      "repair",
+      "diagnosis 2nd",
+      "return",
+      "replace"
+    ],
+    "heuristic_context": "Target problem types: excessive handovers, repeated re-familiarization with the same case, fragmented responsibility across activities. Applicable structural situations: processes where multiple activities of the same case are performed by different resources although they could potentially be handled by the same person. How the data is used: A high number of handovers within a case, frequent switching of resources between consecutive activities, and increased waiting times after handovers indicate that assigning more steps of the same case to the same resource may improve continuity and efficiency. Transformation style: redesign resource allocation so that one resource handles as many activities of the same case as possible, especially for consecutive or strongly related tasks. Feasibility: Maybe. Excessive handovers can be detected from the event log, but assigning multiple activities to the same resource depends on role definitions, skills, and authorization constraints.",
+    "evidence": {
+      "handover_count_mean": 2.153,
+      "resource_continuity_rate": 0.0008,
+      "waiting_time_after_handover_mean": 61.49,
+      "resource_return_rate": 0.0013,
+      "cross_activity_resource_overlap": 0.195,
+      "cross_trained_resource_count": 195,
+      "resource_profile": {
+        "diagnosis 1st": {
+          "f69": 0.0107,
+          "f9": 0.0104,
+          "f83": 0.0104,
+          "f26": 0.0104,
+          "f13": 0.0104,
+          "other": 0.9476
+        },
+        "repair": {
+          "s46": 0.0113,
+          "s51": 0.011,
+          "s89": 0.011,
+          "s56": 0.011,
+          "s47": 0.011,
+          "other": 0.9446
+        },
+        "diagnosis 2nd": {
+          "s72": 0.025,
+          "s6": 0.025,
+          "s42": 0.025,
+          "s33": 0.0219,
+          "s8": 0.0187,
+          "other": 0.8844
+        },
+        "return": {
+          "g4": 0.02,
+          "g40": 0.018,
+          "g60": 0.018,
+          "g42": 0.018,
+          "g92": 0.018,
+          "other": 0.9082
+        },
+        "replace": {
+          "g15": 0.0148,
+          "g45": 0.0136,
+          "g73": 0.0128,
+          "g74": 0.0128,
+          "g19": 0.0128,
+          "other": 0.9331
+        }
+      },
+      "handover_pairs": [
+        {
+          "source": "diagnosis 1st",
+          "target": "repair",
+          "handover_rate": 1.0,
+          "consecutive_count": 2753,
+          "waiting_time_after_handover": 132.463
+        },
+        {
+          "source": "repair",
+          "target": "replace",
+          "handover_rate": 1.0,
+          "consecutive_count": 2572,
+          "waiting_time_after_handover": 0.0
+        },
+        {
+          "source": "diagnosis 1st",
+          "target": "diagnosis 2nd",
+          "handover_rate": 1.0,
+          "consecutive_count": 320,
+          "waiting_time_after_handover": 1.166
+        },
+        {
+          "source": "repair",
+          "target": "return",
+          "handover_rate": 1.0,
+          "consecutive_count": 426,
+          "waiting_time_after_handover": 0.0
+        },
+        {
+          "source": "diagnosis 2nd",
+          "target": "return",
+          "handover_rate": 1.0,
+          "consecutive_count": 75,
+          "waiting_time_after_handover": 0.0
+        },
+        {
+          "source": "return",
+          "target": "diagnosis 1st",
+          "handover_rate": 1.0,
+          "consecutive_count": 73,
+          "waiting_time_after_handover": 0.0
+        },
+        {
+          "source": "diagnosis 2nd",
+          "target": "repair",
+          "handover_rate": 0.9796,
+          "consecutive_count": 245,
+          "waiting_time_after_handover": 133.821
+        }
+      ]
+    },
+    "additional_context": "The highest handover rate within this group is 'diagnosis 1st' → 'repair': 100% across 2753 consecutive occurrences (mean waiting time after handover: 132.5 hours). In the event log, 195 distinct resource(s) have executed at least 2 different target activities (across all cases). The pairwise Jaccard overlap of full resource sets across target activities is 19.50%. This group contains 5 activities."
+  },
+  {
+    "candidate_id": "CBW-001",
+    "heuristic": "Case-based Work",
+    "target_activity": "repair",
+    "heuristic_context": "Target problem types: delays caused by batch processing or periodic handling of cases, accumulation of waiting cases before execution. Applicable structural situations: activities executed in batches or triggered periodically instead of being processed immediately when a case arrives. How the data is used: Repeated patterns where multiple cases start the same activity at nearly identical timestamps or where long waiting times precede activity execution indicate batch or periodic processing instead of case-by-case handling. Transformation style: redesign the process so that cases are processed individually upon arrival instead of waiting for batch or periodic execution. Feasibility: Yes. Batch patterns and periodic execution behavior can be detected from event log timestamps, and the process can be redesigned to enable case-by-case execution.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "repair",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "replace",
+          "type": "activity",
+          "is_target": false
+        },
+        {
+          "id": "n4",
+          "name": "return",
+          "type": "activity",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "gw1",
+          "target": "n4"
+        },
+        {
+          "source": "gw1",
+          "target": "n3"
+        },
+        {
+          "source": "n2",
+          "target": "n1"
+        }
+      ]
+    },
+    "evidence": {
+      "waiting_time_before": 132.553,
+      "batch_size_mean": 29.98,
+      "batch_interval_mean": 0.771,
+      "periodicity_strength": 0.0,
+      "arrival_rate": 2.44098,
+      "execution_rate": 2.480698,
+      "arrival_execution_gap": -0.039718,
+      "target_remapped_from": null,
+      "extraneous_delay_split": {
+        "event_id": "Event_7ed1ca22-e71a-4b83-94f9-d5669147f3fe",
+        "timer_h": 5.5062,
+        "n": 2998,
+        "n_batched": 1856,
+        "batch_share": 0.6191,
+        "wait_batched_h": 165.6715,
+        "wait_unbatched_h": 78.7286,
+        "delta_h": 86.9429,
+        "z": 33.91,
+        "batch_component_h": 5.5062,
+        "share_of_timer": 1.0
+      }
+    },
+    "additional_context": "The execution rate meets or exceeds the arrival rate, suggesting that case-by-case processing is feasible without additional capacity. The average batch size is 30.0 cases, which is large. Transitioning to case-by-case processing would significantly change the workload pattern for this activity. This activity exhibits rework in 45 cases (1.5% of all cases). Rework in a batched activity may indicate that batch errors propagate across multiple cases. Whether batch execution can be replaced by case-by-case processing depends on system scheduling policies, operational constraints (e.g. external system availability windows), and whether downstream systems require batched input — none of which can be determined from the event log alone."
+  },
+  {
+    "candidate_id": "CT-001",
+    "heuristic": "Case Types",
+    "target_activity": "diagnosis 2nd",
+    "evidence": {
+      "attribute": "case:Product",
+      "attribute_kind": "discrete",
+      "rule_label": "case:Product = 'A'",
+      "comparison": "=",
+      "value": "A",
+      "cases_in_group": 278,
+      "cases_out_group": 2722,
+      "routes_conditioned": 2,
+      "activities_routed": [
+        "diagnosis 2nd",
+        "replace"
+      ],
+      "strongest_activity": "diagnosis 2nd",
+      "strongest_share_in": 1.0,
+      "strongest_share_out": 0.0,
+      "strongest_share_gap": 1.0,
+      "separation_z": 54.77,
+      "min_separation_z": 42.91,
+      "hard_rule_overshoot_pp": 0.0,
+      "events_after_routed_mean": 1.68,
+      "service_h_after_routed_mean": 37.5551,
+      "case_events_mean": 4.15,
+      "case_service_h_mean": 86.0429,
+      "routes": [
+        {
+          "gateway_id": "node_dd77791b-f058-4aff-a20f-fed389e24e41",
+          "conditioned_path_id": "node_23c814a0-7413-493a-af05-701de6c057dd",
+          "complement_path_id": "node_b60f7c00-f8d4-42a6-8c5d-bd13f03c07eb",
+          "target_activity": "diagnosis 2nd",
+          "pooled_probability": 0.1078,
+          "comparison": "=",
+          "value": "A",
+          "rule_label": "case:Product = 'A'",
+          "share_in": 1.0,
+          "share_out": 0.0,
+          "z": 54.77
+        },
+        {
+          "gateway_id": "node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f",
+          "conditioned_path_id": "node_503beb76-2458-4cde-b402-32d4ae9fc640",
+          "complement_path_id": "node_7ddd95ee-a66c-4822-a7fd-d20532c444ce",
+          "target_activity": "replace",
+          "pooled_probability": 0.834,
+          "comparison": "!=",
+          "value": "A",
+          "rule_label": "NOT (case:Product = 'A')",
+          "share_in": 0.9449,
+          "share_out": 0.0,
+          "z": 42.91
+        }
+      ]
+    },
+    "heuristic_context": "Target problem types: heterogeneous cases processed in a uniform way, so simple cases carry the effort of complex ones. Applicable when cases with clearly different recorded characteristics all follow the same path.",
+    "additional_context": "case:Product = 'A' splits the log into 278 and 2722 cases that are routed differently at 2 gateway(s), reaching 2 activities: 'diagnosis 2nd', 'replace'. The mined model has no access to the attribute, so each of those gateways uses one pooled probability for every case — strongest example, case:Product = 'A' reaches 'diagnosis 2nd' 100% of the time against 0% for the rest (z=54.8), while the model sends 11% of arrivals there regardless. The redesign attaches the condition at every one of those gateways, so the case type is routed consistently rather than at a coin flip. ⚠️ The condition is a HARD predicate, so it sends 100% of this type to 'diagnosis 2nd' and 0% of the rest, where the log shows 100% and 0% — 0 percentage points of standardisation beyond what the log already does, which is the intervention rather than a reproduction of it. ⚠️ This changes WHICH cases go where, not how long anything takes: no hours are assumed anywhere, and whether routing by type helps, hurts or does nothing is for the simulation to measure. ⚠️ Direction of the change: in the log a case that reaches 'diagnosis 2nd' still records 1.7 further events and 37.555 h of further work, against 4.2 events and 86.043 h for an average case. Part of the case still lies ahead of it, so the rule shifts work rather than plainly adding or removing it.",
+    "process_fragment": {
+      "attribute": "case:Product",
+      "routes": [
+        {
+          "gateway_id": "node_dd77791b-f058-4aff-a20f-fed389e24e41",
+          "conditioned_path_id": "node_23c814a0-7413-493a-af05-701de6c057dd",
+          "complement_path_id": "node_b60f7c00-f8d4-42a6-8c5d-bd13f03c07eb",
+          "target_activity": "diagnosis 2nd",
+          "pooled_probability": 0.1078,
+          "comparison": "=",
+          "value": "A",
+          "rule_label": "case:Product = 'A'",
+          "share_in": 1.0,
+          "share_out": 0.0,
+          "z": 54.77
+        },
+        {
+          "gateway_id": "node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f",
+          "conditioned_path_id": "node_503beb76-2458-4cde-b402-32d4ae9fc640",
+          "complement_path_id": "node_7ddd95ee-a66c-4822-a7fd-d20532c444ce",
+          "target_activity": "replace",
+          "pooled_probability": 0.834,
+          "comparison": "!=",
+          "value": "A",
+          "rule_label": "NOT (case:Product = 'A')",
+          "share_in": 0.9449,
+          "share_out": 0.0,
+          "z": 42.91
+        }
+      ]
+    }
+  },
+  {
+    "candidate_id": "EXC-002",
+    "heuristic": "Exception",
+    "divergence_point": "repair",
+    "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "repair",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "replace",
+          "type": "activity",
+          "is_target": false
+        },
+        {
+          "id": "n4",
+          "name": "return",
+          "type": "activity",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "gw1",
+          "target": "n4"
+        },
+        {
+          "source": "gw1",
+          "target": "n3"
+        },
+        {
+          "source": "n2",
+          "target": "n1"
+        }
+      ]
+    },
+    "dominant_variant": {
+      "activity_sequence": [
+        "intake",
+        "diagnosis 1st",
+        "repair",
+        "replace"
+      ],
+      "frequency": 0.857333
+    },
+    "exception_variant": {
+      "activity_sequence": [
+        "intake",
+        "diagnosis 1st",
+        "repair",
+        "return",
+        "diagnosis 1st",
+        "repair",
+        "return"
+      ],
+      "frequency": 0.008333
+    },
+    "variant_diff": {
+      "shared_prefix": [
+        "intake",
+        "diagnosis 1st",
+        "repair"
+      ],
+      "dominant_suffix": [
+        "replace"
+      ],
+      "exception_suffix": [
+        "return",
+        "diagnosis 1st",
+        "repair",
+        "return"
+      ],
+      "exception_exclusive_activities": [
+        "return"
+      ],
+      "missing_activities": [
+        "replace"
+      ]
+    },
+    "evidence": {
+      "variant_frequency_gap": 0.849,
+      "throughput_time_dominant": 215.43,
+      "throughput_time_exception": 488.701,
+      "throughput_time_gap": 273.271,
+      "deviation_point_waiting_time": 132.553,
+      "exception_case_count": 25,
+      "exception_group_frequency": 0.008333,
+      "exception_variant_count": 1,
+      "throughput_time_exception_max": 488.701
+    },
+    "additional_context": "The exception path takes 488.7 hours on average, which is 2.3x slower than the dominant path (215.4 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 1 activities not present in the dominant flow: return. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: replace. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: return. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'repair' account for 0.8% of total cases (25 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+  },
+  {
+    "candidate_id": "EXC-001",
+    "heuristic": "Exception",
+    "divergence_point": "diagnosis 1st",
+    "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "diagnosis 1st",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "diagnosis 2nd",
+          "type": "activity",
+          "is_target": false
+        },
+        {
+          "id": "n4",
+          "name": "intake",
+          "type": "activity",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw2",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "gw1",
+          "target": "n2"
+        },
+        {
+          "source": "gw2",
+          "target": "n3"
+        },
+        {
+          "source": "gw2",
+          "target": "gw1"
+        },
+        {
+          "source": "n4",
+          "target": "n1"
+        },
+        {
+          "source": "n3",
+          "target": "gw1"
+        },
+        {
+          "source": "n1",
+          "target": "gw2"
+        }
+      ]
+    },
+    "dominant_variant": {
+      "activity_sequence": [
+        "intake",
+        "diagnosis 1st",
+        "repair",
+        "replace"
+      ],
+      "frequency": 0.857333
+    },
+    "exception_variant": {
+      "activity_sequence": [
+        "intake",
+        "diagnosis 1st",
+        "diagnosis 2nd",
+        "repair",
+        "return",
+        "diagnosis 1st",
+        "diagnosis 2nd",
+        "repair",
+        "return"
+      ],
+      "frequency": 0.005333
+    },
+    "variant_diff": {
+      "shared_prefix": [
+        "intake",
+        "diagnosis 1st"
+      ],
+      "dominant_suffix": [
+        "repair",
+        "replace"
+      ],
+      "exception_suffix": [
+        "diagnosis 2nd",
+        "repair",
+        "return",
+        "diagnosis 1st",
+        "diagnosis 2nd",
+        "repair",
+        "return"
+      ],
+      "exception_exclusive_activities": [
+        "diagnosis 2nd",
+        "return"
+      ],
+      "missing_activities": [
+        "replace"
+      ]
+    },
+    "evidence": {
+      "variant_frequency_gap": 0.852,
+      "throughput_time_dominant": 215.43,
+      "throughput_time_exception": 482.482,
+      "throughput_time_gap": 267.052,
+      "deviation_point_waiting_time": 0.0,
+      "exception_case_count": 16,
+      "exception_group_frequency": 0.005333,
+      "exception_variant_count": 1,
+      "throughput_time_exception_max": 482.482
+    },
+    "additional_context": "The exception path takes 482.5 hours on average, which is 2.2x slower than the dominant path (215.4 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 2 activities not present in the dominant flow: diagnosis 2nd, return. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: replace. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: diagnosis 2nd, return. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'diagnosis 1st' account for 0.5% of total cases (16 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+  },
+  {
+    "candidate_id": "XR-001",
+    "heuristic": "Extra Resources",
+    "target_activity": "repair",
+    "evidence": {
+      "waiting_time_before": 105.5075,
+      "service_time_mean": 48.00991,
+      "occurrences": 2391,
+      "resources_serving": 100,
+      "calendar_utilisation": 2.47875,
+      "arrival_rate_per_h": 1.97843,
+      "service_capacity_per_h": 2.0829,
+      "contention_ratio": 0.9498,
+      "waiting_share_of_activity_time": 0.6873,
+      "queue_length_mean": 208.7396
+    },
+    "heuristic_context": "Target problem types: long queue times and delays caused by insufficient processing capacity. Applicable when cases wait before an activity because the resources able to perform it are saturated.",
+    "additional_context": "2391 occurrences served by 100 resources at 248% utilisation of the hours they are open. Arrivals 1.98/h against capacity 2.08/h — a contention ratio of 0.95. Mean queue 208.7 cases (Little's law). Waiting is 69% of the time a case spends here, and the service time of 48.010 h confirms real work is being done, so the wait is contention rather than calendar.",
+    "process_fragment": {}
+  },
+  {
+    "candidate_id": "NI-001",
+    "heuristic": "Numerical Involvement",
+    "target_activities": [
+      "diagnosis 1st",
+      "intake",
+      "repair"
+    ],
+    "evidence": {
+      "target_activities": [
+        "diagnosis 1st",
+        "intake",
+        "repair"
+      ],
+      "cases": 3000,
+      "cases_fragmented": 3000,
+      "fragmented_share": 1.0,
+      "handover_rate_mean": 0.9997,
+      "unique_resources_mean": 4.14,
+      "unique_resources_max": 47,
+      "events_per_case_mean": 4.15,
+      "pool_before": 300,
+      "pool_after": 300,
+      "overlaps_case_assignment": [],
+      "overlap_share": 0.0
+    },
+    "heuristic_context": "Target problem types: excessive coordination overhead, delays caused by involving too many departments or participants in handling a case. Applicable when a single case is handled by many different resources or organizational units.",
+    "additional_context": "100% of the 3000 cases that reach 'diagnosis 1st' are passed between a new person at 60% or more of their steps, involving 4.1 people on average and up to 47. ⚠️ The rate is LENGTH-CONTROLLED (handovers / transitions), because raw participant counts measure how long a case is: unique resources per case tracks events per case at 0.29-0.36 on these logs. The redesign widens the allocation across ['diagnosis 1st', 'intake', 'repair'] so one person can carry the whole stretch — 300 resources currently serve it. No Case Assignment candidate claims these activities, so this is a stretch CA's waiting-based selection does not reach.",
+    "process_fragment": {
+      "target_activities": [
+        "diagnosis 1st",
+        "intake",
+        "repair"
+      ]
+    }
+  },
+  {
+    "candidate_id": "NI-002",
+    "heuristic": "Numerical Involvement",
+    "target_activities": [
+      "diagnosis 2nd",
+      "diagnosis 1st",
+      "repair"
+    ],
+    "evidence": {
+      "target_activities": [
+        "diagnosis 2nd",
+        "diagnosis 1st",
+        "repair"
+      ],
+      "cases": 278,
+      "cases_fragmented": 278,
+      "fragmented_share": 1.0,
+      "handover_rate_mean": 0.9964,
+      "unique_resources_mean": 5.28,
+      "unique_resources_max": 47,
+      "events_per_case_mean": 5.33,
+      "pool_before": 200,
+      "pool_after": 200,
+      "overlaps_case_assignment": [],
+      "overlap_share": 0.0
+    },
+    "heuristic_context": "Target problem types: excessive coordination overhead, delays caused by involving too many departments or participants in handling a case. Applicable when a single case is handled by many different resources or organizational units.",
+    "additional_context": "100% of the 278 cases that reach 'diagnosis 2nd' are passed between a new person at 60% or more of their steps, involving 5.3 people on average and up to 47. ⚠️ The rate is LENGTH-CONTROLLED (handovers / transitions), because raw participant counts measure how long a case is: unique resources per case tracks events per case at 0.29-0.36 on these logs. The redesign widens the allocation across ['diagnosis 2nd', 'diagnosis 1st', 'repair'] so one person can carry the whole stretch — 200 resources currently serve it. No Case Assignment candidate claims these activities, so this is a stretch CA's waiting-based selection does not reach.",
+    "process_fragment": {
+      "target_activities": [
+        "diagnosis 2nd",
+        "diagnosis 1st",
+        "repair"
+      ]
+    }
+  },
+  {
+    "candidate_id": "NI-003",
+    "heuristic": "Numerical Involvement",
+    "target_activities": [
+      "intake",
+      "diagnosis 1st"
+    ],
+    "evidence": {
+      "target_activities": [
+        "intake",
+        "diagnosis 1st"
+      ],
+      "cases": 3000,
+      "cases_fragmented": 3000,
+      "fragmented_share": 1.0,
+      "handover_rate_mean": 0.9997,
+      "unique_resources_mean": 4.14,
+      "unique_resources_max": 47,
+      "events_per_case_mean": 4.15,
+      "pool_before": 200,
+      "pool_after": 200,
+      "overlaps_case_assignment": [],
+      "overlap_share": 0.0
+    },
+    "heuristic_context": "Target problem types: excessive coordination overhead, delays caused by involving too many departments or participants in handling a case. Applicable when a single case is handled by many different resources or organizational units.",
+    "additional_context": "100% of the 3000 cases that reach 'intake' are passed between a new person at 60% or more of their steps, involving 4.1 people on average and up to 47. ⚠️ The rate is LENGTH-CONTROLLED (handovers / transitions), because raw participant counts measure how long a case is: unique resources per case tracks events per case at 0.29-0.36 on these logs. The redesign widens the allocation across ['intake', 'diagnosis 1st'] so one person can carry the whole stretch — 200 resources currently serve it. No Case Assignment candidate claims these activities, so this is a stretch CA's waiting-based selection does not reach.",
+    "process_fragment": {
+      "target_activities": [
+        "intake",
+        "diagnosis 1st"
+      ]
+    }
+  },
+  {
+    "candidate_id": "NI-004",
+    "heuristic": "Numerical Involvement",
+    "target_activities": [
+      "repair",
+      "diagnosis 1st",
+      "replace"
+    ],
+    "evidence": {
+      "target_activities": [
+        "repair",
+        "diagnosis 1st",
+        "replace"
+      ],
+      "cases": 2950,
+      "cases_fragmented": 2950,
+      "fragmented_share": 1.0,
+      "handover_rate_mean": 0.9997,
+      "unique_resources_mean": 4.14,
+      "unique_resources_max": 47,
+      "events_per_case_mean": 4.15,
+      "pool_before": 300,
+      "pool_after": 300,
+      "overlaps_case_assignment": [],
+      "overlap_share": 0.0
+    },
+    "heuristic_context": "Target problem types: excessive coordination overhead, delays caused by involving too many departments or participants in handling a case. Applicable when a single case is handled by many different resources or organizational units.",
+    "additional_context": "100% of the 2950 cases that reach 'repair' are passed between a new person at 60% or more of their steps, involving 4.1 people on average and up to 47. ⚠️ The rate is LENGTH-CONTROLLED (handovers / transitions), because raw participant counts measure how long a case is: unique resources per case tracks events per case at 0.29-0.36 on these logs. The redesign widens the allocation across ['repair', 'diagnosis 1st', 'replace'] so one person can carry the whole stretch — 300 resources currently serve it. No Case Assignment candidate claims these activities, so this is a stretch CA's waiting-based selection does not reach.",
+    "process_fragment": {
+      "target_activities": [
+        "repair",
+        "diagnosis 1st",
+        "replace"
+      ]
+    }
+  },
+  {
+    "candidate_id": "NI-005",
+    "heuristic": "Numerical Involvement",
+    "target_activities": [
+      "replace",
+      "repair"
+    ],
+    "evidence": {
+      "target_activities": [
+        "replace",
+        "repair"
+      ],
+      "cases": 2572,
+      "cases_fragmented": 2572,
+      "fragmented_share": 1.0,
+      "handover_rate_mean": 1.0,
+      "unique_resources_mean": 3.99,
+      "unique_resources_max": 4,
+      "events_per_case_mean": 4.0,
+      "pool_before": 200,
+      "pool_after": 200,
+      "overlaps_case_assignment": [],
+      "overlap_share": 0.0
+    },
+    "heuristic_context": "Target problem types: excessive coordination overhead, delays caused by involving too many departments or participants in handling a case. Applicable when a single case is handled by many different resources or organizational units.",
+    "additional_context": "100% of the 2572 cases that reach 'replace' are passed between a new person at 60% or more of their steps, involving 4.0 people on average and up to 4. ⚠️ The rate is LENGTH-CONTROLLED (handovers / transitions), because raw participant counts measure how long a case is: unique resources per case tracks events per case at 0.29-0.36 on these logs. The redesign widens the allocation across ['replace', 'repair'] so one person can carry the whole stretch — 200 resources currently serve it. No Case Assignment candidate claims these activities, so this is a stretch CA's waiting-based selection does not reach.",
+    "process_fragment": {
+      "target_activities": [
+        "replace",
+        "repair"
+      ]
+    }
+  },
+  {
+    "candidate_id": "NI-006",
+    "heuristic": "Numerical Involvement",
+    "target_activities": [
+      "return",
+      "repair",
+      "diagnosis 2nd"
+    ],
+    "evidence": {
+      "target_activities": [
+        "return",
+        "repair",
+        "diagnosis 2nd"
+      ],
+      "cases": 428,
+      "cases_fragmented": 428,
+      "fragmented_share": 1.0,
+      "handover_rate_mean": 0.9977,
+      "unique_resources_mean": 5.04,
+      "unique_resources_max": 47,
+      "events_per_case_mean": 5.08,
+      "pool_before": 200,
+      "pool_after": 200,
+      "overlaps_case_assignment": [],
+      "overlap_share": 0.0
+    },
+    "heuristic_context": "Target problem types: excessive coordination overhead, delays caused by involving too many departments or participants in handling a case. Applicable when a single case is handled by many different resources or organizational units.",
+    "additional_context": "100% of the 428 cases that reach 'return' are passed between a new person at 60% or more of their steps, involving 5.0 people on average and up to 47. ⚠️ The rate is LENGTH-CONTROLLED (handovers / transitions), because raw participant counts measure how long a case is: unique resources per case tracks events per case at 0.29-0.36 on these logs. The redesign widens the allocation across ['return', 'repair', 'diagnosis 2nd'] so one person can carry the whole stretch — 200 resources currently serve it. No Case Assignment candidate claims these activities, so this is a stretch CA's waiting-based selection does not reach.",
+    "process_fragment": {
+      "target_activities": [
+        "return",
+        "repair",
+        "diagnosis 2nd"
+      ]
+    }
+  }
+]

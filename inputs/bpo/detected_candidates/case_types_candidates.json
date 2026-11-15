@@ -1,0 +1,290 @@
+{
+  "heuristic": "Case Types",
+  "candidates": [
+    {
+      "candidate_id": "CT-001",
+      "heuristic": "Case Types",
+      "target_activity": "diagnosis 2nd",
+      "evidence": {
+        "attribute": "case:Product",
+        "attribute_kind": "discrete",
+        "rule_label": "case:Product = 'A'",
+        "comparison": "=",
+        "value": "A",
+        "cases_in_group": 278,
+        "cases_out_group": 2722,
+        "routes_conditioned": 2,
+        "activities_routed": [
+          "diagnosis 2nd",
+          "replace"
+        ],
+        "strongest_activity": "diagnosis 2nd",
+        "strongest_share_in": 1.0,
+        "strongest_share_out": 0.0,
+        "strongest_share_gap": 1.0,
+        "separation_z": 54.77,
+        "min_separation_z": 42.91,
+        "hard_rule_overshoot_pp": 0.0,
+        "events_after_routed_mean": 1.68,
+        "service_h_after_routed_mean": 37.5551,
+        "case_events_mean": 4.15,
+        "case_service_h_mean": 86.0429,
+        "routes": [
+          {
+            "gateway_id": "node_dd77791b-f058-4aff-a20f-fed389e24e41",
+            "conditioned_path_id": "node_23c814a0-7413-493a-af05-701de6c057dd",
+            "complement_path_id": "node_b60f7c00-f8d4-42a6-8c5d-bd13f03c07eb",
+            "target_activity": "diagnosis 2nd",
+            "pooled_probability": 0.1078,
+            "comparison": "=",
+            "value": "A",
+            "rule_label": "case:Product = 'A'",
+            "share_in": 1.0,
+            "share_out": 0.0,
+            "z": 54.77
+          },
+          {
+            "gateway_id": "node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f",
+            "conditioned_path_id": "node_503beb76-2458-4cde-b402-32d4ae9fc640",
+            "complement_path_id": "node_7ddd95ee-a66c-4822-a7fd-d20532c444ce",
+            "target_activity": "replace",
+            "pooled_probability": 0.834,
+            "comparison": "!=",
+            "value": "A",
+            "rule_label": "NOT (case:Product = 'A')",
+            "share_in": 0.9449,
+            "share_out": 0.0,
+            "z": 42.91
+          }
+        ]
+      },
+      "heuristic_context": "Target problem types: heterogeneous cases processed in a uniform way, so simple cases carry the effort of complex ones. Applicable when cases with clearly different recorded characteristics all follow the same path.",
+      "additional_context": "case:Product = 'A' splits the log into 278 and 2722 cases that are routed differently at 2 gateway(s), reaching 2 activities: 'diagnosis 2nd', 'replace'. The mined model has no access to the attribute, so each of those gateways uses one pooled probability for every case — strongest example, case:Product = 'A' reaches 'diagnosis 2nd' 100% of the time against 0% for the rest (z=54.8), while the model sends 11% of arrivals there regardless. The redesign attaches the condition at every one of those gateways, so the case type is routed consistently rather than at a coin flip. ⚠️ The condition is a HARD predicate, so it sends 100% of this type to 'diagnosis 2nd' and 0% of the rest, where the log shows 100% and 0% — 0 percentage points of standardisation beyond what the log already does, which is the intervention rather than a reproduction of it. ⚠️ This changes WHICH cases go where, not how long anything takes: no hours are assumed anywhere, and whether routing by type helps, hurts or does nothing is for the simulation to measure. ⚠️ Direction of the change: in the log a case that reaches 'diagnosis 2nd' still records 1.7 further events and 37.555 h of further work, against 4.2 events and 86.043 h for an average case. Part of the case still lies ahead of it, so the rule shifts work rather than plainly adding or removing it.",
+      "process_fragment": {
+        "attribute": "case:Product",
+        "routes": [
+          {
+            "gateway_id": "node_dd77791b-f058-4aff-a20f-fed389e24e41",
+            "conditioned_path_id": "node_23c814a0-7413-493a-af05-701de6c057dd",
+            "complement_path_id": "node_b60f7c00-f8d4-42a6-8c5d-bd13f03c07eb",
+            "target_activity": "diagnosis 2nd",
+            "pooled_probability": 0.1078,
+            "comparison": "=",
+            "value": "A",
+            "rule_label": "case:Product = 'A'",
+            "share_in": 1.0,
+            "share_out": 0.0,
+            "z": 54.77
+          },
+          {
+            "gateway_id": "node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f",
+            "conditioned_path_id": "node_503beb76-2458-4cde-b402-32d4ae9fc640",
+            "complement_path_id": "node_7ddd95ee-a66c-4822-a7fd-d20532c444ce",
+            "target_activity": "replace",
+            "pooled_probability": 0.834,
+            "comparison": "!=",
+            "value": "A",
+            "rule_label": "NOT (case:Product = 'A')",
+            "share_in": 0.9449,
+            "share_out": 0.0,
+            "z": 42.91
+          }
+        ]
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "gateway": "node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f",
+      "task": "replace",
+      "split": "case:EstimatedQuality <= 25",
+      "share_in": 0.8451,
+      "share_out": 0.8615,
+      "gap": 0.0163,
+      "z": -1.11,
+      "rejected_because": [
+        "the two groups reach 'replace' within 1.6% of each other (85% vs 86%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f",
+      "task": "replace",
+      "split": "case:EstimatedQuality <= 52",
+      "share_in": 0.8492,
+      "share_out": 0.8658,
+      "gap": 0.0166,
+      "z": -1.3,
+      "rejected_because": [
+        "the two groups reach 'replace' within 1.7% of each other (85% vs 87%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f",
+      "task": "replace",
+      "split": "case:EstimatedQuality <= 76.25",
+      "share_in": 0.8502,
+      "share_out": 0.8787,
+      "gap": 0.0284,
+      "z": -1.93,
+      "rejected_because": [
+        "the two groups reach 'replace' within 2.8% of each other (85% vs 88%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f",
+      "task": "replace",
+      "split": "case:CustomerType = 'Unknown'",
+      "share_in": 0.8638,
+      "share_out": 0.8508,
+      "gap": 0.013,
+      "z": 1.01,
+      "rejected_because": [
+        "the two groups reach 'replace' within 1.3% of each other (86% vs 85%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f",
+      "task": "replace",
+      "split": "case:CustomerType = 'Typical'",
+      "share_in": 0.8323,
+      "share_out": 0.8639,
+      "gap": 0.0317,
+      "z": -2.02,
+      "rejected_because": [
+        "the two groups reach 'replace' within 3.2% of each other (83% vs 86%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f",
+      "task": "replace",
+      "split": "case:CustomerType = 'Rejecter'",
+      "share_in": 0.8763,
+      "share_out": 0.8553,
+      "gap": 0.021,
+      "z": 0.97,
+      "rejected_because": [
+        "the two groups reach 'replace' within 2.1% of each other (88% vs 86%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f",
+      "task": "replace",
+      "split": "case:CustomerType = 'Keeper'",
+      "share_in": 0.8581,
+      "share_out": 0.8572,
+      "gap": 0.0009,
+      "z": 0.04,
+      "rejected_because": [
+        "the two groups reach 'replace' within 0.1% of each other (86% vs 86%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f",
+      "task": "replace",
+      "split": "case:CustomerType = 'Selective'",
+      "share_in": 0.8582,
+      "share_out": 0.8572,
+      "gap": 0.0009,
+      "z": 0.04,
+      "rejected_because": [
+        "the two groups reach 'replace' within 0.1% of each other (86% vs 86%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_dd77791b-f058-4aff-a20f-fed389e24e41",
+      "task": "diagnosis 2nd",
+      "split": "case:EstimatedQuality <= 25",
+      "share_in": 0.0945,
+      "share_out": 0.092,
+      "gap": 0.0024,
+      "z": 0.2,
+      "rejected_because": [
+        "the two groups reach 'diagnosis 2nd' within 0.2% of each other (9% vs 9%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_dd77791b-f058-4aff-a20f-fed389e24e41",
+      "task": "diagnosis 2nd",
+      "split": "case:EstimatedQuality <= 52",
+      "share_in": 0.0997,
+      "share_out": 0.0854,
+      "gap": 0.0142,
+      "z": 1.35,
+      "rejected_because": [
+        "the two groups reach 'diagnosis 2nd' within 1.4% of each other (10% vs 9%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_dd77791b-f058-4aff-a20f-fed389e24e41",
+      "task": "diagnosis 2nd",
+      "split": "case:EstimatedQuality <= 76.25",
+      "share_in": 0.0978,
+      "share_out": 0.0773,
+      "gap": 0.0204,
+      "z": 1.67,
+      "rejected_because": [
+        "the two groups reach 'diagnosis 2nd' within 2.0% of each other (10% vs 8%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_dd77791b-f058-4aff-a20f-fed389e24e41",
+      "task": "diagnosis 2nd",
+      "split": "case:CustomerType = 'Unknown'",
+      "share_in": 0.0866,
+      "share_out": 0.0988,
+      "gap": 0.0122,
+      "z": -1.15,
+      "rejected_because": [
+        "the two groups reach 'diagnosis 2nd' within 1.2% of each other (9% vs 10%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_dd77791b-f058-4aff-a20f-fed389e24e41",
+      "task": "diagnosis 2nd",
+      "split": "case:CustomerType = 'Typical'",
+      "share_in": 0.1118,
+      "share_out": 0.0876,
+      "gap": 0.0242,
+      "z": 1.86,
+      "rejected_because": [
+        "the two groups reach 'diagnosis 2nd' within 2.4% of each other (11% vs 9%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_dd77791b-f058-4aff-a20f-fed389e24e41",
+      "task": "diagnosis 2nd",
+      "split": "case:CustomerType = 'Rejecter'",
+      "share_in": 0.0756,
+      "share_out": 0.0945,
+      "gap": 0.0189,
+      "z": -1.06,
+      "rejected_because": [
+        "the two groups reach 'diagnosis 2nd' within 1.9% of each other (8% vs 9%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_dd77791b-f058-4aff-a20f-fed389e24e41",
+      "task": "diagnosis 2nd",
+      "split": "case:CustomerType = 'Keeper'",
+      "share_in": 0.0865,
+      "share_out": 0.0933,
+      "gap": 0.0068,
+      "z": -0.38,
+      "rejected_because": [
+        "the two groups reach 'diagnosis 2nd' within 0.7% of each other (9% vs 9%) — this attribute does not describe two case types, it describes one"
+      ]
+    },
+    {
+      "gateway": "node_dd77791b-f058-4aff-a20f-fed389e24e41",
+      "task": "diagnosis 2nd",
+      "split": "case:CustomerType = 'Selective'",
+      "share_in": 0.1064,
+      "share_out": 0.0912,
+      "gap": 0.0151,
+      "z": 0.83,
+      "rejected_because": [
+        "the two groups reach 'diagnosis 2nd' within 1.5% of each other (11% vs 9%) — this attribute does not describe two case types, it describes one"
+      ]
+    }
+  ]
+}

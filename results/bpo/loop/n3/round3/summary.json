@@ -1,0 +1,164 @@
+{
+  "n_runs": 20,
+  "kpi": {
+    "throughput_h_median": 80.18994314091665,
+    "throughput_h_median_std": 0.8293401801522352,
+    "vs_baseline_pct": -60.04311390358224,
+    "vs_baseline_z": -29.86007819178308
+  },
+  "aggregate": {
+    "n_cases_mean": 3000.0,
+    "n_cases_std": 0.0,
+    "n_events_mean": 12287.25,
+    "n_events_std": 18.59789178770993,
+    "throughput_h_mean_mean": 86.78778685653647,
+    "throughput_h_mean_std": 0.8325541092190897,
+    "throughput_h_median_mean": 80.18994314091665,
+    "throughput_h_median_std": 0.8293401801522352,
+    "throughput_h_p90_mean": 123.24822171012913,
+    "throughput_h_p90_std": 1.7150611503008577,
+    "throughput_h_p99_mean": 234.00516553416256,
+    "throughput_h_p99_std": 28.066689713904143,
+    "throughput_h_max_mean": 650.9782901947917,
+    "throughput_h_max_std": 61.26725738798147,
+    "waiting_h_per_event_mean_mean": 0.4467285469815091,
+    "waiting_h_per_event_mean_std": 0.029510642175486313,
+    "waiting_h_per_case_mean_mean": 1.829665110794852,
+    "waiting_h_per_case_mean_std": 0.12056520579778397,
+    "duration_h_mean_mean": 19.493714391561504,
+    "duration_h_mean_std": 0.1075766925800275,
+    "utilization_mean_mean": 0.12001848710776183,
+    "utilization_mean_std": 0.008902103185339951,
+    "obs_window_h_mean": 1672.018447932653,
+    "obs_window_h_std": 127.09660775926561,
+    "waiting_h_mean_mean": 0.4467285469815091,
+    "waiting_h_mean_std": 0.029510642175486313,
+    "per_activity": {
+      "diagnosis 1st": {
+        "waiting_h_mean": 0.3607173702504583,
+        "waiting_h_std": 0.04773806058988038,
+        "duration_h_mean": 16.104009175244816,
+        "duration_h_std": 0.21935630756694743,
+        "n_mean": 3000.0,
+        "n_runs_observed": 20
+      },
+      "diagnosis 2nd": {
+        "waiting_h_mean": 1.2499908083043683,
+        "waiting_h_std": 0.1279029172569928,
+        "duration_h_mean": 11.896040088993516,
+        "duration_h_std": 0.6539411994210346,
+        "n_mean": 287.25,
+        "n_runs_observed": 20
+      },
+      "intake": {
+        "waiting_h_mean": 0.6483241563361621,
+        "waiting_h_std": 0.05013807281438833,
+        "duration_h_mean": 18.064097119146204,
+        "duration_h_std": 0.22135946319339583,
+        "n_mean": 3000.0,
+        "n_runs_observed": 20
+      },
+      "repair": {
+        "waiting_h_mean": 0.3352999868137037,
+        "waiting_h_std": 0.04128527228671611,
+        "duration_h_mean": 27.1529389468938,
+        "duration_h_std": 0.3371381770153325,
+        "n_mean": 3000.0,
+        "n_runs_observed": 20
+      },
+      "replace": {
+        "waiting_h_mean": 0.4044865575506266,
+        "waiting_h_std": 0.04343255383086857,
+        "duration_h_mean": 17.94181065054911,
+        "duration_h_std": 0.2882267922961723,
+        "n_mean": 2712.75,
+        "n_runs_observed": 20
+      },
+      "return": {
+        "waiting_h_mean": 0.0,
+        "waiting_h_std": 0.0,
+        "duration_h_mean": 12.092907300931278,
+        "duration_h_std": 0.20238818599824862,
+        "n_mean": 287.25,
+        "n_runs_observed": 20
+      }
+    },
+    "case_endings_mean": {
+      "replace": 2712.75,
+      "return": 287.25
+    },
+    "case_endings_std": {
+      "replace": 18.126982650182022,
+      "return": 18.126982650182022
+    },
+    "duration_h_per_case_mean_mean": 79.84117544536555,
+    "duration_h_per_case_mean_std": 0.40669627399839564
+  },
+  "significant_waiting_h": [
+    {
+      "activity": "intake",
+      "base": 0.0002277890762175926,
+      "redes": 0.6483241563361621,
+      "z": 57.80622182116531,
+      "status": "changed"
+    },
+    {
+      "activity": "replace",
+      "base": 0.0002446699100882035,
+      "redes": 0.4044865575506266,
+      "z": 41.62072440918583,
+      "status": "changed"
+    },
+    {
+      "activity": "repair",
+      "base": 107.54779463548971,
+      "redes": 0.3352999868137037,
+      "z": -32.928005461133345,
+      "status": "changed"
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "base": 107.3600897831204,
+      "redes": 1.2499908083043683,
+      "z": -29.08885946565552,
+      "status": "changed"
+    },
+    {
+      "activity": "diagnosis 1st",
+      "base": 0.07823675595899536,
+      "redes": 0.3607173702504583,
+      "z": 26.20645271429894,
+      "status": "changed"
+    }
+  ],
+  "significant_duration_h": [
+    {
+      "activity": "repair",
+      "base": 47.69374981189326,
+      "redes": 27.1529389468938,
+      "z": -203.82951077441822,
+      "status": "changed"
+    },
+    {
+      "activity": "intake",
+      "base": 12.014252428295666,
+      "redes": 18.064097119146204,
+      "z": 116.25204410160003,
+      "status": "changed"
+    },
+    {
+      "activity": "replace",
+      "base": 11.971308651086783,
+      "redes": 17.94181065054911,
+      "z": 91.31941452393801,
+      "status": "changed"
+    },
+    {
+      "activity": "diagnosis 1st",
+      "base": 12.10943189111776,
+      "redes": 16.104009175244816,
+      "z": 77.4405949169916,
+      "status": "changed"
+    }
+  ]
+}

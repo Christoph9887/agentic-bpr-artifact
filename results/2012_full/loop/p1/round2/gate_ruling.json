@@ -1,0 +1,384 @@
+{
+  "round": 2,
+  "enforced": true,
+  "plan_in": [
+    "AC-001",
+    "AC-002",
+    "AE-002",
+    "CA-001",
+    "CBW-002",
+    "CT-001",
+    "CR-001",
+    "CR-002",
+    "SPC-001",
+    "SPC-002",
+    "SPC-003"
+  ],
+  "plan_out": [
+    "AC-001",
+    "AC-002",
+    "AE-002",
+    "CA-001",
+    "CBW-002",
+    "CT-001",
+    "CR-001",
+    "CR-002",
+    "SPC-001",
+    "SPC-002",
+    "SPC-003"
+  ],
+  "compliance": [
+    {
+      "activity": "W_Nabellen offertes",
+      "deleted_by": "AE-002",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "As a prior judgement about a Dutch bank loan process, I find no identified legal, regulatory, audit, or consumer-protection obligation that inherently requires a separate follow-up call on offers; this may be wrong."
+    }
+  ],
+  "rulings": [
+    {
+      "candidate_id": "AC-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Both targets survive, so the candidate remains fully applicable."
+    },
+    {
+      "candidate_id": "AC-002",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Both targets survive, so the candidate remains fully applicable."
+    },
+    {
+      "candidate_id": "AE-002",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its sole target W_Nabellen offertes survives when AE-002 is reached."
+    },
+    {
+      "candidate_id": "CA-001",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "AE-002 removes W_Nabellen offertes, but four of CA-001's five targets survive, so its case-assignment purpose remains partly applicable."
+    },
+    {
+      "candidate_id": "CBW-002",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its sole target W_Valideren aanvraag survives."
+    },
+    {
+      "candidate_id": "CT-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its sole target O_CREATED survives."
+    },
+    {
+      "candidate_id": "CR-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its sole target W_Beoordelen fraude survives."
+    },
+    {
+      "candidate_id": "CR-002",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its sole target W_Completeren aanvraag survives."
+    },
+    {
+      "candidate_id": "SPC-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its sole target W_Afhandelen leads survives."
+    },
+    {
+      "candidate_id": "SPC-002",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its sole target W_Completeren aanvraag survives."
+    },
+    {
+      "candidate_id": "SPC-003",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its sole target W_Nabellen incomplete dossiers survives."
+    }
+  ],
+  "pruned": [],
+  "blocked": [],
+  "reorder_suggestion": null,
+  "survival": {
+    "AC-001": {
+      "candidate_id": "AC-001",
+      "heuristic": "Activity Composition",
+      "targets": [
+        "A_PARTLYSUBMITTED",
+        "A_SUBMITTED"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "A_PARTLYSUBMITTED",
+        "A_SUBMITTED"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "AC-002": {
+      "candidate_id": "AC-002",
+      "heuristic": "Activity Composition",
+      "targets": [
+        "O_CREATED",
+        "O_SENT"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "O_CREATED",
+        "O_SENT"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "AE-002": {
+      "candidate_id": "AE-002",
+      "heuristic": "Activity Elimination",
+      "targets": [
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "W_Nabellen offertes"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CA-001": {
+      "candidate_id": "CA-001",
+      "heuristic": "Case Assignment",
+      "targets": [
+        "A_ACTIVATED",
+        "A_APPROVED",
+        "O_DECLINED",
+        "O_SENT_BACK",
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier": [
+        "AE-002"
+      ],
+      "removed_by": [
+        "AE-002"
+      ],
+      "surviving": [
+        "A_ACTIVATED",
+        "A_APPROVED",
+        "O_DECLINED",
+        "O_SENT_BACK"
+      ],
+      "fraction_surviving": 0.8,
+      "signal": "some_targets_removed"
+    },
+    "CBW-002": {
+      "candidate_id": "CBW-002",
+      "heuristic": "Case-based Work",
+      "targets": [
+        "W_Valideren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "W_Valideren aanvraag"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CT-001": {
+      "candidate_id": "CT-001",
+      "heuristic": "Case Types",
+      "targets": [
+        "O_CREATED"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "O_CREATED"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CR-001": {
+      "candidate_id": "CR-001",
+      "heuristic": "Contact Reduction",
+      "targets": [
+        "W_Beoordelen fraude"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "W_Beoordelen fraude"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CR-002": {
+      "candidate_id": "CR-002",
+      "heuristic": "Contact Reduction",
+      "targets": [
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "W_Completeren aanvraag"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "SPC-001": {
+      "candidate_id": "SPC-001",
+      "heuristic": "Specialize",
+      "targets": [
+        "W_Afhandelen leads"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "W_Afhandelen leads"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "SPC-002": {
+      "candidate_id": "SPC-002",
+      "heuristic": "Specialize",
+      "targets": [
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "W_Completeren aanvraag"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "SPC-003": {
+      "candidate_id": "SPC-003",
+      "heuristic": "Specialize",
+      "targets": [
+        "W_Nabellen incomplete dossiers"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "W_Nabellen incomplete dossiers"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    }
+  },
+  "note": "Compliance rulings are prior judgements about a Dutch bank loan process, not measurement findings; no candidate is barred on compliance grounds, and the plan may proceed subject to these judgements.",
+  "rollback_note": "",
+  "halted": false,
+  "grounding": [
+    "knowledge.check_target_survival({\"candidate_id\": \"AC-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"CA-001\", \"CBW-002\", \"CT-001\", \"CR-001\", \"CR-002\", \"SPC-001\", \"SPC-002\", \"SPC-003\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"AC-002\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"CA-001\", \"CBW-002\", \"CT-001\", \"CR-001\", \"CR-002\", \"SPC-001\", \"SPC-002\", \"SPC-003\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"AE-002\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"CA-001\", \"CBW-002\", \"CT-001\", \"CR-001\", \"CR-002\", \"SPC-001\", \"SPC-002\", \"SPC-003\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CA-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"CA-001\", \"CBW-002\", \"CT-001\", \"CR-001\", \"CR-002\", \"SPC-001\", \"SPC-002\", \"SPC-003\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CBW-002\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"CA-001\", \"CBW-002\", \"CT-001\", \"CR-001\", \"CR-002\", \"SPC-001\", \"SPC-002\", \"SPC-003\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CT-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"CA-001\", \"CBW-002\", \"CT-001\", \"CR-001\", \"CR-002\", \"SPC-001\", \"SPC-002\", \"SPC-003\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CR-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"CA-001\", \"CBW-002\", \"CT-001\", \"CR-001\", \"CR-002\", \"SPC-001\", \"SPC-002\", \"SPC-003\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CR-002\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"CA-001\", \"CBW-002\", \"CT-001\", \"CR-001\", \"CR-002\", \"SPC-001\", \"SPC-002\", \"SPC-003\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"SPC-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"CA-001\", \"CBW-002\", \"CT-001\", \"CR-001\", \"CR-002\", \"SPC-001\", \"SPC-002\", \"SPC-003\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"SPC-002\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"CA-001\", \"CBW-002\", \"CT-001\", \"CR-001\", \"CR-002\", \"SPC-001\", \"SPC-002\", \"SPC-003\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"SPC-003\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"CA-001\", \"CBW-002\", \"CT-001\", \"CR-001\", \"CR-002\", \"SPC-001\", \"SPC-002\", \"SPC-003\"]})",
+    "knowledge.get_heuristic_prior({\"heuristic\": \"Activity Composition\"})",
+    "knowledge.get_heuristic_prior({\"heuristic\": \"Activity Elimination\"})",
+    "knowledge.get_heuristic_prior({\"heuristic\": \"Case Assignment\"})",
+    "knowledge.get_heuristic_prior({\"heuristic\": \"Case-based Work\"})",
+    "knowledge.get_heuristic_prior({\"heuristic\": \"Case Types\"})",
+    "knowledge.get_heuristic_prior({\"heuristic\": \"Contact Reduction\"})",
+    "knowledge.get_heuristic_prior({\"heuristic\": \"Specialize\"})"
+  ],
+  "deleter_probes": {
+    "AE-001": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "AE-002": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "AE-003": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-001": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-002": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-003": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-004": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-005": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-006": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-007": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-008": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-009": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-010": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    }
+  }
+}

@@ -1,0 +1,225 @@
+{
+  "heuristic": "Specialize",
+  "candidates": [
+    {
+      "candidate_id": "SPC-001",
+      "heuristic": "Specialize",
+      "target_activity": "W_Complete application",
+      "evidence": {
+        "occurrences": 19081,
+        "qualified_resources": 89,
+        "duration_mean_all": 1403.77,
+        "duration_mean_specialists": 456.11,
+        "speedup": 3.078,
+        "separation_z": 7.25,
+        "spread_ratio": 20.57,
+        "specialists": [
+          "User_54",
+          "User_45",
+          "User_2"
+        ],
+        "specialist_count": 3,
+        "arrival_rate_per_h": 2.17527,
+        "utilisation_after": 0.6786,
+        "projected_service_saving_h": 0.26324,
+        "model_speedup": 1.114,
+        "model_specialist_s": 1036.68,
+        "model_other_s": 1154.85
+      },
+      "heuristic_context": "Target problem types: inefficient execution due to generalist resources performing diverse tasks without developing expertise. Applicable when the same activity is performed by many different resources with varying performance levels.",
+      "additional_context": "19081 executions spread over 89 resources with enough observations to rank (8726 s slowest against 424 s fastest, 20.6x). Restricting the activity to its 3 fastest brings the mean from 1404 s to 456 s, a 3.08x speedup separated from the rest at z=7.2. That subset would run at 68% utilisation against a 80% target, so it can still carry the arrival rate of 2.18/h. ⚠️ This trades servers for speed: the projected 0.2632 h per occurrence is a SERVICE-time saving only, and whether the smaller pool queues is for the simulation to decide, not the detector.",
+      "process_fragment": {}
+    },
+    {
+      "candidate_id": "SPC-002",
+      "heuristic": "Specialize",
+      "target_activity": "W_Handle leads",
+      "evidence": {
+        "occurrences": 3492,
+        "qualified_resources": 34,
+        "duration_mean_all": 241.13,
+        "duration_mean_specialists": 51.09,
+        "speedup": 4.72,
+        "separation_z": 5.76,
+        "spread_ratio": 28.41,
+        "specialists": [
+          "User_1",
+          "User_19"
+        ],
+        "specialist_count": 2,
+        "arrival_rate_per_h": 0.39809,
+        "utilisation_after": 0.0264,
+        "projected_service_saving_h": 0.05279,
+        "model_speedup": 1.769,
+        "model_specialist_s": 124.12,
+        "model_other_s": 219.6
+      },
+      "heuristic_context": "Target problem types: inefficient execution due to generalist resources performing diverse tasks without developing expertise. Applicable when the same activity is performed by many different resources with varying performance levels.",
+      "additional_context": "3492 executions spread over 34 resources with enough observations to rank (829 s slowest against 29 s fastest, 28.4x). Restricting the activity to its 2 fastest brings the mean from 241 s to 51 s, a 4.72x speedup separated from the rest at z=5.8. That subset would run at 3% utilisation against a 80% target, so it can still carry the arrival rate of 0.40/h. ⚠️ This trades servers for speed: the projected 0.0528 h per occurrence is a SERVICE-time saving only, and whether the smaller pool queues is for the simulation to decide, not the detector.",
+      "process_fragment": {}
+    },
+    {
+      "candidate_id": "SPC-003",
+      "heuristic": "Specialize",
+      "target_activity": "W_Validate application",
+      "evidence": {
+        "occurrences": 15469,
+        "qualified_resources": 36,
+        "duration_mean_all": 5759.55,
+        "duration_mean_specialists": 125.85,
+        "speedup": 45.766,
+        "separation_z": 5.35,
+        "spread_ratio": 598.56,
+        "specialists": [
+          "User_118",
+          "User_131",
+          "User_130",
+          "User_134",
+          "User_129",
+          "User_23",
+          "User_112"
+        ],
+        "specialist_count": 7,
+        "arrival_rate_per_h": 1.7635,
+        "utilisation_after": 0.6889,
+        "projected_service_saving_h": 1.56492,
+        "model_speedup": 1.265,
+        "model_specialist_s": 3084.23,
+        "model_other_s": 3901.72
+      },
+      "heuristic_context": "Target problem types: inefficient execution due to generalist resources performing diverse tasks without developing expertise. Applicable when the same activity is performed by many different resources with varying performance levels.",
+      "additional_context": "15469 executions spread over 36 resources with enough observations to rank (18880 s slowest against 32 s fastest, 598.6x). Restricting the activity to its 7 fastest brings the mean from 5760 s to 126 s, a 45.77x speedup separated from the rest at z=5.4. That subset would run at 69% utilisation against a 80% target, so it can still carry the arrival rate of 1.76/h. ⚠️ This trades servers for speed: the projected 1.5649 h per occurrence is a SERVICE-time saving only, and whether the smaller pool queues is for the simulation to decide, not the detector.",
+      "process_fragment": {}
+    }
+  ],
+  "rejected": [
+    {
+      "activity": "A_Accepted",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "A_Cancelled",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "A_Complete",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "A_Concept",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "A_Create Application",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "A_Denied",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "A_Incomplete",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "A_Pending",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "A_Submitted",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate",
+        "only 1 resources have >= 20 observations, so there is no pool to select within (a 'fast' resource measured on a handful of events is a small sample, not a skill)"
+      ]
+    },
+    {
+      "activity": "A_Validating",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "O_Accepted",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "O_Cancelled",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "O_Create Offer",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "O_Created",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "O_Refused",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "O_Returned",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "O_Sent (mail and online)",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "O_Sent (online only)",
+      "rejected_because": [
+        "mean service 0.0 s — a status event has no expertise to concentrate"
+      ]
+    },
+    {
+      "activity": "W_Assess potential fraud",
+      "rejected_because": [
+        "only 3 resources have >= 20 observations, so there is no pool to select within (a 'fast' resource measured on a handful of events is a small sample, not a skill)"
+      ]
+    },
+    {
+      "activity": "W_Call after offers",
+      "rejected_because": [
+        "only 3 resources have >= 20 observations, so there is no pool to select within (a 'fast' resource measured on a handful of events is a small sample, not a skill)"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "rejected_because": [
+        "the speed gap is z=2.21, inside the noise (|z|>3.0 required) — these resources are not measurably different, they are differently sampled"
+      ],
+      "qualified_resources": 40
+    }
+  ]
+}

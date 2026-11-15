@@ -1,0 +1,96 @@
+{
+  "heuristic": "Activity Elimination",
+  "total_candidates": 1,
+  "candidates": [
+    {
+      "candidate_id": "AE-001",
+      "heuristic": "Activity Elimination",
+      "target_activity": "diagnosis 2nd",
+      "heuristic_context": "Target problem types: redundant activities, non-value-adding tasks, excessive verification or control steps. Applicable structural situations: processes where certain activities do not influence the final outcome or mainly act as rechecks or redundant information transfers. How the data is used: Activities with weak causal dependency to subsequent tasks, low impact on case completion, or long waiting times relative to execution time indicate potential non-value-adding steps and become candidates for elimination. Transformation style: remove the redundant activity and reconnect its predecessor and successor tasks (e.g., A → B → C becomes A → C). Feasibility: Maybe. Potentially redundant activities can be detected from event logs, but deciding whether they can be safely removed requires additional compliance or policy information.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "diagnosis 2nd",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "diagnosis 1st",
+            "type": "activity",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "gw1",
+            "target": "n2"
+          },
+          {
+            "source": "gw2",
+            "target": "n1"
+          },
+          {
+            "source": "gw2",
+            "target": "gw1"
+          },
+          {
+            "source": "n1",
+            "target": "gw1"
+          },
+          {
+            "source": "n3",
+            "target": "gw2"
+          }
+        ]
+      },
+      "evidence": {
+        "waiting_time_before": 1.166,
+        "activity_duration": 12.3233,
+        "waiting_to_duration_ratio": 0.1,
+        "bypass_ratio": 0.9183,
+        "activity_frequency": 320,
+        "variant_coverage": 0.0927,
+        "predecessor_activities": [
+          {
+            "name": "diagnosis 1st",
+            "dfg_frequency": 320,
+            "dependency_strength": 1.0
+          }
+        ],
+        "successor_activities": [
+          {
+            "name": "repair",
+            "dfg_frequency": 245,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "return",
+            "dfg_frequency": 75,
+            "dependency_strength": 1.0
+          }
+        ]
+      },
+      "additional_context": "This activity exhibits rework in 27 cases (0.9% of all cases). Rework may indicate a validation or error-correction role; removal could increase downstream error rates. The activity appears in only 9% of cases, meaning the majority of cases already complete successfully without it. This low coverage reduces the structural risk of elimination. The bypass ratio is 0.92: in over 92% of executions that reach the successor, this activity was not traversed, confirming it is structurally non-essential. Whether this activity can be safely removed depends on compliance requirements, regulatory obligations, and organisational policy — none of which can be determined from the event log alone."
+    }
+  ]
+}

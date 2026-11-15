@@ -1,0 +1,473 @@
+{
+  "round": 3,
+  "stage": "measured",
+  "plan_spillover": {
+    "h_per_case": 0.9896,
+    "z": 26.75,
+    "significant": true,
+    "charged_to": null,
+    "activities": [
+      "replace",
+      "intake"
+    ],
+    "note": "Change on activities no applied candidate touches — queueing spillover. More than one candidate was applied, so this cannot be split between them without inventing a share; it belongs to the plan, not to any one candidate."
+  },
+  "accounting": {
+    "available": true,
+    "activity_hours_h_per_case": -119.2844,
+    "explained_by_candidates_h_per_case": -12.0878,
+    "activity_hours_unexplained": -107.1966,
+    "activity_hours_unexplained_share": 0.899,
+    "contested_activities": [
+      {
+        "activity": "repair",
+        "h_per_case": -107.7013,
+        "claimants": [
+          "CBW-001",
+          "EXC-002",
+          "XR-001"
+        ],
+        "mechanism_direction": {
+          "activity": "repair",
+          "measured": "the wait FELL (-107.7013 h per case)",
+          "compatible_with_the_measured_sign": [
+            "CBW-001",
+            "XR-001"
+          ],
+          "ruled_out_by_mechanism": [
+            "EXC-002"
+          ],
+          "per_claimant": [
+            {
+              "candidate": "CBW-001",
+              "direction": "down",
+              "evidence": "batch_component_h_removed=5.5062"
+            },
+            {
+              "candidate": "EXC-002",
+              "direction": "up",
+              "evidence": "assigned_tasks_removed=100"
+            },
+            {
+              "candidate": "XR-001",
+              "direction": "down",
+              "evidence": "resources_grown=100"
+            }
+          ],
+          "note": "the account cannot attribute a shared activity to one candidate, but a transformation that can only push this wait the OTHER way cannot be the source of what was measured. This is the handlers' own reports plus the measured sign -- no isolation was run, and nothing is decided here."
+        }
+      },
+      {
+        "activity": "diagnosis 2nd",
+        "h_per_case": -13.0621,
+        "claimants": [
+          "CT-001",
+          "EXC-001"
+        ]
+      },
+      {
+        "activity": "Exception Handler",
+        "h_per_case": 2.5174,
+        "claimants": [
+          "EXC-001",
+          "EXC-002"
+        ]
+      },
+      {
+        "activity": "return",
+        "h_per_case": -2.0127,
+        "claimants": [
+          "EXC-001",
+          "EXC-002"
+        ],
+        "mechanism_direction": {
+          "activity": "return",
+          "measured": "the wait FELL (-2.0127 h per case)",
+          "compatible_with_the_measured_sign": [],
+          "ruled_out_by_mechanism": [
+            "EXC-001",
+            "EXC-002"
+          ],
+          "per_claimant": [
+            {
+              "candidate": "EXC-001",
+              "direction": "up",
+              "evidence": "assigned_tasks_removed=100"
+            },
+            {
+              "candidate": "EXC-002",
+              "direction": "up",
+              "evidence": "assigned_tasks_removed=100"
+            }
+          ],
+          "note": "the account cannot attribute a shared activity to one candidate, but a transformation that can only push this wait the OTHER way cannot be the source of what was measured. This is the handlers' own reports plus the measured sign -- no isolation was run, and nothing is decided here."
+        }
+      }
+    ],
+    "applied_candidates_owning_no_activity": [],
+    "applied_candidates_that_changed_routing_or_waiting": {
+      "CBW-001": {
+        "batch_component_h_removed": 5.5062
+      },
+      "CT-001": {
+        "gateways_conditioned": 2,
+        "branch_rules_added": 4
+      }
+    },
+    "case_span_h_per_case": -124.2024,
+    "case_span_not_visible_to_any_column": -4.918,
+    "note": "The columns measure ACTIVITY HOURS; the loop ranks on CASE SPAN. `case_span_not_visible_to_any_column` is the part of the span change that no per-activity column can show — time the case spends with nothing running (fitted extraneous-delay timers, routing that sends cases down longer paths). When it is large, a candidate in `applied_candidates_that_changed_routing_or_waiting` or `applied_candidates_owning_no_activity` may be driving the KPI while reading as 'nothing attributable to it alone'. A fact, not an accusation: settling it is what a confirmation simulation is for.",
+    "case_span_median_delta": -115.4336,
+    "case_span_mean_delta": -124.2024,
+    "median_and_mean_disagree_in_sign": false
+  },
+  "plan_before": [
+    "CBW-001",
+    "CT-001",
+    "EXC-002",
+    "EXC-001",
+    "XR-001"
+  ],
+  "plan_after": [
+    "CBW-001",
+    "CT-001",
+    "EXC-002",
+    "EXC-001",
+    "XR-001"
+  ],
+  "kept": [
+    {
+      "candidate": "CBW-001",
+      "heuristic": "Case-based Work",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [
+          "repair z=-32.5"
+        ],
+        "duration": [
+          "repair z=-18.0"
+        ],
+        "resources_significant": 0,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['repair'] with ['EXC-002', 'XR-001'] — that part is attributable to neither (-107.701 h per case left unassigned)",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (batch_component_h_removed=5.5062), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice."
+      },
+      "what_the_handler_did": {
+        "channel": "extraneous_delay_batch_share",
+        "timers_removed": 0,
+        "batch_component_h_removed": 5.5062,
+        "share_of_timer_removed": 1.0,
+        "rules_removed": 0,
+        "note": "scaled the extraneous-delay timer in front of 'repair' by 0.0000: 5.51 h -> 0.00 h per occurrence. Only the batching share is removed (100.0% of the timer, from a 86.9429 h gap between batched and non-batched executions at z=33.91); the rest of the wait is left in place because this heuristic does not claim it."
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Removing CBW-001 in the confirmation plan made throughput significantly worse than the full plan, while its repair waiting and duration changes remain shared with other candidates.",
+      "critic_evidence_ref": "footprint.CBW-001",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "flat",
+        "throughput": "better"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: helped — Removing CBW-001 in the confirmation plan made throughput significantly worse than the full plan, while its repair waiting and duration changes remain shared with other candidates."
+    },
+    {
+      "candidate": "CT-001",
+      "heuristic": "Case Types",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "no measurable effect on any of the four columns"
+      },
+      "what_the_handler_did": {
+        "gateways_conditioned": 2,
+        "branch_rules_added": 4
+      },
+      "critic_verdict": "neutral",
+      "critic_confidence": "measured",
+      "critic_note": "CT-001 was applied and conditioned two gateways, but its diagnosis 2nd target was removed and no sole-owner measure was available.",
+      "critic_evidence_ref": "footprint.CT-001",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "n/a",
+        "throughput": "n/a"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: neutral — CT-001 was applied and conditioned two gateways, but its diagnosis 2nd target was removed and no sole-owner measure was available."
+    },
+    {
+      "candidate": "EXC-002",
+      "heuristic": "Exception",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [
+          "repair z=-32.5"
+        ],
+        "duration": [
+          "repair z=-18.0"
+        ],
+        "resources_significant": 5,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['Exception Handler', 'repair', 'return'] with ['CBW-001', 'EXC-001', 'XR-001'] — that part is attributable to neither (-107.197 h per case left unassigned)"
+      },
+      "what_the_handler_did": {
+        "paths_remapped": 0,
+        "assigned_tasks_removed": 100,
+        "subprocess_registered": true,
+        "subprocess_resource_count": 100,
+        "subprocess_duration_s": 43184.1738795,
+        "subprocess_assigned_added": 100
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "EXC-002 touches Exception Handler, repair, and return, but every measured movement on those activities is shared with another applied candidate.",
+      "critic_evidence_ref": "activity.repair",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_kept": "in the plan that was measured this round; Critic verdict: covered — EXC-002 touches Exception Handler, repair, and return, but every measured movement on those activities is shared with another applied candidate."
+    },
+    {
+      "candidate": "EXC-001",
+      "heuristic": "Exception",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -13.0774,
+        "throughput_sd": 1.7908,
+        "throughput_z": -32.66,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 5,
+        "summary": "0 improved / 0 worsened activity measures; -13.077 h per case (z=-32.7)",
+        "attribution_caveat": "shares ['Exception Handler', 'return'] with ['EXC-002'] — that part is attributable to neither (+0.505 h per case left unassigned)"
+      },
+      "what_the_handler_did": {
+        "paths_remapped": 0,
+        "assigned_tasks_removed": 100,
+        "subprocess_registered": true,
+        "subprocess_resource_count": 100,
+        "subprocess_duration_s": 17258.98888525283,
+        "subprocess_assigned_added": 100
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "EXC-001 has a significant attributable throughput reduction of 13.0774 h/case (z=-32.66), including diagnosis 2nd, and 100 sole significant resource effects.",
+      "critic_evidence_ref": "activity.diagnosis 2nd",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "better",
+        "throughput": "better"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: helped — EXC-001 has a significant attributable throughput reduction of 13.0774 h/case (z=-32.66), including diagnosis 2nd, and 100 sole significant resource effects."
+    },
+    {
+      "candidate": "XR-001",
+      "heuristic": "Extra Resources",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [
+          "repair z=-32.5"
+        ],
+        "duration": [
+          "repair z=-18.0"
+        ],
+        "resources_significant": 0,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['repair'] with ['CBW-001', 'EXC-002'] — that part is attributable to neither (-107.701 h per case left unassigned)"
+      },
+      "what_the_handler_did": {
+        "resources_grown": 100
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "XR-001 added resources and remains a mechanism compatible with the shared repair improvement, but the combined run and confirmation do not isolate its marginal contribution.",
+      "critic_evidence_ref": "activity.repair",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "flat",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_kept": "in the plan that was measured this round; Critic verdict: covered — XR-001 added resources and remains a mechanism compatible with the shared repair improvement, but the combined run and confirmation do not isolate its marginal contribution."
+    }
+  ],
+  "dropped": [],
+  "added": [],
+  "directive": {
+    "intent": "keep",
+    "targets": [
+      "CBW-001",
+      "CT-001",
+      "EXC-002",
+      "EXC-001",
+      "XR-001"
+    ],
+    "reason": "Keep the full applied plan: it is significantly better than baseline on all four directional measures, and removing CBW-001 was significantly worse on both throughput measures.",
+    "avoid": []
+  },
+  "directive_followthrough": {
+    "intent": "keep",
+    "named": [
+      "CBW-001",
+      "CT-001",
+      "EXC-002",
+      "EXC-001",
+      "XR-001"
+    ],
+    "left_named": [],
+    "left_unnamed": [],
+    "added_named": [],
+    "added_unnamed": [],
+    "size_before": 5,
+    "size_after": 5,
+    "net_change": 0
+  },
+  "unresolved_attribution": [
+    "EXC-002",
+    "XR-001"
+  ],
+  "generic_reasons": [],
+  "offered_unmeasured": [],
+  "offered_unmeasured_unanswered": [],
+  "dropped_exogenous_only": [],
+  "per_candidate_missing": [],
+  "per_candidate_malformed": [],
+  "schema_retry": {
+    "violations": [],
+    "after_retry": [],
+    "retried": false
+  },
+  "clean_probe": {
+    "basis": "r3",
+    "deliverable": [
+      "CBW-001",
+      "CT-001",
+      "EXC-002",
+      "EXC-001",
+      "XR-001"
+    ],
+    "rule_basis": "r3c",
+    "round_basis": "r3",
+    "qualifying_measurement": "r3",
+    "dropped_because": [],
+    "excluded_exogenous_only": [],
+    "queue": [],
+    "done": [],
+    "current": null,
+    "deliverable_vs_baseline": "better",
+    "rule_basis_plan": [
+      "CT-001",
+      "EXC-002",
+      "EXC-001",
+      "XR-001"
+    ],
+    "rule_basis_dropped_because": [],
+    "round_basis_plan": [
+      "CBW-001",
+      "CT-001",
+      "EXC-002",
+      "EXC-001",
+      "XR-001"
+    ],
+    "round_basis_dropped_because": [],
+    "compliance_exposed": [],
+    "state": "skipped",
+    "reason": "nothing in the deliverable measured significantly worse, no candidate in it is exposed to a compliance ruling, and it satisfies the improvement rule, so it is delivered as measured"
+  },
+  "plan_vs_baseline": {
+    "verdict": "better",
+    "better_on": [
+      "throughput_median",
+      "throughput_mean",
+      "waiting_h_per_case",
+      "service_h_per_case"
+    ],
+    "worse_on": []
+  },
+  "plan_reading": {
+    "stated": "better",
+    "measured": "better",
+    "consistent": true,
+    "better_on": [
+      "throughput_h_median",
+      "throughput_h_mean",
+      "waiting_h_per_case_mean",
+      "duration_h_per_case_mean"
+    ],
+    "worse_on": [],
+    "retried": false
+  },
+  "confirmation_counterfactual": {
+    "removed": [
+      "CBW-001"
+    ],
+    "added": [],
+    "verdict": {
+      "improved": false,
+      "better_on": [],
+      "worse_on": [
+        "throughput_h_median",
+        "throughput_h_mean"
+      ]
+    },
+    "per_measure": [
+      {
+        "measure": "throughput_h_median",
+        "full_pct": -57.518047278505335,
+        "conf_pct": -56.674420851899335,
+        "vs_full_z": 12.75
+      },
+      {
+        "measure": "throughput_h_mean",
+        "full_pct": -59.311423830610075,
+        "conf_pct": -56.90768366182463,
+        "vs_full_z": 32.81
+      },
+      {
+        "measure": "waiting_h_per_case_mean",
+        "full_pct": -98.26082164703324,
+        "conf_pct": -98.25266062567049,
+        "vs_full_z": 0.4
+      },
+      {
+        "measure": "duration_h_per_case_mean",
+        "full_pct": -2.354466795049717,
+        "conf_pct": -2.2331578986118394,
+        "vs_full_z": 0.97
+      },
+      {
+        "measure": "utilization_mean",
+        "full_pct": -37.63506200701485,
+        "conf_pct": -48.151367742349045,
+        "vs_full_z": -13.73
+      }
+    ]
+  },
+  "note": "This round's plan and what each candidate in it contributed. No next plan was chosen (the loop ended here, or has not reached the Proposer yet), so there is nothing dropped or added. Contribution numbers are measured (scorecard); verdicts are the Critic's judgment of them; keep/drop is the Proposer's choice, except where the Arbiter overruled it. `generic_reasons` lists candidates whose reason fell back to the plan-level rationale — for those, 'why this one' is not actually answered."
+}

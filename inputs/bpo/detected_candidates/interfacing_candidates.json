@@ -1,0 +1,108 @@
+{
+  "heuristic": "Interfacing",
+  "candidates": [],
+  "rejected": [
+    {
+      "activity": "diagnosis 1st",
+      "cases": 3000,
+      "cases_triggering_rework": 55,
+      "trigger_share": 0.0183,
+      "redone_activities_mean": 0.042,
+      "redone_activities_top": [
+        "return",
+        "repair",
+        "diagnosis 2nd"
+      ],
+      "idle_after_mean_h": 118.7908,
+      "rejected_because": [
+        "only 1.8% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.04 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "cases": 278,
+      "cases_triggering_rework": 27,
+      "trigger_share": 0.0971,
+      "redone_activities_mean": 0.255,
+      "redone_activities_top": [
+        "return",
+        "diagnosis 1st",
+        "repair"
+      ],
+      "idle_after_mean_h": 102.261,
+      "rejected_because": [
+        "only 9.7% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.26 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "intake",
+      "cases": 3000,
+      "cases_triggering_rework": 0,
+      "trigger_share": 0.0,
+      "redone_activities_mean": 0.0,
+      "redone_activities_top": [],
+      "idle_after_mean_h": 0.0,
+      "rejected_because": [
+        "only 0.0% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.00 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the case idles 0.00 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "repair",
+      "cases": 2950,
+      "cases_triggering_rework": 52,
+      "trigger_share": 0.0176,
+      "redone_activities_mean": 0.041,
+      "redone_activities_top": [
+        "diagnosis 1st",
+        "return",
+        "diagnosis 2nd"
+      ],
+      "idle_after_mean_h": 0.0,
+      "rejected_because": [
+        "only 1.8% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.04 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the case idles 0.00 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "replace",
+      "cases": 2572,
+      "cases_triggering_rework": 0,
+      "trigger_share": 0.0,
+      "redone_activities_mean": 0.0,
+      "redone_activities_top": [],
+      "idle_after_mean_h": NaN,
+      "rejected_because": [
+        "only 0.0% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.00 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "return",
+      "cases": 428,
+      "cases_triggering_rework": 55,
+      "trigger_share": 0.1285,
+      "redone_activities_mean": 0.297,
+      "redone_activities_top": [
+        "diagnosis 1st",
+        "repair",
+        "diagnosis 2nd"
+      ],
+      "idle_after_mean_h": 0.0,
+      "rejected_because": [
+        "on average only 0.30 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the case idles 0.00 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    }
+  ]
+}

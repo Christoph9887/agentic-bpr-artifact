@@ -1,0 +1,204 @@
+{
+  "note": "Learned layer over foundation's HI-Graph. foundation is the literature prior and is never edited; everything here was produced by measurement inside the loop.",
+  "contradictions": [
+    {
+      "id": "C1-1",
+      "round": 1,
+      "kind": "hard_wrongly_marked",
+      "subject": [
+        "Case Assignment",
+        "Numerical Involvement"
+      ],
+      "prior_said": "These two edits are a HARD_CONFLICT because both widen who may perform shared activities and cannot legally be applied together.",
+      "measured_said": "The pair relation condition fired on shared activities, but Phase-3 built both candidates successfully.",
+      "evidence": [
+        "Phase-3 outcome: CA-001 and NI-001 both applied successfully",
+        "get_pair_relation: HARD_CONFLICT with condition_fires=true and shared activities diagnosis 1st and repair"
+      ],
+      "action": "downgrade_hard_to_weak",
+      "confidence": "measured",
+      "note": "The structural concern may remain as an interaction risk, but it is not a build-blocking conflict.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-2",
+      "round": 1,
+      "kind": "hard_wrongly_marked",
+      "subject": [
+        "Exception",
+        "Numerical Involvement"
+      ],
+      "prior_said": "These two edits are a HARD_CONFLICT because exception routing breaks the contiguous stretch covered by widened allocation.",
+      "measured_said": "The pair relation condition fired, but Phase-3 built EXC-001 and NI-001 successfully.",
+      "evidence": [
+        "Phase-3 outcome: EXC-001 and NI-001 both applied successfully",
+        "get_pair_relation: HARD_CONFLICT with condition_fires=true and shared activity diagnosis 1st"
+      ],
+      "action": "downgrade_hard_to_weak",
+      "confidence": "measured",
+      "note": "The interaction may reduce attribution or effectiveness, but it did not prevent a legal model from being built.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-3",
+      "round": 1,
+      "kind": "hard_wrongly_marked",
+      "subject": [
+        "Case Types",
+        "Exception"
+      ],
+      "prior_said": "These two edits are a HARD_CONFLICT because exception rewiring may invalidate the path used by the case-type rule.",
+      "measured_said": "The pair relation condition fired, but Phase-3 built CT-001 and EXC-001 successfully.",
+      "evidence": [
+        "Phase-3 outcome: CT-001 and EXC-001 both applied successfully",
+        "get_pair_relation: HARD_CONFLICT with condition_fires=true and shared activity diagnosis 2nd"
+      ],
+      "action": "downgrade_hard_to_weak",
+      "confidence": "measured",
+      "note": "The prior overstates a possible routing interaction as a legal-model impossibility.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-4",
+      "round": 1,
+      "kind": "impact_wrong",
+      "subject": [
+        "Numerical Involvement"
+      ],
+      "prior_said": "Numerical Involvement has a strong_positive time impact.",
+      "measured_said": "NI-001 worsened the measured time outcomes rather than improving them.",
+      "evidence": [
+        "NI-001 attributable throughput worsened by +41.534 hours per case, z=73.75",
+        "NI-001 intake waiting worsened, z=71.14",
+        "NI-001 intake duration worsened, z=10.00"
+      ],
+      "action": "revise_impact",
+      "confidence": "attributed",
+      "note": "Revise the time impact away from strong_positive; the evidence supports a negative direction for this measured configuration.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-5",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Exception"
+      ],
+      "prior_said": "Exception has a weak_positive time impact.",
+      "measured_said": "EXC-001 improved throughput by isolating the exceptional path.",
+      "evidence": [
+        "EXC-001 attributable throughput improvement of -13.0621 hours per case, z=-32.98",
+        "Measured verdict: EXC-001 helped"
+      ],
+      "action": "note_only",
+      "confidence": "attributed",
+      "note": "The time-direction prior held up, although the broader plan's waiting and duration effects remained shared.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-1",
+      "round": 2,
+      "kind": "impact_wrong",
+      "subject": [
+        "Numerical Involvement"
+      ],
+      "prior_said": "Numerical Involvement has a strong positive impact on time.",
+      "measured_said": "NI-001 hurt the plan: its sole-footprint intake activity had significantly worse waiting, contrary to the predicted time improvement.",
+      "evidence": [
+        "NI-001 intake waiting rose with z=+8.27",
+        "NI-001 was attributed a hurt verdict",
+        "the measured note reports a +41.534 h/case worsening"
+      ],
+      "action": "revise_impact",
+      "confidence": "attributed",
+      "note": "The measured self-contention contradicts the strong-positive time direction; the prior should be revised rather than retained.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-2",
+      "round": 2,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Exception"
+      ],
+      "prior_said": "Exception handling has a weak positive impact on time by isolating slower exceptional cases.",
+      "measured_said": "EXC-001 helped throughput and reduced attributable diagnosis 2nd activity time.",
+      "evidence": [
+        "EXC-001 was measured as helped",
+        "diagnosis 2nd attributable activity time fell with z=-32.98"
+      ],
+      "action": "note_only",
+      "confidence": "attributed",
+      "note": "The available attribution supports the time direction, but shared effects prevent a stronger update to the full Exception vector.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-3",
+      "round": 2,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Extra Resources"
+      ],
+      "prior_said": "Extra Resources have a strong positive impact on time by reducing contention and queueing.",
+      "measured_said": "Retaining XR-001 helped; removing it in the confirmation run made throughput and waiting significantly worse.",
+      "evidence": [
+        "XR-001 was measured as helped",
+        "the confirmation plan comparison became significantly worse without XR-001",
+        "XR-001 targeted a 0.95 contention ratio with waiting comprising 68.73% of activity time"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The plan comparison supports the prior's time direction, although no standalone z-score was supplied for the confirmation contrast.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C3-1",
+      "round": 3,
+      "kind": "impact_wrong",
+      "subject": [
+        "Numerical Involvement"
+      ],
+      "prior_said": "Numerical Involvement strongly improves time and weakly improves cost.",
+      "measured_said": "NI-001 worsened waiting, duration, and attributable throughput; its attributed cost also increased.",
+      "evidence": [
+        "NI-001 waiting worsened with z=57.81",
+        "NI-001 duration worsened with z=116.25",
+        "NI-001 attributable throughput worsened by 6.6979 h/case",
+        "Round-2 attributable cost increased by 0.0292 h/case"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "The measured direction contradicts the prior's positive time and cost effects; flexibility and quality remain untested.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C3-2",
+      "round": 3,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Case Types"
+      ],
+      "prior_said": "Case Types strongly improves time by routing cases according to their characteristics.",
+      "measured_said": "CT-001 improved waiting and throughput while duration and resources remained flat.",
+      "evidence": [
+        "CT-001 waiting improved with z=-29.09",
+        "CT-001 attributable throughput improved by 11.8039 h/case",
+        "Phase-3 built CT-001 successfully"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The measured time direction supports the prior, although the cost and flexibility components were not tested.",
+      "accepted": true,
+      "refused_reason": ""
+    }
+  ]
+}

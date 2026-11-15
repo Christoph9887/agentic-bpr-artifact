@@ -1,0 +1,191 @@
+{
+  "phase2_plan": "mabpr_out\\bpo\\loop\\n3\\round2\\plan.json",
+  "baseline_bpmn": "inputs\\bpo\\BPO_ServiceProcess_first_3000_cases.bpmn",
+  "baseline_params": "inputs\\bpo\\BPO_ServiceProcess_first_3000_cases.json",
+  "output_dir": "mabpr_out\\bpo\\loop\\n3\\round2\\phase3",
+  "n_phases": 1,
+  "n_candidates": 7,
+  "entries": [
+    {
+      "phase_id": 1,
+      "candidate_id": "CA-001",
+      "heuristic": "Case Assignment",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "strategy": "intersection",
+        "ca_pool_resource_count": 4,
+        "expected_continuity_after": 0.25,
+        "expected_continuity_before": 0.01,
+        "pool_before_per_target": {
+          "node_c8e750cc-d472-4306-99f7-e04e934fdc2c": 100,
+          "node_6513c526-668a-4e64-8d95-00ba2e83d872": 100,
+          "node_2a3e755d-14f7-4321-9730-7a8a35ec4562": 100,
+          "node_a98685a4-269d-4c25-8ffc-cf37f575b67e": 100,
+          "node_c1ccf3bd-192f-4016-9a2c-a94204c4fcdf": 100
+        },
+        "concentration": 0.04,
+        "delivery_note": "with 4 resources eligible for every target, two consecutive steps land on the same person about 25.0% of the time, against 1.0% before. Case Assignment has no other way to deliver continuity here: Prosimos picks by earliest availability and does not remember who handled the previous step.",
+        "resources_already_covering_all_targets": 0,
+        "resources_removed": 493,
+        "task_resources_added": 8,
+        "assigned_tasks_added": 6,
+        "assigned_tasks_removed": 496,
+        "pool_per_target": {
+          "node_c8e750cc-d472-4306-99f7-e04e934fdc2c": 2,
+          "node_6513c526-668a-4e64-8d95-00ba2e83d872": 2,
+          "node_2a3e755d-14f7-4321-9730-7a8a35ec4562": 3,
+          "node_a98685a4-269d-4c25-8ffc-cf37f575b67e": 4,
+          "node_c1ccf3bd-192f-4016-9a2c-a94204c4fcdf": 4
+        },
+        "note": "the target activities are now performed by one shared pool of 4; with k eligible resources, consecutive steps land on the same person with probability ~1/k, which is how this simulator can express 'the same worker continues the case'"
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "CT-001",
+      "heuristic": "Case Types",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "attribute": "case:Product",
+        "gateways_conditioned": 2,
+        "activities_routed": [
+          "diagnosis 2nd",
+          "replace"
+        ],
+        "routes": [
+          {
+            "gateway_id": "node_dd77791b-f058-4aff-a20f-fed389e24e41",
+            "target_activity": "diagnosis 2nd",
+            "rule": "case:Product = A",
+            "pooled_probability_replaced": 0.1078
+          },
+          {
+            "gateway_id": "node_28bc8be6-ddcf-41e5-8c36-b8ab82341b5f",
+            "target_activity": "replace",
+            "rule": "case:Product != A",
+            "pooled_probability_replaced": 0.834
+          }
+        ],
+        "gateways_missing": [],
+        "branch_rules_added": 4
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "EXC-002",
+      "heuristic": "Exception",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "chain_uuid_count": 1,
+        "task_resource_distribution_dropped": 1,
+        "assigned_tasks_removed": 2,
+        "event_attributes_dropped": 0,
+        "subprocess_registered": true,
+        "subprocess_uuid": "idd03dbef4-ecd6-419e-a971-baaaa8c239d9",
+        "subprocess_resource_count": 2,
+        "subprocess_duration_s": 43184.1738795,
+        "subprocess_assigned_added": 2,
+        "gateways_dropped": 0,
+        "paths_dropped": 0,
+        "paths_remapped": 0,
+        "paths_renormalized": 0,
+        "ambiguous_rewired_gateways": [],
+        "uncovered_decision_gateways": [
+          "node_6c397b68-bb21-4c2d-b613-207ea6eb7ddc",
+          "node_b59def6e-b27b-4864-91b5-5eaf789fc579"
+        ]
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "NI-001",
+      "heuristic": "Numerical Involvement",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "target_activities": [
+          "diagnosis 1st",
+          "intake",
+          "repair"
+        ],
+        "pool_union": 102,
+        "task_resources_added": 199,
+        "assigned_tasks_added": 202,
+        "ca_pool_resource_count": 102
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "EXC-001",
+      "heuristic": "Exception",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "chain_uuid_count": 1,
+        "task_resource_distribution_dropped": 1,
+        "assigned_tasks_removed": 2,
+        "event_attributes_dropped": 0,
+        "subprocess_registered": true,
+        "subprocess_uuid": "id173d8791-88b2-4bea-92a2-34215cf3dc74",
+        "subprocess_resource_count": 4,
+        "subprocess_duration_s": 17258.98888525283,
+        "subprocess_assigned_added": 4,
+        "gateways_dropped": 0,
+        "paths_dropped": 0,
+        "paths_remapped": 0,
+        "paths_renormalized": 0,
+        "ambiguous_rewired_gateways": [],
+        "uncovered_decision_gateways": [
+          "node_6c397b68-bb21-4c2d-b613-207ea6eb7ddc",
+          "node_b59def6e-b27b-4864-91b5-5eaf789fc579"
+        ]
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "XR-001",
+      "heuristic": "Extra Resources",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "target_activity": "repair",
+        "target_task_id": "node_c1ccf3bd-192f-4016-9a2c-a94204c4fcdf",
+        "resources_grown": 102,
+        "extra_per_resource": 3,
+        "pool_size_before": 102,
+        "pool_size_after": 408,
+        "sizing": {
+          "extra_per_resource": 3,
+          "offered_load_erlangs": 247.875,
+          "sized_on": "calendar",
+          "servers_now": 100,
+          "servers_needed": 310,
+          "target_utilisation": 0.8,
+          "current_utilisation_implied": 2.4787,
+          "why": "100 servers running at 2.48 of the hours they are open; reaching 80% needs 100 x 2.48 / 0.80 = 310 servers, against the 100 in the pool now, so each resource entry's `amount` goes up by 3"
+        }
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "NI-004",
+      "heuristic": "Numerical Involvement",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "target_activities": [
+          "diagnosis 1st",
+          "repair",
+          "replace"
+        ],
+        "pool_union": 102,
+        "task_resources_added": 100,
+        "assigned_tasks_added": 100,
+        "ca_pool_resource_count": 102
+      }
+    }
+  ]
+}

@@ -1,0 +1,38 @@
+{
+  "goal": "apply_all",
+  "phases": [
+    {
+      "phase_id": 1,
+      "candidates": [
+        "AC-001",
+        "AC-002",
+        "AC-003",
+        "AE-002",
+        "CA-003",
+        "CA-001",
+        "CA-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002",
+        "CBW-003",
+        "CBW-004",
+        "CR-001",
+        "CR-002",
+        "EXC-002",
+        "EXC-007",
+        "EXC-008",
+        "EXC-005",
+        "EXC-003",
+        "EXC-009",
+        "EXC-004",
+        "EXC-006",
+        "EXC-001",
+        "IF-001",
+        "SPC-001",
+        "TRI-001",
+        "TRI-003"
+      ],
+      "rationale": "apply selected candidates to baseline"
+    }
+  ]
+}

@@ -1,0 +1,182 @@
+{
+  "heuristic": "Case Types",
+  "candidates": [
+    {
+      "candidate_id": "CT-001",
+      "heuristic": "Case Types",
+      "target_activity": "O_CREATED",
+      "evidence": {
+        "attribute": "case:AMOUNT_REQ",
+        "attribute_kind": "continuous",
+        "rule_label": "case:AMOUNT_REQ <= 5000",
+        "comparison": "<=",
+        "value": "5000",
+        "cases_in_group": 3798,
+        "cases_out_group": 9289,
+        "routes_conditioned": 3,
+        "activities_routed": [
+          "A_CANCELLED",
+          "O_CREATED",
+          "O_SENT_BACK"
+        ],
+        "strongest_activity": "O_CREATED",
+        "strongest_share_in": 0.4476,
+        "strongest_share_out": 0.2256,
+        "strongest_share_gap": 0.222,
+        "separation_z": 23.71,
+        "min_separation_z": 9.98,
+        "hard_rule_overshoot_pp": 77.8,
+        "events_after_routed_mean": 6.98,
+        "service_h_after_routed_mean": 0.4999,
+        "case_events_mean": 12.57,
+        "case_service_h_mean": 1.0971,
+        "routes": [
+          {
+            "gateway_id": "node_be0c9f3c-48ef-445b-84a1-ee867a31280a",
+            "conditioned_path_id": "node_7812dbf9-7cda-4fa5-9581-57057233c041",
+            "complement_path_id": "node_61f274ea-4d92-451f-a8dc-d7beac35ee3d",
+            "target_activity": "O_CREATED",
+            "pooled_probability": 0.2915,
+            "comparison": ">",
+            "value": "5000",
+            "rule_label": "NOT (case:AMOUNT_REQ <= 5000)",
+            "share_in": 0.4476,
+            "share_out": 0.2256,
+            "z": 23.71
+          },
+          {
+            "gateway_id": "node_200c7e15-9288-49c0-b515-b5d2287b1db0",
+            "conditioned_path_id": "node_d144c489-4eeb-412a-b1c8-9304003ec1c4",
+            "complement_path_id": "node_5360ab30-ceac-4ca6-8747-177a26d6d33c",
+            "target_activity": "O_SENT_BACK",
+            "pooled_probability": 0.4624,
+            "comparison": ">",
+            "value": "5000",
+            "rule_label": "NOT (case:AMOUNT_REQ <= 5000)",
+            "share_in": 0.2936,
+            "share_out": 0.1388,
+            "z": 18.6
+          },
+          {
+            "gateway_id": "node_4cc49a35-82b2-426f-986a-82826fca5fed",
+            "conditioned_path_id": "node_e7cdee64-2cbc-4135-8c78-f4a72a5617fd",
+            "complement_path_id": "node_a335dc86-0ccf-4bf6-b86c-7f3ff0566b81",
+            "target_activity": "A_CANCELLED",
+            "pooled_probability": 0.3716,
+            "comparison": ">",
+            "value": "5000",
+            "rule_label": "NOT (case:AMOUNT_REQ <= 5000)",
+            "share_in": 0.2374,
+            "share_out": 0.1585,
+            "z": 9.98
+          }
+        ]
+      },
+      "heuristic_context": "Target problem types: heterogeneous cases processed in a uniform way, so simple cases carry the effort of complex ones. Applicable when cases with clearly different recorded characteristics all follow the same path.",
+      "additional_context": "case:AMOUNT_REQ <= 5000 splits the log into 3798 and 9289 cases that are routed differently at 3 gateway(s), reaching 3 activities: 'A_CANCELLED', 'O_CREATED', 'O_SENT_BACK'. The mined model has no access to the attribute, so each of those gateways uses one pooled probability for every case — strongest example, NOT (case:AMOUNT_REQ <= 5000) reaches 'O_CREATED' 45% of the time against 23% for the rest (z=23.7), while the model sends 29% of arrivals there regardless. The redesign attaches the condition at every one of those gateways, so the case type is routed consistently rather than at a coin flip. ⚠️ The condition is a HARD predicate, so it sends 100% of this type to 'O_CREATED' and 0% of the rest, where the log shows 45% and 23% — 78 percentage points of standardisation beyond what the log already does, which is the intervention rather than a reproduction of it. ⚠️ This changes WHICH cases go where, not how long anything takes: no hours are assumed anywhere, and whether routing by type helps, hurts or does nothing is for the simulation to measure. ⚠️ Direction of the change: in the log a case that reaches 'O_CREATED' still records 7.0 further events and 0.500 h of further work, against 12.6 events and 1.097 h for an average case. Most of the case still lies ahead of it, so forcing this type through it ADDS work rather than removing it; there is no free KPI win in this direction.",
+      "process_fragment": {
+        "attribute": "case:AMOUNT_REQ",
+        "routes": [
+          {
+            "gateway_id": "node_be0c9f3c-48ef-445b-84a1-ee867a31280a",
+            "conditioned_path_id": "node_7812dbf9-7cda-4fa5-9581-57057233c041",
+            "complement_path_id": "node_61f274ea-4d92-451f-a8dc-d7beac35ee3d",
+            "target_activity": "O_CREATED",
+            "pooled_probability": 0.2915,
+            "comparison": ">",
+            "value": "5000",
+            "rule_label": "NOT (case:AMOUNT_REQ <= 5000)",
+            "share_in": 0.4476,
+            "share_out": 0.2256,
+            "z": 23.71
+          },
+          {
+            "gateway_id": "node_200c7e15-9288-49c0-b515-b5d2287b1db0",
+            "conditioned_path_id": "node_d144c489-4eeb-412a-b1c8-9304003ec1c4",
+            "complement_path_id": "node_5360ab30-ceac-4ca6-8747-177a26d6d33c",
+            "target_activity": "O_SENT_BACK",
+            "pooled_probability": 0.4624,
+            "comparison": ">",
+            "value": "5000",
+            "rule_label": "NOT (case:AMOUNT_REQ <= 5000)",
+            "share_in": 0.2936,
+            "share_out": 0.1388,
+            "z": 18.6
+          },
+          {
+            "gateway_id": "node_4cc49a35-82b2-426f-986a-82826fca5fed",
+            "conditioned_path_id": "node_e7cdee64-2cbc-4135-8c78-f4a72a5617fd",
+            "complement_path_id": "node_a335dc86-0ccf-4bf6-b86c-7f3ff0566b81",
+            "target_activity": "A_CANCELLED",
+            "pooled_probability": 0.3716,
+            "comparison": ">",
+            "value": "5000",
+            "rule_label": "NOT (case:AMOUNT_REQ <= 5000)",
+            "share_in": 0.2374,
+            "share_out": 0.1585,
+            "z": 9.98
+          }
+        ]
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "gateway": "node_5ac959af-468b-4d99-9361-cf02ff55b215",
+      "rejected_because": [
+        "the gateway has 3 paths; a case-type rule and its complement partition the cases in two, so a wider split would leave branches Prosimos falls back to pooled probabilities for"
+      ]
+    },
+    {
+      "gateway": "node_3e8fdbfb-8ae9-4a83-8486-0d9a910ff58e",
+      "rejected_because": [
+        "the gateway has 4 paths; a case-type rule and its complement partition the cases in two, so a wider split would leave branches Prosimos falls back to pooled probabilities for"
+      ]
+    },
+    {
+      "gateway": "node_a9af0dab-49cb-4ef5-9fec-185d87766039",
+      "rejected_because": [
+        "the gateway sits on a rework loop (control can return to it), and a branch_rules condition is a HARD predicate: the case type that satisfies it would take the same branch every time round and never leave. Measured — one 3000-case run wrote an 892 MB event log"
+      ]
+    },
+    {
+      "gateway": "node_eba01cf6-b357-479f-a7eb-6e0d263bd0b1",
+      "rejected_because": [
+        "the gateway sits on a rework loop (control can return to it), and a branch_rules condition is a HARD predicate: the case type that satisfies it would take the same branch every time round and never leave. Measured — one 3000-case run wrote an 892 MB event log"
+      ]
+    },
+    {
+      "gateway": "node_0479b775-a217-490d-bb89-61fff3868444",
+      "rejected_because": [
+        "the gateway sits on a rework loop (control can return to it), and a branch_rules condition is a HARD predicate: the case type that satisfies it would take the same branch every time round and never leave. Measured — one 3000-case run wrote an 892 MB event log"
+      ]
+    },
+    {
+      "gateway": "node_7fc36ed7-163a-44f9-8b77-8343e7250f1e",
+      "rejected_because": [
+        "the gateway sits on a rework loop (control can return to it), and a branch_rules condition is a HARD predicate: the case type that satisfies it would take the same branch every time round and never leave. Measured — one 3000-case run wrote an 892 MB event log"
+      ]
+    },
+    {
+      "gateway": "node_5f6a8299-0702-4418-ae82-013bff8cc033",
+      "rejected_because": [
+        "the gateway sits on a rework loop (control can return to it), and a branch_rules condition is a HARD predicate: the case type that satisfies it would take the same branch every time round and never leave. Measured — one 3000-case run wrote an 892 MB event log"
+      ]
+    },
+    {
+      "gateway": "node_1d259cb1-af15-4503-be1a-a805e5808ccb",
+      "rejected_because": [
+        "the gateway sits on a rework loop (control can return to it), and a branch_rules condition is a HARD predicate: the case type that satisfies it would take the same branch every time round and never leave. Measured — one 3000-case run wrote an 892 MB event log"
+      ]
+    },
+    {
+      "gateway": "node_af343b23-7422-40ed-951a-b7f71ebed0db",
+      "task": "A_ACTIVATED",
+      "pooled_probability": 0.99,
+      "overall_visit_share": 0.1716,
+      "rejected_because": [
+        "the model routes 99% of arrivals down this branch to 'A_ACTIVATED', but only 17% of cases ever perform it — this gateway is not what decides whether a case does 'A_ACTIVATED', so a case-type rule here would claim routing power it does not have"
+      ]
+    }
+  ]
+}

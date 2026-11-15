@@ -1,0 +1,476 @@
+{
+  "heuristic": "Contact Reduction",
+  "candidates": [
+    {
+      "candidate_id": "CR-001",
+      "heuristic": "Contact Reduction",
+      "target_activity": "O_Cancelled",
+      "evidence": {
+        "contact_activity": "O_Cancelled",
+        "occurrences": 20898,
+        "cases": 15682,
+        "cases_repeating": 3867,
+        "repeat_share": 0.2466,
+        "mean_per_case": 1.333,
+        "max_per_case": 10,
+        "extra_occurrences": 5216,
+        "service_h_mean": 0.0,
+        "idle_after_mean_h": 25.6817,
+        "idle_to_service_ratio": 9999.0,
+        "loop_probability": 0.2537,
+        "loop_probability_after": 0.1911,
+        "waiting_time_before": 34.6407,
+        "gateway_id": "node_4683a8ec-ea71-4b4a-9d56-203dcb914aea"
+      },
+      "heuristic_context": "Target problem types: excessive communication with customers or external parties, delays caused by repeated information exchanges. Applicable when multiple interactions occur to collect or verify information that could be consolidated.",
+      "additional_context": "'O_Cancelled' runs 20898 times across 15682 cases, and 25% of those cases do it more than once (mean 1.3, max 10). After each one the case sits IDLE for 25.68 h on average against 0.000 h of actual work — the process is waiting on somebody outside it, not on a resource. Consolidating the exchange lowers the repeat probability at gateway node_4683a8e from 25% to 19%. ⚠️ The idle wait is WALL-CLOCK (overnight, weekend, the customer's own delay) and the mined model has no construct for it, so 34.641 h/case is an ESTIMATE from the log, not a simulated result — it is reported beside the measurement and never added to it.",
+      "process_fragment": {
+        "gateway_id": "node_4683a8ec-ea71-4b4a-9d56-203dcb914aea",
+        "loop_path_id": "node_783fa71c-0160-4015-8383-ca1f687f0f95",
+        "exit_path_id": "node_d5c80c20-e77c-4675-878d-7ac7dbfe60ad",
+        "loop_probability_after": 0.1911,
+        "target_activity": "O_Cancelled"
+      }
+    },
+    {
+      "candidate_id": "CR-002",
+      "heuristic": "Contact Reduction",
+      "target_activity": "O_Sent (online only)",
+      "evidence": {
+        "contact_activity": "O_Sent (online only)",
+        "occurrences": 2026,
+        "cases": 1800,
+        "cases_repeating": 171,
+        "repeat_share": 0.095,
+        "mean_per_case": 1.126,
+        "max_per_case": 8,
+        "extra_occurrences": 226,
+        "service_h_mean": 0.0,
+        "idle_after_mean_h": 99.2444,
+        "idle_to_service_ratio": 9999.0,
+        "loop_probability": 0.2525,
+        "loop_probability_after": 0.2285,
+        "waiting_time_before": 131.1652,
+        "gateway_id": "node_41cf5188-f199-4eaa-b721-ec9e2a96caaa"
+      },
+      "heuristic_context": "Target problem types: excessive communication with customers or external parties, delays caused by repeated information exchanges. Applicable when multiple interactions occur to collect or verify information that could be consolidated.",
+      "additional_context": "'O_Sent (online only)' runs 2026 times across 1800 cases, and 10% of those cases do it more than once (mean 1.1, max 8). After each one the case sits IDLE for 99.24 h on average against 0.000 h of actual work — the process is waiting on somebody outside it, not on a resource. Consolidating the exchange lowers the repeat probability at gateway node_41cf518 from 25% to 23%. ⚠️ The idle wait is WALL-CLOCK (overnight, weekend, the customer's own delay) and the mined model has no construct for it, so 131.165 h/case is an ESTIMATE from the log, not a simulated result — it is reported beside the measurement and never added to it.",
+      "process_fragment": {
+        "gateway_id": "node_41cf5188-f199-4eaa-b721-ec9e2a96caaa",
+        "loop_path_id": "node_08cb1bdd-e7bd-4786-9abb-6380d5dddcc7",
+        "exit_path_id": "node_00941b34-5f94-48c3-b3d3-0e7f0512d199",
+        "loop_probability_after": 0.2285,
+        "target_activity": "O_Sent (online only)"
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "activity": "A_Accepted",
+      "occurrences": 31509,
+      "cases": 31509,
+      "cases_repeating": 0,
+      "repeat_share": 0.0,
+      "mean_per_case": 1.0,
+      "max_per_case": 1,
+      "extra_occurrences": 0,
+      "idle_after_mean_h": 2.6209,
+      "removable_h_per_repeating_case": 0.0,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": "inf",
+      "rejected_because": [
+        "only 0.0% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "A_Cancelled",
+      "occurrences": 10431,
+      "cases": 10431,
+      "cases_repeating": 0,
+      "repeat_share": 0.0,
+      "mean_per_case": 1.0,
+      "max_per_case": 1,
+      "extra_occurrences": 0,
+      "idle_after_mean_h": 0.0,
+      "removable_h_per_repeating_case": 0.0,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": 0.0,
+      "rejected_because": [
+        "the case idles only 0.00 h after it (<1.0 h), so nothing outside the process is being waited on",
+        "the idle wait is only 0.0x its own service time (<5.0x) — that is a queue for a resource, not a wait for an outsider",
+        "only 0.0% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "A_Complete",
+      "occurrences": 31362,
+      "cases": 31362,
+      "cases_repeating": 0,
+      "repeat_share": 0.0,
+      "mean_per_case": 1.0,
+      "max_per_case": 1,
+      "extra_occurrences": 0,
+      "idle_after_mean_h": 317.507,
+      "removable_h_per_repeating_case": 0.0,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": "inf",
+      "rejected_because": [
+        "only 0.0% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "A_Concept",
+      "occurrences": 31509,
+      "cases": 31509,
+      "cases_repeating": 0,
+      "repeat_share": 0.0,
+      "mean_per_case": 1.0,
+      "max_per_case": 1,
+      "extra_occurrences": 0,
+      "idle_after_mean_h": 31.0717,
+      "removable_h_per_repeating_case": 0.0,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": "inf",
+      "rejected_because": [
+        "only 0.0% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "A_Create Application",
+      "occurrences": 31509,
+      "cases": 31509,
+      "cases_repeating": 0,
+      "repeat_share": 0.0,
+      "mean_per_case": 1.0,
+      "max_per_case": 1,
+      "extra_occurrences": 0,
+      "idle_after_mean_h": 0.0001,
+      "removable_h_per_repeating_case": 0.0,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": "inf",
+      "rejected_because": [
+        "the case idles only 0.00 h after it (<1.0 h), so nothing outside the process is being waited on",
+        "only 0.0% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "A_Denied",
+      "occurrences": 3753,
+      "cases": 3752,
+      "cases_repeating": 1,
+      "repeat_share": 0.0003,
+      "mean_per_case": 1.0,
+      "max_per_case": 2,
+      "extra_occurrences": 1,
+      "idle_after_mean_h": 0.0,
+      "removable_h_per_repeating_case": 0.0,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": 0.0,
+      "rejected_because": [
+        "the case idles only 0.00 h after it (<1.0 h), so nothing outside the process is being waited on",
+        "the idle wait is only 0.0x its own service time (<5.0x) — that is a queue for a resource, not a wait for an outsider",
+        "only 0.0% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "A_Incomplete",
+      "occurrences": 23055,
+      "cases": 15003,
+      "cases_repeating": 5686,
+      "repeat_share": 0.379,
+      "mean_per_case": 1.537,
+      "max_per_case": 7,
+      "extra_occurrences": 8052,
+      "idle_after_mean_h": 82.9606,
+      "removable_h_per_repeating_case": 117.4814,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": "inf",
+      "rejected_because": [
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "A_Pending",
+      "occurrences": 17228,
+      "cases": 17228,
+      "cases_repeating": 0,
+      "repeat_share": 0.0,
+      "mean_per_case": 1.0,
+      "max_per_case": 1,
+      "extra_occurrences": 0,
+      "idle_after_mean_h": 0.0,
+      "removable_h_per_repeating_case": 0.0,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": 0.0,
+      "rejected_because": [
+        "the case idles only 0.00 h after it (<1.0 h), so nothing outside the process is being waited on",
+        "the idle wait is only 0.0x its own service time (<5.0x) — that is a queue for a resource, not a wait for an outsider",
+        "only 0.0% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "A_Submitted",
+      "occurrences": 20423,
+      "cases": 20423,
+      "cases_repeating": 0,
+      "repeat_share": 0.0,
+      "mean_per_case": 1.0,
+      "max_per_case": 1,
+      "extra_occurrences": 0,
+      "idle_after_mean_h": 1.059,
+      "removable_h_per_repeating_case": 0.0,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": "inf",
+      "rejected_because": [
+        "only 0.0% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "A_Validating",
+      "occurrences": 38816,
+      "cases": 21870,
+      "cases_repeating": 11669,
+      "repeat_share": 0.5336,
+      "mean_per_case": 1.775,
+      "max_per_case": 8,
+      "extra_occurrences": 16946,
+      "idle_after_mean_h": 11.7254,
+      "removable_h_per_repeating_case": 17.0279,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": "inf",
+      "rejected_because": [
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "O_Accepted",
+      "occurrences": 17228,
+      "cases": 17228,
+      "cases_repeating": 0,
+      "repeat_share": 0.0,
+      "mean_per_case": 1.0,
+      "max_per_case": 1,
+      "extra_occurrences": 0,
+      "idle_after_mean_h": 0.0,
+      "removable_h_per_repeating_case": 0.0,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": 0.0,
+      "rejected_because": [
+        "the case idles only 0.00 h after it (<1.0 h), so nothing outside the process is being waited on",
+        "the idle wait is only 0.0x its own service time (<5.0x) — that is a queue for a resource, not a wait for an outsider",
+        "only 0.0% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "O_Create Offer",
+      "occurrences": 42995,
+      "cases": 31509,
+      "cases_repeating": 8559,
+      "repeat_share": 0.2716,
+      "mean_per_case": 1.365,
+      "max_per_case": 10,
+      "extra_occurrences": 11486,
+      "idle_after_mean_h": 0.0003,
+      "removable_h_per_repeating_case": 0.0004,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": "inf",
+      "rejected_because": [
+        "the case idles only 0.00 h after it (<1.0 h), so nothing outside the process is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "O_Created",
+      "occurrences": 42995,
+      "cases": 31509,
+      "cases_repeating": 8559,
+      "repeat_share": 0.2716,
+      "mean_per_case": 1.365,
+      "max_per_case": 10,
+      "extra_occurrences": 11486,
+      "idle_after_mean_h": 1.1123,
+      "removable_h_per_repeating_case": 1.4926,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": "inf",
+      "rejected_because": [
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "O_Refused",
+      "occurrences": 4695,
+      "cases": 3720,
+      "cases_repeating": 777,
+      "repeat_share": 0.2089,
+      "mean_per_case": 1.262,
+      "max_per_case": 8,
+      "extra_occurrences": 975,
+      "idle_after_mean_h": 0.0,
+      "removable_h_per_repeating_case": 0.0,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": 0.0,
+      "rejected_because": [
+        "the case idles only 0.00 h after it (<1.0 h), so nothing outside the process is being waited on",
+        "the idle wait is only 0.0x its own service time (<5.0x) — that is a queue for a resource, not a wait for an outsider"
+      ]
+    },
+    {
+      "activity": "O_Returned",
+      "occurrences": 23305,
+      "cases": 21768,
+      "cases_repeating": 1493,
+      "repeat_share": 0.0686,
+      "mean_per_case": 1.071,
+      "max_per_case": 3,
+      "extra_occurrences": 1537,
+      "idle_after_mean_h": 49.7216,
+      "removable_h_per_repeating_case": 51.1869,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": "inf",
+      "rejected_because": [
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "O_Sent (mail and online)",
+      "occurrences": 39707,
+      "cases": 31050,
+      "cases_repeating": 6834,
+      "repeat_share": 0.2201,
+      "mean_per_case": 1.279,
+      "max_per_case": 10,
+      "extra_occurrences": 8657,
+      "idle_after_mean_h": 36.1247,
+      "removable_h_per_repeating_case": 45.7611,
+      "service_h_mean": 0.0,
+      "idle_to_service_ratio": "inf",
+      "rejected_because": [
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "W_Assess potential fraud",
+      "occurrences": 282,
+      "cases": 268,
+      "cases_repeating": 13,
+      "repeat_share": 0.0485,
+      "mean_per_case": 1.052,
+      "max_per_case": 3,
+      "extra_occurrences": 14,
+      "idle_after_mean_h": 91.7799,
+      "removable_h_per_repeating_case": 98.8399,
+      "service_h_mean": 11.3139,
+      "idle_to_service_ratio": 8.11,
+      "rejected_because": [
+        "only 4.9% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "W_Call after offers",
+      "occurrences": 342,
+      "cases": 341,
+      "cases_repeating": 1,
+      "repeat_share": 0.0029,
+      "mean_per_case": 1.003,
+      "max_per_case": 2,
+      "extra_occurrences": 1,
+      "idle_after_mean_h": 0.0,
+      "removable_h_per_repeating_case": 0.0,
+      "service_h_mean": 0.3863,
+      "idle_to_service_ratio": 0.0,
+      "rejected_because": [
+        "the case idles only 0.00 h after it (<1.0 h), so nothing outside the process is being waited on",
+        "the idle wait is only 0.0x its own service time (<5.0x) — that is a queue for a resource, not a wait for an outsider",
+        "only 0.3% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "occurrences": 2793,
+      "cases": 2660,
+      "cases_repeating": 129,
+      "repeat_share": 0.0485,
+      "mean_per_case": 1.05,
+      "max_per_case": 3,
+      "extra_occurrences": 133,
+      "idle_after_mean_h": 0.0,
+      "removable_h_per_repeating_case": 0.0,
+      "service_h_mean": 3.6085,
+      "idle_to_service_ratio": 0.0,
+      "rejected_because": [
+        "the case idles only 0.00 h after it (<1.0 h), so nothing outside the process is being waited on",
+        "the idle wait is only 0.0x its own service time (<5.0x) — that is a queue for a resource, not a wait for an outsider",
+        "only 4.9% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "occurrences": 19104,
+      "cases": 19102,
+      "cases_repeating": 2,
+      "repeat_share": 0.0001,
+      "mean_per_case": 1.0,
+      "max_per_case": 2,
+      "extra_occurrences": 2,
+      "idle_after_mean_h": 4.709,
+      "removable_h_per_repeating_case": 4.709,
+      "service_h_mean": 0.3988,
+      "idle_to_service_ratio": 11.81,
+      "rejected_because": [
+        "only 0.0% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "W_Handle leads",
+      "occurrences": 3493,
+      "cases": 3493,
+      "cases_repeating": 0,
+      "repeat_share": 0.0,
+      "mean_per_case": 1.0,
+      "max_per_case": 1,
+      "extra_occurrences": 0,
+      "idle_after_mean_h": 0.3009,
+      "removable_h_per_repeating_case": 0.0,
+      "service_h_mean": 0.0722,
+      "idle_to_service_ratio": 4.17,
+      "rejected_because": [
+        "the case idles only 0.30 h after it (<1.0 h), so nothing outside the process is being waited on",
+        "the idle wait is only 4.2x its own service time (<5.0x) — that is a queue for a resource, not a wait for an outsider",
+        "only 0.0% of cases do it more than once (<5%), so there is no repeated exchange to consolidate",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "occurrences": 15848,
+      "cases": 10912,
+      "cases_repeating": 3697,
+      "repeat_share": 0.3388,
+      "mean_per_case": 1.452,
+      "max_per_case": 8,
+      "extra_occurrences": 4936,
+      "idle_after_mean_h": 0.0726,
+      "removable_h_per_repeating_case": 0.0969,
+      "service_h_mean": 3.091,
+      "idle_to_service_ratio": 0.02,
+      "rejected_because": [
+        "the case idles only 0.07 h after it (<1.0 h), so nothing outside the process is being waited on",
+        "the idle wait is only 0.0x its own service time (<5.0x) — that is a queue for a resource, not a wait for an outsider",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so there is no probability to reduce and the consolidation cannot be expressed as a parameter edit"
+      ]
+    }
+  ]
+}

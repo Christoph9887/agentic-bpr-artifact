@@ -1,0 +1,151 @@
+{
+  "note": "Learned layer over foundation's HI-Graph. foundation is the literature prior and is never edited; everything here was produced by measurement inside the loop.",
+  "contradictions": [
+    {
+      "id": "C1-1",
+      "round": 1,
+      "kind": "hard_wrongly_marked",
+      "subject": [
+        "Case Assignment",
+        "Specialize"
+      ],
+      "prior_said": "Case Assignment and Specialize are a HARD_CONFLICT because they are exact opposites on shared activities.",
+      "measured_said": "Both CA-002 and SPC-001 were applied successfully in Phase 3 and the model was built, although their shared activity showed contention.",
+      "evidence": [
+        "get_pair_relation reported HARD_CONFLICT with condition_fires=true and shared activity W_Complete application",
+        "Phase-3 outcome: CA-002 applied=true",
+        "Phase-3 outcome: SPC-001 applied=true",
+        "Full-plan W_Complete application waiting increased with z=24.71; removing SPC-001 in confirmation improved waiting with z=-2.61"
+      ],
+      "action": "downgrade_hard_to_weak",
+      "confidence": "measured",
+      "note": "The edits are structurally co-buildable; the evidence supports a contention or capacity risk, not a legality-level incompatibility.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-2",
+      "round": 1,
+      "kind": "impact_wrong",
+      "subject": [
+        "Case Assignment"
+      ],
+      "prior_said": "Case Assignment has a weak positive time impact because assigning a case to one resource reduces handover overhead.",
+      "measured_said": "The time effect is not uniformly positive: CA-001 caused significant throughput deterioration and self-contention, while CA-002 was contended and CA-004 had improved waiting but flat attributable throughput.",
+      "evidence": [
+        "CA-001 attributable throughput worsened by +0.4181 h/case, z=6.56",
+        "CA-001 waiting rose at A_Incomplete with z=4.53 and A_Validating with z=10.03",
+        "CA-002 produced A_Concept queueing with z=3.55 and net throughput was nonsignificant",
+        "CA-004 improved waiting at O_Returned with z=-11.67 but attributable throughput was not significant"
+      ],
+      "action": "revise_impact",
+      "confidence": "attributed",
+      "note": "Revise the time prior toward context-dependent or neutral for pool merges, explicitly accounting for self-contention and resource-pool capacity.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-3",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Contact Reduction"
+      ],
+      "prior_said": "Contact Reduction's principal time saving is exogenous and must be reported separately rather than added to simulated throughput.",
+      "measured_said": "CR-002 had flat simulated throughput and worse resource load, while the log separately estimated 9.9686 h/case of removed waiting; the two results were not netted.",
+      "evidence": [
+        "CR-002 simulated throughput was flat and resource load was significantly worse",
+        "Log estimate for CR-002 was 131.1652 h per occurrence and 9.9686 h/case",
+        "Phase-3 outcome: CR-002 applied=true",
+        "The round explicitly reports the estimate separately from simulation"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The exogenous-saving boundary in the prior held up; no correction is needed.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-4",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Case-based Work"
+      ],
+      "prior_said": "Case-based Work should remove batching delays, improve time, and may worsen cost or resource load because batching economies are lost.",
+      "measured_said": "CBW-002 improved waiting, duration, and throughput but worsened resources.",
+      "evidence": [
+        "CBW-002 waiting improved with z=-6.90",
+        "CBW-002 duration improved with z=-3.07",
+        "CBW-002 attributable throughput improved by 0.3282 h/case, z=-5.29",
+        "CBW-002 resources moved significantly worse"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The measured direction matches the prior, including the resource-load tradeoff.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-1",
+      "round": 2,
+      "kind": "impact_wrong",
+      "subject": [
+        "Case Assignment"
+      ],
+      "prior_said": "Case Assignment has a weak positive time impact because assigning one case to one resource reduces handover overhead.",
+      "measured_said": "The time effect was not reliably positive: CA-001 significantly worsened sole-owned throughput, CA-002 created significant self-contention, and CA-004 had flat attributable throughput.",
+      "evidence": [
+        "CA-001 throughput worsened by +0.5202 h/case, z=7.16",
+        "CA-001 waiting increased at A_Incomplete, z=3.94, and A_Validating, z=9.91",
+        "CA-002 A_Concept waiting increased, z=4.79",
+        "Phase-3 built CA-001, CA-002, and CA-004 successfully"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "Revise the time impact from weak_positive to context-dependent or neutral; assignment can reduce handovers only when the resulting resource pool does not self-contend.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-2",
+      "round": 2,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Specialize"
+      ],
+      "prior_said": "Specialize may improve service time, but any queueing caused by restricting the resource pool must be measured rather than assumed.",
+      "measured_said": "The specialist evidence showed a strong service-time separation, while the reported W_Complete application contention demonstrates why queueing must be decided by measurement rather than the service-time estimate.",
+      "evidence": [
+        "Specialist versus all-resource service-time separation was significant, z=7.25",
+        "The prior explicitly distinguishes service-time gain from queueing risk",
+        "SPC-001 was not present in the Phase-3 built candidate list, so no Phase-3 build contradiction was established"
+      ],
+      "action": "note_only",
+      "confidence": "attributed",
+      "note": "The prior's service-time-versus-queueing distinction remains appropriate; do not convert the contention observation into a refutation of the service-time component.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C3-1",
+      "round": 3,
+      "kind": "other",
+      "subject": [
+        "Contact Reduction"
+      ],
+      "prior_said": "Contact Reduction has a strong positive time impact and a weak positive cost impact; its exogenous waiting-time saving is reported separately from simulation.",
+      "measured_said": "Built candidate CR-002 had flat measured throughput and significantly worsened resource load, while the log separately estimated 131.1652 hours saved per occurrence of waiting_time_before.",
+      "evidence": [
+        "Phase-3 built CR-002 successfully",
+        "CR-002 resource load worsened with z=7.1 and z=6.8",
+        "CR-002 simulated activity change was +0.0029 h/case, while the exogenous estimate was 9.9686 h/case"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The simulated evidence does not significantly refute the time-impact prior because throughput was flat and the exogenous estimate is not comparable to simulation; however, the significant resource harm cautions against treating the candidate as an unqualified improvement.",
+      "accepted": true,
+      "refused_reason": ""
+    }
+  ]
+}

@@ -1,0 +1,368 @@
+{
+  "round": 3,
+  "enforced": true,
+  "plan_in": [
+    "CA-001",
+    "CT-001",
+    "EXC-002",
+    "EXC-001",
+    "NI-001",
+    "XR-001",
+    "NI-004"
+  ],
+  "plan_out": [
+    "CT-001",
+    "NI-001",
+    "XR-001",
+    "NI-004"
+  ],
+  "compliance": [
+    {
+      "activity": "diagnosis 1st",
+      "deleted_by": "CA-001",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "diagnosis 1st",
+      "deleted_by": "EXC-001",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "diagnosis 1st",
+      "deleted_by": "NI-001",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "diagnosis 1st",
+      "deleted_by": "NI-004",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "deleted_by": "CA-001",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "deleted_by": "CT-001",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "deleted_by": "EXC-001",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "repair",
+      "deleted_by": "CA-001",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "repair",
+      "deleted_by": "EXC-002",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "repair",
+      "deleted_by": "NI-001",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "repair",
+      "deleted_by": "XR-001",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "repair",
+      "deleted_by": "NI-004",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "replace",
+      "deleted_by": "CA-001",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "replace",
+      "deleted_by": "NI-004",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    },
+    {
+      "activity": "return",
+      "deleted_by": "CA-001",
+      "verdict": "must_not_delete",
+      "confidence": "hypothesized",
+      "reason": "A return activity plausibly carries a consumer-protection obligation to process or honor returns; the specific obligation depends on the unknown jurisdiction and context."
+    },
+    {
+      "activity": "return",
+      "deleted_by": "EXC-002",
+      "verdict": "must_not_delete",
+      "confidence": "hypothesized",
+      "reason": "A return activity plausibly carries a consumer-protection obligation to process or honor returns; the specific obligation depends on the unknown jurisdiction and context."
+    },
+    {
+      "activity": "return",
+      "deleted_by": "EXC-001",
+      "verdict": "must_not_delete",
+      "confidence": "hypothesized",
+      "reason": "A return activity plausibly carries a consumer-protection obligation to process or honor returns; the specific obligation depends on the unknown jurisdiction and context."
+    },
+    {
+      "activity": "intake",
+      "deleted_by": "NI-001",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "The name alone does not establish a legal, regulatory, audit, or consumer-protection obligation."
+    }
+  ],
+  "rulings": [
+    {
+      "candidate_id": "CA-001",
+      "ruling": "prune",
+      "basis": "compliance",
+      "reason": "All five targets survive, but deleting its return target is barred by the plausible consumer-protection obligation."
+    },
+    {
+      "candidate_id": "CT-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its sole target, diagnosis 2nd, survives and no name-based compliance bar applies."
+    },
+    {
+      "candidate_id": "EXC-002",
+      "ruling": "prune",
+      "basis": "compliance",
+      "reason": "Both targets survive, but deleting return is barred by the plausible consumer-protection obligation."
+    },
+    {
+      "candidate_id": "EXC-001",
+      "ruling": "prune",
+      "basis": "compliance",
+      "reason": "Return was removed by EXC-002 while diagnosis 1st and diagnosis 2nd survive, but this candidate also targets the compliance-protected return activity."
+    },
+    {
+      "candidate_id": "NI-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Diagnosis 1st, intake, and repair all survive and no name-based compliance bar applies."
+    },
+    {
+      "candidate_id": "XR-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its repair target survives and no name-based compliance bar applies."
+    },
+    {
+      "candidate_id": "NI-004",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Diagnosis 1st, repair, and replace all survive and no name-based compliance bar applies."
+    }
+  ],
+  "pruned": [
+    "CA-001",
+    "EXC-002",
+    "EXC-001"
+  ],
+  "blocked": [],
+  "reorder_suggestion": [
+    "CA-001",
+    "CT-001",
+    "EXC-001",
+    "EXC-002",
+    "NI-001",
+    "XR-001",
+    "NI-004"
+  ],
+  "survival": {
+    "CA-001": {
+      "candidate_id": "CA-001",
+      "heuristic": "Case Assignment",
+      "targets": [
+        "diagnosis 1st",
+        "diagnosis 2nd",
+        "repair",
+        "replace",
+        "return"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-001",
+        "EXC-002"
+      ],
+      "surviving": [
+        "diagnosis 1st",
+        "diagnosis 2nd",
+        "repair",
+        "replace",
+        "return"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CT-001": {
+      "candidate_id": "CT-001",
+      "heuristic": "Case Types",
+      "targets": [
+        "diagnosis 2nd"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-001"
+      ],
+      "surviving": [
+        "diagnosis 2nd"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "EXC-002": {
+      "candidate_id": "EXC-002",
+      "heuristic": "Exception",
+      "targets": [
+        "repair",
+        "return"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-001"
+      ],
+      "surviving": [
+        "repair",
+        "return"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "EXC-001": {
+      "candidate_id": "EXC-001",
+      "heuristic": "Exception",
+      "targets": [
+        "diagnosis 1st",
+        "diagnosis 2nd",
+        "return"
+      ],
+      "removed_by_earlier_candidate": [
+        "return"
+      ],
+      "removed_by_earlier": [
+        "EXC-002"
+      ],
+      "removed_by": [
+        "EXC-002"
+      ],
+      "surviving": [
+        "diagnosis 1st",
+        "diagnosis 2nd"
+      ],
+      "fraction_surviving": 0.6666666666666666,
+      "signal": "some_targets_removed"
+    },
+    "NI-001": {
+      "candidate_id": "NI-001",
+      "heuristic": "Numerical Involvement",
+      "targets": [
+        "diagnosis 1st",
+        "intake",
+        "repair"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "diagnosis 1st",
+        "intake",
+        "repair"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "XR-001": {
+      "candidate_id": "XR-001",
+      "heuristic": "Extra Resources",
+      "targets": [
+        "repair"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "repair"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "NI-004": {
+      "candidate_id": "NI-004",
+      "heuristic": "Numerical Involvement",
+      "targets": [
+        "diagnosis 1st",
+        "repair",
+        "replace"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "diagnosis 1st",
+        "repair",
+        "replace"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    }
+  },
+  "note": "This is a prior judgment from activity names alone and may be wrong because the industry and jurisdiction are unknown. Reordering EXC-001 before EXC-002 preserves all of EXC-001's targets, but it does not remove the compliance bar on deleting return.",
+  "rollback_note": "compliance was claimed for ['CA-001', 'EXC-002', 'EXC-001'], which delete nothing — kept as an ordinary prune, not an irrevocable block",
+  "halted": false,
+  "grounding": [
+    "knowledge.check_target_survival({\"candidate_id\": \"CA-001\", \"ordering\": [\"CA-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"NI-001\", \"XR-001\", \"NI-004\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CT-001\", \"ordering\": [\"CA-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"NI-001\", \"XR-001\", \"NI-004\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-002\", \"ordering\": [\"CA-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"NI-001\", \"XR-001\", \"NI-004\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-001\", \"ordering\": [\"CA-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"NI-001\", \"XR-001\", \"NI-004\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"NI-001\", \"ordering\": [\"CA-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"NI-001\", \"XR-001\", \"NI-004\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"XR-001\", \"ordering\": [\"CA-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"NI-001\", \"XR-001\", \"NI-004\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"NI-004\", \"ordering\": [\"CA-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"NI-001\", \"XR-001\", \"NI-004\"]})",
+    "knowledge.get_apply_outcome({})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-001\", \"ordering\": [\"CA-001\", \"CT-001\", \"EXC-001\", \"EXC-002\", \"NI-001\", \"XR-001\", \"NI-004\"]})"
+  ],
+  "deleter_probes": {
+    "AE-001": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    }
+  }
+}

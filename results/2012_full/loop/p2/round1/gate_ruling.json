@@ -1,0 +1,1350 @@
+{
+  "round": 1,
+  "enforced": true,
+  "plan_in": [
+    "AC-001",
+    "AC-002",
+    "AE-002",
+    "AE-001",
+    "AE-003",
+    "CA-001",
+    "CA-002",
+    "CA-003",
+    "CBW-001",
+    "CBW-002",
+    "CBW-003",
+    "CT-001",
+    "CR-001",
+    "CR-002",
+    "CR-003",
+    "EXC-001",
+    "EXC-010",
+    "EXC-005",
+    "EXC-009",
+    "EXC-003",
+    "EXC-007",
+    "EXC-002",
+    "EXC-004",
+    "EXC-008",
+    "EXC-006",
+    "IF-001",
+    "KO-001",
+    "NI-001",
+    "SPC-001",
+    "SPC-002",
+    "SPC-003",
+    "SPC-004",
+    "SPC-005"
+  ],
+  "plan_out": [
+    "AC-001",
+    "AC-002",
+    "AE-002",
+    "CA-001",
+    "CA-002",
+    "CA-003",
+    "CBW-002",
+    "CBW-003",
+    "CT-001",
+    "CR-001",
+    "CR-002",
+    "EXC-001",
+    "EXC-010",
+    "EXC-005",
+    "EXC-009",
+    "EXC-003",
+    "EXC-007",
+    "EXC-002",
+    "EXC-004",
+    "EXC-008",
+    "EXC-006",
+    "KO-001",
+    "NI-001",
+    "SPC-001",
+    "SPC-002",
+    "SPC-003",
+    "SPC-005"
+  ],
+  "compliance": [
+    {
+      "activity": "W_Nabellen offertes",
+      "deleted_by": "AE-002",
+      "verdict": "no_objection",
+      "confidence": "attributed",
+      "reason": "As a prior judgment about a Dutch bank loan process, I find no inherent legal, regulatory, audit, or consumer-protection obligation requiring this specific follow-up calling activity; this is not an endorsement and I may be wrong."
+    },
+    {
+      "activity": "W_Completeren aanvraag",
+      "deleted_by": "AE-001",
+      "verdict": "must_not_delete",
+      "confidence": "attributed",
+      "reason": "As a prior judgment about a Dutch bank loan process, completing the application plausibly supports mandatory responsible-lending affordability assessment, customer-information and KYC requirements, and an auditable decision record; it must not be deleted, although I may be wrong."
+    },
+    {
+      "activity": "W_Beoordelen fraude",
+      "deleted_by": "AE-003",
+      "verdict": "must_not_delete",
+      "confidence": "attributed",
+      "reason": "As a prior judgment about a Dutch bank loan process, fraud assessment plausibly carries financial-crime prevention, KYC/AML, risk-control, and audit obligations; it must not be deleted, although I may be wrong."
+    }
+  ],
+  "rulings": [
+    {
+      "candidate_id": "AC-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Both targets A_PARTLYSUBMITTED and A_SUBMITTED survive, so the candidate remains intact."
+    },
+    {
+      "candidate_id": "AC-002",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Both targets O_CREATED and O_SENT survive, so the candidate remains intact."
+    },
+    {
+      "candidate_id": "AE-002",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "W_Nabellen offertes survives at this point and the activity has no compliance bar from prior knowledge."
+    },
+    {
+      "candidate_id": "AE-001",
+      "ruling": "prune",
+      "basis": "compliance",
+      "reason": "W_Completeren aanvraag survives, but prior compliance judgment requires that it must not be deleted."
+    },
+    {
+      "candidate_id": "AE-003",
+      "ruling": "prune",
+      "basis": "compliance",
+      "reason": "W_Beoordelen fraude survives, but prior compliance judgment requires that it must not be deleted."
+    },
+    {
+      "candidate_id": "CA-001",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "W_Nabellen offertes was removed by AE-002, but four other targets survive, so the candidate still performs part of its assignment."
+    },
+    {
+      "candidate_id": "CA-002",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "All four targets survive, so the candidate remains intact."
+    },
+    {
+      "candidate_id": "CA-003",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "W_Beoordelen fraude was removed by AE-003, but A_PARTLYSUBMITTED and W_Afhandelen leads survive, so the candidate still has surviving work."
+    },
+    {
+      "candidate_id": "CBW-001",
+      "ruling": "prune",
+      "basis": "nullified",
+      "reason": "Its sole target W_Nabellen offertes was removed by AE-002, leaving it unable to do anything."
+    },
+    {
+      "candidate_id": "CBW-002",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "W_Valideren aanvraag survives, so the candidate remains intact."
+    },
+    {
+      "candidate_id": "CBW-003",
+      "ruling": "prune",
+      "basis": "nullified",
+      "reason": "Its sole target W_Completeren aanvraag was removed by AE-001, leaving it unable to do anything."
+    },
+    {
+      "candidate_id": "CT-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "O_CREATED survives, so the candidate remains intact."
+    },
+    {
+      "candidate_id": "CR-001",
+      "ruling": "prune",
+      "basis": "nullified",
+      "reason": "Its sole target W_Beoordelen fraude was removed by AE-003, leaving it unable to do anything."
+    },
+    {
+      "candidate_id": "CR-002",
+      "ruling": "prune",
+      "basis": "nullified",
+      "reason": "Its sole target W_Completeren aanvraag was removed by AE-001, leaving it unable to do anything."
+    },
+    {
+      "candidate_id": "CR-003",
+      "ruling": "prune",
+      "basis": "nullified",
+      "reason": "Its sole target W_Nabellen offertes was removed by AE-002, leaving it unable to do anything."
+    },
+    {
+      "candidate_id": "EXC-001",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "W_Completeren aanvraag was removed by AE-001, but A_CANCELLED, A_PARTLYSUBMITTED, and A_PREACCEPTED survive."
+    },
+    {
+      "candidate_id": "EXC-010",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "A_PREACCEPTED, W_Completeren aanvraag, and W_Nabellen offertes were removed by earlier candidates, but six other targets survive."
+    },
+    {
+      "candidate_id": "EXC-005",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "Most targets were removed by AE-001, AE-002, EXC-001, and EXC-010, but A_PARTLYSUBMITTED and O_CANCELLED survive."
+    },
+    {
+      "candidate_id": "EXC-009",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "Several targets were removed earlier, but A_PARTLYSUBMITTED, O_DECLINED, O_SENT_BACK, and W_Valideren aanvraag survive."
+    },
+    {
+      "candidate_id": "EXC-003",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "A_CANCELLED, A_PREACCEPTED, and W_Completeren aanvraag were removed earlier, but A_PARTLYSUBMITTED and W_Afhandelen leads survive."
+    },
+    {
+      "candidate_id": "EXC-007",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "W_Beoordelen fraude was removed by AE-003, but A_PARTLYSUBMITTED survives and the candidate still has a remaining target."
+    },
+    {
+      "candidate_id": "EXC-002",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "A_PREACCEPTED, W_Afhandelen leads, and W_Completeren aanvraag were removed earlier, but A_PARTLYSUBMITTED survives."
+    },
+    {
+      "candidate_id": "EXC-004",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "A_PREACCEPTED and W_Completeren aanvraag were removed earlier, but A_PARTLYSUBMITTED survives."
+    },
+    {
+      "candidate_id": "EXC-008",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "Four targets were removed earlier, but A_PARTLYSUBMITTED survives."
+    },
+    {
+      "candidate_id": "EXC-006",
+      "ruling": "keep",
+      "basis": "degraded",
+      "reason": "W_Afhandelen leads was removed by EXC-002 and EXC-003, but A_PARTLYSUBMITTED survives."
+    },
+    {
+      "candidate_id": "IF-001",
+      "ruling": "prune",
+      "basis": "nullified",
+      "reason": "Its sole target W_Nabellen offertes was removed by AE-002, leaving it unable to do anything."
+    },
+    {
+      "candidate_id": "KO-001",
+      "ruling": "prune",
+      "basis": "nullified",
+      "reason": "Both targets W_Afhandelen leads and W_Beoordelen fraude were removed earlier, leaving the candidate unable to do anything."
+    },
+    {
+      "candidate_id": "NI-001",
+      "ruling": "prune",
+      "basis": "nullified",
+      "reason": "All three targets A_CANCELLED, O_CANCELLED, and W_Completeren aanvraag were removed earlier, leaving the candidate unable to do anything."
+    },
+    {
+      "candidate_id": "SPC-001",
+      "ruling": "prune",
+      "basis": "nullified",
+      "reason": "Its sole target W_Afhandelen leads was removed by EXC-002, EXC-003, and EXC-006, leaving it unable to do anything."
+    },
+    {
+      "candidate_id": "SPC-002",
+      "ruling": "prune",
+      "basis": "nullified",
+      "reason": "Its sole target W_Completeren aanvraag was removed by AE-001, leaving it unable to do anything."
+    },
+    {
+      "candidate_id": "SPC-003",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "W_Nabellen incomplete dossiers survives, so the candidate remains intact."
+    },
+    {
+      "candidate_id": "SPC-004",
+      "ruling": "prune",
+      "basis": "nullified",
+      "reason": "Its sole target W_Nabellen offertes was removed by AE-002, leaving it unable to do anything."
+    },
+    {
+      "candidate_id": "SPC-005",
+      "ruling": "prune",
+      "basis": "nullified",
+      "reason": "Its sole target W_Valideren aanvraag was removed by EXC-009, leaving it unable to do anything."
+    }
+  ],
+  "pruned": [
+    "AE-001",
+    "AE-003",
+    "CBW-001",
+    "CR-003",
+    "IF-001",
+    "SPC-004"
+  ],
+  "blocked": [
+    "AE-001",
+    "AE-003"
+  ],
+  "reorder_suggestion": null,
+  "survival": {
+    "AC-001": {
+      "candidate_id": "AC-001",
+      "heuristic": "Activity Composition",
+      "targets": [
+        "A_PARTLYSUBMITTED",
+        "A_SUBMITTED"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "A_PARTLYSUBMITTED",
+        "A_SUBMITTED"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "AC-002": {
+      "candidate_id": "AC-002",
+      "heuristic": "Activity Composition",
+      "targets": [
+        "O_CREATED",
+        "O_SENT"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [
+        "O_CREATED",
+        "O_SENT"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "AE-002": {
+      "candidate_id": "AE-002",
+      "heuristic": "Activity Elimination",
+      "targets": [
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [
+        "W_Nabellen offertes"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "AE-001": {
+      "candidate_id": "AE-001",
+      "heuristic": "Activity Elimination",
+      "targets": [
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-008",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [
+        "W_Completeren aanvraag"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "AE-003": {
+      "candidate_id": "AE-003",
+      "heuristic": "Activity Elimination",
+      "targets": [
+        "W_Beoordelen fraude"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-007"
+      ],
+      "surviving": [
+        "W_Beoordelen fraude"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CA-001": {
+      "candidate_id": "CA-001",
+      "heuristic": "Case Assignment",
+      "targets": [
+        "A_ACTIVATED",
+        "A_APPROVED",
+        "O_DECLINED",
+        "O_SENT_BACK",
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier": [
+        "AE-002"
+      ],
+      "removed_by": [
+        "AE-002",
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [
+        "A_ACTIVATED",
+        "A_APPROVED",
+        "O_DECLINED",
+        "O_SENT_BACK"
+      ],
+      "fraction_surviving": 0.8,
+      "signal": "some_targets_removed"
+    },
+    "CA-002": {
+      "candidate_id": "CA-002",
+      "heuristic": "Case Assignment",
+      "targets": [
+        "A_ACCEPTED",
+        "A_CANCELLED",
+        "A_DECLINED",
+        "A_PREACCEPTED"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-008",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [
+        "A_ACCEPTED",
+        "A_CANCELLED",
+        "A_DECLINED",
+        "A_PREACCEPTED"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CA-003": {
+      "candidate_id": "CA-003",
+      "heuristic": "Case Assignment",
+      "targets": [
+        "A_PARTLYSUBMITTED",
+        "W_Afhandelen leads",
+        "W_Beoordelen fraude"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Beoordelen fraude"
+      ],
+      "removed_by_earlier": [
+        "AE-003"
+      ],
+      "removed_by": [
+        "AE-003",
+        "EXC-002",
+        "EXC-003",
+        "EXC-006",
+        "EXC-007"
+      ],
+      "surviving": [
+        "A_PARTLYSUBMITTED",
+        "W_Afhandelen leads"
+      ],
+      "fraction_surviving": 0.6666666666666666,
+      "signal": "some_targets_removed"
+    },
+    "CBW-001": {
+      "candidate_id": "CBW-001",
+      "heuristic": "Case-based Work",
+      "targets": [
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier": [
+        "AE-002"
+      ],
+      "removed_by": [
+        "AE-002",
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [],
+      "fraction_surviving": 0.0,
+      "signal": "all_targets_removed"
+    },
+    "CBW-002": {
+      "candidate_id": "CBW-002",
+      "heuristic": "Case-based Work",
+      "targets": [
+        "W_Valideren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-009"
+      ],
+      "surviving": [
+        "W_Valideren aanvraag"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CBW-003": {
+      "candidate_id": "CBW-003",
+      "heuristic": "Case-based Work",
+      "targets": [
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier": [
+        "AE-001"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-008",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [],
+      "fraction_surviving": 0.0,
+      "signal": "all_targets_removed"
+    },
+    "CT-001": {
+      "candidate_id": "CT-001",
+      "heuristic": "Case Types",
+      "targets": [
+        "O_CREATED"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [
+        "O_CREATED"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CR-001": {
+      "candidate_id": "CR-001",
+      "heuristic": "Contact Reduction",
+      "targets": [
+        "W_Beoordelen fraude"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Beoordelen fraude"
+      ],
+      "removed_by_earlier": [
+        "AE-003"
+      ],
+      "removed_by": [
+        "AE-003",
+        "EXC-007"
+      ],
+      "surviving": [],
+      "fraction_surviving": 0.0,
+      "signal": "all_targets_removed"
+    },
+    "CR-002": {
+      "candidate_id": "CR-002",
+      "heuristic": "Contact Reduction",
+      "targets": [
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier": [
+        "AE-001"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-008",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [],
+      "fraction_surviving": 0.0,
+      "signal": "all_targets_removed"
+    },
+    "CR-003": {
+      "candidate_id": "CR-003",
+      "heuristic": "Contact Reduction",
+      "targets": [
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier": [
+        "AE-002"
+      ],
+      "removed_by": [
+        "AE-002",
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [],
+      "fraction_surviving": 0.0,
+      "signal": "all_targets_removed"
+    },
+    "EXC-001": {
+      "candidate_id": "EXC-001",
+      "heuristic": "Exception",
+      "targets": [
+        "A_CANCELLED",
+        "A_PARTLYSUBMITTED",
+        "A_PREACCEPTED",
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier": [
+        "AE-001"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-008",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [
+        "A_CANCELLED",
+        "A_PARTLYSUBMITTED",
+        "A_PREACCEPTED"
+      ],
+      "fraction_surviving": 0.75,
+      "signal": "some_targets_removed"
+    },
+    "EXC-010": {
+      "candidate_id": "EXC-010",
+      "heuristic": "Exception",
+      "targets": [
+        "A_ACCEPTED",
+        "A_FINALIZED",
+        "A_PARTLYSUBMITTED",
+        "A_PREACCEPTED",
+        "O_CREATED",
+        "O_SELECTED",
+        "O_SENT",
+        "W_Completeren aanvraag",
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier_candidate": [
+        "A_PREACCEPTED",
+        "W_Completeren aanvraag",
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier": [
+        "AE-001",
+        "AE-002",
+        "EXC-001"
+      ],
+      "removed_by": [
+        "AE-001",
+        "AE-002",
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-008",
+        "EXC-009"
+      ],
+      "surviving": [
+        "A_ACCEPTED",
+        "A_FINALIZED",
+        "A_PARTLYSUBMITTED",
+        "O_CREATED",
+        "O_SELECTED",
+        "O_SENT"
+      ],
+      "fraction_surviving": 0.6666666666666666,
+      "signal": "some_targets_removed"
+    },
+    "EXC-005": {
+      "candidate_id": "EXC-005",
+      "heuristic": "Exception",
+      "targets": [
+        "A_ACCEPTED",
+        "A_CANCELLED",
+        "A_FINALIZED",
+        "A_PARTLYSUBMITTED",
+        "A_PREACCEPTED",
+        "O_CANCELLED",
+        "O_CREATED",
+        "O_SELECTED",
+        "O_SENT",
+        "W_Completeren aanvraag",
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier_candidate": [
+        "A_ACCEPTED",
+        "A_CANCELLED",
+        "A_FINALIZED",
+        "A_PREACCEPTED",
+        "O_CREATED",
+        "O_SELECTED",
+        "O_SENT",
+        "W_Completeren aanvraag",
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier": [
+        "AE-001",
+        "AE-002",
+        "EXC-001",
+        "EXC-010"
+      ],
+      "removed_by": [
+        "AE-001",
+        "AE-002",
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-008",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [
+        "A_PARTLYSUBMITTED",
+        "O_CANCELLED"
+      ],
+      "fraction_surviving": 0.18181818181818182,
+      "signal": "some_targets_removed"
+    },
+    "EXC-009": {
+      "candidate_id": "EXC-009",
+      "heuristic": "Exception",
+      "targets": [
+        "A_ACCEPTED",
+        "A_FINALIZED",
+        "A_PARTLYSUBMITTED",
+        "A_PREACCEPTED",
+        "O_CREATED",
+        "O_DECLINED",
+        "O_SELECTED",
+        "O_SENT",
+        "O_SENT_BACK",
+        "W_Completeren aanvraag",
+        "W_Nabellen offertes",
+        "W_Valideren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [
+        "A_ACCEPTED",
+        "A_FINALIZED",
+        "A_PREACCEPTED",
+        "O_CREATED",
+        "O_SELECTED",
+        "O_SENT",
+        "W_Completeren aanvraag",
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier": [
+        "AE-001",
+        "AE-002",
+        "EXC-001",
+        "EXC-005",
+        "EXC-010"
+      ],
+      "removed_by": [
+        "AE-001",
+        "AE-002",
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-008",
+        "EXC-010"
+      ],
+      "surviving": [
+        "A_PARTLYSUBMITTED",
+        "O_DECLINED",
+        "O_SENT_BACK",
+        "W_Valideren aanvraag"
+      ],
+      "fraction_surviving": 0.3333333333333333,
+      "signal": "some_targets_removed"
+    },
+    "EXC-003": {
+      "candidate_id": "EXC-003",
+      "heuristic": "Exception",
+      "targets": [
+        "A_CANCELLED",
+        "A_PARTLYSUBMITTED",
+        "A_PREACCEPTED",
+        "W_Afhandelen leads",
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [
+        "A_CANCELLED",
+        "A_PREACCEPTED",
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier": [
+        "AE-001",
+        "EXC-001",
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002",
+        "EXC-004",
+        "EXC-005",
+        "EXC-006",
+        "EXC-008",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [
+        "A_PARTLYSUBMITTED",
+        "W_Afhandelen leads"
+      ],
+      "fraction_surviving": 0.4,
+      "signal": "some_targets_removed"
+    },
+    "EXC-007": {
+      "candidate_id": "EXC-007",
+      "heuristic": "Exception",
+      "targets": [
+        "A_PARTLYSUBMITTED",
+        "W_Beoordelen fraude"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Beoordelen fraude"
+      ],
+      "removed_by_earlier": [
+        "AE-003"
+      ],
+      "removed_by": [
+        "AE-003"
+      ],
+      "surviving": [
+        "A_PARTLYSUBMITTED"
+      ],
+      "fraction_surviving": 0.5,
+      "signal": "some_targets_removed"
+    },
+    "EXC-002": {
+      "candidate_id": "EXC-002",
+      "heuristic": "Exception",
+      "targets": [
+        "A_PARTLYSUBMITTED",
+        "A_PREACCEPTED",
+        "W_Afhandelen leads",
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [
+        "A_PREACCEPTED",
+        "W_Afhandelen leads",
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier": [
+        "AE-001",
+        "EXC-001",
+        "EXC-003",
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-001",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-006",
+        "EXC-008",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [
+        "A_PARTLYSUBMITTED"
+      ],
+      "fraction_surviving": 0.25,
+      "signal": "some_targets_removed"
+    },
+    "EXC-004": {
+      "candidate_id": "EXC-004",
+      "heuristic": "Exception",
+      "targets": [
+        "A_PARTLYSUBMITTED",
+        "A_PREACCEPTED",
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [
+        "A_PREACCEPTED",
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-005",
+        "EXC-008",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [
+        "A_PARTLYSUBMITTED"
+      ],
+      "fraction_surviving": 0.3333333333333333,
+      "signal": "some_targets_removed"
+    },
+    "EXC-008": {
+      "candidate_id": "EXC-008",
+      "heuristic": "Exception",
+      "targets": [
+        "A_ACCEPTED",
+        "A_CANCELLED",
+        "A_PARTLYSUBMITTED",
+        "A_PREACCEPTED",
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [
+        "A_ACCEPTED",
+        "A_CANCELLED",
+        "A_PREACCEPTED",
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [
+        "A_PARTLYSUBMITTED"
+      ],
+      "fraction_surviving": 0.2,
+      "signal": "some_targets_removed"
+    },
+    "EXC-006": {
+      "candidate_id": "EXC-006",
+      "heuristic": "Exception",
+      "targets": [
+        "A_PARTLYSUBMITTED",
+        "W_Afhandelen leads"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Afhandelen leads"
+      ],
+      "removed_by_earlier": [
+        "EXC-002",
+        "EXC-003"
+      ],
+      "removed_by": [
+        "EXC-002",
+        "EXC-003"
+      ],
+      "surviving": [
+        "A_PARTLYSUBMITTED"
+      ],
+      "fraction_surviving": 0.5,
+      "signal": "some_targets_removed"
+    },
+    "IF-001": {
+      "candidate_id": "IF-001",
+      "heuristic": "Interfacing",
+      "targets": [
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier": [
+        "AE-002",
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "removed_by": [
+        "AE-002",
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [],
+      "fraction_surviving": 0.0,
+      "signal": "all_targets_removed"
+    },
+    "KO-001": {
+      "candidate_id": "KO-001",
+      "heuristic": "Knock-out",
+      "targets": [
+        "W_Afhandelen leads",
+        "W_Beoordelen fraude"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Afhandelen leads",
+        "W_Beoordelen fraude"
+      ],
+      "removed_by_earlier": [
+        "AE-003",
+        "EXC-002",
+        "EXC-003",
+        "EXC-006",
+        "EXC-007"
+      ],
+      "removed_by": [
+        "AE-003",
+        "EXC-002",
+        "EXC-003",
+        "EXC-006",
+        "EXC-007"
+      ],
+      "surviving": [],
+      "fraction_surviving": 0.0,
+      "signal": "all_targets_removed"
+    },
+    "NI-001": {
+      "candidate_id": "NI-001",
+      "heuristic": "Numerical Involvement",
+      "targets": [
+        "A_CANCELLED",
+        "O_CANCELLED",
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [
+        "A_CANCELLED",
+        "O_CANCELLED",
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-008",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-008",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [],
+      "fraction_surviving": 0.0,
+      "signal": "all_targets_removed"
+    },
+    "SPC-001": {
+      "candidate_id": "SPC-001",
+      "heuristic": "Specialize",
+      "targets": [
+        "W_Afhandelen leads"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Afhandelen leads"
+      ],
+      "removed_by_earlier": [
+        "EXC-002",
+        "EXC-003",
+        "EXC-006"
+      ],
+      "removed_by": [
+        "EXC-002",
+        "EXC-003",
+        "EXC-006"
+      ],
+      "surviving": [],
+      "fraction_surviving": 0.0,
+      "signal": "all_targets_removed"
+    },
+    "SPC-002": {
+      "candidate_id": "SPC-002",
+      "heuristic": "Specialize",
+      "targets": [
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Completeren aanvraag"
+      ],
+      "removed_by_earlier": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-008",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "removed_by": [
+        "AE-001",
+        "EXC-001",
+        "EXC-002",
+        "EXC-003",
+        "EXC-004",
+        "EXC-005",
+        "EXC-008",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [],
+      "fraction_surviving": 0.0,
+      "signal": "all_targets_removed"
+    },
+    "SPC-003": {
+      "candidate_id": "SPC-003",
+      "heuristic": "Specialize",
+      "targets": [
+        "W_Nabellen incomplete dossiers"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "W_Nabellen incomplete dossiers"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "SPC-004": {
+      "candidate_id": "SPC-004",
+      "heuristic": "Specialize",
+      "targets": [
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Nabellen offertes"
+      ],
+      "removed_by_earlier": [
+        "AE-002",
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "removed_by": [
+        "AE-002",
+        "EXC-005",
+        "EXC-009",
+        "EXC-010"
+      ],
+      "surviving": [],
+      "fraction_surviving": 0.0,
+      "signal": "all_targets_removed"
+    },
+    "SPC-005": {
+      "candidate_id": "SPC-005",
+      "heuristic": "Specialize",
+      "targets": [
+        "W_Valideren aanvraag"
+      ],
+      "removed_by_earlier_candidate": [
+        "W_Valideren aanvraag"
+      ],
+      "removed_by_earlier": [
+        "EXC-009"
+      ],
+      "removed_by": [
+        "EXC-009"
+      ],
+      "surviving": [],
+      "fraction_surviving": 0.0,
+      "signal": "all_targets_removed"
+    }
+  },
+  "note": "These compliance decisions are prior judgments about a Dutch bank loan process, not measurement findings; I may be wrong. The plan should not run as proposed because AE-001 and AE-003 are barred from deleting activities.",
+  "rollback_note": "['CBW-003', 'CR-001', 'CR-002', 'KO-001', 'NI-001', 'SPC-001', 'SPC-002', 'SPC-005'] were pruned as having no surviving target, but every candidate that would have removed those targets will not run (compliance-blocked, or refused by the build step), so the targets survive and they were given back",
+  "halted": false,
+  "grounding": [
+    "knowledge.check_target_survival({\"candidate_id\": \"AC-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"AC-002\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"AE-002\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"AE-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"AE-003\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CA-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CA-002\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CA-003\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CBW-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CBW-002\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CBW-003\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CT-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CR-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CR-002\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CR-003\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-010\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-005\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-009\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-003\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-007\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-002\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-004\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-008\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-006\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"IF-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"KO-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"NI-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"SPC-001\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"SPC-002\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"SPC-003\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"SPC-004\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"SPC-005\", \"ordering\": [\"AC-001\", \"AC-002\", \"AE-002\", \"AE-001\", \"AE-003\", \"CA-001\", \"CA-002\", \"CA-003\", \"CBW-001\", \"CBW-002\", \"CBW-003\", \"CT-001\", \"CR-001\", \"CR-002\", \"CR-003\", \"EXC-001\", \"EXC-010\", \"EXC-005\", \"EXC-009\", \"EXC-003\", \"EXC-007\", \"EXC-002\", \"EXC-004\", \"EXC-008\", \"EXC-006\", \"IF-001\", \"KO-001\", \"NI-001\", \"SPC-001\", \"SPC-002\", \"SPC-003\", \"SPC-004\", \"SPC-005\"]})"
+  ],
+  "deleter_probes": {
+    "AE-001": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "AE-002": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "AE-003": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-001": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-002": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-003": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-004": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-005": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-006": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-007": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-008": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-009": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-010": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    }
+  }
+}

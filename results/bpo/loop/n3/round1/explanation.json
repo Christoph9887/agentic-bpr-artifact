@@ -1,0 +1,797 @@
+{
+  "round": 1,
+  "stage": "proposed",
+  "accounting": {
+    "available": true,
+    "activity_hours_h_per_case": 30.6359,
+    "explained_by_candidates_h_per_case": 28.4719,
+    "activity_hours_unexplained": 2.164,
+    "activity_hours_unexplained_share": 0.071,
+    "contested_activities": [
+      {
+        "activity": "repair",
+        "h_per_case": -91.05,
+        "claimants": [
+          "CA-001",
+          "CBW-001",
+          "EXC-002",
+          "NI-001",
+          "NI-004",
+          "XR-001"
+        ],
+        "mechanism_direction": {
+          "activity": "repair",
+          "measured": "the wait FELL (-91.0500 h per case)",
+          "compatible_with_the_measured_sign": [
+            "CBW-001",
+            "NI-001",
+            "NI-004",
+            "XR-001"
+          ],
+          "ruled_out_by_mechanism": [
+            "EXC-002"
+          ],
+          "per_claimant": [
+            {
+              "candidate": "CA-001",
+              "direction": null,
+              "evidence": "assigned_tasks_removed=496; concentration=0.04; resources_removed=493; task_resources_added=8"
+            },
+            {
+              "candidate": "CBW-001",
+              "direction": "down",
+              "evidence": "batch_component_h_removed=5.5062"
+            },
+            {
+              "candidate": "EXC-002",
+              "direction": "up",
+              "evidence": "assigned_tasks_removed=2"
+            },
+            {
+              "candidate": "NI-001",
+              "direction": "down",
+              "evidence": "task_resources_added=199"
+            },
+            {
+              "candidate": "NI-004",
+              "direction": "down",
+              "evidence": "task_resources_added=100"
+            },
+            {
+              "candidate": "XR-001",
+              "direction": "down",
+              "evidence": "resources_grown=4"
+            }
+          ],
+          "note": "the account cannot attribute a shared activity to one candidate, but a transformation that can only push this wait the OTHER way cannot be the source of what was measured. This is the handlers' own reports plus the measured sign -- no isolation was run, and nothing is decided here."
+        }
+      },
+      {
+        "activity": "diagnosis 1st",
+        "h_per_case": 43.2746,
+        "claimants": [
+          "CA-001",
+          "EXC-001",
+          "NI-001",
+          "NI-004"
+        ],
+        "mechanism_direction": {
+          "activity": "diagnosis 1st",
+          "measured": "the wait ROSE (+43.2746 h per case)",
+          "compatible_with_the_measured_sign": [
+            "EXC-001"
+          ],
+          "ruled_out_by_mechanism": [
+            "NI-001",
+            "NI-004"
+          ],
+          "per_claimant": [
+            {
+              "candidate": "CA-001",
+              "direction": null,
+              "evidence": "assigned_tasks_removed=496; concentration=0.04; resources_removed=493; task_resources_added=8"
+            },
+            {
+              "candidate": "EXC-001",
+              "direction": "up",
+              "evidence": "assigned_tasks_removed=2"
+            },
+            {
+              "candidate": "NI-001",
+              "direction": "down",
+              "evidence": "task_resources_added=199"
+            },
+            {
+              "candidate": "NI-004",
+              "direction": "down",
+              "evidence": "task_resources_added=100"
+            }
+          ],
+          "note": "the account cannot attribute a shared activity to one candidate, but a transformation that can only push this wait the OTHER way cannot be the source of what was measured. This is the handlers' own reports plus the measured sign -- no isolation was run, and nothing is decided here."
+        }
+      },
+      {
+        "activity": "replace",
+        "h_per_case": 41.3297,
+        "claimants": [
+          "CA-001",
+          "NI-004"
+        ]
+      },
+      {
+        "activity": "diagnosis 2nd",
+        "h_per_case": -13.0621,
+        "claimants": [
+          "CA-001",
+          "CT-001",
+          "EXC-001"
+        ]
+      },
+      {
+        "activity": "Exception Handler",
+        "h_per_case": 10.6224,
+        "claimants": [
+          "EXC-001",
+          "EXC-002"
+        ]
+      },
+      {
+        "activity": "return",
+        "h_per_case": -2.0127,
+        "claimants": [
+          "CA-001",
+          "EXC-001",
+          "EXC-002"
+        ],
+        "mechanism_direction": {
+          "activity": "return",
+          "measured": "the wait FELL (-2.0127 h per case)",
+          "compatible_with_the_measured_sign": [],
+          "ruled_out_by_mechanism": [
+            "EXC-001",
+            "EXC-002"
+          ],
+          "per_claimant": [
+            {
+              "candidate": "CA-001",
+              "direction": null,
+              "evidence": "assigned_tasks_removed=496; concentration=0.04; resources_removed=493; task_resources_added=8"
+            },
+            {
+              "candidate": "EXC-001",
+              "direction": "up",
+              "evidence": "assigned_tasks_removed=2"
+            },
+            {
+              "candidate": "EXC-002",
+              "direction": "up",
+              "evidence": "assigned_tasks_removed=2"
+            }
+          ],
+          "note": "the account cannot attribute a shared activity to one candidate, but a transformation that can only push this wait the OTHER way cannot be the source of what was measured. This is the handlers' own reports plus the measured sign -- no isolation was run, and nothing is decided here."
+        }
+      }
+    ],
+    "applied_candidates_owning_no_activity": [],
+    "applied_candidates_that_changed_routing_or_waiting": {
+      "CBW-001": {
+        "batch_component_h_removed": 5.5062
+      },
+      "CT-001": {
+        "gateways_conditioned": 2,
+        "branch_rules_added": 4
+      }
+    },
+    "case_span_h_per_case": 25.718,
+    "case_span_not_visible_to_any_column": -4.918,
+    "note": "The columns measure ACTIVITY HOURS; the loop ranks on CASE SPAN. `case_span_not_visible_to_any_column` is the part of the span change that no per-activity column can show — time the case spends with nothing running (fitted extraneous-delay timers, routing that sends cases down longer paths). When it is large, a candidate in `applied_candidates_that_changed_routing_or_waiting` or `applied_candidates_owning_no_activity` may be driving the KPI while reading as 'nothing attributable to it alone'. A fact, not an accusation: settling it is what a confirmation simulation is for.",
+    "case_span_median_delta": 50.7538,
+    "case_span_mean_delta": 25.718,
+    "median_and_mean_disagree_in_sign": false
+  },
+  "plan_before": [
+    "CA-001",
+    "CBW-001",
+    "CT-001",
+    "EXC-002",
+    "EXC-001",
+    "XR-001",
+    "NI-001",
+    "NI-002",
+    "NI-003",
+    "NI-004",
+    "NI-005",
+    "NI-006"
+  ],
+  "plan_after": [
+    "CA-001",
+    "CT-001",
+    "EXC-002",
+    "NI-001",
+    "EXC-001",
+    "XR-001",
+    "NI-004"
+  ],
+  "kept": [
+    {
+      "candidate": "CA-001",
+      "heuristic": "Case Assignment",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [
+          "diagnosis 1st z=+69.0",
+          "repair z=-18.8",
+          "replace z=+67.7"
+        ],
+        "duration": [
+          "diagnosis 1st z=-37.4",
+          "repair z=-387.5",
+          "replace z=+11.5"
+        ],
+        "resources_significant": 5,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['diagnosis 1st', 'repair', 'replace', 'return'] with ['CBW-001', 'EXC-001', 'EXC-002', 'NI-001', 'NI-004', 'XR-001'] — that part is attributable to neither (-8.458 h per case left unassigned)"
+      },
+      "what_the_handler_did": {
+        "strategy": "intersection",
+        "resources_removed": 493,
+        "task_resources_added": 8,
+        "ca_pool_resource_count": 4,
+        "assigned_tasks_removed": 496,
+        "assigned_tasks_added": 6,
+        "expected_continuity_before": 0.01,
+        "expected_continuity_after": 0.25,
+        "concentration": 0.04,
+        "delivery_note": "with 4 resources eligible for every target, two consecutive steps land on the same person about 25.0% of the time, against 1.0% before. Case Assignment has no other way to deliver continuity here: Prosimos picks by earliest availability and does not remember who handled the previous step.",
+        "note": "the target activities are now performed by one shared pool of 4; with k eligible resources, consecutive steps land on the same person with probability ~1/k, which is how this simulator can express 'the same worker continues the case'"
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "CA-001 touched diagnosis 1st, repair, replace, and return, but every measured movement on those activities is shared with other applied candidates, so its marginal effect is not established.",
+      "critic_evidence_ref": "footprint.CA-001",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_kept": "Keep because the directive explicitly names it, although its round-1 throughput contribution was not significant and all dimensions were shared.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "CT-001",
+      "heuristic": "Case Types",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "no measurable effect on any of the four columns"
+      },
+      "what_the_handler_did": {
+        "gateways_conditioned": 2,
+        "branch_rules_added": 4
+      },
+      "critic_verdict": "neutral",
+      "critic_confidence": "measured",
+      "critic_note": "CT-001 was applied and conditioned two gateways, but its footprint has no activity-level measure in the scorecard and no attributable movement was measured.",
+      "critic_evidence_ref": "footprint.CT-001",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "n/a",
+        "throughput": "n/a"
+      },
+      "why_kept": "Keep because the directive explicitly names it; its round-1 verdict was neutral with no significant measured movement, so there is no evidence-based reason to override the directive.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "EXC-002",
+      "heuristic": "Exception",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [
+          "repair z=-18.8"
+        ],
+        "duration": [
+          "repair z=-387.5"
+        ],
+        "resources_significant": 5,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['Exception Handler', 'repair', 'return'] with ['CA-001', 'CBW-001', 'EXC-001', 'NI-001', 'NI-004', 'XR-001'] — that part is attributable to neither (-82.440 h per case left unassigned)"
+      },
+      "what_the_handler_did": {
+        "paths_remapped": 0,
+        "assigned_tasks_removed": 2,
+        "subprocess_registered": true,
+        "subprocess_resource_count": 2,
+        "subprocess_duration_s": 43184.1738795,
+        "subprocess_assigned_added": 2
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "EXC-002 touches repair and the new Exception Handler, but all measured effects there are shared; its reported repair direction is also inconsistent with the observed waiting decrease.",
+      "critic_evidence_ref": "activity.repair",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_kept": "Keep because the directive explicitly names it, despite a covered verdict and a mechanism inconsistent with the observed repair waiting decrease.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "EXC-001",
+      "heuristic": "Exception",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -13.0621,
+        "throughput_sd": 1.7714,
+        "throughput_z": -32.98,
+        "throughput_significant": true,
+        "waiting": [
+          "diagnosis 1st z=+69.0"
+        ],
+        "duration": [
+          "diagnosis 1st z=-37.4"
+        ],
+        "resources_significant": 5,
+        "summary": "0 improved / 0 worsened activity measures; -13.062 h per case (z=-33.0)",
+        "attribution_caveat": "shares ['Exception Handler', 'diagnosis 1st', 'return'] with ['CA-001', 'EXC-002', 'NI-001', 'NI-004'] — that part is attributable to neither (+51.884 h per case left unassigned)"
+      },
+      "what_the_handler_did": {
+        "paths_remapped": 0,
+        "assigned_tasks_removed": 2,
+        "subprocess_registered": true,
+        "subprocess_resource_count": 4,
+        "subprocess_duration_s": 17258.98888525283,
+        "subprocess_assigned_added": 4
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "attributed",
+      "critic_note": "EXC-001's removal of diagnosis 2nd is footprint-supported and has a significant attributable throughput improvement of -13.0621 hours per case (z=-32.98), while its diagnosis 1st effects remain shared.",
+      "critic_evidence_ref": "activity.diagnosis 2nd",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "shared",
+        "throughput": "better"
+      },
+      "why_kept": "Keep because it was measured helped with a significant -13.0621 h/case throughput contribution, and the directive explicitly names it.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "XR-001",
+      "heuristic": "Extra Resources",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [
+          "repair z=-18.8"
+        ],
+        "duration": [
+          "repair z=-387.5"
+        ],
+        "resources_significant": 5,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['repair'] with ['CA-001', 'CBW-001', 'EXC-002', 'NI-001', 'NI-004'] — that part is attributable to neither (-91.050 h per case left unassigned)"
+      },
+      "what_the_handler_did": {
+        "resources_grown": 4
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "XR-001's four-resource growth is compatible with the repair waiting decrease, but repair's waiting, duration, resources, and throughput effects are all shared with other applied footprints.",
+      "critic_evidence_ref": "activity.repair",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_kept": "Keep because the directive explicitly names it; its repair effect was covered/shared, while the prior predicts strong time improvement from added resources.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "NI-001",
+      "heuristic": "Numerical Involvement",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 41.534,
+        "throughput_sd": 2.5185,
+        "throughput_z": 73.75,
+        "throughput_significant": true,
+        "waiting": [
+          "diagnosis 1st z=+69.0",
+          "intake z=+71.1",
+          "repair z=-18.8"
+        ],
+        "duration": [
+          "diagnosis 1st z=-37.4",
+          "intake z=+10.0",
+          "repair z=-387.5"
+        ],
+        "resources_significant": 5,
+        "summary": "0 improved / 2 worsened activity measures; +41.534 h per case (z=+73.8)",
+        "attribution_caveat": "shares ['diagnosis 1st', 'repair'] with ['CA-001', 'CBW-001', 'EXC-001', 'EXC-002', 'NI-004', 'XR-001'] — that part is attributable to neither (-47.775 h per case left unassigned)"
+      },
+      "what_the_handler_did": {
+        "task_resources_added": 199,
+        "ca_pool_resource_count": 102,
+        "assigned_tasks_added": 202
+      },
+      "critic_verdict": "hurt",
+      "critic_confidence": "attributed",
+      "critic_note": "NI-001 uniquely touches intake, where waiting rose with z=71.14 and duration rose with z=10.00, and its attributable throughput worsened by +41.534 hours per case (z=73.75).",
+      "critic_evidence_ref": "activity.intake",
+      "critic_dimensions": {
+        "waiting": "worse",
+        "duration": "worse",
+        "resources": "shared",
+        "throughput": "worse"
+      },
+      "why_kept": "Keep because the directive explicitly names it despite its significant +41.534 h/case harm, as the Critic specifically chose to retain it for confirmation; applying it before EXC-001 is the deliberate order change.",
+      "reason_is_candidate_specific": true
+    },
+    {
+      "candidate": "NI-004",
+      "heuristic": "Numerical Involvement",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [
+          "diagnosis 1st z=+69.0",
+          "repair z=-18.8",
+          "replace z=+67.7"
+        ],
+        "duration": [
+          "diagnosis 1st z=-37.4",
+          "repair z=-387.5",
+          "replace z=+11.5"
+        ],
+        "resources_significant": 5,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['diagnosis 1st', 'repair', 'replace'] with ['CA-001', 'CBW-001', 'EXC-001', 'EXC-002', 'NI-001', 'XR-001'] — that part is attributable to neither (-6.446 h per case left unassigned)"
+      },
+      "what_the_handler_did": {
+        "task_resources_added": 100,
+        "ca_pool_resource_count": 102,
+        "assigned_tasks_added": 100
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "NI-004 touches diagnosis 1st, repair, and replace, but the diagnosis contention, repair benefit, and replace handler bug are all shared with other applied candidates.",
+      "critic_evidence_ref": "footprint.NI-004",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_kept": "Keep because the directive explicitly names it, although its round-1 throughput line was not significant and its repair, diagnosis, and replace effects were shared.",
+      "reason_is_candidate_specific": true
+    }
+  ],
+  "dropped": [
+    {
+      "candidate": "CBW-001",
+      "heuristic": "Case-based Work",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [
+          "repair z=-18.8"
+        ],
+        "duration": [
+          "repair z=-387.5"
+        ],
+        "resources_significant": 5,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['repair'] with ['CA-001', 'EXC-002', 'NI-001', 'NI-004', 'XR-001'] — that part is attributable to neither (-91.050 h per case left unassigned)",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (batch_component_h_removed=5.5062), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice."
+      },
+      "what_the_handler_did": {
+        "channel": "extraneous_delay_batch_share",
+        "timers_removed": 0,
+        "batch_component_h_removed": 5.5062,
+        "share_of_timer_removed": 1.0,
+        "rules_removed": 0,
+        "note": "scaled the extraneous-delay timer in front of 'repair' by 0.0000: 5.51 h -> 0.00 h per occurrence. Only the batching share is removed (100.0% of the timer, from a 86.9429 h gap between batched and non-batched executions at z=33.91); the rest of the wait is left in place because this heuristic does not claim it."
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "CBW-001 structurally removed a 5.5062-hour batch delay compatible with the measured repair benefit, but repair's waiting z=-18.76 and duration z=-387.48 are shared with other footprints.",
+      "critic_evidence_ref": "activity.repair",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_dropped": "Remove because its round-1 verdict was covered with no attributable net scorecard line, and its 0.771 h exogenous estimate cannot outweigh the need to isolate the shared repair effect.",
+      "reason_is_candidate_specific": true,
+      "responds_to": "critic_round2.directive"
+    },
+    {
+      "candidate": "NI-002",
+      "heuristic": null,
+      "contribution": {
+        "measured": false,
+        "reason": "never applied, so it has no measured effect"
+      },
+      "what_the_handler_did": {},
+      "critic_verdict": "no_sim_signal",
+      "critic_confidence": "measured",
+      "critic_note": "NI-002 was not applied because every resource already performed its target activities, so there is no simulation signal.",
+      "critic_evidence_ref": "footprint.NI-002",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "n/a",
+        "throughput": "n/a"
+      },
+      "why_dropped": "Phase-3 could not build it: every resource in the run already performs all of ['diagnosis 1st', 'repair'] — the case is not passed between different pools here, so widening changes nothing — but it BUILDS ALONE on the baseline, so this refusal is about the plan's earlier candidates, not about the candidate",
+      "order_dependent": true
+    },
+    {
+      "candidate": "NI-003",
+      "heuristic": null,
+      "contribution": {
+        "measured": false,
+        "reason": "never applied, so it has no measured effect"
+      },
+      "what_the_handler_did": {},
+      "critic_verdict": "no_sim_signal",
+      "critic_confidence": "measured",
+      "critic_note": "NI-003 was not applied because every resource already performed its target activities, so there is no simulation signal.",
+      "critic_evidence_ref": "footprint.NI-003",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "n/a",
+        "throughput": "n/a"
+      },
+      "why_dropped": "Phase-3 could not build it: every resource in the run already performs all of ['diagnosis 1st', 'intake'] — the case is not passed between different pools here, so widening changes nothing — but it BUILDS ALONE on the baseline, so this refusal is about the plan's earlier candidates, not about the candidate",
+      "order_dependent": true
+    },
+    {
+      "candidate": "NI-005",
+      "heuristic": null,
+      "contribution": {
+        "measured": false,
+        "reason": "never applied, so it has no measured effect"
+      },
+      "what_the_handler_did": {},
+      "critic_verdict": "no_sim_signal",
+      "critic_confidence": "measured",
+      "critic_note": "NI-005 was not applied because every resource already performed repair and replace, so there is no simulation signal.",
+      "critic_evidence_ref": "footprint.NI-005",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "n/a",
+        "throughput": "n/a"
+      },
+      "why_dropped": "Phase-3 could not build it: every resource in the run already performs all of ['repair', 'replace'] — the case is not passed between different pools here, so widening changes nothing — but it BUILDS ALONE on the baseline, so this refusal is about the plan's earlier candidates, not about the candidate",
+      "order_dependent": true
+    },
+    {
+      "candidate": "NI-006",
+      "heuristic": null,
+      "contribution": {
+        "measured": false,
+        "reason": "never applied, so it has no measured effect"
+      },
+      "what_the_handler_did": {},
+      "critic_verdict": "no_sim_signal",
+      "critic_confidence": "measured",
+      "critic_note": "NI-006 never ran because earlier candidates had already removed diagnosis 2nd and return, leaving no stretch to consolidate.",
+      "critic_evidence_ref": "footprint.NI-006",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "n/a",
+        "throughput": "n/a"
+      },
+      "why_dropped": "Phase-3 could not build it: fewer than two of the run's activities are still in the model (missing or ambiguous: ['return', 'diagnosis 2nd']) — an earlier candidate removed them, so there is no stretch left to consolidate",
+      "order_dependent": true
+    }
+  ],
+  "added": [],
+  "directive": {
+    "intent": "keep",
+    "targets": [
+      "CA-001",
+      "CT-001",
+      "EXC-002",
+      "EXC-001",
+      "XR-001",
+      "NI-001",
+      "NI-004"
+    ],
+    "reason": "Keep the applied plan while using the remaining confirmation budget to resolve the shared repair benefit and replace handler bug; the H1 confirmation showed the reduced plan remained directionally similar but did not isolate a claimant.",
+    "avoid": [],
+    "keeps_hurt": [
+      "NI-001"
+    ],
+    "keeps_hurt_cost": [
+      "NI-001 costs +41.5340 h per case on its own account"
+    ],
+    "keeps_hurt_note": "the Critic's own per_candidate verdict is `hurt` for ['NI-001'], and this directive leaves them in the plan. NI-001 costs +41.5340 h per case on its own account."
+  },
+  "directive_followthrough": {
+    "intent": "keep",
+    "named": [
+      "CA-001",
+      "CT-001",
+      "EXC-002",
+      "EXC-001",
+      "XR-001",
+      "NI-001",
+      "NI-004"
+    ],
+    "left_named": [],
+    "left_unnamed": [
+      "CBW-001",
+      "NI-002",
+      "NI-003",
+      "NI-005",
+      "NI-006"
+    ],
+    "added_named": [],
+    "added_unnamed": [],
+    "size_before": 12,
+    "size_after": 7,
+    "net_change": -5
+  },
+  "unresolved_attribution": [
+    "CA-001",
+    "CBW-001",
+    "EXC-002",
+    "NI-004",
+    "XR-001"
+  ],
+  "generic_reasons": [],
+  "offered_unmeasured": [
+    "NI-002",
+    "NI-003",
+    "NI-005"
+  ],
+  "offered_unmeasured_unanswered": [],
+  "dropped_exogenous_only": [],
+  "per_candidate_missing": [],
+  "per_candidate_malformed": [],
+  "schema_retry": {
+    "violations": [],
+    "after_retry": [],
+    "retried": false
+  },
+  "clean_probe": {
+    "basis": "r1c",
+    "deliverable": [
+      "CA-001",
+      "CT-001",
+      "EXC-002",
+      "EXC-001",
+      "XR-001",
+      "NI-001",
+      "NI-004"
+    ],
+    "rule_basis": null,
+    "round_basis": null,
+    "qualifying_measurement": null,
+    "dropped_because": [
+      {
+        "candidate_id": "NI-001",
+        "throughput_h_per_case": 41.534,
+        "z": null
+      }
+    ],
+    "excluded_exogenous_only": [],
+    "queue": [],
+    "done": [],
+    "current": null,
+    "state": "skipped",
+    "reason": "the loop is not stopping yet"
+  },
+  "plan_vs_baseline": {
+    "verdict": "mixed",
+    "better_on": [
+      "duration_h_per_case_mean"
+    ],
+    "worse_on": [
+      "throughput_median_h_per_case",
+      "throughput_mean_h_per_case",
+      "waiting_h_per_case_mean"
+    ]
+  },
+  "plan_reading": {
+    "stated": "mixed",
+    "measured": "mixed",
+    "consistent": true,
+    "better_on": [
+      "duration_h_per_case_mean"
+    ],
+    "worse_on": [
+      "throughput_h_median",
+      "throughput_h_mean",
+      "waiting_h_per_case_mean"
+    ],
+    "retried": false
+  },
+  "confirmation_counterfactual": {
+    "removed": [
+      "CBW-001",
+      "NI-002",
+      "NI-003",
+      "NI-005",
+      "NI-006"
+    ],
+    "added": [],
+    "verdict": {
+      "improved": false,
+      "better_on": [],
+      "worse_on": []
+    },
+    "per_measure": [
+      {
+        "measure": "throughput_h_median",
+        "full_pct": 25.289486681443034,
+        "conf_pct": 19.936897410217558,
+        "vs_full_z": -1.37
+      },
+      {
+        "measure": "throughput_h_mean",
+        "full_pct": 12.281315551538388,
+        "conf_pct": 9.945951874616595,
+        "vs_full_z": -0.84
+      },
+      {
+        "measure": "waiting_h_per_case_mean",
+        "full_pct": 50.61061347635803,
+        "conf_pct": 42.36267741509002,
+        "vs_full_z": -1.69
+      },
+      {
+        "measure": "duration_h_per_case_mean",
+        "full_pct": -34.96953699224888,
+        "conf_pct": -34.918503540519716,
+        "vs_full_z": 0.82
+      },
+      {
+        "measure": "utilization_mean",
+        "full_pct": 91.81935906178414,
+        "conf_pct": 66.84328360101041,
+        "vs_full_z": -11.07
+      }
+    ]
+  },
+  "note": "Contribution numbers are measured (scorecard); verdicts are the Critic's judgment of them; keep/drop is the Proposer's choice, except where the Arbiter overruled it. `generic_reasons` lists candidates whose reason fell back to the plan-level rationale — for those, 'why this one' is not actually answered."
+}

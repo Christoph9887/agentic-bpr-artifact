@@ -1,0 +1,1521 @@
+{
+  "dataset": "2017_full",
+  "run_id": "q3",
+  "gate_enforced": true,
+  "baseline_h": 433.5159287696667,
+  "rounds_measured": 8,
+  "stopped_because": "no significant improvement for 2 consecutive rounds",
+  "best": {
+    "plan": [
+      "CR-002",
+      "AC-001",
+      "AC-002",
+      "CBW-001",
+      "CBW-002"
+    ],
+    "built": [
+      "CR-002",
+      "AC-001",
+      "AC-002",
+      "CBW-001",
+      "CBW-002"
+    ],
+    "changed_nothing": null,
+    "round": 4,
+    "mode": "confirming",
+    "median_h": 426.28271542902075,
+    "pct_vs_baseline": -1.6685000159449834,
+    "z_vs_baseline": -4.155531873318006,
+    "all_measures": {
+      "throughput_h_median": {
+        "label": "median h/case",
+        "measures": "case span, the convergence KPI",
+        "base": 433.5159287696667,
+        "redes": 426.28271542902075,
+        "delta": -7.233213340645932,
+        "pct": -1.6685000159449834,
+        "z": -4.16,
+        "significant": true
+      },
+      "throughput_h_mean": {
+        "label": "mean h/case",
+        "measures": "case span, additive",
+        "base": 488.30660058252545,
+        "redes": 479.91610598577034,
+        "delta": -8.390494596755104,
+        "pct": -1.7182840835544024,
+        "z": -4.89,
+        "significant": true
+      },
+      "waiting_h_per_case_mean": {
+        "label": "waiting h/case",
+        "measures": "queueing a case sits through",
+        "base": 19.391683600754558,
+        "redes": 19.09603496100955,
+        "delta": -0.2956486397450071,
+        "pct": -1.524615633340382,
+        "z": -3.6,
+        "significant": true
+      },
+      "duration_h_per_case_mean": {
+        "label": "service h/case",
+        "measures": "work actually performed",
+        "base": 1.3958169807713194,
+        "redes": 1.4051724361330094,
+        "delta": 0.009355455361689913,
+        "pct": 0.6702494303028287,
+        "z": 0.13,
+        "significant": false
+      },
+      "utilization_mean": {
+        "label": "utilisation",
+        "measures": "share of the window resources are busy",
+        "base": 0.009216775667000774,
+        "redes": 0.009604457936115737,
+        "delta": 0.00038768226911496326,
+        "pct": 4.206267822086622,
+        "z": 0.63,
+        "significant": false
+      }
+    },
+    "gain_source": {
+      "throughput_pct": -1.6685000159449834,
+      "service_pct": 0.6702494303028287,
+      "waiting_pct": -1.524615633340382,
+      "service_significant": false,
+      "waiting_significant": true,
+      "verdict": "speed",
+      "note": "The gain is a QUEUEING improvement: waiting −1.5% (significant) with service time +0.7% (not significant). The same work is moving faster."
+    },
+    "improvement_rule": {
+      "verdict": "better",
+      "better_on": [
+        "throughput_h_median",
+        "throughput_h_mean",
+        "waiting_h_per_case_mean"
+      ],
+      "worse_on": [],
+      "no_direction": [
+        "utilization_mean"
+      ],
+      "rule": "significantly better on at least one directional measure and significantly worse on none"
+    },
+    "case_outcome_shift": {
+      "rows": [
+        {
+          "activity": "O_Accepted + A_Pending",
+          "base": 1238.0,
+          "redes": 1226.4,
+          "delta": -11.6,
+          "pct": -0.9,
+          "z": -1.47,
+          "significant": false
+        },
+        {
+          "activity": "O_Cancelled",
+          "base": 1421.5,
+          "redes": 1424.0,
+          "delta": 2.5,
+          "pct": 0.2,
+          "z": 0.27,
+          "significant": false
+        },
+        {
+          "activity": "O_Refused",
+          "base": 340.6,
+          "redes": 349.6,
+          "delta": 9.1,
+          "pct": 2.7,
+          "z": 1.42,
+          "significant": false
+        }
+      ],
+      "significant": [],
+      "merges_folded": [
+        {
+          "composite": "O_Accepted + A_Pending",
+          "parts": [
+            "A_Pending"
+          ]
+        }
+      ],
+      "note": "How many cases END on each activity. Every reported measure is a per-case average, so none of them can see a redesign that changes how many cases reach an outcome at all. Which ending is desirable is a domain question this system does not answer. Activity Composition merged ['A_Pending'] into 'O_Accepted + A_Pending' — those endings are counted together on BOTH sides, because a rename is not an outcome shift."
+    },
+    "compliance_cost": null,
+    "artifacts": "mabpr_out\\2017_full\\loop\\q3\\confirm_round4"
+  },
+  "no_compliant_plan": null,
+  "trajectory": [
+    {
+      "round": 1,
+      "mode": "normal",
+      "kind": null,
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2017_full\\loop\\q3\\round1",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AC-003",
+        "AE-002",
+        "CA-003",
+        "CA-001",
+        "CA-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002",
+        "CBW-003",
+        "CBW-004",
+        "CR-001",
+        "CR-002",
+        "EXC-002",
+        "EXC-007",
+        "EXC-008",
+        "EXC-005",
+        "EXC-003",
+        "EXC-009",
+        "EXC-004",
+        "EXC-006",
+        "EXC-001",
+        "IF-001",
+        "SPC-001",
+        "TRI-001",
+        "TRI-003"
+      ],
+      "median_h": 426.56524331267354,
+      "median_std": 6.404813501063224,
+      "pct_vs_baseline": -1.6033287350523495,
+      "z_vs_baseline": -3.7267117282971913,
+      "improvement_rule": "mixed",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -1.6033287350523495,
+          "z": -3.73,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -1.6044730881775369,
+          "z": -4.15,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": 4.214028483789462,
+          "z": 9.14,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -7.442566276788871,
+          "z": -1.24,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": -1.503766389515009,
+          "z": -0.21,
+          "significant": false
+        }
+      },
+      "case_outcome_shift": null,
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 1,
+      "mode": "confirming",
+      "kind": "confirmation",
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2017_full\\loop\\q3\\confirm_round1",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CA-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002",
+        "CR-001",
+        "CR-002"
+      ],
+      "median_h": 424.64504550390967,
+      "median_std": 5.33795923047817,
+      "pct_vs_baseline": -2.0462646645840423,
+      "z_vs_baseline": -5.252628913567531,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -2.0462646645840423,
+          "z": -5.25,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -1.693766442462911,
+          "z": -4.14,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -0.76991481144976,
+          "z": -1.93,
+          "significant": false
+        },
+        "duration_h_per_case_mean": {
+          "pct": -10.093768509361233,
+          "z": -1.37,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": -7.302961374861431,
+          "z": -0.93,
+          "significant": false
+        }
+      },
+      "case_outcome_shift": null,
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 2,
+      "mode": "normal",
+      "kind": null,
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2017_full\\loop\\q3\\round2",
+      "plan": [
+        "AC-001",
+        "CBW-003",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CA-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002",
+        "CR-001",
+        "CR-002"
+      ],
+      "median_h": 425.6555914742361,
+      "median_std": 6.609533350850926,
+      "pct_vs_baseline": -1.813159972630884,
+      "z_vs_baseline": -4.135983944124691,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -1.813159972630884,
+          "z": -4.14,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -2.0195071492915004,
+          "z": -5.08,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -1.926585605306678,
+          "z": -3.62,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -10.657166826513722,
+          "z": -2.04,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": -2.2675536117371573,
+          "z": -0.37,
+          "significant": false
+        }
+      },
+      "case_outcome_shift": null,
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 2,
+      "mode": "confirming",
+      "kind": "confirmation",
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2017_full\\loop\\q3\\confirm_round2",
+      "plan": [
+        "AC-001",
+        "CBW-003",
+        "AC-002",
+        "AE-002",
+        "CA-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002",
+        "CR-001",
+        "CR-002"
+      ],
+      "median_h": 422.5507863065348,
+      "median_std": 8.591238400893513,
+      "pct_vs_baseline": -2.5293516882416154,
+      "z_vs_baseline": -4.846910115047131,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -2.5293516882416154,
+          "z": -4.85,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -1.8198795072233331,
+          "z": -4.63,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -3.128276360245133,
+          "z": -5.9,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": 0.7513825601839487,
+          "z": 0.12,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": 1.7299435955672713,
+          "z": 0.25,
+          "significant": false
+        }
+      },
+      "case_outcome_shift": null,
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 3,
+      "mode": "normal",
+      "kind": null,
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2017_full\\loop\\q3\\round3",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002",
+        "CR-002"
+      ],
+      "median_h": 426.7229596529375,
+      "median_std": 5.83621154853304,
+      "pct_vs_baseline": -1.5669479864345157,
+      "z_vs_baseline": -3.839257534100045,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -1.5669479864345157,
+          "z": -3.84,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -1.7926732035336383,
+          "z": -5.4,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -1.511025301787308,
+          "z": -3.81,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -4.159361079704672,
+          "z": -0.64,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": -3.1307116695463515,
+          "z": -0.48,
+          "significant": false
+        }
+      },
+      "case_outcome_shift": null,
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 3,
+      "mode": "confirming",
+      "kind": "confirmation",
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2017_full\\loop\\q3\\confirm_round3",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002"
+      ],
+      "median_h": 422.5855239851875,
+      "median_std": 5.70324854928944,
+      "pct_vs_baseline": -2.5213386773353585,
+      "z_vs_baseline": -6.254770973127964,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -2.5213386773353585,
+          "z": -6.25,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -2.2212686171693847,
+          "z": -5.92,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -1.6392706779870063,
+          "z": -3.56,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -4.495093259028254,
+          "z": -0.86,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": 2.528429043183972,
+          "z": 0.4,
+          "significant": false
+        }
+      },
+      "case_outcome_shift": null,
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 4,
+      "mode": "normal",
+      "kind": null,
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2017_full\\loop\\q3\\round4",
+      "plan": [
+        "CR-002",
+        "AC-001",
+        "AC-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002"
+      ],
+      "median_h": 426.7229596529375,
+      "median_std": 5.83621154853304,
+      "pct_vs_baseline": -1.5669479864345157,
+      "z_vs_baseline": -3.839257534100045,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -1.5669479864345157,
+          "z": -3.84,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -1.7926732035336383,
+          "z": -5.4,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -1.511025301787308,
+          "z": -3.81,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -4.159361079704672,
+          "z": -0.64,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": -3.1307116695463515,
+          "z": -0.48,
+          "significant": false
+        }
+      },
+      "case_outcome_shift": null,
+      "is_best": false,
+      "barred_candidates": []
+    },
+    {
+      "round": 4,
+      "mode": "confirming",
+      "kind": "confirmation",
+      "probe_reason": null,
+      "artifacts": "mabpr_out\\2017_full\\loop\\q3\\confirm_round4",
+      "plan": [
+        "CR-002",
+        "AC-001",
+        "AC-002",
+        "CBW-001",
+        "CBW-002"
+      ],
+      "median_h": 426.28271542902075,
+      "median_std": 5.6608408536247925,
+      "pct_vs_baseline": -1.6685000159449834,
+      "z_vs_baseline": -4.155531873318006,
+      "improvement_rule": "better",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -1.6685000159449834,
+          "z": -4.16,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -1.7182840835544024,
+          "z": -4.89,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -1.524615633340382,
+          "z": -3.6,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": 0.6702494303028287,
+          "z": 0.13,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": 4.206267822086622,
+          "z": 0.63,
+          "significant": false
+        }
+      },
+      "case_outcome_shift": null,
+      "is_best": true,
+      "barred_candidates": []
+    }
+  ],
+  "measures_significant_in_every_round": [
+    "throughput_h_mean",
+    "throughput_h_median"
+  ],
+  "statistically_tied_with_best": [
+    {
+      "round": 1,
+      "mode": "normal",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AC-003",
+        "AE-002",
+        "CA-003",
+        "CA-001",
+        "CA-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002",
+        "CBW-003",
+        "CBW-004",
+        "CR-001",
+        "CR-002",
+        "EXC-002",
+        "EXC-007",
+        "EXC-008",
+        "EXC-005",
+        "EXC-003",
+        "EXC-009",
+        "EXC-004",
+        "EXC-006",
+        "EXC-001",
+        "IF-001",
+        "SPC-001",
+        "TRI-001",
+        "TRI-003"
+      ],
+      "pct_vs_baseline": -1.6033287350523495,
+      "admitted_because": "median_best_measurement",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -1.6033287350523495,
+          "z": -3.73,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -1.6044730881775369,
+          "z": -4.15,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": 4.214028483789462,
+          "z": 9.14,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -7.442566276788871,
+          "z": -1.24,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": -1.503766389515009,
+          "z": -0.21,
+          "significant": false
+        }
+      }
+    },
+    {
+      "round": 1,
+      "mode": "confirming",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CA-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002",
+        "CR-001",
+        "CR-002"
+      ],
+      "pct_vs_baseline": -2.0462646645840423,
+      "admitted_because": "not_significantly_worse_on_median",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -2.0462646645840423,
+          "z": -5.25,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -1.693766442462911,
+          "z": -4.14,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -0.76991481144976,
+          "z": -1.93,
+          "significant": false
+        },
+        "duration_h_per_case_mean": {
+          "pct": -10.093768509361233,
+          "z": -1.37,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": -7.302961374861431,
+          "z": -0.93,
+          "significant": false
+        }
+      }
+    },
+    {
+      "round": 2,
+      "mode": "normal",
+      "plan": [
+        "AC-001",
+        "CBW-003",
+        "AC-002",
+        "AE-002",
+        "CA-001",
+        "CA-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002",
+        "CR-001",
+        "CR-002"
+      ],
+      "pct_vs_baseline": -1.813159972630884,
+      "admitted_because": "not_significantly_worse_on_median",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -1.813159972630884,
+          "z": -4.14,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -2.0195071492915004,
+          "z": -5.08,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -1.926585605306678,
+          "z": -3.62,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -10.657166826513722,
+          "z": -2.04,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": -2.2675536117371573,
+          "z": -0.37,
+          "significant": false
+        }
+      }
+    },
+    {
+      "round": 2,
+      "mode": "confirming",
+      "plan": [
+        "AC-001",
+        "CBW-003",
+        "AC-002",
+        "AE-002",
+        "CA-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002",
+        "CR-001",
+        "CR-002"
+      ],
+      "pct_vs_baseline": -2.5293516882416154,
+      "admitted_because": "not_significantly_worse_on_median",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -2.5293516882416154,
+          "z": -4.85,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -1.8198795072233331,
+          "z": -4.63,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -3.128276360245133,
+          "z": -5.9,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": 0.7513825601839487,
+          "z": 0.12,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": 1.7299435955672713,
+          "z": 0.25,
+          "significant": false
+        }
+      }
+    },
+    {
+      "round": 3,
+      "mode": "normal",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002",
+        "CR-002"
+      ],
+      "pct_vs_baseline": -1.5669479864345157,
+      "admitted_because": "not_significantly_worse_on_median",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -1.5669479864345157,
+          "z": -3.84,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -1.7926732035336383,
+          "z": -5.4,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -1.511025301787308,
+          "z": -3.81,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -4.159361079704672,
+          "z": -0.64,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": -3.1307116695463515,
+          "z": -0.48,
+          "significant": false
+        }
+      }
+    },
+    {
+      "round": 3,
+      "mode": "confirming",
+      "plan": [
+        "AC-001",
+        "AC-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002"
+      ],
+      "pct_vs_baseline": -2.5213386773353585,
+      "admitted_because": "not_significantly_worse_on_median",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -2.5213386773353585,
+          "z": -6.25,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -2.2212686171693847,
+          "z": -5.92,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -1.6392706779870063,
+          "z": -3.56,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -4.495093259028254,
+          "z": -0.86,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": 2.528429043183972,
+          "z": 0.4,
+          "significant": false
+        }
+      }
+    },
+    {
+      "round": 4,
+      "mode": "normal",
+      "plan": [
+        "CR-002",
+        "AC-001",
+        "AC-002",
+        "CA-004",
+        "CBW-001",
+        "CBW-002"
+      ],
+      "pct_vs_baseline": -1.5669479864345157,
+      "admitted_because": "not_significantly_worse_on_median",
+      "measures": {
+        "throughput_h_median": {
+          "pct": -1.5669479864345157,
+          "z": -3.84,
+          "significant": true
+        },
+        "throughput_h_mean": {
+          "pct": -1.7926732035336383,
+          "z": -5.4,
+          "significant": true
+        },
+        "waiting_h_per_case_mean": {
+          "pct": -1.511025301787308,
+          "z": -3.81,
+          "significant": true
+        },
+        "duration_h_per_case_mean": {
+          "pct": -4.159361079704672,
+          "z": -0.64,
+          "significant": false
+        },
+        "utilization_mean": {
+          "pct": -3.1307116695463515,
+          "z": -0.48,
+          "significant": false
+        }
+      }
+    }
+  ],
+  "excluded_as_non_compliant": [],
+  "per_candidate": [
+    {
+      "candidate": "CR-002",
+      "heuristic": "Contact Reduction",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0029,
+        "throughput_sd": 0.0088,
+        "throughput_z": 1.48,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 2,
+        "summary": "0 improved / 0 worsened activity measures; +0.003 h per case — NOT significant (+/-0.009), do not read as an effect",
+        "exogenous_saving": "the log says it also removes 131.165 h per occurrence (waiting_time_before) — consolidating the exchange removes the idle wait after every repeat contact beyond the first. The simulator cannot see this, so none of the columns above contain it; it is an estimate, not a measurement.",
+        "exogenous_conflict": "the simulator measured this candidate making things WORSE (+0.003 h/case attributable) while the log says it also removes 131.165 h per occurrence of waiting_time_before. Both are real; they are not additive and neither cancels the other. Decide on the measured column and REPORT the estimate — do not net them off.",
+        "share_of_attributed_pct": 0.13,
+        "attributed_h_per_case_magnitude": 2.202
+      },
+      "what_the_handler_did": {
+        "loop_probability_reduced": 0.024
+      },
+      "critic_verdict": "hurt",
+      "critic_confidence": "measured",
+      "critic_note": "The routing edit raised load on two sole-candidate resources with z=7.1 and z=6.8; separately, the log estimates 131.1652 h removed per waiting_time_before occurrence (9.9686 h/case), which the simulator cannot represent and which does not cancel the measured resource harm.",
+      "critic_evidence_ref": "footprint.CR-002",
+      "critic_dimensions": {
+        "waiting": "flat",
+        "duration": "flat",
+        "resources": "worse",
+        "throughput": "flat"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: hurt — The routing edit raised load on two sole-candidate resources with z=7.1 and z=6.8; separately, the log estimates 131.1652 h removed per waiting_time_before occurrence (9.9686 h/case), which the simulator cannot represent and which does not cancel the measured resource harm."
+    },
+    {
+      "candidate": "AC-001",
+      "heuristic": "Activity Composition",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -1.4354,
+        "throughput_sd": 0.0595,
+        "throughput_z": -107.85,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -1.435 h per case (z=-107.8)",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (timers_removed=1), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice.",
+        "share_of_attributed_pct": -65.19,
+        "attributed_h_per_case_magnitude": 2.202
+      },
+      "what_the_handler_did": {
+        "timers_removed": 1,
+        "timer_h_removed_per_occurrence": 0.0,
+        "composite_name": "O_Create Offer + O_Created",
+        "distributions_folded": 130,
+        "distributions_carried_over": 0,
+        "assigned_tasks_removed": 130,
+        "assigned_tasks_added": 0,
+        "setup_saving_assumed_h": 0.0
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Its edited activities reduced attributable throughput by 1.4354 h/case with z=-107.85, while waiting, duration, and resources showed no significant movement.",
+      "critic_evidence_ref": "activity.O_Create Offer",
+      "critic_dimensions": {
+        "waiting": "flat",
+        "duration": "flat",
+        "resources": "flat",
+        "throughput": "better"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: helped — Its edited activities reduced attributable throughput by 1.4354 h/case with z=-107.85, while waiting, duration, and resources showed no significant movement."
+    },
+    {
+      "candidate": "AC-002",
+      "heuristic": "Activity Composition",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.4324,
+        "throughput_sd": 0.032,
+        "throughput_z": -60.34,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -0.432 h per case (z=-60.3)",
+        "share_of_attributed_pct": -19.64,
+        "attributed_h_per_case_magnitude": 2.202
+      },
+      "what_the_handler_did": {
+        "timers_removed": 0,
+        "timer_h_removed_per_occurrence": 0.0,
+        "composite_name": "O_Accepted + A_Pending",
+        "distributions_folded": 125,
+        "distributions_carried_over": 0,
+        "assigned_tasks_removed": 125,
+        "assigned_tasks_added": 0,
+        "setup_saving_assumed_h": 0.0
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Its edited activities reduced attributable throughput by 0.4324 h/case with z=-60.34, with no significant waiting, duration, or resource effect.",
+      "critic_evidence_ref": "activity.O_Accepted",
+      "critic_dimensions": {
+        "waiting": "flat",
+        "duration": "flat",
+        "resources": "flat",
+        "throughput": "better"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: helped — Its edited activities reduced attributable throughput by 0.4324 h/case with z=-60.34, with no significant waiting, duration, or resource effect."
+    },
+    {
+      "candidate": "CA-004",
+      "heuristic": "Case Assignment",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0669,
+        "throughput_sd": 0.2902,
+        "throughput_z": 1.03,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "no measurable effect on any of the four columns",
+        "share_of_attributed_pct": 3.04,
+        "attributed_h_per_case_magnitude": 2.202
+      },
+      "what_the_handler_did": {
+        "strategy": "intersection",
+        "resources_removed": 2,
+        "task_resources_added": 0,
+        "ca_pool_resource_count": 125,
+        "assigned_tasks_removed": 2,
+        "assigned_tasks_added": 0,
+        "expected_continuity_before": 0.0079,
+        "expected_continuity_after": 0.008,
+        "concentration": 0.984,
+        "delivery_note": "with 125 resources eligible for every target, two consecutive steps land on the same person about 0.8% of the time, against 0.8% before. Case Assignment has no other way to deliver continuity here: Prosimos picks by earliest availability and does not remember who handled the previous step.",
+        "note": "the target activities are now performed by one shared pool of 125; with k eligible resources, consecutive steps land on the same person with probability ~1/k, which is how this simulator can express 'the same worker continues the case'"
+      },
+      "critic_verdict": "neutral",
+      "critic_confidence": "measured",
+      "critic_note": "The applied 125-resource pool merge produced no significant owned measure, and removing CA-004 in the confirmation run changed no directional measure significantly.",
+      "critic_evidence_ref": "footprint.CA-004",
+      "critic_dimensions": {
+        "waiting": "flat",
+        "duration": "flat",
+        "resources": "flat",
+        "throughput": "flat"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: neutral — The applied 125-resource pool merge produced no significant owned measure, and removing CA-004 in the confirmation run changed no directional measure significantly."
+    },
+    {
+      "candidate": "CBW-001",
+      "heuristic": "Case-based Work",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.1007,
+        "throughput_sd": 0.0965,
+        "throughput_z": -4.67,
+        "throughput_significant": true,
+        "waiting": [
+          "W_Complete application z=-6.5"
+        ],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "1 improved / 0 worsened activity measures; -0.101 h per case (z=-4.7)",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (batch_component_h_removed=0.8435), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice.",
+        "share_of_attributed_pct": -4.57,
+        "attributed_h_per_case_magnitude": 2.202
+      },
+      "what_the_handler_did": {
+        "channel": "extraneous_delay_batch_share",
+        "timers_removed": 0,
+        "batch_component_h_removed": 0.8435,
+        "share_of_timer_removed": 0.3087,
+        "rules_removed": 0,
+        "note": "scaled the extraneous-delay timer in front of 'W_Complete application' by 0.6913: 2.73 h -> 1.89 h per occurrence. Only the batching share is removed (30.9% of the timer, from a 15.6139 h gap between batched and non-batched executions at z=21.68); the rest of the wait is left in place because this heuristic does not claim it."
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "W_Complete application waiting improved with z=-6.54 and attributable throughput improved by 0.1007 h/case with z=-4.67.",
+      "critic_evidence_ref": "activity.W_Complete application",
+      "critic_dimensions": {
+        "waiting": "better",
+        "duration": "flat",
+        "resources": "flat",
+        "throughput": "better"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: helped — W_Complete application waiting improved with z=-6.54 and attributable throughput improved by 0.1007 h/case with z=-4.67."
+    },
+    {
+      "candidate": "CBW-002",
+      "heuristic": "Case-based Work",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.1637,
+        "throughput_sd": 0.2828,
+        "throughput_z": -2.59,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "no measurable effect on any of the four columns",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (batch_component_h_removed=14.0371), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice.",
+        "share_of_attributed_pct": -7.43,
+        "attributed_h_per_case_magnitude": 2.202
+      },
+      "what_the_handler_did": {
+        "channel": "extraneous_delay_batch_share",
+        "timers_removed": 0,
+        "batch_component_h_removed": 14.0371,
+        "share_of_timer_removed": 0.0743,
+        "rules_removed": 0,
+        "note": "scaled the extraneous-delay timer in front of 'W_Validate application' by 0.9257: 189.02 h -> 174.98 h per occurrence. Only the batching share is removed (7.4% of the timer, from a 30.7861 h gap between batched and non-batched executions at z=13.74); the rest of the wait is left in place because this heuristic does not claim it."
+      },
+      "critic_verdict": "neutral",
+      "critic_confidence": "measured",
+      "critic_note": "Its attributable throughput change was not significant at z=-2.59, and the confirmation run likewise showed no significant owned effect.",
+      "critic_evidence_ref": "footprint.CBW-002",
+      "critic_dimensions": {
+        "waiting": "flat",
+        "duration": "flat",
+        "resources": "flat",
+        "throughput": "flat"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: neutral — Its attributable throughput change was not significant at z=-2.59, and the confirmation run likewise showed no significant owned effect."
+    }
+  ],
+  "per_candidate_from": "round4",
+  "selection": {
+    "chosen": "round4c",
+    "why": "This plan significantly reduces median case span by 1.6685%, mean case span by 1.7183%, and waiting by 1.5246%, while service (+0.6702%) and utilisation (+4.2063%) remain noise. It is cleaner than the stronger round3c alternative because it removes CA-004, which had no measurable effect.",
+    "gain_reading": "speed: waiting h/case falls 1.5246% significantly (z=-3.60), while service h/case rises only 0.6702% and is not significant (z=0.13); the same work is therefore moving faster, not being replaced by less work. The payload does not provide absolute waiting or service hours, only these percentage changes and z-values.",
+    "rule_reading": "better",
+    "passengers": [
+      {
+        "candidate": "CBW-002",
+        "kind": "no_effect",
+        "note": "Its handler edited the model, but the measured run found no measurable effect on any of the four columns."
+      }
+    ],
+    "runner_up": "round3c — it delivered larger measured reductions in median span (-2.5213%), mean span (-2.2213%), and waiting (-1.6393%), but it retained two no-effect passengers, CA-004 and CBW-002.",
+    "caveat": "Do not over-read the service and utilisation movements: neither is significant. CBW-002 is a passenger and should be removed rather than treated as justified work; the selected plan is preferable because it has fewer such passengers, not because CBW-002 contributes.",
+    "fallback": "",
+    "model_text_about": {}
+  },
+  "final_plan_roster": [
+    {
+      "candidate": "AE-001",
+      "heuristic": "Activity Elimination",
+      "target": "W_Complete application",
+      "status": "compliance_blocked_in_round",
+      "why": "compliance-blocked in round 1, so it never entered a plan the search measured. A block is irrevocable (DECISIONS B) and is a judgment on prior knowledge alone, which no measurement in this run could overturn — read that round's gate_ruling.json for the reasoning.",
+      "blocked_in_rounds": [
+        1
+      ]
+    },
+    {
+      "candidate": "AE-003",
+      "heuristic": "Activity Elimination",
+      "target": "W_Assess potential fraud",
+      "status": "compliance_blocked_in_round",
+      "why": "compliance-blocked in round 1, so it never entered a plan the search measured. A block is irrevocable (DECISIONS B) and is a judgment on prior knowledge alone, which no measurement in this run could overturn — read that round's gate_ruling.json for the reasoning.",
+      "blocked_in_rounds": [
+        1
+      ]
+    },
+    {
+      "candidate": "AC-001",
+      "heuristic": "Activity Composition",
+      "target": [
+        "O_Create Offer",
+        "O_Created"
+      ],
+      "status": "in_plan",
+      "why": "0 improved / 0 worsened activity measures; -1.435 h per case (z=-107.8)",
+      "verdict": "helped"
+    },
+    {
+      "candidate": "AC-002",
+      "heuristic": "Activity Composition",
+      "target": [
+        "O_Accepted",
+        "A_Pending"
+      ],
+      "status": "in_plan",
+      "why": "0 improved / 0 worsened activity measures; -0.432 h per case (z=-60.3)",
+      "verdict": "helped"
+    },
+    {
+      "candidate": "CBW-001",
+      "heuristic": "Case-based Work",
+      "target": "W_Complete application",
+      "status": "in_plan",
+      "why": "1 improved / 0 worsened activity measures; -0.101 h per case (z=-4.7)",
+      "verdict": "helped"
+    },
+    {
+      "candidate": "CBW-002",
+      "heuristic": "Case-based Work",
+      "target": "W_Validate application",
+      "status": "in_plan",
+      "why": "no measurable effect on any of the four columns",
+      "verdict": "neutral"
+    },
+    {
+      "candidate": "CR-002",
+      "heuristic": "Contact Reduction",
+      "target": "O_Sent (online only)",
+      "status": "in_plan",
+      "why": "0 improved / 0 worsened activity measures; +0.003 h per case — NOT significant (+/-0.009), do not read as an effect",
+      "verdict": "hurt"
+    },
+    {
+      "candidate": "AE-002",
+      "heuristic": "Activity Elimination",
+      "target": "W_Handle leads",
+      "status": "dropped",
+      "why": "measured in rounds 1, 2, but not in the plan that won — the winning round's account has no row for it, so what it contributed is only readable in those rounds' own explanation.json"
+    },
+    {
+      "candidate": "CA-001",
+      "heuristic": "Case Assignment",
+      "target": [
+        "A_Validating",
+        "A_Incomplete",
+        "W_Assess potential fraud",
+        "O_Cancelled"
+      ],
+      "status": "dropped",
+      "why": "measured harmful in round 2 (hurt) and not brought back"
+    },
+    {
+      "candidate": "CA-002",
+      "heuristic": "Case Assignment",
+      "target": [
+        "A_Concept",
+        "A_Accepted",
+        "W_Complete application"
+      ],
+      "status": "dropped",
+      "why": "measured in rounds 1, 2, but not in the plan that won — the winning round's account has no row for it, so what it contributed is only readable in those rounds' own explanation.json"
+    },
+    {
+      "candidate": "CA-004",
+      "heuristic": "Case Assignment",
+      "target": [
+        "W_Call incomplete files",
+        "O_Returned"
+      ],
+      "status": "dropped",
+      "why": "no measurable effect on any of the four columns",
+      "verdict": "neutral"
+    },
+    {
+      "candidate": "CBW-003",
+      "heuristic": "Case-based Work",
+      "target": "O_Accepted",
+      "status": "dropped",
+      "why": "measured in rounds 1, 2, but not in the plan that won — the winning round's account has no row for it, so what it contributed is only readable in those rounds' own explanation.json"
+    },
+    {
+      "candidate": "CR-001",
+      "heuristic": "Contact Reduction",
+      "target": "O_Cancelled",
+      "status": "dropped",
+      "why": "measured in rounds 1, 2, but not in the plan that won — the winning round's account has no row for it, so what it contributed is only readable in those rounds' own explanation.json"
+    },
+    {
+      "candidate": "SPC-001",
+      "heuristic": "Specialize",
+      "target": "W_Complete application",
+      "status": "dropped",
+      "why": "measured in round 1, but not in the plan that won — the winning round's account has no row for it, so what it contributed is only readable in those rounds' own explanation.json"
+    },
+    {
+      "candidate": "AC-003",
+      "heuristic": "Activity Composition",
+      "target": [
+        "A_Denied",
+        "O_Refused"
+      ],
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: 'A_Denied' does not flow directly into 'O_Refused'; what sits between them is: a ExclusiveGateway"
+    },
+    {
+      "candidate": "CA-003",
+      "heuristic": "Case Assignment",
+      "target": [
+        "A_Submitted",
+        "W_Handle leads"
+      ],
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: only 1 of 2 target activities remain in the BPMN (missing: ['W_Handle leads']); CA needs at least 2 to consolidate"
+    },
+    {
+      "candidate": "CBW-004",
+      "heuristic": "Case-based Work",
+      "target": "W_Assess potential fraud",
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: nothing in this model is attributable to batching in front of 'W_Assess potential fraud': batched executions do not demonstrably wait longer (delta +34.45 h at z=1.32); inside the noise. The extraneous-delay timer is deliberately NOT removed — it holds every unexplained wait before the activity, of which batching is only a part."
+    },
+    {
+      "candidate": "EXC-001",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: no XOR split found within 5 hops of 'A_Concept'"
+    },
+    {
+      "candidate": "EXC-002",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: no XOR split found within 5 hops of 'A_Concept'"
+    },
+    {
+      "candidate": "EXC-003",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich"
+    },
+    {
+      "candidate": "EXC-004",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: no XOR split found within 5 hops of 'A_Submitted' — but it BUILDS ALONE on the baseline, so this refusal is about the plan's earlier candidates, not about the candidate"
+    },
+    {
+      "candidate": "EXC-005",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: no XOR split found within 5 hops of 'A_Submitted' — but it BUILDS ALONE on the baseline, so this refusal is about the plan's earlier candidates, not about the candidate"
+    },
+    {
+      "candidate": "EXC-006",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: branch from split 'node_8d9cbf77-06fb-4d2d-95f8-7d4a1414af6e' does not cleanly terminate at a XOR join — the branch reaches a ParallelGateway with 2 outgoing flows leading to ['ExclusiveGateway', 'Task'], so this divergence point has no single-entry single-exit region to encapsulate"
+    },
+    {
+      "candidate": "EXC-007",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich"
+    },
+    {
+      "candidate": "EXC-008",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: no XOR split found within 5 hops of 'A_Concept'"
+    },
+    {
+      "candidate": "EXC-009",
+      "heuristic": "Exception",
+      "target": null,
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: locator skipped: divergence_point 'O_Created' not unique in BPMN"
+    },
+    {
+      "candidate": "IF-001",
+      "heuristic": "Interfacing",
+      "target": "O_Sent (online only)",
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: gateway node_41cf5188-f199-4eaa-b721-ec9e2a96caaa was already re-rated by CR-002 in this plan. Contact Reduction and Interfacing move the SAME probability, so applying both would leave whichever ran last and the plan would express one candidate while claiming two. — but it BUILDS ALONE on the baseline, so this refusal is about the plan's earlier candidates, not about the candidate"
+    },
+    {
+      "candidate": "TRI-001",
+      "heuristic": "Triage",
+      "target": "W_Complete application",
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: Triage needs the per-type versions of an activity to be separate BPMN nodes behind a conditioned split — a Prosimos task holds exactly one service distribution, so there is no parameter that can carry 'this case type needs more effort here'. That transformation is not built, because the detector finds no candidate on either dataset (every activity x case-type effort gap is inside the noise, |z| < 3). This candidate is therefore refused rather than half-applied, and the refusal is recorded so the loop stops re-proposing it. See mabpr/transform/triage_redesign.py for what a real handler needs."
+    },
+    {
+      "candidate": "TRI-003",
+      "heuristic": "Triage",
+      "target": "W_Assess potential fraud",
+      "status": "never_built",
+      "why": "Phase-3 refused it every time: Triage needs the per-type versions of an activity to be separate BPMN nodes behind a conditioned split — a Prosimos task holds exactly one service distribution, so there is no parameter that can carry 'this case type needs more effort here'. That transformation is not built, because the detector finds no candidate on either dataset (every activity x case-type effort gap is inside the noise, |z| < 3). This candidate is therefore refused rather than half-applied, and the refusal is recorded so the loop stops re-proposing it. See mabpr/transform/triage_redesign.py for what a real handler needs."
+    },
+    {
+      "candidate": "CT-001",
+      "heuristic": "Case Types",
+      "target": "W_Handle leads",
+      "status": "not_selected",
+      "why": "never entered a plan the search measured"
+    },
+    {
+      "candidate": "SPC-002",
+      "heuristic": "Specialize",
+      "target": "W_Handle leads",
+      "status": "not_selected",
+      "why": "never entered a plan the search measured"
+    },
+    {
+      "candidate": "SPC-003",
+      "heuristic": "Specialize",
+      "target": "W_Validate application",
+      "status": "not_selected",
+      "why": "never entered a plan the search measured"
+    },
+    {
+      "candidate": "TRI-002",
+      "heuristic": "Triage",
+      "target": "W_Validate application",
+      "status": "not_selected",
+      "why": "never entered a plan the search measured"
+    },
+    {
+      "candidate": "TRI-004",
+      "heuristic": "Triage",
+      "target": "W_Call incomplete files",
+      "status": "not_selected",
+      "why": "never entered a plan the search measured"
+    }
+  ],
+  "per_candidate_covers": [
+    "CR-002",
+    "AC-001",
+    "AC-002",
+    "CA-004",
+    "CBW-001",
+    "CBW-002"
+  ],
+  "per_candidate_unaccounted": [],
+  "per_candidate_caveat": "The winner is a CONFIRMATION (a subset probe inside round 4), which has no per-candidate account of its own. The rows below describe round4's full plan ['CR-002', 'AC-001', 'AC-002', 'CA-004', 'CBW-001', 'CBW-002'], not the confirmed subset ['CR-002', 'AC-001', 'AC-002', 'CBW-001', 'CBW-002'].",
+  "final_round_plan": [
+    "CR-002",
+    "AC-001",
+    "AC-002",
+    "CA-004",
+    "CBW-001",
+    "CBW-002"
+  ],
+  "compliance_final": {
+    "candidates_reviewed": [
+      "AC-001",
+      "AC-002",
+      "AC-003",
+      "AE-002",
+      "CA-003",
+      "CA-001",
+      "CA-002",
+      "CA-004",
+      "CBW-001",
+      "CBW-002",
+      "CBW-003",
+      "CBW-004",
+      "CR-001",
+      "CR-002",
+      "EXC-002",
+      "EXC-007",
+      "EXC-008",
+      "EXC-005",
+      "EXC-003",
+      "EXC-009",
+      "EXC-004",
+      "EXC-006",
+      "EXC-001",
+      "IF-001",
+      "SPC-001",
+      "TRI-001",
+      "TRI-003"
+    ],
+    "barred": [],
+    "rulings": [
+      {
+        "activity": "W_Handle leads",
+        "deleted_by": "AE-002",
+        "verdict": "no_objection",
+        "confidence": "hypothesized",
+        "reason": "As a prior judgment about a Dutch bank loan process, I identify no specific legal, regulatory, audit, or consumer-protection obligation that plainly requires a generic lead-handling activity to remain; this may be wrong and is not an endorsement of deletion."
+      }
+    ],
+    "asked": "every round during the loop, and once more here on the union of everything measured",
+    "eligible_measurements": 8,
+    "measurements_total": 8,
+    "per_round_blocks_during_loop": [
+      {
+        "round": 1,
+        "blocked": [
+          "AE-003",
+          "AE-001"
+        ]
+      },
+      {
+        "round": 2,
+        "blocked": []
+      },
+      {
+        "round": 3,
+        "blocked": [
+          "AE-002"
+        ]
+      },
+      {
+        "round": 4,
+        "blocked": []
+      }
+    ],
+    "note": "DECISIONS B: judged on prior knowledge alone and never overturnable by measurement. This ruling decides what the deliverable may contain; measurements of plans it bars are kept under `excluded_as_non_compliant` so the cost of the block can still be read."
+  },
+  "compliance_final_overruled": [],
+  "compliance_blocked": [],
+  "note": "`best` is the best MEASUREMENT in the run, which is usually not the last round. ⚠️ `statistically_tied_with_best` is the SELECTOR'S CANDIDATE POOL, not a set of indistinguishable results: a row is admitted either because it is not significantly worse than `best` on the median, or because it is decisively better on ONE directional measure while possibly far worse on the others. Read each row's `admitted_because` before describing it, and never call the list a tie. `per_candidate` is the winning plan's own account: what each surviving candidate contributed on waiting, duration, throughput and resources."
+}

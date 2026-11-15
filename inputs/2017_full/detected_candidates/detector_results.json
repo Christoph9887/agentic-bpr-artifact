@@ -1,0 +1,3031 @@
+[
+  {
+    "candidate_id": "AC-001",
+    "heuristic": "Activity Composition",
+    "target_activities": [
+      "O_Create Offer",
+      "O_Created"
+    ],
+    "composite_name": "O_Create Offer + O_Created",
+    "evidence": {
+      "pair_frequency": 42995,
+      "follow_prob_forward": 1.0,
+      "follow_prob_backward": 1.0,
+      "duration_a_mean": 0.0,
+      "duration_b_mean": 0.0,
+      "waiting_between_mean": 0.0003,
+      "handover_rate": 0.0,
+      "resource_pool_overlap": 1.0,
+      "recoverable_h_per_occurrence": 0.0003,
+      "recoverable_share": 1.0,
+      "cases_affected": 31509
+    },
+    "heuristic_context": "Target problem types: excessive task fragmentation, repeated setup effort when switching between small activities, high coordination overhead. Applicable when a sequence of small activities is frequently executed together and handled by the same or similar resources.",
+    "additional_context": "'O_Create Offer' is directly followed by 'O_Created' 42995 times across 31509 cases, and the sequence is near-deterministic in both directions (100% forward, 100% backward). ⚠️ THE SEAM A MERGE WOULD REMOVE IS 1 s (0.0003 h), which is 100% of the 0.0003 h the pair occupies end to end — decide for yourself whether that is worth a structural edit; the detector no longer filters on it. The two activities take 0.0000 h and 0.0000 h, so when both are ~0 that share reads 100% however small the seam is. 0% of executions change resources. Their pools overlap at Jaccard 1.00, so a single resource can perform the merged task. The composite is given the SUM of the two service times — no setup saving is assumed, because nothing in the log measures how much of a duration is setup.",
+    "process_fragment": {}
+  },
+  {
+    "candidate_id": "AC-002",
+    "heuristic": "Activity Composition",
+    "target_activities": [
+      "O_Accepted",
+      "A_Pending"
+    ],
+    "composite_name": "O_Accepted + A_Pending",
+    "evidence": {
+      "pair_frequency": 17228,
+      "follow_prob_forward": 1.0,
+      "follow_prob_backward": 1.0,
+      "duration_a_mean": 0.0,
+      "duration_b_mean": 0.0,
+      "waiting_between_mean": 0.0,
+      "handover_rate": 0.0,
+      "resource_pool_overlap": 1.0,
+      "recoverable_h_per_occurrence": 0.0,
+      "recoverable_share": 1.0,
+      "cases_affected": 17228
+    },
+    "heuristic_context": "Target problem types: excessive task fragmentation, repeated setup effort when switching between small activities, high coordination overhead. Applicable when a sequence of small activities is frequently executed together and handled by the same or similar resources.",
+    "additional_context": "'O_Accepted' is directly followed by 'A_Pending' 17228 times across 17228 cases, and the sequence is near-deterministic in both directions (100% forward, 100% backward). ⚠️ THE SEAM A MERGE WOULD REMOVE IS 0 s (0.0000 h), which is 100% of the 0.0000 h the pair occupies end to end — decide for yourself whether that is worth a structural edit; the detector no longer filters on it. The two activities take 0.0000 h and 0.0000 h, so when both are ~0 that share reads 100% however small the seam is. 0% of executions change resources. Their pools overlap at Jaccard 1.00, so a single resource can perform the merged task. The composite is given the SUM of the two service times — no setup saving is assumed, because nothing in the log measures how much of a duration is setup.",
+    "process_fragment": {}
+  },
+  {
+    "candidate_id": "AC-003",
+    "heuristic": "Activity Composition",
+    "target_activities": [
+      "A_Denied",
+      "O_Refused"
+    ],
+    "composite_name": "A_Denied + O_Refused",
+    "evidence": {
+      "pair_frequency": 3720,
+      "follow_prob_forward": 1.0,
+      "follow_prob_backward": 0.7923,
+      "duration_a_mean": 0.0,
+      "duration_b_mean": 0.0,
+      "waiting_between_mean": 0.0,
+      "handover_rate": 0.0,
+      "resource_pool_overlap": 0.9798,
+      "recoverable_h_per_occurrence": 0.0,
+      "recoverable_share": 1.0,
+      "cases_affected": 3720
+    },
+    "heuristic_context": "Target problem types: excessive task fragmentation, repeated setup effort when switching between small activities, high coordination overhead. Applicable when a sequence of small activities is frequently executed together and handled by the same or similar resources.",
+    "additional_context": "'A_Denied' is directly followed by 'O_Refused' 3720 times across 3720 cases, and the sequence is near-deterministic in both directions (100% forward, 79% backward). ⚠️ THE SEAM A MERGE WOULD REMOVE IS 0 s (0.0000 h), which is 100% of the 0.0000 h the pair occupies end to end — decide for yourself whether that is worth a structural edit; the detector no longer filters on it. The two activities take 0.0000 h and 0.0000 h, so when both are ~0 that share reads 100% however small the seam is. 0% of executions change resources. Their pools overlap at Jaccard 0.98, so a single resource can perform the merged task. The composite is given the SUM of the two service times — no setup saving is assumed, because nothing in the log measures how much of a duration is setup.",
+    "process_fragment": {}
+  },
+  {
+    "candidate_id": "AE-003",
+    "heuristic": "Activity Elimination",
+    "target_activity": "W_Assess potential fraud",
+    "heuristic_context": "Target problem types: redundant activities, non-value-adding tasks, excessive verification or control steps. Applicable structural situations: processes where certain activities do not influence the final outcome or mainly act as rechecks or redundant information transfers. How the data is used: Activities with weak causal dependency to subsequent tasks, low impact on case completion, or long waiting times relative to execution time indicate potential non-value-adding steps and become candidates for elimination. Transformation style: remove the redundant activity and reconnect its predecessor and successor tasks (e.g., A → B → C becomes A → C). Feasibility: Maybe. Potentially redundant activities can be detected from event logs, but deciding whether they can be safely removed requires additional compliance or policy information.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "W_Assess potential fraud",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "n2",
+          "target": "n1"
+        },
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "gw1",
+          "target": "n3"
+        }
+      ]
+    },
+    "evidence": {
+      "waiting_time_before": 49.148,
+      "activity_duration": 11.3139,
+      "waiting_to_duration_ratio": 4.3,
+      "bypass_ratio": 0.9999,
+      "activity_frequency": 282,
+      "variant_coverage": 0.0085,
+      "predecessor_activities": [
+        {
+          "name": "O_Returned",
+          "dfg_frequency": 146,
+          "dependency_strength": 0.9932
+        },
+        {
+          "name": "A_Validating",
+          "dfg_frequency": 69,
+          "dependency_strength": 0.9857
+        },
+        {
+          "name": "A_Submitted",
+          "dfg_frequency": 18,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "A_Complete",
+          "dfg_frequency": 12,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "W_Assess potential fraud",
+          "dfg_frequency": 11,
+          "dependency_strength": 0.5
+        },
+        {
+          "name": "A_Incomplete",
+          "dfg_frequency": 8,
+          "dependency_strength": 0.1379
+        },
+        {
+          "name": "A_Concept",
+          "dfg_frequency": 7,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "W_Validate application",
+          "dfg_frequency": 5,
+          "dependency_strength": 0.1087
+        },
+        {
+          "name": "A_Accepted",
+          "dfg_frequency": 4,
+          "dependency_strength": 0.4444
+        },
+        {
+          "name": "O_Cancelled",
+          "dfg_frequency": 1,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "O_Sent (mail and online)",
+          "dfg_frequency": 1,
+          "dependency_strength": 1.0
+        }
+      ],
+      "successor_activities": [
+        {
+          "name": "A_Denied",
+          "dfg_frequency": 121,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "A_Incomplete",
+          "dfg_frequency": 50,
+          "dependency_strength": 0.8621
+        },
+        {
+          "name": "W_Validate application",
+          "dfg_frequency": 41,
+          "dependency_strength": 0.8913
+        },
+        {
+          "name": "W_Handle leads",
+          "dfg_frequency": 17,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "O_Accepted",
+          "dfg_frequency": 16,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "W_Call incomplete files",
+          "dfg_frequency": 10,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "A_Accepted",
+          "dfg_frequency": 5,
+          "dependency_strength": 0.5556
+        },
+        {
+          "name": "O_Create Offer",
+          "dfg_frequency": 4,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "W_Complete application",
+          "dfg_frequency": 3,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "A_Cancelled",
+          "dfg_frequency": 2,
+          "dependency_strength": 1.0
+        }
+      ]
+    },
+    "additional_context": "This activity exhibits rework in 13 cases (0.0% of all cases). Rework may indicate a validation or error-correction role; removal could increase downstream error rates. The activity appears in only 1% of cases, meaning the majority of cases already complete successfully without it. This low coverage reduces the structural risk of elimination. The bypass ratio is 1.00: in over 100% of executions that reach the successor, this activity was not traversed, confirming it is structurally non-essential. Whether this activity can be safely removed depends on compliance requirements, regulatory obligations, and organisational policy — none of which can be determined from the event log alone."
+  },
+  {
+    "candidate_id": "AE-001",
+    "heuristic": "Activity Elimination",
+    "target_activity": "W_Complete application",
+    "heuristic_context": "Target problem types: redundant activities, non-value-adding tasks, excessive verification or control steps. Applicable structural situations: processes where certain activities do not influence the final outcome or mainly act as rechecks or redundant information transfers. How the data is used: Activities with weak causal dependency to subsequent tasks, low impact on case completion, or long waiting times relative to execution time indicate potential non-value-adding steps and become candidates for elimination. Transformation style: remove the redundant activity and reconnect its predecessor and successor tasks (e.g., A → B → C becomes A → C). Feasibility: Maybe. Potentially redundant activities can be detected from event logs, but deciding whether they can be safely removed requires additional compliance or policy information.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "W_Complete application",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw2",
+          "name": "",
+          "type": "and_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "n2",
+          "target": "n1"
+        },
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "gw2",
+          "target": "n3"
+        },
+        {
+          "source": "gw1",
+          "target": "gw2"
+        }
+      ]
+    },
+    "evidence": {
+      "waiting_time_before": 4.522,
+      "activity_duration": 0.3988,
+      "waiting_to_duration_ratio": 11.3,
+      "bypass_ratio": 0.9998,
+      "activity_frequency": 19104,
+      "variant_coverage": 0.6062,
+      "predecessor_activities": [
+        {
+          "name": "A_Concept",
+          "dfg_frequency": 10483,
+          "dependency_strength": 0.5497
+        },
+        {
+          "name": "A_Create Application",
+          "dfg_frequency": 6953,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "W_Handle leads",
+          "dfg_frequency": 1558,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "A_Submitted",
+          "dfg_frequency": 74,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "A_Accepted",
+          "dfg_frequency": 17,
+          "dependency_strength": 0.0016
+        },
+        {
+          "name": "O_Created",
+          "dfg_frequency": 14,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "W_Assess potential fraud",
+          "dfg_frequency": 3,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "O_Cancelled",
+          "dfg_frequency": 2,
+          "dependency_strength": 1.0
+        }
+      ],
+      "successor_activities": [
+        {
+          "name": "A_Accepted",
+          "dfg_frequency": 10485,
+          "dependency_strength": 0.9984
+        },
+        {
+          "name": "O_Create Offer",
+          "dfg_frequency": 19,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "O_Sent (mail and online)",
+          "dfg_frequency": 12,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "A_Cancelled",
+          "dfg_frequency": 2,
+          "dependency_strength": 1.0
+        }
+      ]
+    },
+    "additional_context": "This activity exhibits rework in 2 cases (0.0% of all cases). Rework may indicate a validation or error-correction role; removal could increase downstream error rates. The bypass ratio is 1.00: in over 100% of executions that reach the successor, this activity was not traversed, confirming it is structurally non-essential. Whether this activity can be safely removed depends on compliance requirements, regulatory obligations, and organisational policy — none of which can be determined from the event log alone."
+  },
+  {
+    "candidate_id": "AE-002",
+    "heuristic": "Activity Elimination",
+    "target_activity": "W_Handle leads",
+    "heuristic_context": "Target problem types: redundant activities, non-value-adding tasks, excessive verification or control steps. Applicable structural situations: processes where certain activities do not influence the final outcome or mainly act as rechecks or redundant information transfers. How the data is used: Activities with weak causal dependency to subsequent tasks, low impact on case completion, or long waiting times relative to execution time indicate potential non-value-adding steps and become candidates for elimination. Transformation style: remove the redundant activity and reconnect its predecessor and successor tasks (e.g., A → B → C becomes A → C). Feasibility: Maybe. Potentially redundant activities can be detected from event logs, but deciding whether they can be safely removed requires additional compliance or policy information.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "W_Handle leads",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw2",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "gw2",
+          "target": "n3"
+        },
+        {
+          "source": "n2",
+          "target": "n1"
+        },
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "gw1",
+          "target": "gw2"
+        }
+      ]
+    },
+    "evidence": {
+      "waiting_time_before": 5.947,
+      "activity_duration": 0.0722,
+      "waiting_to_duration_ratio": 82.4,
+      "bypass_ratio": 0.9386,
+      "activity_frequency": 3493,
+      "variant_coverage": 0.1109,
+      "predecessor_activities": [
+        {
+          "name": "A_Submitted",
+          "dfg_frequency": 3476,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "W_Assess potential fraud",
+          "dfg_frequency": 17,
+          "dependency_strength": 1.0
+        }
+      ],
+      "successor_activities": [
+        {
+          "name": "A_Concept",
+          "dfg_frequency": 1935,
+          "dependency_strength": 1.0
+        },
+        {
+          "name": "W_Complete application",
+          "dfg_frequency": 1558,
+          "dependency_strength": 1.0
+        }
+      ]
+    },
+    "additional_context": "The activity appears in only 11% of cases, meaning the majority of cases already complete successfully without it. This low coverage reduces the structural risk of elimination. The bypass ratio is 0.94: in over 94% of executions that reach the successor, this activity was not traversed, confirming it is structurally non-essential. Whether this activity can be safely removed depends on compliance requirements, regulatory obligations, and organisational policy — none of which can be determined from the event log alone."
+  },
+  {
+    "candidate_id": "CA-003",
+    "heuristic": "Case Assignment",
+    "target_activities": [
+      "A_Submitted",
+      "W_Handle leads"
+    ],
+    "heuristic_context": "Target problem types: excessive handovers, repeated re-familiarization with the same case, fragmented responsibility across activities. Applicable structural situations: processes where multiple activities of the same case are performed by different resources although they could potentially be handled by the same person. How the data is used: A high number of handovers within a case, frequent switching of resources between consecutive activities, and increased waiting times after handovers indicate that assigning more steps of the same case to the same resource may improve continuity and efficiency. Transformation style: redesign resource allocation so that one resource handles as many activities of the same case as possible, especially for consecutive or strongly related tasks. Feasibility: Maybe. Excessive handovers can be detected from the event log, but assigning multiple activities to the same resource depends on role definitions, skills, and authorization constraints.",
+    "evidence": {
+      "handover_count_mean": 0.946,
+      "resource_continuity_rate": 0.0495,
+      "waiting_time_after_handover_mean": 6.283,
+      "resource_return_rate": 0.0,
+      "cross_activity_resource_overlap": 0.0123,
+      "cross_trained_resource_count": 1,
+      "resource_profile": {
+        "A_Submitted": {
+          "User_1": 1.0
+        },
+        "W_Handle leads": {
+          "User_14": 0.1005,
+          "User_2": 0.0739,
+          "User_5": 0.0638,
+          "User_28": 0.0507,
+          "User_26": 0.0495,
+          "other": 0.6616
+        }
+      },
+      "handover_pairs": [
+        {
+          "source": "A_Submitted",
+          "target": "W_Handle leads",
+          "handover_rate": 0.9505,
+          "consecutive_count": 3476,
+          "waiting_time_after_handover": 6.283
+        }
+      ]
+    },
+    "additional_context": "The highest handover rate within this group is 'A_Submitted' → 'W_Handle leads': 95% across 3476 consecutive occurrences (mean waiting time after handover: 6.3 hours). In the event log, 1 distinct resource(s) have executed at least 2 different target activities (across all cases). The pairwise Jaccard overlap of full resource sets across target activities is 1.23%. This group contains 2 activities."
+  },
+  {
+    "candidate_id": "CA-001",
+    "heuristic": "Case Assignment",
+    "target_activities": [
+      "A_Validating",
+      "A_Incomplete",
+      "W_Assess potential fraud",
+      "O_Cancelled"
+    ],
+    "heuristic_context": "Target problem types: excessive handovers, repeated re-familiarization with the same case, fragmented responsibility across activities. Applicable structural situations: processes where multiple activities of the same case are performed by different resources although they could potentially be handled by the same person. How the data is used: A high number of handovers within a case, frequent switching of resources between consecutive activities, and increased waiting times after handovers indicate that assigning more steps of the same case to the same resource may improve continuity and efficiency. Transformation style: redesign resource allocation so that one resource handles as many activities of the same case as possible, especially for consecutive or strongly related tasks. Feasibility: Maybe. Excessive handovers can be detected from the event log, but assigning multiple activities to the same resource depends on role definitions, skills, and authorization constraints.",
+    "evidence": {
+      "handover_count_mean": 0.907,
+      "resource_continuity_rate": 0.246,
+      "waiting_time_after_handover_mean": 59.023,
+      "resource_return_rate": 0.2372,
+      "cross_activity_resource_overlap": 0.4227,
+      "cross_trained_resource_count": 127,
+      "resource_profile": {
+        "A_Validating": {
+          "User_123": 0.0829,
+          "User_116": 0.0756,
+          "User_121": 0.0755,
+          "User_113": 0.0641,
+          "User_126": 0.0577,
+          "other": 0.6442
+        },
+        "A_Incomplete": {
+          "User_100": 0.1078,
+          "User_29": 0.0819,
+          "User_75": 0.0743,
+          "User_30": 0.0701,
+          "User_87": 0.059,
+          "other": 0.6068
+        },
+        "W_Assess potential fraud": {
+          "User_138": 0.4184,
+          "User_144": 0.3156,
+          "User_143": 0.2163,
+          "User_55": 0.0142,
+          "User_99": 0.0071,
+          "other": 0.0284
+        },
+        "O_Cancelled": {
+          "User_1": 0.4777,
+          "User_29": 0.0289,
+          "User_109": 0.02,
+          "User_68": 0.0189,
+          "User_75": 0.0179,
+          "other": 0.4365
+        }
+      },
+      "handover_pairs": [
+        {
+          "source": "A_Validating",
+          "target": "W_Assess potential fraud",
+          "handover_rate": 1.0,
+          "consecutive_count": 39,
+          "waiting_time_after_handover": 36.32
+        },
+        {
+          "source": "W_Assess potential fraud",
+          "target": "A_Incomplete",
+          "handover_rate": 1.0,
+          "consecutive_count": 57,
+          "waiting_time_after_handover": 64.399
+        },
+        {
+          "source": "A_Incomplete",
+          "target": "O_Cancelled",
+          "handover_rate": 1.0,
+          "consecutive_count": 69,
+          "waiting_time_after_handover": 86.84
+        },
+        {
+          "source": "O_Cancelled",
+          "target": "A_Validating",
+          "handover_rate": 0.9885,
+          "consecutive_count": 347,
+          "waiting_time_after_handover": 197.546
+        },
+        {
+          "source": "A_Incomplete",
+          "target": "A_Validating",
+          "handover_rate": 0.9563,
+          "consecutive_count": 12235,
+          "waiting_time_after_handover": 64.95
+        },
+        {
+          "source": "A_Validating",
+          "target": "A_Incomplete",
+          "handover_rate": 0.9065,
+          "consecutive_count": 4821,
+          "waiting_time_after_handover": 31.854
+        },
+        {
+          "source": "O_Cancelled",
+          "target": "O_Cancelled",
+          "handover_rate": 0.0011,
+          "consecutive_count": 4429,
+          "waiting_time_after_handover": 271.217
+        }
+      ]
+    },
+    "additional_context": "The highest handover rate within this group is 'A_Validating' → 'W_Assess potential fraud': 100% across 39 consecutive occurrences (mean waiting time after handover: 36.3 hours). In the event log, 127 distinct resource(s) have executed at least 2 different target activities (across all cases). The pairwise Jaccard overlap of full resource sets across target activities is 42.27%. In 24% of relevant cases, a resource that participated earlier in the group re-appears at a later position after being replaced by a different resource in between. This group contains 4 activities."
+  },
+  {
+    "candidate_id": "CA-002",
+    "heuristic": "Case Assignment",
+    "target_activities": [
+      "A_Concept",
+      "A_Accepted",
+      "W_Complete application"
+    ],
+    "heuristic_context": "Target problem types: excessive handovers, repeated re-familiarization with the same case, fragmented responsibility across activities. Applicable structural situations: processes where multiple activities of the same case are performed by different resources although they could potentially be handled by the same person. How the data is used: A high number of handovers within a case, frequent switching of resources between consecutive activities, and increased waiting times after handovers indicate that assigning more steps of the same case to the same resource may improve continuity and efficiency. Transformation style: redesign resource allocation so that one resource handles as many activities of the same case as possible, especially for consecutive or strongly related tasks. Feasibility: Maybe. Excessive handovers can be detected from the event log, but assigning multiple activities to the same resource depends on role definitions, skills, and authorization constraints.",
+    "evidence": {
+      "handover_count_mean": 0.726,
+      "resource_continuity_rate": 0.3917,
+      "waiting_time_after_handover_mean": 40.45,
+      "resource_return_rate": 0.0002,
+      "cross_activity_resource_overlap": 0.9489,
+      "cross_trained_resource_count": 113,
+      "resource_profile": {
+        "A_Concept": {
+          "User_1": 0.5394,
+          "User_14": 0.0216,
+          "User_5": 0.0208,
+          "User_10": 0.0165,
+          "User_16": 0.0156,
+          "other": 0.386
+        },
+        "A_Accepted": {
+          "User_49": 0.0381,
+          "User_3": 0.0343,
+          "User_10": 0.0343,
+          "User_42": 0.0269,
+          "User_61": 0.0254,
+          "other": 0.841
+        },
+        "W_Complete application": {
+          "User_49": 0.0462,
+          "User_3": 0.0428,
+          "User_10": 0.0273,
+          "User_61": 0.0271,
+          "User_46": 0.0244,
+          "other": 0.8322
+        }
+      },
+      "handover_pairs": [
+        {
+          "source": "A_Concept",
+          "target": "W_Complete application",
+          "handover_rate": 0.9891,
+          "consecutive_count": 5519,
+          "waiting_time_after_handover": 15.722
+        },
+        {
+          "source": "A_Concept",
+          "target": "A_Accepted",
+          "handover_rate": 0.6488,
+          "consecutive_count": 25990,
+          "waiting_time_after_handover": 49.418
+        },
+        {
+          "source": "A_Accepted",
+          "target": "W_Complete application",
+          "handover_rate": 0.5951,
+          "consecutive_count": 568,
+          "waiting_time_after_handover": 1.181
+        },
+        {
+          "source": "W_Complete application",
+          "target": "A_Accepted",
+          "handover_rate": 0.0374,
+          "consecutive_count": 5513,
+          "waiting_time_after_handover": 26.082
+        }
+      ]
+    },
+    "additional_context": "The highest handover rate within this group is 'A_Concept' → 'W_Complete application': 99% across 5519 consecutive occurrences (mean waiting time after handover: 15.7 hours). In the event log, 113 distinct resource(s) have executed at least 2 different target activities (across all cases). The pairwise Jaccard overlap of full resource sets across target activities is 94.89%. This group contains 3 activities."
+  },
+  {
+    "candidate_id": "CA-004",
+    "heuristic": "Case Assignment",
+    "target_activities": [
+      "W_Call incomplete files",
+      "O_Returned"
+    ],
+    "heuristic_context": "Target problem types: excessive handovers, repeated re-familiarization with the same case, fragmented responsibility across activities. Applicable structural situations: processes where multiple activities of the same case are performed by different resources although they could potentially be handled by the same person. How the data is used: A high number of handovers within a case, frequent switching of resources between consecutive activities, and increased waiting times after handovers indicate that assigning more steps of the same case to the same resource may improve continuity and efficiency. Transformation style: redesign resource allocation so that one resource handles as many activities of the same case as possible, especially for consecutive or strongly related tasks. Feasibility: Maybe. Excessive handovers can be detected from the event log, but assigning multiple activities to the same resource depends on role definitions, skills, and authorization constraints.",
+    "evidence": {
+      "handover_count_mean": 0.038,
+      "resource_continuity_rate": 0.1844,
+      "waiting_time_after_handover_mean": 23.642,
+      "resource_return_rate": 0.0028,
+      "cross_activity_resource_overlap": 0.3451,
+      "cross_trained_resource_count": 39,
+      "resource_profile": {
+        "W_Call incomplete files": {
+          "User_2": 0.0763,
+          "User_41": 0.0634,
+          "User_3": 0.058,
+          "User_5": 0.0516,
+          "User_28": 0.0498,
+          "other": 0.701
+        },
+        "O_Returned": {
+          "User_123": 0.097,
+          "User_121": 0.0852,
+          "User_118": 0.0746,
+          "User_116": 0.0725,
+          "User_113": 0.0708,
+          "other": 0.5999
+        }
+      },
+      "handover_pairs": [
+        {
+          "source": "W_Call incomplete files",
+          "target": "O_Returned",
+          "handover_rate": 1.0,
+          "consecutive_count": 32,
+          "waiting_time_after_handover": 85.679
+        },
+        {
+          "source": "O_Returned",
+          "target": "W_Call incomplete files",
+          "handover_rate": 0.8532,
+          "consecutive_count": 109,
+          "waiting_time_after_handover": 0.0
+        },
+        {
+          "source": "O_Returned",
+          "target": "O_Returned",
+          "handover_rate": 0.5526,
+          "consecutive_count": 38,
+          "waiting_time_after_handover": 33.81
+        }
+      ]
+    },
+    "additional_context": "The highest handover rate within this group is 'W_Call incomplete files' → 'O_Returned': 100% across 32 consecutive occurrences (mean waiting time after handover: 85.7 hours). In the event log, 39 distinct resource(s) have executed at least 2 different target activities (across all cases). The pairwise Jaccard overlap of full resource sets across target activities is 34.51%. This group contains 2 activities."
+  },
+  {
+    "candidate_id": "CBW-001",
+    "heuristic": "Case-based Work",
+    "target_activity": "W_Complete application",
+    "heuristic_context": "Target problem types: delays caused by batch processing or periodic handling of cases, accumulation of waiting cases before execution. Applicable structural situations: activities executed in batches or triggered periodically instead of being processed immediately when a case arrives. How the data is used: Repeated patterns where multiple cases start the same activity at nearly identical timestamps or where long waiting times precede activity execution indicate batch or periodic processing instead of case-by-case handling. Transformation style: redesign the process so that cases are processed individually upon arrival instead of waiting for batch or periodic execution. Feasibility: Yes. Batch patterns and periodic execution behavior can be detected from event log timestamps, and the process can be redesigned to enable case-by-case execution.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "W_Complete application",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw2",
+          "name": "",
+          "type": "and_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "n2",
+          "target": "n1"
+        },
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "gw2",
+          "target": "n3"
+        },
+        {
+          "source": "gw1",
+          "target": "gw2"
+        }
+      ]
+    },
+    "evidence": {
+      "waiting_time_before": 612.507,
+      "batch_size_mean": 83.45,
+      "batch_interval_mean": 0.9,
+      "periodicity_strength": 0.0,
+      "arrival_rate": 1.189155,
+      "execution_rate": 1.189155,
+      "arrival_execution_gap": 0.0,
+      "target_remapped_from": [
+        "A_Cancelled"
+      ],
+      "extraneous_delay_split": {
+        "event_id": "Event_d50cd3aa-3d32-4094-84e3-37ea7116af23",
+        "timer_h": 2.7322,
+        "n": 19104,
+        "n_batched": 1032,
+        "batch_share": 0.054,
+        "wait_batched_h": 27.3721,
+        "wait_unbatched_h": 11.7582,
+        "delta_h": 15.6139,
+        "z": 21.68,
+        "batch_component_h": 0.8435,
+        "share_of_timer": 0.3087
+      }
+    },
+    "additional_context": "Target was remapped from 'A_Cancelled' (a lifecycle state-change event flagged as batched by pm4py because the underlying work being batched leaves a clustered-timestamp signature there) to 'W_Complete application', the work activity that consistently precedes it within cases. The W_ activity is the real redesign target — the quantitative evidence (batch_size, gap, waiting_time) below remains attributed to the original A_/O_ event, which is where the batching signal is observable. The execution rate meets or exceeds the arrival rate, suggesting that case-by-case processing is feasible without additional capacity. The average batch size is 83.5 cases, which is large. Transitioning to case-by-case processing would significantly change the workload pattern for this activity. This activity exhibits rework in 2 cases (0.0% of all cases). Rework in a batched activity may indicate that batch errors propagate across multiple cases. Whether batch execution can be replaced by case-by-case processing depends on system scheduling policies, operational constraints (e.g. external system availability windows), and whether downstream systems require batched input — none of which can be determined from the event log alone."
+  },
+  {
+    "candidate_id": "CBW-002",
+    "heuristic": "Case-based Work",
+    "target_activity": "W_Validate application",
+    "heuristic_context": "Target problem types: delays caused by batch processing or periodic handling of cases, accumulation of waiting cases before execution. Applicable structural situations: activities executed in batches or triggered periodically instead of being processed immediately when a case arrives. How the data is used: Repeated patterns where multiple cases start the same activity at nearly identical timestamps or where long waiting times precede activity execution indicate batch or periodic processing instead of case-by-case handling. Transformation style: redesign the process so that cases are processed individually upon arrival instead of waiting for batch or periodic execution. Feasibility: Yes. Batch patterns and periodic execution behavior can be detected from event log timestamps, and the process can be redesigned to enable case-by-case execution.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "W_Validate application",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw2",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "gw1",
+          "target": "gw2"
+        },
+        {
+          "source": "gw2",
+          "target": "n2"
+        }
+      ]
+    },
+    "evidence": {
+      "waiting_time_before": 143.763,
+      "batch_size_mean": 198.04,
+      "batch_interval_mean": 0.244,
+      "periodicity_strength": 0.0,
+      "arrival_rate": 2.493223,
+      "execution_rate": 4.425101,
+      "arrival_execution_gap": -1.931878,
+      "target_remapped_from": [
+        "A_Validating",
+        "A_Incomplete",
+        "A_Denied"
+      ],
+      "extraneous_delay_split": {
+        "event_id": "Event_89c90e5a-074a-459b-aeb5-12ee96114649",
+        "timer_h": 189.0207,
+        "n": 15848,
+        "n_batched": 7226,
+        "batch_share": 0.456,
+        "wait_batched_h": 179.5034,
+        "wait_unbatched_h": 148.7174,
+        "delta_h": 30.7861,
+        "z": 13.74,
+        "batch_component_h": 14.0371,
+        "share_of_timer": 0.0743
+      }
+    },
+    "additional_context": "This candidate consolidates batching signals from 3 observations on different events that all causally trace back to the W_ work activity 'W_Validate application'. Source A_/O_ events: 'A_Validating', 'A_Incomplete', 'A_Denied'. The evidence fields below are the strongest single observation (most negative arrival_execution_gap). A single CBW redesign on this W_ target captures the full merged signal.\n\nTarget was remapped from 'A_Validating' (a lifecycle state-change event flagged as batched by pm4py because the underlying work being batched leaves a clustered-timestamp signature there) to 'W_Validate application', the work activity that consistently precedes it within cases. The W_ activity is the real redesign target — the quantitative evidence (batch_size, gap, waiting_time) below remains attributed to the original A_/O_ event, which is where the batching signal is observable. The execution rate meets or exceeds the arrival rate, suggesting that case-by-case processing is feasible without additional capacity. The average batch size is 198.0 cases, which is large. Transitioning to case-by-case processing would significantly change the workload pattern for this activity. This activity exhibits rework in 3697 cases (11.7% of all cases). Rework in a batched activity may indicate that batch errors propagate across multiple cases. Whether batch execution can be replaced by case-by-case processing depends on system scheduling policies, operational constraints (e.g. external system availability windows), and whether downstream systems require batched input — none of which can be determined from the event log alone."
+  },
+  {
+    "candidate_id": "CBW-003",
+    "heuristic": "Case-based Work",
+    "target_activity": "O_Accepted",
+    "heuristic_context": "Target problem types: delays caused by batch processing or periodic handling of cases, accumulation of waiting cases before execution. Applicable structural situations: activities executed in batches or triggered periodically instead of being processed immediately when a case arrives. How the data is used: Repeated patterns where multiple cases start the same activity at nearly identical timestamps or where long waiting times precede activity execution indicate batch or periodic processing instead of case-by-case handling. Transformation style: redesign the process so that cases are processed individually upon arrival instead of waiting for batch or periodic execution. Feasibility: Yes. Batch patterns and periodic execution behavior can be detected from event log timestamps, and the process can be redesigned to enable case-by-case execution.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "O_Accepted",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "A_Pending",
+          "type": "activity",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "n1",
+          "target": "n3"
+        },
+        {
+          "source": "n2",
+          "target": "n1"
+        }
+      ]
+    },
+    "evidence": {
+      "waiting_time_before": 63.449,
+      "batch_size_mean": 249.68,
+      "batch_interval_mean": 0.545,
+      "periodicity_strength": 0.0,
+      "arrival_rate": 1.964026,
+      "execution_rate": 1.964026,
+      "arrival_execution_gap": 0.0,
+      "target_remapped_from": null,
+      "extraneous_delay_split": {
+        "event_id": "Event_2800b426-ae6b-47c1-b920-749541d01c85",
+        "timer_h": 1.1218,
+        "n": 17228,
+        "n_batched": 6269,
+        "batch_share": 0.3639,
+        "wait_batched_h": 110.0183,
+        "wait_unbatched_h": 36.809,
+        "delta_h": 73.2092,
+        "z": 40.2,
+        "batch_component_h": 1.1218,
+        "share_of_timer": 1.0
+      }
+    },
+    "additional_context": "The execution rate meets or exceeds the arrival rate, suggesting that case-by-case processing is feasible without additional capacity. The average batch size is 249.7 cases, which is large. Transitioning to case-by-case processing would significantly change the workload pattern for this activity. Whether batch execution can be replaced by case-by-case processing depends on system scheduling policies, operational constraints (e.g. external system availability windows), and whether downstream systems require batched input — none of which can be determined from the event log alone."
+  },
+  {
+    "candidate_id": "CBW-004",
+    "heuristic": "Case-based Work",
+    "target_activity": "W_Assess potential fraud",
+    "heuristic_context": "Target problem types: delays caused by batch processing or periodic handling of cases, accumulation of waiting cases before execution. Applicable structural situations: activities executed in batches or triggered periodically instead of being processed immediately when a case arrives. How the data is used: Repeated patterns where multiple cases start the same activity at nearly identical timestamps or where long waiting times precede activity execution indicate batch or periodic processing instead of case-by-case handling. Transformation style: redesign the process so that cases are processed individually upon arrival instead of waiting for batch or periodic execution. Feasibility: Yes. Batch patterns and periodic execution behavior can be detected from event log timestamps, and the process can be redesigned to enable case-by-case execution.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "W_Assess potential fraud",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "n2",
+          "target": "n1"
+        },
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "gw1",
+          "target": "n3"
+        }
+      ]
+    },
+    "evidence": {
+      "waiting_time_before": 49.148,
+      "batch_size_mean": 14.1,
+      "batch_interval_mean": 30.578,
+      "periodicity_strength": 0.0,
+      "arrival_rate": 0.030553,
+      "execution_rate": 0.032149,
+      "arrival_execution_gap": -0.001596,
+      "target_remapped_from": null,
+      "extraneous_delay_split": {
+        "event_id": "Event_a40f851e-1f8d-4954-8c06-ebec430c9434",
+        "timer_h": 24.0296,
+        "n": 282,
+        "n_batched": 7,
+        "batch_share": 0.0248,
+        "wait_batched_h": 87.0731,
+        "wait_unbatched_h": 52.6228,
+        "delta_h": 34.4502,
+        "z": 1.32,
+        "batch_component_h": 0.0,
+        "share_of_timer": 0.0,
+        "reason": "batched executions do not demonstrably wait longer (delta +34.45 h at z=1.32); inside the noise"
+      }
+    },
+    "additional_context": "The execution rate meets or exceeds the arrival rate, suggesting that case-by-case processing is feasible without additional capacity. The average batch size is 14.1 cases, which is large. Transitioning to case-by-case processing would significantly change the workload pattern for this activity. This activity exhibits rework in 13 cases (0.0% of all cases). Rework in a batched activity may indicate that batch errors propagate across multiple cases. Whether batch execution can be replaced by case-by-case processing depends on system scheduling policies, operational constraints (e.g. external system availability windows), and whether downstream systems require batched input — none of which can be determined from the event log alone."
+  },
+  {
+    "candidate_id": "CT-001",
+    "heuristic": "Case Types",
+    "target_activity": "W_Handle leads",
+    "evidence": {
+      "attribute": "case:ApplicationType",
+      "attribute_kind": "discrete",
+      "rule_label": "case:ApplicationType = 'New credit'",
+      "comparison": "=",
+      "value": "New credit",
+      "cases_in_group": 28120,
+      "cases_out_group": 3389,
+      "routes_conditioned": 1,
+      "activities_routed": [
+        "W_Handle leads"
+      ],
+      "strongest_activity": "W_Handle leads",
+      "strongest_share_in": 0.1242,
+      "strongest_share_out": 0.0,
+      "strongest_share_gap": 0.1242,
+      "separation_z": 21.76,
+      "min_separation_z": 21.76,
+      "hard_rule_overshoot_pp": 87.6,
+      "events_after_routed_mean": 3.54,
+      "service_h_after_routed_mean": 0.168,
+      "case_events_mean": 15.08,
+      "case_service_h_mean": 2.2297,
+      "routes": [
+        {
+          "gateway_id": "node_b13cde15-45d0-4a50-8c1f-8cee29627ba4",
+          "conditioned_path_id": "node_8be4fe94-62be-44b1-8dd3-08c5f2f88c88",
+          "complement_path_id": "node_727563f9-e8f5-432f-ad22-46b41f5add85",
+          "target_activity": "W_Handle leads",
+          "pooled_probability": 0.1707,
+          "comparison": "=",
+          "value": "New credit",
+          "rule_label": "case:ApplicationType = 'New credit'",
+          "share_in": 0.1242,
+          "share_out": 0.0,
+          "z": 21.76
+        }
+      ]
+    },
+    "heuristic_context": "Target problem types: heterogeneous cases processed in a uniform way, so simple cases carry the effort of complex ones. Applicable when cases with clearly different recorded characteristics all follow the same path.",
+    "additional_context": "case:ApplicationType = 'New credit' splits the log into 28120 and 3389 cases that are routed differently at 1 gateway(s), reaching 1 activities: 'W_Handle leads'. The mined model has no access to the attribute, so each of those gateways uses one pooled probability for every case — strongest example, case:ApplicationType = 'New credit' reaches 'W_Handle leads' 12% of the time against 0% for the rest (z=21.8), while the model sends 17% of arrivals there regardless. The redesign attaches the condition at every one of those gateways, so the case type is routed consistently rather than at a coin flip. ⚠️ The condition is a HARD predicate, so it sends 100% of this type to 'W_Handle leads' and 0% of the rest, where the log shows 12% and 0% — 88 percentage points of standardisation beyond what the log already does, which is the intervention rather than a reproduction of it. ⚠️ This changes WHICH cases go where, not how long anything takes: no hours are assumed anywhere, and whether routing by type helps, hurts or does nothing is for the simulation to measure. ⚠️ Direction of the change: in the log a case that reaches 'W_Handle leads' still records 3.5 further events and 0.168 h of further work, against 15.1 events and 2.230 h for an average case. Part of the case still lies ahead of it, so the rule shifts work rather than plainly adding or removing it.",
+    "process_fragment": {
+      "attribute": "case:ApplicationType",
+      "routes": [
+        {
+          "gateway_id": "node_b13cde15-45d0-4a50-8c1f-8cee29627ba4",
+          "conditioned_path_id": "node_8be4fe94-62be-44b1-8dd3-08c5f2f88c88",
+          "complement_path_id": "node_727563f9-e8f5-432f-ad22-46b41f5add85",
+          "target_activity": "W_Handle leads",
+          "pooled_probability": 0.1707,
+          "comparison": "=",
+          "value": "New credit",
+          "rule_label": "case:ApplicationType = 'New credit'",
+          "share_in": 0.1242,
+          "share_out": 0.0,
+          "z": 21.76
+        }
+      ]
+    }
+  },
+  {
+    "candidate_id": "CR-001",
+    "heuristic": "Contact Reduction",
+    "target_activity": "O_Cancelled",
+    "evidence": {
+      "contact_activity": "O_Cancelled",
+      "occurrences": 20898,
+      "cases": 15682,
+      "cases_repeating": 3867,
+      "repeat_share": 0.2466,
+      "mean_per_case": 1.333,
+      "max_per_case": 10,
+      "extra_occurrences": 5216,
+      "service_h_mean": 0.0,
+      "idle_after_mean_h": 25.6817,
+      "idle_to_service_ratio": 9999.0,
+      "loop_probability": 0.2537,
+      "loop_probability_after": 0.1911,
+      "waiting_time_before": 34.6407,
+      "gateway_id": "node_4683a8ec-ea71-4b4a-9d56-203dcb914aea"
+    },
+    "heuristic_context": "Target problem types: excessive communication with customers or external parties, delays caused by repeated information exchanges. Applicable when multiple interactions occur to collect or verify information that could be consolidated.",
+    "additional_context": "'O_Cancelled' runs 20898 times across 15682 cases, and 25% of those cases do it more than once (mean 1.3, max 10). After each one the case sits IDLE for 25.68 h on average against 0.000 h of actual work — the process is waiting on somebody outside it, not on a resource. Consolidating the exchange lowers the repeat probability at gateway node_4683a8e from 25% to 19%. ⚠️ The idle wait is WALL-CLOCK (overnight, weekend, the customer's own delay) and the mined model has no construct for it, so 34.641 h/case is an ESTIMATE from the log, not a simulated result — it is reported beside the measurement and never added to it.",
+    "process_fragment": {
+      "gateway_id": "node_4683a8ec-ea71-4b4a-9d56-203dcb914aea",
+      "loop_path_id": "node_783fa71c-0160-4015-8383-ca1f687f0f95",
+      "exit_path_id": "node_d5c80c20-e77c-4675-878d-7ac7dbfe60ad",
+      "loop_probability_after": 0.1911,
+      "target_activity": "O_Cancelled"
+    }
+  },
+  {
+    "candidate_id": "CR-002",
+    "heuristic": "Contact Reduction",
+    "target_activity": "O_Sent (online only)",
+    "evidence": {
+      "contact_activity": "O_Sent (online only)",
+      "occurrences": 2026,
+      "cases": 1800,
+      "cases_repeating": 171,
+      "repeat_share": 0.095,
+      "mean_per_case": 1.126,
+      "max_per_case": 8,
+      "extra_occurrences": 226,
+      "service_h_mean": 0.0,
+      "idle_after_mean_h": 99.2444,
+      "idle_to_service_ratio": 9999.0,
+      "loop_probability": 0.2525,
+      "loop_probability_after": 0.2285,
+      "waiting_time_before": 131.1652,
+      "gateway_id": "node_41cf5188-f199-4eaa-b721-ec9e2a96caaa"
+    },
+    "heuristic_context": "Target problem types: excessive communication with customers or external parties, delays caused by repeated information exchanges. Applicable when multiple interactions occur to collect or verify information that could be consolidated.",
+    "additional_context": "'O_Sent (online only)' runs 2026 times across 1800 cases, and 10% of those cases do it more than once (mean 1.1, max 8). After each one the case sits IDLE for 99.24 h on average against 0.000 h of actual work — the process is waiting on somebody outside it, not on a resource. Consolidating the exchange lowers the repeat probability at gateway node_41cf518 from 25% to 23%. ⚠️ The idle wait is WALL-CLOCK (overnight, weekend, the customer's own delay) and the mined model has no construct for it, so 131.165 h/case is an ESTIMATE from the log, not a simulated result — it is reported beside the measurement and never added to it.",
+    "process_fragment": {
+      "gateway_id": "node_41cf5188-f199-4eaa-b721-ec9e2a96caaa",
+      "loop_path_id": "node_08cb1bdd-e7bd-4786-9abb-6380d5dddcc7",
+      "exit_path_id": "node_00941b34-5f94-48c3-b3d3-0e7f0512d199",
+      "loop_probability_after": 0.2285,
+      "target_activity": "O_Sent (online only)"
+    }
+  },
+  {
+    "candidate_id": "EXC-002",
+    "heuristic": "Exception",
+    "divergence_point": "A_Concept",
+    "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "A_Concept",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "and_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "gw1",
+          "target": "n3"
+        },
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "n2",
+          "target": "n1"
+        }
+      ]
+    },
+    "dominant_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.069091
+    },
+    "exception_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "W_Validate application",
+        "A_Validating",
+        "O_Returned",
+        "W_Call incomplete files",
+        "A_Incomplete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.000698
+    },
+    "variant_diff": {
+      "shared_prefix": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept"
+      ],
+      "dominant_suffix": [
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_suffix": [
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "W_Validate application",
+        "A_Validating",
+        "O_Returned",
+        "W_Call incomplete files",
+        "A_Incomplete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_exclusive_activities": [
+        "A_Incomplete",
+        "A_Validating",
+        "O_Returned",
+        "W_Call incomplete files",
+        "W_Validate application"
+      ],
+      "missing_activities": [
+        "W_Complete application"
+      ]
+    },
+    "evidence": {
+      "variant_frequency_gap": 0.068393,
+      "throughput_time_dominant": 728.056,
+      "throughput_time_exception": 1218.467,
+      "throughput_time_gap": 490.411,
+      "deviation_point_waiting_time": 0.053,
+      "exception_case_count": 22,
+      "exception_group_frequency": 0.000698,
+      "exception_variant_count": 1,
+      "throughput_time_exception_max": 1218.467
+    },
+    "additional_context": "The exception path takes 1218.5 hours on average, which is 1.7x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 5 activities not present in the dominant flow: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files, W_Validate application. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: W_Complete application. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files, W_Validate application. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Concept' account for 0.1% of total cases (22 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+  },
+  {
+    "candidate_id": "EXC-007",
+    "heuristic": "Exception",
+    "divergence_point": "A_Complete",
+    "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "A_Complete",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n4",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n5",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n6",
+          "name": "W_Call after offers",
+          "type": "activity",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw2",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw3",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw4",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw5",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw6",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw7",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw8",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "gw1",
+          "target": "gw5"
+        },
+        {
+          "source": "gw1",
+          "target": "gw2"
+        },
+        {
+          "source": "gw1",
+          "target": "gw6"
+        },
+        {
+          "source": "gw1",
+          "target": "gw4"
+        },
+        {
+          "source": "gw2",
+          "target": "gw8"
+        },
+        {
+          "source": "gw6",
+          "target": "n5"
+        },
+        {
+          "source": "gw8",
+          "target": "n2"
+        },
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "n6",
+          "target": "gw3"
+        },
+        {
+          "source": "gw4",
+          "target": "gw7"
+        },
+        {
+          "source": "gw5",
+          "target": "n3"
+        },
+        {
+          "source": "gw7",
+          "target": "n4"
+        },
+        {
+          "source": "gw3",
+          "target": "n1"
+        }
+      ]
+    },
+    "dominant_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.069091
+    },
+    "exception_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (online only)",
+        "A_Cancelled",
+        "O_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.000413
+    },
+    "variant_diff": {
+      "shared_prefix": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete"
+      ],
+      "dominant_suffix": [
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_suffix": [
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (online only)",
+        "A_Cancelled",
+        "O_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_exclusive_activities": [
+        "O_Sent (online only)"
+      ],
+      "missing_activities": []
+    },
+    "evidence": {
+      "variant_frequency_gap": 0.068679,
+      "throughput_time_dominant": 728.056,
+      "throughput_time_exception": 1190.754,
+      "throughput_time_gap": 462.698,
+      "deviation_point_waiting_time": 0.0,
+      "exception_case_count": 13,
+      "exception_group_frequency": 0.000413,
+      "exception_variant_count": 1,
+      "throughput_time_exception_max": 1190.754
+    },
+    "additional_context": "The exception path takes 1190.8 hours on average, which is 1.6x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 1 activities not present in the dominant flow: O_Sent (online only). These activities represent the additional handling required for exceptional cases. Activities with rework in the exception path: O_Sent (online only). This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Complete' account for 0.0% of total cases (13 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+  },
+  {
+    "candidate_id": "EXC-008",
+    "heuristic": "Exception",
+    "divergence_point": "A_Concept",
+    "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "A_Concept",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "and_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "gw1",
+          "target": "n3"
+        },
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "n2",
+          "target": "n1"
+        }
+      ]
+    },
+    "dominant_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.069091
+    },
+    "exception_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (online only)",
+        "A_Cancelled",
+        "O_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.000571
+    },
+    "variant_diff": {
+      "shared_prefix": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept"
+      ],
+      "dominant_suffix": [
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_suffix": [
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (online only)",
+        "A_Cancelled",
+        "O_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_exclusive_activities": [
+        "O_Sent (online only)"
+      ],
+      "missing_activities": [
+        "W_Complete application"
+      ]
+    },
+    "evidence": {
+      "variant_frequency_gap": 0.06852,
+      "throughput_time_dominant": 728.056,
+      "throughput_time_exception": 1069.858,
+      "throughput_time_gap": 341.802,
+      "deviation_point_waiting_time": 0.053,
+      "exception_case_count": 18,
+      "exception_group_frequency": 0.000571,
+      "exception_variant_count": 1,
+      "throughput_time_exception_max": 1069.858
+    },
+    "additional_context": "The exception path takes 1069.9 hours on average, which is 1.5x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 1 activities not present in the dominant flow: O_Sent (online only). These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: W_Complete application. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: O_Sent (online only). This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Concept' account for 0.1% of total cases (18 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+  },
+  {
+    "candidate_id": "EXC-005",
+    "heuristic": "Exception",
+    "divergence_point": "A_Submitted",
+    "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "A_Submitted",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n4",
+          "name": "A_Create Application",
+          "type": "activity",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "and_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw2",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw3",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw4",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw5",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "n1",
+          "target": "gw2"
+        },
+        {
+          "source": "gw2",
+          "target": "gw3"
+        },
+        {
+          "source": "gw2",
+          "target": "n3"
+        },
+        {
+          "source": "n4",
+          "target": "gw4"
+        },
+        {
+          "source": "gw5",
+          "target": "n2"
+        },
+        {
+          "source": "gw1",
+          "target": "n1"
+        },
+        {
+          "source": "gw4",
+          "target": "gw1"
+        },
+        {
+          "source": "gw3",
+          "target": "gw5"
+        }
+      ]
+    },
+    "dominant_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.069091
+    },
+    "exception_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "W_Handle leads",
+        "A_Concept",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "W_Validate application",
+        "A_Validating",
+        "O_Returned",
+        "W_Call incomplete files",
+        "A_Incomplete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.000444
+    },
+    "variant_diff": {
+      "shared_prefix": [
+        "A_Create Application",
+        "A_Submitted"
+      ],
+      "dominant_suffix": [
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_suffix": [
+        "W_Handle leads",
+        "A_Concept",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "W_Validate application",
+        "A_Validating",
+        "O_Returned",
+        "W_Call incomplete files",
+        "A_Incomplete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_exclusive_activities": [
+        "A_Incomplete",
+        "A_Validating",
+        "O_Returned",
+        "W_Call incomplete files",
+        "W_Handle leads",
+        "W_Validate application"
+      ],
+      "missing_activities": [
+        "W_Complete application"
+      ]
+    },
+    "evidence": {
+      "variant_frequency_gap": 0.068647,
+      "throughput_time_dominant": 728.056,
+      "throughput_time_exception": 1062.473,
+      "throughput_time_gap": 334.417,
+      "deviation_point_waiting_time": 0.0,
+      "exception_case_count": 14,
+      "exception_group_frequency": 0.000444,
+      "exception_variant_count": 1,
+      "throughput_time_exception_max": 1062.473
+    },
+    "additional_context": "The exception path takes 1062.5 hours on average, which is 1.5x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 6 activities not present in the dominant flow: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files, W_Handle leads, W_Validate application. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: W_Complete application. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files, W_Validate application. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Submitted' account for 0.0% of total cases (14 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+  },
+  {
+    "candidate_id": "EXC-003",
+    "heuristic": "Exception",
+    "divergence_point": "A_Complete",
+    "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "A_Complete",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n4",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n5",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n6",
+          "name": "W_Call after offers",
+          "type": "activity",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw2",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw3",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw4",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw5",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw6",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw7",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw8",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "gw1",
+          "target": "gw5"
+        },
+        {
+          "source": "gw1",
+          "target": "gw2"
+        },
+        {
+          "source": "gw1",
+          "target": "gw6"
+        },
+        {
+          "source": "gw1",
+          "target": "gw4"
+        },
+        {
+          "source": "gw2",
+          "target": "gw8"
+        },
+        {
+          "source": "gw6",
+          "target": "n5"
+        },
+        {
+          "source": "gw8",
+          "target": "n2"
+        },
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "n6",
+          "target": "gw3"
+        },
+        {
+          "source": "gw4",
+          "target": "gw7"
+        },
+        {
+          "source": "gw5",
+          "target": "n3"
+        },
+        {
+          "source": "gw7",
+          "target": "n4"
+        },
+        {
+          "source": "gw3",
+          "target": "n1"
+        }
+      ]
+    },
+    "dominant_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.069091
+    },
+    "exception_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Validating",
+        "O_Returned",
+        "W_Call incomplete files",
+        "A_Incomplete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.000889
+    },
+    "variant_diff": {
+      "shared_prefix": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete"
+      ],
+      "dominant_suffix": [
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_suffix": [
+        "A_Validating",
+        "O_Returned",
+        "W_Call incomplete files",
+        "A_Incomplete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_exclusive_activities": [
+        "A_Incomplete",
+        "A_Validating",
+        "O_Returned",
+        "W_Call incomplete files"
+      ],
+      "missing_activities": []
+    },
+    "evidence": {
+      "variant_frequency_gap": 0.068203,
+      "throughput_time_dominant": 728.056,
+      "throughput_time_exception": 958.184,
+      "throughput_time_gap": 230.128,
+      "deviation_point_waiting_time": 0.0,
+      "exception_case_count": 28,
+      "exception_group_frequency": 0.000889,
+      "exception_variant_count": 1,
+      "throughput_time_exception_max": 958.184
+    },
+    "additional_context": "The exception path takes 958.2 hours on average, which is 1.3x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 4 activities not present in the dominant flow: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files. These activities represent the additional handling required for exceptional cases. Activities with rework in the exception path: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Complete' account for 0.1% of total cases (28 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+  },
+  {
+    "candidate_id": "EXC-009",
+    "heuristic": "Exception",
+    "divergence_point": "O_Created",
+    "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "O_Created",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n4",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw2",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw3",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw4",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "gw4",
+          "target": "n4"
+        },
+        {
+          "source": "gw3",
+          "target": "n3"
+        },
+        {
+          "source": "n1",
+          "target": "gw2"
+        },
+        {
+          "source": "gw1",
+          "target": "n2"
+        },
+        {
+          "source": "gw2",
+          "target": "gw4"
+        },
+        {
+          "source": "gw2",
+          "target": "gw3"
+        },
+        {
+          "source": "gw2",
+          "target": "gw1"
+        }
+      ]
+    },
+    "dominant_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.069091
+    },
+    "exception_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Validating",
+        "O_Returned",
+        "A_Incomplete",
+        "A_Validating",
+        "A_Incomplete",
+        "O_Accepted",
+        "A_Pending",
+        "O_Cancelled"
+      ],
+      "frequency": 0.000317
+    },
+    "variant_diff": {
+      "shared_prefix": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created"
+      ],
+      "dominant_suffix": [
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_suffix": [
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Validating",
+        "O_Returned",
+        "A_Incomplete",
+        "A_Validating",
+        "A_Incomplete",
+        "O_Accepted",
+        "A_Pending",
+        "O_Cancelled"
+      ],
+      "exception_exclusive_activities": [
+        "A_Incomplete",
+        "A_Pending",
+        "A_Validating",
+        "O_Accepted",
+        "O_Returned"
+      ],
+      "missing_activities": [
+        "A_Cancelled"
+      ]
+    },
+    "evidence": {
+      "variant_frequency_gap": 0.068774,
+      "throughput_time_dominant": 728.056,
+      "throughput_time_exception": 947.668,
+      "throughput_time_gap": 219.612,
+      "deviation_point_waiting_time": 0.0,
+      "exception_case_count": 10,
+      "exception_group_frequency": 0.000317,
+      "exception_variant_count": 1,
+      "throughput_time_exception_max": 947.668
+    },
+    "additional_context": "The exception path takes 947.7 hours on average, which is 1.3x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 5 activities not present in the dominant flow: A_Incomplete, A_Pending, A_Validating, O_Accepted, O_Returned. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: A_Cancelled. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: A_Incomplete, A_Validating, O_Returned. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'O_Created' account for 0.0% of total cases (10 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+  },
+  {
+    "candidate_id": "EXC-004",
+    "heuristic": "Exception",
+    "divergence_point": "A_Submitted",
+    "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "A_Submitted",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n4",
+          "name": "A_Create Application",
+          "type": "activity",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "and_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw2",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw3",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw4",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw5",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "n1",
+          "target": "gw2"
+        },
+        {
+          "source": "gw2",
+          "target": "gw3"
+        },
+        {
+          "source": "gw2",
+          "target": "n3"
+        },
+        {
+          "source": "n4",
+          "target": "gw4"
+        },
+        {
+          "source": "gw5",
+          "target": "n2"
+        },
+        {
+          "source": "gw1",
+          "target": "n1"
+        },
+        {
+          "source": "gw4",
+          "target": "gw1"
+        },
+        {
+          "source": "gw3",
+          "target": "gw5"
+        }
+      ]
+    },
+    "dominant_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.069091
+    },
+    "exception_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "W_Handle leads",
+        "A_Concept",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Cancelled",
+        "O_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.001428
+    },
+    "variant_diff": {
+      "shared_prefix": [
+        "A_Create Application",
+        "A_Submitted"
+      ],
+      "dominant_suffix": [
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_suffix": [
+        "W_Handle leads",
+        "A_Concept",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Cancelled",
+        "O_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_exclusive_activities": [
+        "W_Handle leads"
+      ],
+      "missing_activities": [
+        "W_Complete application"
+      ]
+    },
+    "evidence": {
+      "variant_frequency_gap": 0.067663,
+      "throughput_time_dominant": 728.056,
+      "throughput_time_exception": 933.759,
+      "throughput_time_gap": 205.703,
+      "deviation_point_waiting_time": 0.0,
+      "exception_case_count": 45,
+      "exception_group_frequency": 0.001428,
+      "exception_variant_count": 1,
+      "throughput_time_exception_max": 933.759
+    },
+    "additional_context": "The exception path takes 933.8 hours on average, which is 1.3x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 1 activities not present in the dominant flow: W_Handle leads. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: W_Complete application. This may indicate that exceptional cases follow a shortened or alternative procedure. All exception variants diverging at 'A_Submitted' account for 0.1% of total cases (45 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+  },
+  {
+    "candidate_id": "EXC-006",
+    "heuristic": "Exception",
+    "divergence_point": "A_Create Application",
+    "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "A_Create Application",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n4",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n5",
+          "name": "A_Submitted",
+          "type": "activity",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "and_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw2",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw3",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw4",
+          "name": "",
+          "type": "xor_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw5",
+          "name": "",
+          "type": "and_gateway",
+          "is_target": false
+        },
+        {
+          "id": "gw6",
+          "name": "",
+          "type": "and_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "n3",
+          "target": "n1"
+        },
+        {
+          "source": "n1",
+          "target": "gw4"
+        },
+        {
+          "source": "gw2",
+          "target": "n2"
+        },
+        {
+          "source": "gw1",
+          "target": "n5"
+        },
+        {
+          "source": "gw1",
+          "target": "gw3"
+        },
+        {
+          "source": "gw4",
+          "target": "gw1"
+        },
+        {
+          "source": "gw4",
+          "target": "gw6"
+        },
+        {
+          "source": "gw6",
+          "target": "gw2"
+        },
+        {
+          "source": "gw6",
+          "target": "n4"
+        },
+        {
+          "source": "gw3",
+          "target": "gw5"
+        }
+      ]
+    },
+    "dominant_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.069091
+    },
+    "exception_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "W_Complete application",
+        "A_Concept",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "W_Validate application",
+        "A_Validating",
+        "O_Returned",
+        "A_Incomplete",
+        "A_Validating",
+        "A_Incomplete",
+        "O_Accepted",
+        "A_Pending",
+        "O_Cancelled"
+      ],
+      "frequency": 0.000413
+    },
+    "variant_diff": {
+      "shared_prefix": [
+        "A_Create Application"
+      ],
+      "dominant_suffix": [
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_suffix": [
+        "W_Complete application",
+        "A_Concept",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "W_Validate application",
+        "A_Validating",
+        "O_Returned",
+        "A_Incomplete",
+        "A_Validating",
+        "A_Incomplete",
+        "O_Accepted",
+        "A_Pending",
+        "O_Cancelled"
+      ],
+      "exception_exclusive_activities": [
+        "A_Incomplete",
+        "A_Pending",
+        "A_Validating",
+        "O_Accepted",
+        "O_Returned",
+        "W_Validate application"
+      ],
+      "missing_activities": [
+        "A_Cancelled",
+        "A_Submitted"
+      ]
+    },
+    "evidence": {
+      "variant_frequency_gap": 0.068679,
+      "throughput_time_dominant": 728.056,
+      "throughput_time_exception": 927.133,
+      "throughput_time_gap": 199.077,
+      "deviation_point_waiting_time": 0.0,
+      "exception_case_count": 13,
+      "exception_group_frequency": 0.000413,
+      "exception_variant_count": 1,
+      "throughput_time_exception_max": 927.133
+    },
+    "additional_context": "The exception path takes 927.1 hours on average, which is 1.3x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 6 activities not present in the dominant flow: A_Incomplete, A_Pending, A_Validating, O_Accepted, O_Returned, W_Validate application. These activities represent the additional handling required for exceptional cases. The exception path skips 2 activities present in the dominant flow: A_Cancelled, A_Submitted. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: A_Incomplete, A_Validating, O_Returned, W_Validate application. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Create Application' account for 0.0% of total cases (13 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+  },
+  {
+    "candidate_id": "EXC-001",
+    "heuristic": "Exception",
+    "divergence_point": "A_Concept",
+    "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+    "process_fragment": {
+      "nodes": [
+        {
+          "id": "n1",
+          "name": "A_Concept",
+          "type": "activity",
+          "is_target": true
+        },
+        {
+          "id": "n2",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "n3",
+          "name": "",
+          "type": "event",
+          "is_target": false
+        },
+        {
+          "id": "gw1",
+          "name": "",
+          "type": "and_gateway",
+          "is_target": false
+        }
+      ],
+      "edges": [
+        {
+          "source": "gw1",
+          "target": "n3"
+        },
+        {
+          "source": "n1",
+          "target": "gw1"
+        },
+        {
+          "source": "n2",
+          "target": "n1"
+        }
+      ]
+    },
+    "dominant_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.069091
+    },
+    "exception_variant": {
+      "activity_sequence": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Validating",
+        "O_Returned",
+        "W_Call incomplete files",
+        "A_Incomplete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "frequency": 0.000857
+    },
+    "variant_diff": {
+      "shared_prefix": [
+        "A_Create Application",
+        "A_Submitted",
+        "A_Concept"
+      ],
+      "dominant_suffix": [
+        "W_Complete application",
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_suffix": [
+        "A_Accepted",
+        "O_Create Offer",
+        "O_Created",
+        "O_Sent (mail and online)",
+        "A_Complete",
+        "A_Validating",
+        "O_Returned",
+        "W_Call incomplete files",
+        "A_Incomplete",
+        "A_Cancelled",
+        "O_Cancelled"
+      ],
+      "exception_exclusive_activities": [
+        "A_Incomplete",
+        "A_Validating",
+        "O_Returned",
+        "W_Call incomplete files"
+      ],
+      "missing_activities": [
+        "W_Complete application"
+      ]
+    },
+    "evidence": {
+      "variant_frequency_gap": 0.068234,
+      "throughput_time_dominant": 728.056,
+      "throughput_time_exception": 901.588,
+      "throughput_time_gap": 173.531,
+      "deviation_point_waiting_time": 0.053,
+      "exception_case_count": 27,
+      "exception_group_frequency": 0.000857,
+      "exception_variant_count": 1,
+      "throughput_time_exception_max": 901.588
+    },
+    "additional_context": "The exception path takes 901.6 hours on average, which is 1.2x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 4 activities not present in the dominant flow: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: W_Complete application. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Concept' account for 0.1% of total cases (27 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+  },
+  {
+    "candidate_id": "IF-001",
+    "heuristic": "Interfacing",
+    "target_activity": "O_Sent (online only)",
+    "evidence": {
+      "trigger_activity": "O_Sent (online only)",
+      "occurrences": 2026,
+      "cases": 1800,
+      "cases_triggering_rework": 1186,
+      "trigger_share": 0.6589,
+      "redone_activities_mean": 1.919,
+      "redone_activities_top": [
+        "A_Validating",
+        "O_Returned",
+        "A_Incomplete",
+        "O_Create Offer",
+        "O_Created"
+      ],
+      "idle_after_mean_h": 99.2444,
+      "loop_probability": 0.2525,
+      "loop_probability_after": 0.0861,
+      "waiting_time_before": 65.3922,
+      "gateway_id": "node_41cf5188-f199-4eaa-b721-ec9e2a96caaa"
+    },
+    "heuristic_context": "Target problem types: errors and delays caused by inconsistent information exchange with customers or external partners. Applicable when information is repeatedly corrected, clarified or re-entered due to inconsistent formats or interfaces.",
+    "additional_context": "'O_Sent (online only)' occurs in 1800 cases, and in 66% of them the case afterwards REDOES work it had already completed — on average 1.92 distinct earlier activities, most often ['A_Validating', 'O_Returned', 'A_Incomplete']. That is the log signature of information arriving wrong, and it is what separates this from Contact Reduction (where the step merely repeats itself). The case then idles 99.24 h. Standardising the exchange lowers the correction rate at gateway node_41cf518 from 25% to 9%. ⚠️ The idle wait is WALL-CLOCK and the mined model has no construct for it, so 65.392 h/case is an ESTIMATE from the log reported beside the measurement, never added to it.",
+    "process_fragment": {
+      "gateway_id": "node_41cf5188-f199-4eaa-b721-ec9e2a96caaa",
+      "loop_path_id": "node_08cb1bdd-e7bd-4786-9abb-6380d5dddcc7",
+      "exit_path_id": "node_00941b34-5f94-48c3-b3d3-0e7f0512d199",
+      "loop_probability_after": 0.0861,
+      "target_activity": "O_Sent (online only)"
+    }
+  },
+  {
+    "candidate_id": "SPC-001",
+    "heuristic": "Specialize",
+    "target_activity": "W_Complete application",
+    "evidence": {
+      "occurrences": 19081,
+      "qualified_resources": 89,
+      "duration_mean_all": 1403.77,
+      "duration_mean_specialists": 456.11,
+      "speedup": 3.078,
+      "separation_z": 7.25,
+      "spread_ratio": 20.57,
+      "specialists": [
+        "User_54",
+        "User_45",
+        "User_2"
+      ],
+      "specialist_count": 3,
+      "arrival_rate_per_h": 2.17527,
+      "utilisation_after": 0.6786,
+      "projected_service_saving_h": 0.26324,
+      "model_speedup": 1.114,
+      "model_specialist_s": 1036.68,
+      "model_other_s": 1154.85
+    },
+    "heuristic_context": "Target problem types: inefficient execution due to generalist resources performing diverse tasks without developing expertise. Applicable when the same activity is performed by many different resources with varying performance levels.",
+    "additional_context": "19081 executions spread over 89 resources with enough observations to rank (8726 s slowest against 424 s fastest, 20.6x). Restricting the activity to its 3 fastest brings the mean from 1404 s to 456 s, a 3.08x speedup separated from the rest at z=7.2. That subset would run at 68% utilisation against a 80% target, so it can still carry the arrival rate of 2.18/h. ⚠️ This trades servers for speed: the projected 0.2632 h per occurrence is a SERVICE-time saving only, and whether the smaller pool queues is for the simulation to decide, not the detector.",
+    "process_fragment": {}
+  },
+  {
+    "candidate_id": "SPC-002",
+    "heuristic": "Specialize",
+    "target_activity": "W_Handle leads",
+    "evidence": {
+      "occurrences": 3492,
+      "qualified_resources": 34,
+      "duration_mean_all": 241.13,
+      "duration_mean_specialists": 51.09,
+      "speedup": 4.72,
+      "separation_z": 5.76,
+      "spread_ratio": 28.41,
+      "specialists": [
+        "User_1",
+        "User_19"
+      ],
+      "specialist_count": 2,
+      "arrival_rate_per_h": 0.39809,
+      "utilisation_after": 0.0264,
+      "projected_service_saving_h": 0.05279,
+      "model_speedup": 1.769,
+      "model_specialist_s": 124.12,
+      "model_other_s": 219.6
+    },
+    "heuristic_context": "Target problem types: inefficient execution due to generalist resources performing diverse tasks without developing expertise. Applicable when the same activity is performed by many different resources with varying performance levels.",
+    "additional_context": "3492 executions spread over 34 resources with enough observations to rank (829 s slowest against 29 s fastest, 28.4x). Restricting the activity to its 2 fastest brings the mean from 241 s to 51 s, a 4.72x speedup separated from the rest at z=5.8. That subset would run at 3% utilisation against a 80% target, so it can still carry the arrival rate of 0.40/h. ⚠️ This trades servers for speed: the projected 0.0528 h per occurrence is a SERVICE-time saving only, and whether the smaller pool queues is for the simulation to decide, not the detector.",
+    "process_fragment": {}
+  },
+  {
+    "candidate_id": "SPC-003",
+    "heuristic": "Specialize",
+    "target_activity": "W_Validate application",
+    "evidence": {
+      "occurrences": 15469,
+      "qualified_resources": 36,
+      "duration_mean_all": 5759.55,
+      "duration_mean_specialists": 125.85,
+      "speedup": 45.766,
+      "separation_z": 5.35,
+      "spread_ratio": 598.56,
+      "specialists": [
+        "User_118",
+        "User_131",
+        "User_130",
+        "User_134",
+        "User_129",
+        "User_23",
+        "User_112"
+      ],
+      "specialist_count": 7,
+      "arrival_rate_per_h": 1.7635,
+      "utilisation_after": 0.6889,
+      "projected_service_saving_h": 1.56492,
+      "model_speedup": 1.265,
+      "model_specialist_s": 3084.23,
+      "model_other_s": 3901.72
+    },
+    "heuristic_context": "Target problem types: inefficient execution due to generalist resources performing diverse tasks without developing expertise. Applicable when the same activity is performed by many different resources with varying performance levels.",
+    "additional_context": "15469 executions spread over 36 resources with enough observations to rank (18880 s slowest against 32 s fastest, 598.6x). Restricting the activity to its 7 fastest brings the mean from 5760 s to 126 s, a 45.77x speedup separated from the rest at z=5.4. That subset would run at 69% utilisation against a 80% target, so it can still carry the arrival rate of 1.76/h. ⚠️ This trades servers for speed: the projected 1.5649 h per occurrence is a SERVICE-time saving only, and whether the smaller pool queues is for the simulation to decide, not the detector.",
+    "process_fragment": {}
+  },
+  {
+    "candidate_id": "TRI-001",
+    "heuristic": "Triage",
+    "target_activity": "W_Complete application",
+    "evidence": {
+      "activity": "W_Complete application",
+      "attribute": "case:LoanGoal",
+      "rule_label": "case:LoanGoal = 'Motorcycle'",
+      "comparison": "=",
+      "value": "Motorcycle",
+      "occurrences": 19104,
+      "n_in": 158,
+      "n_out": 18946,
+      "duration_mean_in_s": 698.2,
+      "duration_mean_out_s": 1441.7,
+      "effort_ratio": 2.06,
+      "separation_z": 5.06
+    },
+    "heuristic_context": "Target problem types: inefficient processing caused by treating all cases equally despite differences in complexity or required effort. Applicable when cases with different processing requirements are handled by the same activity without differentiation.",
+    "additional_context": "At 'W_Complete application', cases where case:LoanGoal = 'Motorcycle' take 698 s against 1442 s for the rest (2.06x, z=5.1, 158 vs 18946 executions) — the second group needs materially more effort. Splitting the activity per type lets each version carry its own fitted duration instead of one pooled distribution. ⚠️ This is the ONE heuristic here that cannot be a parameter edit: a Prosimos task holds exactly one service distribution, so the versions must be real nodes behind a conditioned split.",
+    "process_fragment": {
+      "attribute": "case:LoanGoal",
+      "comparison": "=",
+      "value": "Motorcycle",
+      "target_activity": "W_Complete application"
+    }
+  },
+  {
+    "candidate_id": "TRI-002",
+    "heuristic": "Triage",
+    "target_activity": "W_Validate application",
+    "evidence": {
+      "activity": "W_Validate application",
+      "attribute": "case:LoanGoal",
+      "rule_label": "case:LoanGoal = 'Tax payments'",
+      "comparison": "=",
+      "value": "Tax payments",
+      "occurrences": 15848,
+      "n_in": 61,
+      "n_out": 15787,
+      "duration_mean_in_s": 3036.1,
+      "duration_mean_out_s": 11158.8,
+      "effort_ratio": 3.68,
+      "separation_z": 4.36
+    },
+    "heuristic_context": "Target problem types: inefficient processing caused by treating all cases equally despite differences in complexity or required effort. Applicable when cases with different processing requirements are handled by the same activity without differentiation.",
+    "additional_context": "At 'W_Validate application', cases where case:LoanGoal = 'Tax payments' take 3036 s against 11159 s for the rest (3.68x, z=4.4, 61 vs 15787 executions) — the second group needs materially more effort. Splitting the activity per type lets each version carry its own fitted duration instead of one pooled distribution. ⚠️ This is the ONE heuristic here that cannot be a parameter edit: a Prosimos task holds exactly one service distribution, so the versions must be real nodes behind a conditioned split.",
+    "process_fragment": {
+      "attribute": "case:LoanGoal",
+      "comparison": "=",
+      "value": "Tax payments",
+      "target_activity": "W_Validate application"
+    }
+  },
+  {
+    "candidate_id": "TRI-003",
+    "heuristic": "Triage",
+    "target_activity": "W_Assess potential fraud",
+    "evidence": {
+      "activity": "W_Assess potential fraud",
+      "attribute": "case:LoanGoal",
+      "rule_label": "case:LoanGoal = 'Other, see explanation'",
+      "comparison": "=",
+      "value": "Other, see explanation",
+      "occurrences": 282,
+      "n_in": 31,
+      "n_out": 251,
+      "duration_mean_in_s": 10170.5,
+      "duration_mean_out_s": 44504.4,
+      "effort_ratio": 4.38,
+      "separation_z": 3.33
+    },
+    "heuristic_context": "Target problem types: inefficient processing caused by treating all cases equally despite differences in complexity or required effort. Applicable when cases with different processing requirements are handled by the same activity without differentiation.",
+    "additional_context": "At 'W_Assess potential fraud', cases where case:LoanGoal = 'Other, see explanation' take 10170 s against 44504 s for the rest (4.38x, z=3.3, 31 vs 251 executions) — the second group needs materially more effort. Splitting the activity per type lets each version carry its own fitted duration instead of one pooled distribution. ⚠️ This is the ONE heuristic here that cannot be a parameter edit: a Prosimos task holds exactly one service distribution, so the versions must be real nodes behind a conditioned split.",
+    "process_fragment": {
+      "attribute": "case:LoanGoal",
+      "comparison": "=",
+      "value": "Other, see explanation",
+      "target_activity": "W_Assess potential fraud"
+    }
+  },
+  {
+    "candidate_id": "TRI-004",
+    "heuristic": "Triage",
+    "target_activity": "W_Call incomplete files",
+    "evidence": {
+      "activity": "W_Call incomplete files",
+      "attribute": "case:LoanGoal",
+      "rule_label": "case:LoanGoal = 'Not speficied'",
+      "comparison": "=",
+      "value": "Not speficied",
+      "occurrences": 2793,
+      "n_in": 88,
+      "n_out": 2705,
+      "duration_mean_in_s": 648.7,
+      "duration_mean_out_s": 13392.0,
+      "effort_ratio": 20.65,
+      "separation_z": 3.0
+    },
+    "heuristic_context": "Target problem types: inefficient processing caused by treating all cases equally despite differences in complexity or required effort. Applicable when cases with different processing requirements are handled by the same activity without differentiation.",
+    "additional_context": "At 'W_Call incomplete files', cases where case:LoanGoal = 'Not speficied' take 649 s against 13392 s for the rest (20.65x, z=3.0, 88 vs 2705 executions) — the second group needs materially more effort. Splitting the activity per type lets each version carry its own fitted duration instead of one pooled distribution. ⚠️ This is the ONE heuristic here that cannot be a parameter edit: a Prosimos task holds exactly one service distribution, so the versions must be real nodes behind a conditioned split.",
+    "process_fragment": {
+      "attribute": "case:LoanGoal",
+      "comparison": "=",
+      "value": "Not speficied",
+      "target_activity": "W_Call incomplete files"
+    }
+  }
+]

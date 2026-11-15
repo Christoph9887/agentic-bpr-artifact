@@ -1,0 +1,1130 @@
+{
+  "heuristic": "Triage",
+  "candidates": [
+    {
+      "candidate_id": "TRI-001",
+      "heuristic": "Triage",
+      "target_activity": "W_Complete application",
+      "evidence": {
+        "activity": "W_Complete application",
+        "attribute": "case:LoanGoal",
+        "rule_label": "case:LoanGoal = 'Motorcycle'",
+        "comparison": "=",
+        "value": "Motorcycle",
+        "occurrences": 19104,
+        "n_in": 158,
+        "n_out": 18946,
+        "duration_mean_in_s": 698.2,
+        "duration_mean_out_s": 1441.7,
+        "effort_ratio": 2.06,
+        "separation_z": 5.06
+      },
+      "heuristic_context": "Target problem types: inefficient processing caused by treating all cases equally despite differences in complexity or required effort. Applicable when cases with different processing requirements are handled by the same activity without differentiation.",
+      "additional_context": "At 'W_Complete application', cases where case:LoanGoal = 'Motorcycle' take 698 s against 1442 s for the rest (2.06x, z=5.1, 158 vs 18946 executions) — the second group needs materially more effort. Splitting the activity per type lets each version carry its own fitted duration instead of one pooled distribution. ⚠️ This is the ONE heuristic here that cannot be a parameter edit: a Prosimos task holds exactly one service distribution, so the versions must be real nodes behind a conditioned split.",
+      "process_fragment": {
+        "attribute": "case:LoanGoal",
+        "comparison": "=",
+        "value": "Motorcycle",
+        "target_activity": "W_Complete application"
+      }
+    },
+    {
+      "candidate_id": "TRI-002",
+      "heuristic": "Triage",
+      "target_activity": "W_Validate application",
+      "evidence": {
+        "activity": "W_Validate application",
+        "attribute": "case:LoanGoal",
+        "rule_label": "case:LoanGoal = 'Tax payments'",
+        "comparison": "=",
+        "value": "Tax payments",
+        "occurrences": 15848,
+        "n_in": 61,
+        "n_out": 15787,
+        "duration_mean_in_s": 3036.1,
+        "duration_mean_out_s": 11158.8,
+        "effort_ratio": 3.68,
+        "separation_z": 4.36
+      },
+      "heuristic_context": "Target problem types: inefficient processing caused by treating all cases equally despite differences in complexity or required effort. Applicable when cases with different processing requirements are handled by the same activity without differentiation.",
+      "additional_context": "At 'W_Validate application', cases where case:LoanGoal = 'Tax payments' take 3036 s against 11159 s for the rest (3.68x, z=4.4, 61 vs 15787 executions) — the second group needs materially more effort. Splitting the activity per type lets each version carry its own fitted duration instead of one pooled distribution. ⚠️ This is the ONE heuristic here that cannot be a parameter edit: a Prosimos task holds exactly one service distribution, so the versions must be real nodes behind a conditioned split.",
+      "process_fragment": {
+        "attribute": "case:LoanGoal",
+        "comparison": "=",
+        "value": "Tax payments",
+        "target_activity": "W_Validate application"
+      }
+    },
+    {
+      "candidate_id": "TRI-003",
+      "heuristic": "Triage",
+      "target_activity": "W_Assess potential fraud",
+      "evidence": {
+        "activity": "W_Assess potential fraud",
+        "attribute": "case:LoanGoal",
+        "rule_label": "case:LoanGoal = 'Other, see explanation'",
+        "comparison": "=",
+        "value": "Other, see explanation",
+        "occurrences": 282,
+        "n_in": 31,
+        "n_out": 251,
+        "duration_mean_in_s": 10170.5,
+        "duration_mean_out_s": 44504.4,
+        "effort_ratio": 4.38,
+        "separation_z": 3.33
+      },
+      "heuristic_context": "Target problem types: inefficient processing caused by treating all cases equally despite differences in complexity or required effort. Applicable when cases with different processing requirements are handled by the same activity without differentiation.",
+      "additional_context": "At 'W_Assess potential fraud', cases where case:LoanGoal = 'Other, see explanation' take 10170 s against 44504 s for the rest (4.38x, z=3.3, 31 vs 251 executions) — the second group needs materially more effort. Splitting the activity per type lets each version carry its own fitted duration instead of one pooled distribution. ⚠️ This is the ONE heuristic here that cannot be a parameter edit: a Prosimos task holds exactly one service distribution, so the versions must be real nodes behind a conditioned split.",
+      "process_fragment": {
+        "attribute": "case:LoanGoal",
+        "comparison": "=",
+        "value": "Other, see explanation",
+        "target_activity": "W_Assess potential fraud"
+      }
+    },
+    {
+      "candidate_id": "TRI-004",
+      "heuristic": "Triage",
+      "target_activity": "W_Call incomplete files",
+      "evidence": {
+        "activity": "W_Call incomplete files",
+        "attribute": "case:LoanGoal",
+        "rule_label": "case:LoanGoal = 'Not speficied'",
+        "comparison": "=",
+        "value": "Not speficied",
+        "occurrences": 2793,
+        "n_in": 88,
+        "n_out": 2705,
+        "duration_mean_in_s": 648.7,
+        "duration_mean_out_s": 13392.0,
+        "effort_ratio": 20.65,
+        "separation_z": 3.0
+      },
+      "heuristic_context": "Target problem types: inefficient processing caused by treating all cases equally despite differences in complexity or required effort. Applicable when cases with different processing requirements are handled by the same activity without differentiation.",
+      "additional_context": "At 'W_Call incomplete files', cases where case:LoanGoal = 'Not speficied' take 649 s against 13392 s for the rest (20.65x, z=3.0, 88 vs 2705 executions) — the second group needs materially more effort. Splitting the activity per type lets each version carry its own fitted duration instead of one pooled distribution. ⚠️ This is the ONE heuristic here that cannot be a parameter edit: a Prosimos task holds exactly one service distribution, so the versions must be real nodes behind a conditioned split.",
+      "process_fragment": {
+        "attribute": "case:LoanGoal",
+        "comparison": "=",
+        "value": "Not speficied",
+        "target_activity": "W_Call incomplete files"
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "activity": "A_Accepted",
+      "occurrences": 31509,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "31509 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_Cancelled",
+      "occurrences": 10431,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "10431 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_Complete",
+      "occurrences": 31362,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "31362 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_Concept",
+      "occurrences": 31509,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "31509 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_Create Application",
+      "occurrences": 31509,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "31509 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_Denied",
+      "occurrences": 3753,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "3753 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_Incomplete",
+      "occurrences": 23055,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "23055 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_Pending",
+      "occurrences": 17228,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "17228 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_Submitted",
+      "occurrences": 20423,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "20423 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_Validating",
+      "occurrences": 38816,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "38816 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_Accepted",
+      "occurrences": 17228,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "17228 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_Cancelled",
+      "occurrences": 20898,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "20898 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_Create Offer",
+      "occurrences": 42995,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "42995 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_Created",
+      "occurrences": 42995,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "42995 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_Refused",
+      "occurrences": 4695,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "4695 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_Returned",
+      "occurrences": 23305,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "23305 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_Sent (mail and online)",
+      "occurrences": 39707,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "39707 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_Sent (online only)",
+      "occurrences": 2026,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "2026 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "W_Assess potential fraud",
+      "split": "case:LoanGoal = 'Car'",
+      "n_in": 94,
+      "n_out": 188,
+      "mean_in_s": 50464.2,
+      "mean_out_s": 35863.0,
+      "ratio": 1.41,
+      "z": -0.76,
+      "rejected_because": [
+        "the two types differ by only 1.41x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.76, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.41x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Assess potential fraud",
+      "split": "case:LoanGoal = 'Home improvement'",
+      "n_in": 78,
+      "n_out": 204,
+      "mean_in_s": 55319.0,
+      "mean_out_s": 35151.9,
+      "ratio": 1.57,
+      "z": -0.87,
+      "rejected_because": [
+        "the effort gap is z=-0.87, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.57x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Assess potential fraud",
+      "split": "case:LoanGoal = 'Existing loan takeover'",
+      "n_in": 32,
+      "n_out": 250,
+      "mean_in_s": 22403.1,
+      "mean_out_s": 43075.9,
+      "ratio": 1.92,
+      "z": 1.45,
+      "rejected_because": [
+        "the effort gap is z=1.45, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.92x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Assess potential fraud",
+      "split": "case:RequestedAmount <= 6000",
+      "n_in": 65,
+      "n_out": 217,
+      "mean_in_s": 22165.2,
+      "mean_out_s": 46290.9,
+      "ratio": 2.09,
+      "z": 1.65,
+      "rejected_because": [
+        "the effort gap is z=1.65, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 2.09x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Assess potential fraud",
+      "split": "case:RequestedAmount <= 12500",
+      "n_in": 127,
+      "n_out": 155,
+      "mean_in_s": 42197.5,
+      "mean_out_s": 39527.7,
+      "ratio": 1.07,
+      "z": -0.15,
+      "rejected_because": [
+        "the two types differ by only 1.07x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.15, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.07x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Assess potential fraud",
+      "split": "case:RequestedAmount <= 21000",
+      "n_in": 197,
+      "n_out": 85,
+      "mean_in_s": 43683.3,
+      "mean_out_s": 33885.6,
+      "ratio": 1.29,
+      "z": -0.6,
+      "rejected_because": [
+        "the two types differ by only 1.29x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.60, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.29x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call after offers",
+      "split": "case:LoanGoal = 'Car'",
+      "n_in": 32,
+      "n_out": 310,
+      "mean_in_s": 352.7,
+      "mean_out_s": 1497.7,
+      "ratio": 4.25,
+      "z": 1.01,
+      "rejected_because": [
+        "the effort gap is z=1.01, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 4.25x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call after offers",
+      "split": "case:LoanGoal = 'Home improvement'",
+      "n_in": 31,
+      "n_out": 311,
+      "mean_in_s": 280.8,
+      "mean_out_s": 1501.2,
+      "ratio": 5.35,
+      "z": 1.08,
+      "rejected_because": [
+        "the effort gap is z=1.08, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 5.35x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call after offers",
+      "split": "case:LoanGoal = 'Unknown'",
+      "n_in": 189,
+      "n_out": 153,
+      "mean_in_s": 91.0,
+      "mean_out_s": 2996.0,
+      "ratio": 32.92,
+      "z": 1.27,
+      "rejected_because": [
+        "the effort gap is z=1.27, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 32.92x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call after offers",
+      "split": "case:LoanGoal = 'Not speficied'",
+      "n_in": 32,
+      "n_out": 310,
+      "mean_in_s": 721.9,
+      "mean_out_s": 1459.6,
+      "ratio": 2.02,
+      "z": 0.62,
+      "rejected_because": [
+        "the effort gap is z=0.62, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 2.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call after offers",
+      "split": "case:ApplicationType = 'New credit'",
+      "n_in": 286,
+      "n_out": 56,
+      "mean_in_s": 1633.8,
+      "mean_out_s": 148.5,
+      "ratio": 11.0,
+      "z": -1.21,
+      "rejected_because": [
+        "the effort gap is z=-1.21, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 11.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call after offers",
+      "split": "case:RequestedAmount <= 6000",
+      "n_in": 216,
+      "n_out": 126,
+      "mean_in_s": 1760.1,
+      "mean_out_s": 757.2,
+      "ratio": 2.32,
+      "z": -0.61,
+      "rejected_because": [
+        "the effort gap is z=-0.61, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 2.32x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call after offers",
+      "split": "case:RequestedAmount <= 12500",
+      "n_in": 257,
+      "n_out": 85,
+      "mean_in_s": 1540.3,
+      "mean_out_s": 938.1,
+      "ratio": 1.64,
+      "z": -0.43,
+      "rejected_because": [
+        "the effort gap is z=-0.43, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.64x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call after offers",
+      "split": "case:RequestedAmount <= 21000",
+      "n_in": 298,
+      "n_out": 44,
+      "mean_in_s": 1416.7,
+      "mean_out_s": 1214.1,
+      "ratio": 1.17,
+      "z": -0.15,
+      "rejected_because": [
+        "the two types differ by only 1.17x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.15, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.17x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "split": "case:LoanGoal = 'Car'",
+      "n_in": 773,
+      "n_out": 2020,
+      "mean_in_s": 12787.1,
+      "mean_out_s": 13068.4,
+      "ratio": 1.02,
+      "z": 0.03,
+      "rejected_because": [
+        "the two types differ by only 1.02x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.03, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "split": "case:LoanGoal = 'Home improvement'",
+      "n_in": 647,
+      "n_out": 2146,
+      "mean_in_s": 24730.5,
+      "mean_out_s": 9451.0,
+      "ratio": 2.62,
+      "z": -1.09,
+      "rejected_because": [
+        "the effort gap is z=-1.09, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 2.62x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "split": "case:LoanGoal = 'Existing loan takeover'",
+      "n_in": 504,
+      "n_out": 2289,
+      "mean_in_s": 1931.1,
+      "mean_out_s": 15425.6,
+      "ratio": 7.99,
+      "z": 2.66,
+      "rejected_because": [
+        "the effort gap is z=2.66, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 7.99x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "split": "case:LoanGoal = 'Other, see explanation'",
+      "n_in": 259,
+      "n_out": 2534,
+      "mean_in_s": 1162.8,
+      "mean_out_s": 14199.4,
+      "ratio": 12.21,
+      "z": 2.87,
+      "rejected_because": [
+        "the effort gap is z=2.87, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 12.21x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "split": "case:LoanGoal = 'Unknown'",
+      "n_in": 224,
+      "n_out": 2569,
+      "mean_in_s": 5719.5,
+      "mean_out_s": 13624.5,
+      "ratio": 2.38,
+      "z": 1.37,
+      "rejected_because": [
+        "the effort gap is z=1.37, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 2.38x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "split": "case:LoanGoal = 'Remaining debt home'",
+      "n_in": 163,
+      "n_out": 2630,
+      "mean_in_s": 42241.1,
+      "mean_out_s": 11177.7,
+      "ratio": 3.78,
+      "z": -1.08,
+      "rejected_because": [
+        "the effort gap is z=-1.08, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 3.78x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "split": "case:LoanGoal = 'Extra spending limit'",
+      "n_in": 55,
+      "n_out": 2738,
+      "mean_in_s": 14002.9,
+      "mean_out_s": 12970.2,
+      "ratio": 1.08,
+      "z": -0.08,
+      "rejected_because": [
+        "the two types differ by only 1.08x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.08, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.08x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "split": "case:ApplicationType = 'New credit'",
+      "n_in": 2579,
+      "n_out": 214,
+      "mean_in_s": 11767.6,
+      "mean_out_s": 27728.1,
+      "ratio": 2.36,
+      "z": 0.7,
+      "rejected_because": [
+        "the effort gap is z=0.70, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 2.36x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "split": "case:RequestedAmount <= 6000",
+      "n_in": 697,
+      "n_out": 2096,
+      "mean_in_s": 2455.4,
+      "mean_out_s": 16493.9,
+      "ratio": 6.72,
+      "z": 2.51,
+      "rejected_because": [
+        "the effort gap is z=2.51, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 6.72x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "split": "case:RequestedAmount <= 12500",
+      "n_in": 1293,
+      "n_out": 1500,
+      "mean_in_s": 5814.1,
+      "mean_out_s": 19176.6,
+      "ratio": 3.3,
+      "z": 1.72,
+      "rejected_because": [
+        "the effort gap is z=1.72, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 3.30x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "split": "case:RequestedAmount <= 21000",
+      "n_in": 1977,
+      "n_out": 816,
+      "mean_in_s": 7112.8,
+      "mean_out_s": 27230.9,
+      "ratio": 3.83,
+      "z": 1.52,
+      "rejected_because": [
+        "the effort gap is z=1.52, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 3.83x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "split": "case:LoanGoal = 'Car'",
+      "n_in": 5310,
+      "n_out": 13794,
+      "mean_in_s": 1391.6,
+      "mean_out_s": 1452.5,
+      "ratio": 1.04,
+      "z": 0.17,
+      "rejected_because": [
+        "the two types differ by only 1.04x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.17, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.04x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "split": "case:LoanGoal = 'Home improvement'",
+      "n_in": 4591,
+      "n_out": 14513,
+      "mean_in_s": 1663.7,
+      "mean_out_s": 1363.3,
+      "ratio": 1.22,
+      "z": -0.8,
+      "rejected_because": [
+        "the two types differ by only 1.22x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.80, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.22x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "split": "case:LoanGoal = 'Existing loan takeover'",
+      "n_in": 3299,
+      "n_out": 15805,
+      "mean_in_s": 1794.1,
+      "mean_out_s": 1360.7,
+      "ratio": 1.32,
+      "z": -1.14,
+      "rejected_because": [
+        "the two types differ by only 1.32x (<1.5x) — one activity serves both",
+        "the effort gap is z=-1.14, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.32x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "split": "case:LoanGoal = 'Other, see explanation'",
+      "n_in": 1817,
+      "n_out": 17287,
+      "mean_in_s": 1189.0,
+      "mean_out_s": 1461.4,
+      "ratio": 1.23,
+      "z": 1.08,
+      "rejected_because": [
+        "the two types differ by only 1.23x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.08, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.23x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "split": "case:LoanGoal = 'Unknown'",
+      "n_in": 2009,
+      "n_out": 17095,
+      "mean_in_s": 822.1,
+      "mean_out_s": 1507.6,
+      "ratio": 1.83,
+      "z": 2.96,
+      "rejected_because": [
+        "the effort gap is z=2.96, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.83x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "split": "case:LoanGoal = 'Not speficied'",
+      "n_in": 561,
+      "n_out": 18543,
+      "mean_in_s": 2111.3,
+      "mean_out_s": 1415.1,
+      "ratio": 1.49,
+      "z": -0.71,
+      "rejected_because": [
+        "the two types differ by only 1.49x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.71, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.49x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "split": "case:LoanGoal = 'Remaining debt home'",
+      "n_in": 528,
+      "n_out": 18576,
+      "mean_in_s": 1011.1,
+      "mean_out_s": 1447.6,
+      "ratio": 1.43,
+      "z": 2.91,
+      "rejected_because": [
+        "the two types differ by only 1.43x (<1.5x) — one activity serves both",
+        "the effort gap is z=2.91, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.43x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "split": "case:LoanGoal = 'Caravan / Camper'",
+      "n_in": 228,
+      "n_out": 18876,
+      "mean_in_s": 1442.8,
+      "mean_out_s": 1435.4,
+      "ratio": 1.01,
+      "z": -0.02,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.02, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "split": "case:LoanGoal = 'Boat'",
+      "n_in": 124,
+      "n_out": 18980,
+      "mean_in_s": 1104.9,
+      "mean_out_s": 1437.7,
+      "ratio": 1.3,
+      "z": 1.12,
+      "rejected_because": [
+        "the two types differ by only 1.30x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.12, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.30x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "split": "case:ApplicationType = 'New credit'",
+      "n_in": 17026,
+      "n_out": 2078,
+      "mean_in_s": 1363.6,
+      "mean_out_s": 2025.2,
+      "ratio": 1.49,
+      "z": 1.06,
+      "rejected_because": [
+        "the two types differ by only 1.49x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.06, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.49x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "split": "case:RequestedAmount <= 6000",
+      "n_in": 5618,
+      "n_out": 13486,
+      "mean_in_s": 1535.0,
+      "mean_out_s": 1394.1,
+      "ratio": 1.1,
+      "z": -0.36,
+      "rejected_because": [
+        "the two types differ by only 1.10x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.36, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.10x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "split": "case:RequestedAmount <= 12500",
+      "n_in": 9893,
+      "n_out": 9211,
+      "mean_in_s": 1409.1,
+      "mean_out_s": 1464.0,
+      "ratio": 1.04,
+      "z": 0.19,
+      "rejected_because": [
+        "the two types differ by only 1.04x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.19, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.04x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "split": "case:RequestedAmount <= 21000",
+      "n_in": 14390,
+      "n_out": 4714,
+      "mean_in_s": 1437.0,
+      "mean_out_s": 1431.1,
+      "ratio": 1.0,
+      "z": -0.02,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.02, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Handle leads",
+      "split": "case:LoanGoal = 'Car'",
+      "n_in": 1122,
+      "n_out": 2371,
+      "mean_in_s": 270.8,
+      "mean_out_s": 254.6,
+      "ratio": 1.06,
+      "z": -0.22,
+      "rejected_because": [
+        "the two types differ by only 1.06x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.22, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.06x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Handle leads",
+      "split": "case:LoanGoal = 'Home improvement'",
+      "n_in": 596,
+      "n_out": 2897,
+      "mean_in_s": 205.5,
+      "mean_out_s": 271.0,
+      "ratio": 1.32,
+      "z": 0.92,
+      "rejected_because": [
+        "the two types differ by only 1.32x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.92, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.32x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Handle leads",
+      "split": "case:LoanGoal = 'Existing loan takeover'",
+      "n_in": 1005,
+      "n_out": 2488,
+      "mean_in_s": 304.6,
+      "mean_out_s": 241.7,
+      "ratio": 1.26,
+      "z": -0.86,
+      "rejected_because": [
+        "the two types differ by only 1.26x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.86, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.26x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Handle leads",
+      "split": "case:LoanGoal = 'Other, see explanation'",
+      "n_in": 294,
+      "n_out": 3199,
+      "mean_in_s": 233.6,
+      "mean_out_s": 262.3,
+      "ratio": 1.12,
+      "z": 0.37,
+      "rejected_because": [
+        "the two types differ by only 1.12x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.37, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.12x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Handle leads",
+      "split": "case:LoanGoal = 'Not speficied'",
+      "n_in": 245,
+      "n_out": 3248,
+      "mean_in_s": 170.7,
+      "mean_out_s": 266.6,
+      "ratio": 1.56,
+      "z": 1.9,
+      "rejected_because": [
+        "the effort gap is z=1.90, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.56x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Handle leads",
+      "split": "case:LoanGoal = 'Remaining debt home'",
+      "n_in": 51,
+      "n_out": 3442,
+      "mean_in_s": 161.7,
+      "mean_out_s": 261.3,
+      "ratio": 1.62,
+      "z": 2.26,
+      "rejected_because": [
+        "the effort gap is z=2.26, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.62x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Handle leads",
+      "split": "case:LoanGoal = 'Extra spending limit'",
+      "n_in": 66,
+      "n_out": 3427,
+      "mean_in_s": 147.6,
+      "mean_out_s": 262.0,
+      "ratio": 1.77,
+      "z": 2.62,
+      "rejected_because": [
+        "the effort gap is z=2.62, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.77x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Handle leads",
+      "split": "case:LoanGoal = 'Motorcycle'",
+      "n_in": 45,
+      "n_out": 3448,
+      "mean_in_s": 211.7,
+      "mean_out_s": 260.5,
+      "ratio": 1.23,
+      "z": 0.84,
+      "rejected_because": [
+        "the two types differ by only 1.23x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.84, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.23x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Handle leads",
+      "split": "case:RequestedAmount <= 6000",
+      "n_in": 1071,
+      "n_out": 2422,
+      "mean_in_s": 239.8,
+      "mean_out_s": 268.7,
+      "ratio": 1.12,
+      "z": 0.4,
+      "rejected_because": [
+        "the two types differ by only 1.12x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.40, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.12x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Handle leads",
+      "split": "case:RequestedAmount <= 12500",
+      "n_in": 1984,
+      "n_out": 1509,
+      "mean_in_s": 242.6,
+      "mean_out_s": 282.5,
+      "ratio": 1.16,
+      "z": 0.64,
+      "rejected_because": [
+        "the two types differ by only 1.16x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.64, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.16x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Handle leads",
+      "split": "case:RequestedAmount <= 21000",
+      "n_in": 2726,
+      "n_out": 767,
+      "mean_in_s": 251.5,
+      "mean_out_s": 289.6,
+      "ratio": 1.15,
+      "z": 0.49,
+      "rejected_because": [
+        "the two types differ by only 1.15x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.49, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.15x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:LoanGoal = 'Car'",
+      "n_in": 4025,
+      "n_out": 11823,
+      "mean_in_s": 9101.7,
+      "mean_out_s": 11817.3,
+      "ratio": 1.3,
+      "z": 2.14,
+      "rejected_because": [
+        "the two types differ by only 1.30x (<1.5x) — one activity serves both",
+        "the effort gap is z=2.14, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.30x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:LoanGoal = 'Home improvement'",
+      "n_in": 3701,
+      "n_out": 12147,
+      "mean_in_s": 10537.4,
+      "mean_out_s": 11307.4,
+      "ratio": 1.07,
+      "z": 0.52,
+      "rejected_because": [
+        "the two types differ by only 1.07x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.52, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.07x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:LoanGoal = 'Existing loan takeover'",
+      "n_in": 3124,
+      "n_out": 12724,
+      "mean_in_s": 11375.8,
+      "mean_out_s": 11066.6,
+      "ratio": 1.03,
+      "z": -0.19,
+      "rejected_because": [
+        "the two types differ by only 1.03x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.19, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.03x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:LoanGoal = 'Other, see explanation'",
+      "n_in": 1484,
+      "n_out": 14364,
+      "mean_in_s": 12626.5,
+      "mean_out_s": 10972.7,
+      "ratio": 1.15,
+      "z": -0.66,
+      "rejected_because": [
+        "the two types differ by only 1.15x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.66, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.15x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:LoanGoal = 'Unknown'",
+      "n_in": 1465,
+      "n_out": 14383,
+      "mean_in_s": 11682.0,
+      "mean_out_s": 11071.1,
+      "ratio": 1.06,
+      "z": -0.31,
+      "rejected_because": [
+        "the two types differ by only 1.06x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.31, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.06x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:LoanGoal = 'Not speficied'",
+      "n_in": 428,
+      "n_out": 15420,
+      "mean_in_s": 8632.4,
+      "mean_out_s": 11196.8,
+      "ratio": 1.3,
+      "z": 1.15,
+      "rejected_because": [
+        "the two types differ by only 1.30x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.15, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.30x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:LoanGoal = 'Remaining debt home'",
+      "n_in": 874,
+      "n_out": 14974,
+      "mean_in_s": 21104.9,
+      "mean_out_s": 10545.2,
+      "ratio": 2.0,
+      "z": -1.59,
+      "rejected_because": [
+        "the effort gap is z=-1.59, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 2.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:LoanGoal = 'Extra spending limit'",
+      "n_in": 330,
+      "n_out": 15518,
+      "mean_in_s": 11670.6,
+      "mean_out_s": 11116.0,
+      "ratio": 1.05,
+      "z": -0.16,
+      "rejected_because": [
+        "the two types differ by only 1.05x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.16, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.05x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:LoanGoal = 'Caravan / Camper'",
+      "n_in": 132,
+      "n_out": 15716,
+      "mean_in_s": 11581.9,
+      "mean_out_s": 11123.8,
+      "ratio": 1.04,
+      "z": -0.07,
+      "rejected_because": [
+        "the two types differ by only 1.04x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.07, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.04x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:LoanGoal = 'Motorcycle'",
+      "n_in": 126,
+      "n_out": 15722,
+      "mean_in_s": 7192.3,
+      "mean_out_s": 11159.1,
+      "ratio": 1.55,
+      "z": 1.13,
+      "rejected_because": [
+        "the effort gap is z=1.13, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.55x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:LoanGoal = 'Boat'",
+      "n_in": 77,
+      "n_out": 15771,
+      "mean_in_s": 8786.1,
+      "mean_out_s": 11139.0,
+      "ratio": 1.27,
+      "z": 0.48,
+      "rejected_because": [
+        "the two types differ by only 1.27x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.48, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.27x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:ApplicationType = 'New credit'",
+      "n_in": 13906,
+      "n_out": 1942,
+      "mean_in_s": 10581.5,
+      "mean_out_s": 15037.6,
+      "ratio": 1.42,
+      "z": 2.32,
+      "rejected_because": [
+        "the two types differ by only 1.42x (<1.5x) — one activity serves both",
+        "the effort gap is z=2.32, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.42x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:RequestedAmount <= 6000",
+      "n_in": 3969,
+      "n_out": 11879,
+      "mean_in_s": 9684.9,
+      "mean_out_s": 11609.6,
+      "ratio": 1.2,
+      "z": 1.44,
+      "rejected_because": [
+        "the two types differ by only 1.20x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.44, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.20x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:RequestedAmount <= 12500",
+      "n_in": 7169,
+      "n_out": 8679,
+      "mean_in_s": 9625.9,
+      "mean_out_s": 12368.0,
+      "ratio": 1.28,
+      "z": 2.08,
+      "rejected_because": [
+        "the two types differ by only 1.28x (<1.5x) — one activity serves both",
+        "the effort gap is z=2.08, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.28x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "split": "case:RequestedAmount <= 21000",
+      "n_in": 10859,
+      "n_out": 4989,
+      "mean_in_s": 10251.1,
+      "mean_out_s": 13035.4,
+      "ratio": 1.27,
+      "z": 1.78,
+      "rejected_because": [
+        "the two types differ by only 1.27x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.78, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.27x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    }
+  ]
+}

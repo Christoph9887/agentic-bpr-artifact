@@ -1,0 +1,1670 @@
+{
+  "heuristic": "Exception",
+  "total_candidates": 10,
+  "candidates": [
+    {
+      "candidate_id": "EXC-001",
+      "heuristic": "Exception",
+      "divergence_point": "A_PARTLYSUBMITTED",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_PARTLYSUBMITTED",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n6",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n1",
+            "target": "gw3"
+          },
+          {
+            "source": "gw4",
+            "target": "n5"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "gw3",
+            "target": "gw1"
+          },
+          {
+            "source": "gw3",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "gw2"
+          },
+          {
+            "source": "gw3",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "n6"
+          },
+          {
+            "source": "gw1",
+            "target": "n3"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_DECLINED"
+        ],
+        "frequency": 0.262016
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_CANCELLED"
+        ],
+        "frequency": 0.010316
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED"
+        ],
+        "dominant_suffix": [
+          "A_DECLINED"
+        ],
+        "exception_suffix": [
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_CANCELLED"
+        ],
+        "exception_exclusive_activities": [
+          "A_CANCELLED",
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag"
+        ],
+        "missing_activities": [
+          "A_DECLINED"
+        ]
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.2517,
+        "throughput_time_dominant": 0.011,
+        "throughput_time_exception": 534.602,
+        "throughput_time_gap": 534.591,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 673,
+        "exception_group_frequency": 0.051425,
+        "exception_variant_count": 16,
+        "throughput_time_exception_max": 737.363
+      },
+      "additional_context": "The exception path takes 534.6 hours on average, which is 48600.2x slower than the dominant path (0.0 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 3 activities not present in the dominant flow: A_CANCELLED, A_PREACCEPTED, W_Completeren aanvraag. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: A_DECLINED. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: W_Completeren aanvraag. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_PARTLYSUBMITTED' account for 5.1% of total cases (673 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-010",
+      "heuristic": "Exception",
+      "divergence_point": "A_PARTLYSUBMITTED",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_PARTLYSUBMITTED",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n6",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n1",
+            "target": "gw3"
+          },
+          {
+            "source": "gw4",
+            "target": "n5"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "gw3",
+            "target": "gw1"
+          },
+          {
+            "source": "gw3",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "gw2"
+          },
+          {
+            "source": "gw3",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "n6"
+          },
+          {
+            "source": "gw1",
+            "target": "n3"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_DECLINED"
+        ],
+        "frequency": 0.262016
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_ACCEPTED",
+          "O_SELECTED",
+          "A_FINALIZED",
+          "O_CREATED",
+          "O_SENT",
+          "W_Nabellen offertes",
+          "W_Nabellen offertes",
+          "W_Nabellen offertes"
+        ],
+        "frequency": 0.000917
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED"
+        ],
+        "dominant_suffix": [
+          "A_DECLINED"
+        ],
+        "exception_suffix": [
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_ACCEPTED",
+          "O_SELECTED",
+          "A_FINALIZED",
+          "O_CREATED",
+          "O_SENT",
+          "W_Nabellen offertes",
+          "W_Nabellen offertes",
+          "W_Nabellen offertes"
+        ],
+        "exception_exclusive_activities": [
+          "A_ACCEPTED",
+          "A_FINALIZED",
+          "A_PREACCEPTED",
+          "O_CREATED",
+          "O_SELECTED",
+          "O_SENT",
+          "W_Completeren aanvraag",
+          "W_Nabellen offertes"
+        ],
+        "missing_activities": [
+          "A_DECLINED"
+        ]
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.261099,
+        "throughput_time_dominant": 0.011,
+        "throughput_time_exception": 328.139,
+        "throughput_time_gap": 328.128,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 12,
+        "exception_group_frequency": 0.000917,
+        "exception_variant_count": 1,
+        "throughput_time_exception_max": 328.139
+      },
+      "additional_context": "The exception path takes 328.1 hours on average, which is 29830.8x slower than the dominant path (0.0 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 8 activities not present in the dominant flow: A_ACCEPTED, A_FINALIZED, A_PREACCEPTED, O_CREATED, O_SELECTED, O_SENT, W_Completeren aanvraag, W_Nabellen offertes. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: A_DECLINED. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: O_CREATED, O_SELECTED, O_SENT, W_Completeren aanvraag, W_Nabellen offertes. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_PARTLYSUBMITTED' account for 0.1% of total cases (12 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-005",
+      "heuristic": "Exception",
+      "divergence_point": "A_PARTLYSUBMITTED",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_PARTLYSUBMITTED",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n6",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n1",
+            "target": "gw3"
+          },
+          {
+            "source": "gw4",
+            "target": "n5"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "gw3",
+            "target": "gw1"
+          },
+          {
+            "source": "gw3",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "gw2"
+          },
+          {
+            "source": "gw3",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "n6"
+          },
+          {
+            "source": "gw1",
+            "target": "n3"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_DECLINED"
+        ],
+        "frequency": 0.262016
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_ACCEPTED",
+          "O_SELECTED",
+          "A_FINALIZED",
+          "O_CREATED",
+          "O_SENT",
+          "W_Nabellen offertes",
+          "W_Nabellen offertes",
+          "O_CANCELLED",
+          "A_CANCELLED"
+        ],
+        "frequency": 0.001375
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED"
+        ],
+        "dominant_suffix": [
+          "A_DECLINED"
+        ],
+        "exception_suffix": [
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_ACCEPTED",
+          "O_SELECTED",
+          "A_FINALIZED",
+          "O_CREATED",
+          "O_SENT",
+          "W_Nabellen offertes",
+          "W_Nabellen offertes",
+          "O_CANCELLED",
+          "A_CANCELLED"
+        ],
+        "exception_exclusive_activities": [
+          "A_ACCEPTED",
+          "A_CANCELLED",
+          "A_FINALIZED",
+          "A_PREACCEPTED",
+          "O_CANCELLED",
+          "O_CREATED",
+          "O_SELECTED",
+          "O_SENT",
+          "W_Completeren aanvraag",
+          "W_Nabellen offertes"
+        ],
+        "missing_activities": [
+          "A_DECLINED"
+        ]
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.26064,
+        "throughput_time_dominant": 0.011,
+        "throughput_time_exception": 307.948,
+        "throughput_time_gap": 307.937,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 232,
+        "exception_group_frequency": 0.017728,
+        "exception_variant_count": 18,
+        "throughput_time_exception_max": 744.897
+      },
+      "additional_context": "The exception path takes 307.9 hours on average, which is 27995.3x slower than the dominant path (0.0 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 10 activities not present in the dominant flow: A_ACCEPTED, A_CANCELLED, A_FINALIZED, A_PREACCEPTED, O_CANCELLED, O_CREATED, O_SELECTED, O_SENT, W_Completeren aanvraag, W_Nabellen offertes. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: A_DECLINED. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: O_CANCELLED, O_CREATED, O_SELECTED, O_SENT, W_Completeren aanvraag, W_Nabellen offertes. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_PARTLYSUBMITTED' account for 1.8% of total cases (232 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-009",
+      "heuristic": "Exception",
+      "divergence_point": "A_PARTLYSUBMITTED",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_PARTLYSUBMITTED",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n6",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n1",
+            "target": "gw3"
+          },
+          {
+            "source": "gw4",
+            "target": "n5"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "gw3",
+            "target": "gw1"
+          },
+          {
+            "source": "gw3",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "gw2"
+          },
+          {
+            "source": "gw3",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "n6"
+          },
+          {
+            "source": "gw1",
+            "target": "n3"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_DECLINED"
+        ],
+        "frequency": 0.262016
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_ACCEPTED",
+          "A_FINALIZED",
+          "O_SELECTED",
+          "O_CREATED",
+          "O_SENT",
+          "W_Nabellen offertes",
+          "W_Nabellen offertes",
+          "O_SENT_BACK",
+          "W_Valideren aanvraag",
+          "O_DECLINED",
+          "A_DECLINED"
+        ],
+        "frequency": 0.000764
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED"
+        ],
+        "dominant_suffix": [
+          "A_DECLINED"
+        ],
+        "exception_suffix": [
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_ACCEPTED",
+          "A_FINALIZED",
+          "O_SELECTED",
+          "O_CREATED",
+          "O_SENT",
+          "W_Nabellen offertes",
+          "W_Nabellen offertes",
+          "O_SENT_BACK",
+          "W_Valideren aanvraag",
+          "O_DECLINED",
+          "A_DECLINED"
+        ],
+        "exception_exclusive_activities": [
+          "A_ACCEPTED",
+          "A_FINALIZED",
+          "A_PREACCEPTED",
+          "O_CREATED",
+          "O_DECLINED",
+          "O_SELECTED",
+          "O_SENT",
+          "O_SENT_BACK",
+          "W_Completeren aanvraag",
+          "W_Nabellen offertes",
+          "W_Valideren aanvraag"
+        ],
+        "missing_activities": []
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.261252,
+        "throughput_time_dominant": 0.011,
+        "throughput_time_exception": 242.895,
+        "throughput_time_gap": 242.885,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 10,
+        "exception_group_frequency": 0.000764,
+        "exception_variant_count": 1,
+        "throughput_time_exception_max": 242.895
+      },
+      "additional_context": "The exception path takes 242.9 hours on average, which is 22081.4x slower than the dominant path (0.0 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 11 activities not present in the dominant flow: A_ACCEPTED, A_FINALIZED, A_PREACCEPTED, O_CREATED, O_DECLINED, O_SELECTED, O_SENT, O_SENT_BACK, W_Completeren aanvraag, W_Nabellen offertes, W_Valideren aanvraag. These activities represent the additional handling required for exceptional cases. Activities with rework in the exception path: O_CREATED, O_SELECTED, O_SENT, O_SENT_BACK, W_Completeren aanvraag, W_Nabellen offertes, W_Valideren aanvraag. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_PARTLYSUBMITTED' account for 0.1% of total cases (10 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-003",
+      "heuristic": "Exception",
+      "divergence_point": "A_PARTLYSUBMITTED",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_PARTLYSUBMITTED",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n6",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n1",
+            "target": "gw3"
+          },
+          {
+            "source": "gw4",
+            "target": "n5"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "gw3",
+            "target": "gw1"
+          },
+          {
+            "source": "gw3",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "gw2"
+          },
+          {
+            "source": "gw3",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "n6"
+          },
+          {
+            "source": "gw1",
+            "target": "n3"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_DECLINED"
+        ],
+        "frequency": 0.262016
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "W_Afhandelen leads",
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_CANCELLED"
+        ],
+        "frequency": 0.004203
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED"
+        ],
+        "dominant_suffix": [
+          "A_DECLINED"
+        ],
+        "exception_suffix": [
+          "W_Afhandelen leads",
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_CANCELLED"
+        ],
+        "exception_exclusive_activities": [
+          "A_CANCELLED",
+          "A_PREACCEPTED",
+          "W_Afhandelen leads",
+          "W_Completeren aanvraag"
+        ],
+        "missing_activities": [
+          "A_DECLINED"
+        ]
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.257813,
+        "throughput_time_dominant": 0.011,
+        "throughput_time_exception": 199.795,
+        "throughput_time_gap": 199.784,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 256,
+        "exception_group_frequency": 0.019561,
+        "exception_variant_count": 12,
+        "throughput_time_exception_max": 737.647
+      },
+      "additional_context": "The exception path takes 199.8 hours on average, which is 18163.2x slower than the dominant path (0.0 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 4 activities not present in the dominant flow: A_CANCELLED, A_PREACCEPTED, W_Afhandelen leads, W_Completeren aanvraag. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: A_DECLINED. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: W_Afhandelen leads, W_Completeren aanvraag. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_PARTLYSUBMITTED' account for 2.0% of total cases (256 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-007",
+      "heuristic": "Exception",
+      "divergence_point": "A_PARTLYSUBMITTED",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_PARTLYSUBMITTED",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n6",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n1",
+            "target": "gw3"
+          },
+          {
+            "source": "gw4",
+            "target": "n5"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "gw3",
+            "target": "gw1"
+          },
+          {
+            "source": "gw3",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "gw2"
+          },
+          {
+            "source": "gw3",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "n6"
+          },
+          {
+            "source": "gw1",
+            "target": "n3"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_DECLINED"
+        ],
+        "frequency": 0.262016
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "W_Beoordelen fraude",
+          "W_Beoordelen fraude",
+          "A_DECLINED"
+        ],
+        "frequency": 0.002445
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED"
+        ],
+        "dominant_suffix": [
+          "A_DECLINED"
+        ],
+        "exception_suffix": [
+          "W_Beoordelen fraude",
+          "W_Beoordelen fraude",
+          "A_DECLINED"
+        ],
+        "exception_exclusive_activities": [
+          "W_Beoordelen fraude"
+        ],
+        "missing_activities": []
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.259571,
+        "throughput_time_dominant": 0.011,
+        "throughput_time_exception": 52.583,
+        "throughput_time_gap": 52.572,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 43,
+        "exception_group_frequency": 0.003286,
+        "exception_variant_count": 2,
+        "throughput_time_exception_max": 52.753
+      },
+      "additional_context": "The exception path takes 52.6 hours on average, which is 4780.3x slower than the dominant path (0.0 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 1 activities not present in the dominant flow: W_Beoordelen fraude. These activities represent the additional handling required for exceptional cases. Activities with rework in the exception path: W_Beoordelen fraude. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_PARTLYSUBMITTED' account for 0.3% of total cases (43 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-002",
+      "heuristic": "Exception",
+      "divergence_point": "A_PARTLYSUBMITTED",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_PARTLYSUBMITTED",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n6",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n1",
+            "target": "gw3"
+          },
+          {
+            "source": "gw4",
+            "target": "n5"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "gw3",
+            "target": "gw1"
+          },
+          {
+            "source": "gw3",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "gw2"
+          },
+          {
+            "source": "gw3",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "n6"
+          },
+          {
+            "source": "gw1",
+            "target": "n3"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_DECLINED"
+        ],
+        "frequency": 0.262016
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "W_Afhandelen leads",
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_DECLINED"
+        ],
+        "frequency": 0.01597
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED"
+        ],
+        "dominant_suffix": [
+          "A_DECLINED"
+        ],
+        "exception_suffix": [
+          "W_Afhandelen leads",
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_DECLINED"
+        ],
+        "exception_exclusive_activities": [
+          "A_PREACCEPTED",
+          "W_Afhandelen leads",
+          "W_Completeren aanvraag"
+        ],
+        "missing_activities": []
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.246046,
+        "throughput_time_dominant": 0.011,
+        "throughput_time_exception": 26.864,
+        "throughput_time_gap": 26.853,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 608,
+        "exception_group_frequency": 0.046458,
+        "exception_variant_count": 11,
+        "throughput_time_exception_max": 94.405
+      },
+      "additional_context": "The exception path takes 26.9 hours on average, which is 2442.2x slower than the dominant path (0.0 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 3 activities not present in the dominant flow: A_PREACCEPTED, W_Afhandelen leads, W_Completeren aanvraag. These activities represent the additional handling required for exceptional cases. Activities with rework in the exception path: W_Afhandelen leads, W_Completeren aanvraag. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_PARTLYSUBMITTED' account for 4.6% of total cases (608 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-004",
+      "heuristic": "Exception",
+      "divergence_point": "A_PARTLYSUBMITTED",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_PARTLYSUBMITTED",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n6",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n1",
+            "target": "gw3"
+          },
+          {
+            "source": "gw4",
+            "target": "n5"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "gw3",
+            "target": "gw1"
+          },
+          {
+            "source": "gw3",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "gw2"
+          },
+          {
+            "source": "gw3",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "n6"
+          },
+          {
+            "source": "gw1",
+            "target": "n3"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_DECLINED"
+        ],
+        "frequency": 0.262016
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_DECLINED"
+        ],
+        "frequency": 0.012226
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED"
+        ],
+        "dominant_suffix": [
+          "A_DECLINED"
+        ],
+        "exception_suffix": [
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_DECLINED"
+        ],
+        "exception_exclusive_activities": [
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag"
+        ],
+        "missing_activities": []
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.24979,
+        "throughput_time_dominant": 0.011,
+        "throughput_time_exception": 16.068,
+        "throughput_time_gap": 16.057,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 354,
+        "exception_group_frequency": 0.02705,
+        "exception_variant_count": 6,
+        "throughput_time_exception_max": 106.692
+      },
+      "additional_context": "The exception path takes 16.1 hours on average, which is 1460.7x slower than the dominant path (0.0 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 2 activities not present in the dominant flow: A_PREACCEPTED, W_Completeren aanvraag. These activities represent the additional handling required for exceptional cases. Activities with rework in the exception path: W_Completeren aanvraag. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_PARTLYSUBMITTED' account for 2.7% of total cases (354 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-008",
+      "heuristic": "Exception",
+      "divergence_point": "A_PARTLYSUBMITTED",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_PARTLYSUBMITTED",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n6",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n1",
+            "target": "gw3"
+          },
+          {
+            "source": "gw4",
+            "target": "n5"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "gw3",
+            "target": "gw1"
+          },
+          {
+            "source": "gw3",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "gw2"
+          },
+          {
+            "source": "gw3",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "n6"
+          },
+          {
+            "source": "gw1",
+            "target": "n3"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_DECLINED"
+        ],
+        "frequency": 0.262016
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_ACCEPTED",
+          "A_CANCELLED"
+        ],
+        "frequency": 0.001146
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED"
+        ],
+        "dominant_suffix": [
+          "A_DECLINED"
+        ],
+        "exception_suffix": [
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag",
+          "A_ACCEPTED",
+          "A_CANCELLED"
+        ],
+        "exception_exclusive_activities": [
+          "A_ACCEPTED",
+          "A_CANCELLED",
+          "A_PREACCEPTED",
+          "W_Completeren aanvraag"
+        ],
+        "missing_activities": [
+          "A_DECLINED"
+        ]
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.26087,
+        "throughput_time_dominant": 0.011,
+        "throughput_time_exception": 8.012,
+        "throughput_time_gap": 8.001,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 15,
+        "exception_group_frequency": 0.001146,
+        "exception_variant_count": 1,
+        "throughput_time_exception_max": 8.012
+      },
+      "additional_context": "The exception path takes 8.0 hours on average, which is 728.4x slower than the dominant path (0.0 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 4 activities not present in the dominant flow: A_ACCEPTED, A_CANCELLED, A_PREACCEPTED, W_Completeren aanvraag. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: A_DECLINED. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: W_Completeren aanvraag. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_PARTLYSUBMITTED' account for 0.1% of total cases (15 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-006",
+      "heuristic": "Exception",
+      "divergence_point": "A_PARTLYSUBMITTED",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_PARTLYSUBMITTED",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n6",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n1",
+            "target": "gw3"
+          },
+          {
+            "source": "gw4",
+            "target": "n5"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "gw3",
+            "target": "gw1"
+          },
+          {
+            "source": "gw3",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "gw2"
+          },
+          {
+            "source": "gw3",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "n6"
+          },
+          {
+            "source": "gw1",
+            "target": "n3"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "A_DECLINED"
+        ],
+        "frequency": 0.262016
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED",
+          "W_Afhandelen leads",
+          "W_Afhandelen leads",
+          "A_DECLINED"
+        ],
+        "frequency": 0.020708
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_SUBMITTED",
+          "A_PARTLYSUBMITTED"
+        ],
+        "dominant_suffix": [
+          "A_DECLINED"
+        ],
+        "exception_suffix": [
+          "W_Afhandelen leads",
+          "W_Afhandelen leads",
+          "A_DECLINED"
+        ],
+        "exception_exclusive_activities": [
+          "W_Afhandelen leads"
+        ],
+        "missing_activities": []
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.241308,
+        "throughput_time_dominant": 0.011,
+        "throughput_time_exception": 7.455,
+        "throughput_time_gap": 7.445,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 341,
+        "exception_group_frequency": 0.026056,
+        "exception_variant_count": 3,
+        "throughput_time_exception_max": 11.353
+      },
+      "additional_context": "The exception path takes 7.5 hours on average, which is 677.7x slower than the dominant path (0.0 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 1 activities not present in the dominant flow: W_Afhandelen leads. These activities represent the additional handling required for exceptional cases. Activities with rework in the exception path: W_Afhandelen leads. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_PARTLYSUBMITTED' account for 2.6% of total cases (341 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    }
+  ],
+  "unactionable_variants": []
+}

@@ -1,0 +1,191 @@
+{
+  "n_runs": 20,
+  "kpi": {
+    "throughput_h_median": 240.2074313163611,
+    "throughput_h_median_std": 25.56758650263838,
+    "vs_baseline_pct": 19.69008327833088,
+    "vs_baseline_z": 5.648859564052987
+  },
+  "aggregate": {
+    "n_cases_mean": 3000.0,
+    "n_cases_std": 0.0,
+    "n_events_mean": 12289.25,
+    "n_events_std": 12.581837368959565,
+    "throughput_h_mean_mean": 226.9482628297451,
+    "throughput_h_mean_std": 20.741811287093903,
+    "throughput_h_median_mean": 240.2074313163611,
+    "throughput_h_median_std": 25.56758650263838,
+    "throughput_h_p90_mean": 338.8085199237681,
+    "throughput_h_p90_std": 29.132213810571304,
+    "throughput_h_p99_mean": 403.779729505389,
+    "throughput_h_p99_std": 35.270050587952646,
+    "throughput_h_max_mean": 439.4132941105833,
+    "throughput_h_max_std": 36.096172025725906,
+    "waiting_h_per_event_mean_mean": 41.87526382273206,
+    "waiting_h_per_event_mean_std": 5.05206253142683,
+    "waiting_h_per_case_mean_mean": 171.54113886217837,
+    "waiting_h_per_case_mean_std": 20.730744151143153,
+    "duration_h_mean_mean": 13.525768943247238,
+    "duration_h_mean_std": 0.03167914021644248,
+    "utilization_mean_mean": 0.9586771197228183,
+    "utilization_mean_std": 0.004662298149402565,
+    "obs_window_h_mean": 1520.9675214545834,
+    "obs_window_h_std": 8.399912768329624,
+    "waiting_h_mean_mean": 41.87526382273206,
+    "waiting_h_mean_std": 5.05206253142683,
+    "per_activity": {
+      "Exception Handler": {
+        "waiting_h_mean": 43.922103296940065,
+        "waiting_h_std": 5.908886269882306,
+        "duration_h_mean": 8.956338868975658,
+        "duration_h_std": 0.06208409593289514,
+        "n_mean": 578.5,
+        "n_runs_observed": 20
+      },
+      "diagnosis 1st": {
+        "waiting_h_mean": 42.10686581733577,
+        "waiting_h_std": 5.074496248284756,
+        "duration_h_mean": 11.344267329435066,
+        "duration_h_std": 0.06815503491495448,
+        "n_mean": 3000.0,
+        "n_runs_observed": 20
+      },
+      "intake": {
+        "waiting_h_mean": 39.48619629655214,
+        "waiting_h_std": 4.646359734462306,
+        "duration_h_mean": 12.281800388986571,
+        "duration_h_std": 0.08552309607861394,
+        "n_mean": 3000.0,
+        "n_runs_observed": 20
+      },
+      "repair": {
+        "waiting_h_mean": 43.1132217645846,
+        "waiting_h_std": 5.291848947111995,
+        "duration_h_mean": 18.937527461862494,
+        "duration_h_std": 0.13553241628050874,
+        "n_mean": 3000.0,
+        "n_runs_observed": 20
+      },
+      "replace": {
+        "waiting_h_mean": 42.45954849237357,
+        "waiting_h_std": 5.078197914871075,
+        "duration_h_mean": 12.302447161694086,
+        "duration_h_std": 0.08937360406219842,
+        "n_mean": 2710.75,
+        "n_runs_observed": 20
+      }
+    },
+    "case_endings_mean": {
+      "Exception Handler": 289.25,
+      "replace": 2710.75
+    },
+    "case_endings_std": {
+      "Exception Handler": 12.263258131508119,
+      "replace": 12.263258131508119
+    },
+    "duration_h_per_case_mean_mean": 55.40712396756673,
+    "duration_h_per_case_mean_std": 0.11071897828449603
+  },
+  "significant_waiting_h": [
+    {
+      "activity": "intake",
+      "base": 0.0002277890762175926,
+      "redes": 39.48619629655214,
+      "z": 38.00536957677832,
+      "status": "changed"
+    },
+    {
+      "activity": "replace",
+      "base": 0.0002446699100882035,
+      "redes": 42.45954849237357,
+      "z": 37.39196097324086,
+      "status": "changed"
+    },
+    {
+      "activity": "diagnosis 1st",
+      "base": 0.07823675595899536,
+      "redes": 42.10686581733577,
+      "z": 37.03965287165709,
+      "status": "changed"
+    },
+    {
+      "activity": "repair",
+      "base": 107.54779463548971,
+      "redes": 43.1132217645846,
+      "z": -18.59955990791217,
+      "status": "changed"
+    },
+    {
+      "activity": "Exception Handler",
+      "base": null,
+      "redes": 43.922103296940065,
+      "z": null,
+      "status": "NEW"
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "base": 107.3600897831204,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "return",
+      "base": 0.00019887581910644648,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    }
+  ],
+  "significant_duration_h": [
+    {
+      "activity": "repair",
+      "base": 47.69374981189326,
+      "redes": 18.937527461862494,
+      "z": -391.65501467731576,
+      "status": "changed"
+    },
+    {
+      "activity": "diagnosis 1st",
+      "base": 12.10943189111776,
+      "redes": 11.344267329435066,
+      "z": -34.667672539931054,
+      "status": "changed"
+    },
+    {
+      "activity": "replace",
+      "base": 11.971308651086783,
+      "redes": 12.302447161694086,
+      "z": 14.51792766632799,
+      "status": "changed"
+    },
+    {
+      "activity": "intake",
+      "base": 12.014252428295666,
+      "redes": 12.281800388986571,
+      "z": 10.71091877893814,
+      "status": "changed"
+    },
+    {
+      "activity": "Exception Handler",
+      "base": null,
+      "redes": 8.956338868975658,
+      "z": null,
+      "status": "NEW"
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "base": 12.190882897888706,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "return",
+      "base": 12.043038360582987,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    }
+  ]
+}

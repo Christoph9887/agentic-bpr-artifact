@@ -1,0 +1,132 @@
+{
+  "round": 3,
+  "enforced": true,
+  "plan_in": [
+    "CBW-001",
+    "CT-001",
+    "EXC-002",
+    "EXC-001",
+    "XR-001"
+  ],
+  "plan_out": [
+    "CBW-001",
+    "CT-001",
+    "EXC-002",
+    "EXC-001",
+    "XR-001"
+  ],
+  "compliance": [],
+  "rulings": [],
+  "pruned": [],
+  "blocked": [],
+  "reorder_suggestion": null,
+  "survival": {
+    "CBW-001": {
+      "candidate_id": "CBW-001",
+      "heuristic": "Case-based Work",
+      "targets": [
+        "repair"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "repair"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CT-001": {
+      "candidate_id": "CT-001",
+      "heuristic": "Case Types",
+      "targets": [
+        "diagnosis 2nd"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-001"
+      ],
+      "surviving": [
+        "diagnosis 2nd"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "EXC-002": {
+      "candidate_id": "EXC-002",
+      "heuristic": "Exception",
+      "targets": [
+        "repair",
+        "return"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [
+        "EXC-001"
+      ],
+      "surviving": [
+        "repair",
+        "return"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "EXC-001": {
+      "candidate_id": "EXC-001",
+      "heuristic": "Exception",
+      "targets": [
+        "diagnosis 1st",
+        "diagnosis 2nd",
+        "return"
+      ],
+      "removed_by_earlier_candidate": [
+        "return"
+      ],
+      "removed_by_earlier": [
+        "EXC-002"
+      ],
+      "removed_by": [
+        "EXC-002"
+      ],
+      "surviving": [
+        "diagnosis 1st",
+        "diagnosis 2nd"
+      ],
+      "fraction_surviving": 0.6666666666666666,
+      "signal": "some_targets_removed"
+    },
+    "XR-001": {
+      "candidate_id": "XR-001",
+      "heuristic": "Extra Resources",
+      "targets": [
+        "repair"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "repair"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    }
+  },
+  "note": "",
+  "rollback_note": "",
+  "halted": false,
+  "grounding": [
+    "knowledge.check_target_survival({\"candidate_id\": \"CBW-001\", \"ordering\": [\"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CT-001\", \"ordering\": [\"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-002\", \"ordering\": [\"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"EXC-001\", \"ordering\": [\"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"XR-001\", \"ordering\": [\"CBW-001\", \"CT-001\", \"EXC-002\", \"EXC-001\", \"XR-001\"]})"
+  ],
+  "deleter_probes": {
+    "AE-001": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    }
+  }
+}

@@ -1,0 +1,270 @@
+{
+  "heuristic": "Numerical Involvement",
+  "candidates": [],
+  "rejected": [
+    {
+      "activity": "A_Accepted",
+      "cases": 31509,
+      "cases_fragmented": 100,
+      "fragmented_share": 0.0032,
+      "handover_rate_mean": 0.2964,
+      "unique_resources_mean": 4.34,
+      "rejected_because": [
+        "only 0.3% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "A_Cancelled",
+      "cases": 10431,
+      "cases_fragmented": 9,
+      "fragmented_share": 0.0009,
+      "handover_rate_mean": 0.2225,
+      "unique_resources_mean": 2.7,
+      "rejected_because": [
+        "only 0.1% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "A_Complete",
+      "cases": 31362,
+      "cases_fragmented": 100,
+      "fragmented_share": 0.0032,
+      "handover_rate_mean": 0.297,
+      "unique_resources_mean": 4.35,
+      "rejected_because": [
+        "only 0.3% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "A_Concept",
+      "cases": 31509,
+      "cases_fragmented": 100,
+      "fragmented_share": 0.0032,
+      "handover_rate_mean": 0.2964,
+      "unique_resources_mean": 4.34,
+      "rejected_because": [
+        "only 0.3% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "A_Create Application",
+      "cases": 31509,
+      "cases_fragmented": 100,
+      "fragmented_share": 0.0032,
+      "handover_rate_mean": 0.2964,
+      "unique_resources_mean": 4.34,
+      "rejected_because": [
+        "only 0.3% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "A_Denied",
+      "cases": 3752,
+      "cases_fragmented": 9,
+      "fragmented_share": 0.0024,
+      "handover_rate_mean": 0.3129,
+      "unique_resources_mean": 4.62,
+      "rejected_because": [
+        "only 0.2% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "A_Incomplete",
+      "cases": 15003,
+      "cases_fragmented": 100,
+      "fragmented_share": 0.0067,
+      "handover_rate_mean": 0.3629,
+      "unique_resources_mean": 5.73,
+      "rejected_because": [
+        "only 0.7% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "A_Pending",
+      "cases": 17228,
+      "cases_fragmented": 82,
+      "fragmented_share": 0.0048,
+      "handover_rate_mean": 0.3377,
+      "unique_resources_mean": 5.27,
+      "rejected_because": [
+        "only 0.5% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "A_Submitted",
+      "cases": 20423,
+      "cases_fragmented": 68,
+      "fragmented_share": 0.0033,
+      "handover_rate_mean": 0.3111,
+      "unique_resources_mean": 4.5,
+      "rejected_because": [
+        "only 0.3% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "A_Validating",
+      "cases": 21870,
+      "cases_fragmented": 100,
+      "fragmented_share": 0.0046,
+      "handover_rate_mean": 0.3358,
+      "unique_resources_mean": 5.19,
+      "rejected_because": [
+        "only 0.5% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "O_Accepted",
+      "cases": 17228,
+      "cases_fragmented": 82,
+      "fragmented_share": 0.0048,
+      "handover_rate_mean": 0.3377,
+      "unique_resources_mean": 5.27,
+      "rejected_because": [
+        "only 0.5% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "O_Cancelled",
+      "cases": 15682,
+      "cases_fragmented": 14,
+      "fragmented_share": 0.0009,
+      "handover_rate_mean": 0.2546,
+      "unique_resources_mean": 3.86,
+      "rejected_because": [
+        "only 0.1% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "O_Create Offer",
+      "cases": 31509,
+      "cases_fragmented": 100,
+      "fragmented_share": 0.0032,
+      "handover_rate_mean": 0.2964,
+      "unique_resources_mean": 4.34,
+      "rejected_because": [
+        "only 0.3% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "O_Created",
+      "cases": 31509,
+      "cases_fragmented": 100,
+      "fragmented_share": 0.0032,
+      "handover_rate_mean": 0.2964,
+      "unique_resources_mean": 4.34,
+      "rejected_because": [
+        "only 0.3% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "O_Refused",
+      "cases": 3720,
+      "cases_fragmented": 9,
+      "fragmented_share": 0.0024,
+      "handover_rate_mean": 0.3135,
+      "unique_resources_mean": 4.63,
+      "rejected_because": [
+        "only 0.2% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "O_Returned",
+      "cases": 21768,
+      "cases_fragmented": 99,
+      "fragmented_share": 0.0045,
+      "handover_rate_mean": 0.336,
+      "unique_resources_mean": 5.19,
+      "rejected_because": [
+        "only 0.5% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "O_Sent (mail and online)",
+      "cases": 31050,
+      "cases_fragmented": 99,
+      "fragmented_share": 0.0032,
+      "handover_rate_mean": 0.2978,
+      "unique_resources_mean": 4.36,
+      "rejected_because": [
+        "only 0.3% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "O_Sent (online only)",
+      "cases": 1800,
+      "cases_fragmented": 2,
+      "fragmented_share": 0.0011,
+      "handover_rate_mean": 0.3215,
+      "unique_resources_mean": 6.12,
+      "rejected_because": [
+        "only 0.1% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "W_Assess potential fraud",
+      "cases": 268,
+      "cases_fragmented": 6,
+      "fragmented_share": 0.0224,
+      "handover_rate_mean": 0.3603,
+      "unique_resources_mean": 5.95,
+      "rejected_because": [
+        "only 2.2% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "W_Call after offers",
+      "cases": 341,
+      "cases_fragmented": 1,
+      "fragmented_share": 0.0029,
+      "handover_rate_mean": 0.1933,
+      "unique_resources_mean": 2.88,
+      "rejected_because": [
+        "only 0.3% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "W_Call incomplete files",
+      "cases": 2660,
+      "cases_fragmented": 59,
+      "fragmented_share": 0.0222,
+      "handover_rate_mean": 0.4179,
+      "unique_resources_mean": 6.07,
+      "rejected_because": [
+        "only 2.2% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "W_Complete application",
+      "cases": 19102,
+      "cases_fragmented": 77,
+      "fragmented_share": 0.004,
+      "handover_rate_mean": 0.2827,
+      "unique_resources_mean": 4.17,
+      "rejected_because": [
+        "only 0.4% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "W_Handle leads",
+      "cases": 3493,
+      "cases_fragmented": 54,
+      "fragmented_share": 0.0155,
+      "handover_rate_mean": 0.4007,
+      "unique_resources_mean": 5.17,
+      "rejected_because": [
+        "only 1.5% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    },
+    {
+      "activity": "W_Validate application",
+      "cases": 10912,
+      "cases_fragmented": 75,
+      "fragmented_share": 0.0069,
+      "handover_rate_mean": 0.3634,
+      "unique_resources_mean": 5.49,
+      "rejected_because": [
+        "only 0.7% of its cases are passed around (<15% at a handover rate of 60%) — the coordination overhead this heuristic targets is not present here"
+      ]
+    }
+  ]
+}

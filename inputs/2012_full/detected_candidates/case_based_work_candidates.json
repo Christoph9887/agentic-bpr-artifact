@@ -1,0 +1,359 @@
+{
+  "heuristic": "Case-based Work",
+  "total_candidates": 3,
+  "candidates": [
+    {
+      "candidate_id": "CBW-001",
+      "heuristic": "Case-based Work",
+      "target_activity": "W_Nabellen offertes",
+      "heuristic_context": "Target problem types: delays caused by batch processing or periodic handling of cases, accumulation of waiting cases before execution. Applicable structural situations: activities executed in batches or triggered periodically instead of being processed immediately when a case arrives. How the data is used: Repeated patterns where multiple cases start the same activity at nearly identical timestamps or where long waiting times precede activity execution indicate batch or periodic processing instead of case-by-case handling. Transformation style: redesign the process so that cases are processed individually upon arrival instead of waiting for batch or periodic execution. Feasibility: Yes. Batch patterns and periodic execution behavior can be detected from event log timestamps, and the process can be redesigned to enable case-by-case execution.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "W_Nabellen offertes",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "gw2",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "gw1"
+          },
+          {
+            "source": "n1",
+            "target": "gw2"
+          },
+          {
+            "source": "gw4",
+            "target": "n3"
+          },
+          {
+            "source": "gw4",
+            "target": "gw3"
+          },
+          {
+            "source": "gw1",
+            "target": "n2"
+          },
+          {
+            "source": "gw3",
+            "target": "n4"
+          }
+        ]
+      },
+      "evidence": {
+        "waiting_time_before": 55.32,
+        "batch_size_mean": 273.52,
+        "batch_interval_mean": 0.173,
+        "periodicity_strength": 0.0,
+        "arrival_rate": 1.373551,
+        "execution_rate": 6.297885,
+        "arrival_execution_gap": -4.924334,
+        "target_remapped_from": [
+          "O_CANCELLED",
+          "O_SENT_BACK",
+          "A_CANCELLED"
+        ],
+        "extraneous_delay_split": {
+          "event_id": "Event_fd9dde14-5330-4261-bcd6-c58adafca73c",
+          "timer_h": 73.684,
+          "n": 22976,
+          "n_batched": 13371,
+          "batch_share": 0.582,
+          "wait_batched_h": 95.2386,
+          "wait_unbatched_h": 47.3868,
+          "delta_h": 47.8517,
+          "z": 44.76,
+          "batch_component_h": 27.8476,
+          "share_of_timer": 0.3779
+        }
+      },
+      "additional_context": "This candidate consolidates batching signals from 4 observations on different events that all causally trace back to the W_ work activity 'W_Nabellen offertes'. Source A_/O_ events: 'O_CANCELLED', 'O_SENT_BACK', 'A_CANCELLED'. The evidence fields below are the strongest single observation (most negative arrival_execution_gap). A single CBW redesign on this W_ target captures the full merged signal.\n\nThe execution rate meets or exceeds the arrival rate, suggesting that case-by-case processing is feasible without additional capacity. The average batch size is 273.5 cases, which is large. Transitioning to case-by-case processing would significantly change the workload pattern for this activity. This activity exhibits rework in 4274 cases (32.7% of all cases). Rework in a batched activity may indicate that batch errors propagate across multiple cases. Whether batch execution can be replaced by case-by-case processing depends on system scheduling policies, operational constraints (e.g. external system availability windows), and whether downstream systems require batched input — none of which can be determined from the event log alone."
+    },
+    {
+      "candidate_id": "CBW-002",
+      "heuristic": "Case-based Work",
+      "target_activity": "W_Valideren aanvraag",
+      "heuristic_context": "Target problem types: delays caused by batch processing or periodic handling of cases, accumulation of waiting cases before execution. Applicable structural situations: activities executed in batches or triggered periodically instead of being processed immediately when a case arrives. How the data is used: Repeated patterns where multiple cases start the same activity at nearly identical timestamps or where long waiting times precede activity execution indicate batch or periodic processing instead of case-by-case handling. Transformation style: redesign the process so that cases are processed individually upon arrival instead of waiting for batch or periodic execution. Feasibility: Yes. Batch patterns and periodic execution behavior can be detected from event log timestamps, and the process can be redesigned to enable case-by-case execution.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "W_Valideren aanvraag",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "gw4",
+            "target": "n3"
+          },
+          {
+            "source": "gw1",
+            "target": "gw3"
+          },
+          {
+            "source": "gw1",
+            "target": "gw2"
+          },
+          {
+            "source": "gw2",
+            "target": "n4"
+          },
+          {
+            "source": "n4",
+            "target": "n1"
+          },
+          {
+            "source": "gw3",
+            "target": "gw4"
+          },
+          {
+            "source": "gw3",
+            "target": "n2"
+          },
+          {
+            "source": "gw3",
+            "target": "n5"
+          },
+          {
+            "source": "n1",
+            "target": "gw1"
+          }
+        ]
+      },
+      "evidence": {
+        "waiting_time_before": 20.034,
+        "batch_size_mean": 133.81,
+        "batch_interval_mean": 0.496,
+        "periodicity_strength": 0.0,
+        "arrival_rate": 0.87961,
+        "execution_rate": 2.164076,
+        "arrival_execution_gap": -1.284466,
+        "target_remapped_from": null,
+        "extraneous_delay_split": {
+          "event_id": "Event_9c0c5587-7daf-42b1-91f7-267b9551093c",
+          "timer_h": 32.6288,
+          "n": 7895,
+          "n_batched": 3820,
+          "batch_share": 0.4839,
+          "wait_batched_h": 38.2531,
+          "wait_unbatched_h": 24.6819,
+          "delta_h": 13.5712,
+          "z": 14.12,
+          "batch_component_h": 6.5664,
+          "share_of_timer": 0.2012
+        }
+      },
+      "additional_context": "The execution rate meets or exceeds the arrival rate, suggesting that case-by-case processing is feasible without additional capacity. The average batch size is 133.8 cases, which is large. Transitioning to case-by-case processing would significantly change the workload pattern for this activity. This activity exhibits rework in 2020 cases (15.4% of all cases). Rework in a batched activity may indicate that batch errors propagate across multiple cases. Whether batch execution can be replaced by case-by-case processing depends on system scheduling policies, operational constraints (e.g. external system availability windows), and whether downstream systems require batched input — none of which can be determined from the event log alone."
+    },
+    {
+      "candidate_id": "CBW-003",
+      "heuristic": "Case-based Work",
+      "target_activity": "W_Completeren aanvraag",
+      "heuristic_context": "Target problem types: delays caused by batch processing or periodic handling of cases, accumulation of waiting cases before execution. Applicable structural situations: activities executed in batches or triggered periodically instead of being processed immediately when a case arrives. How the data is used: Repeated patterns where multiple cases start the same activity at nearly identical timestamps or where long waiting times precede activity execution indicate batch or periodic processing instead of case-by-case handling. Transformation style: redesign the process so that cases are processed individually upon arrival instead of waiting for batch or periodic execution. Feasibility: Yes. Batch patterns and periodic execution behavior can be detected from event log timestamps, and the process can be redesigned to enable case-by-case execution.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "W_Completeren aanvraag",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n3",
+            "target": "n1"
+          },
+          {
+            "source": "gw1",
+            "target": "n4"
+          },
+          {
+            "source": "gw1",
+            "target": "n2"
+          },
+          {
+            "source": "n1",
+            "target": "gw3"
+          },
+          {
+            "source": "gw3",
+            "target": "gw2"
+          },
+          {
+            "source": "gw3",
+            "target": "gw1"
+          },
+          {
+            "source": "gw2",
+            "target": "n3"
+          }
+        ]
+      },
+      "evidence": {
+        "waiting_time_before": 19.087,
+        "batch_size_mean": 342.39,
+        "batch_interval_mean": 0.165,
+        "periodicity_strength": 0.0,
+        "arrival_rate": 2.019347,
+        "execution_rate": 6.569525,
+        "arrival_execution_gap": -4.550178,
+        "target_remapped_from": null,
+        "extraneous_delay_split": {
+          "event_id": "Event_67c8b8c2-0483-41b3-adfb-2a1577a6e7f0",
+          "timer_h": 21.8603,
+          "n": 23967,
+          "n_batched": 15223,
+          "batch_share": 0.6352,
+          "wait_batched_h": 20.9064,
+          "wait_unbatched_h": 22.0091,
+          "delta_h": -1.1027,
+          "z": -1.08,
+          "batch_component_h": 0.0,
+          "share_of_timer": 0.0,
+          "reason": "batched executions do not demonstrably wait longer (delta -1.10 h at z=-1.08); negative — batches form when a resource frees up and clears the queue, which is selection, not a batching cost"
+        }
+      },
+      "additional_context": "The execution rate meets or exceeds the arrival rate, suggesting that case-by-case processing is feasible without additional capacity. The average batch size is 342.4 cases, which is large. Transitioning to case-by-case processing would significantly change the workload pattern for this activity. This activity exhibits rework in 4420 cases (33.8% of all cases). Rework in a batched activity may indicate that batch errors propagate across multiple cases. Whether batch execution can be replaced by case-by-case processing depends on system scheduling policies, operational constraints (e.g. external system availability windows), and whether downstream systems require batched input — none of which can be determined from the event log alone."
+    }
+  ]
+}

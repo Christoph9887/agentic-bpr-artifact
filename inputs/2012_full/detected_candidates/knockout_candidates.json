@@ -1,0 +1,49 @@
+{
+  "heuristic": "Knock-out",
+  "total_candidates": 1,
+  "candidates": [
+    {
+      "candidate_id": "KO-001",
+      "heuristic": "Knock-out",
+      "target_activities": [
+        "W_Beoordelen fraude",
+        "W_Afhandelen leads"
+      ],
+      "heuristic_context": "Target problem types: unnecessary effort spent on cases that will eventually be rejected, inefficient ordering of validation or eligibility checks. Applicable structural situations: processes containing multiple checks or validation activities where failure of a condition leads to termination of the case. How the data is used: Activities with high rejection probability and relatively low execution effort should appear earlier in the sequence, as this minimizes the expected processing cost for cases that will eventually be rejected. Transformation style: reorder validation activities so that checks with the highest rejection probability and lowest effort are executed earlier in the process. Feasibility: Maybe. Rejection probabilities and termination patterns can be derived from event logs, but the effort of checks and the validity of reordering them depend on domain-specific business rules.",
+      "process_fragment": null,
+      "evidence": {
+        "per_activity": [
+          {
+            "activity": "W_Beoordelen fraude",
+            "termination_rate": 0.237,
+            "activity_duration_mean": 0.1546,
+            "knockout_efficiency_ratio": 1.5336,
+            "activity_position_ratio": 0.5805,
+            "cumulative_effort_before_mean": 0.414
+          },
+          {
+            "activity": "W_Afhandelen leads",
+            "termination_rate": 0.1021,
+            "activity_duration_mean": 0.2824,
+            "knockout_efficiency_ratio": 0.3615,
+            "activity_position_ratio": 0.5597,
+            "cumulative_effort_before_mean": 0.311
+          }
+        ],
+        "current_ordering": [
+          "W_Beoordelen fraude",
+          "W_Afhandelen leads"
+        ],
+        "optimal_ordering": [
+          "W_Beoordelen fraude",
+          "W_Afhandelen leads"
+        ],
+        "current_ordering_efficiency": 0.3701,
+        "optimal_ordering_efficiency": 0.3701,
+        "efficiency_gap": 0.0,
+        "efficiency_gap_ratio": 0.0
+      },
+      "additional_context": "The current ordering of knock-out checks is already optimal or near-optimal based on the observed termination rates and activity durations. No reordering is recommended at this time. The most efficient knock-out check is 'W_Beoordelen fraude' with a termination rate of 23.7% and duration of 0.155 hours (efficiency ratio: 1.53). No process_fragment is provided for this candidate because the Knock-out heuristic targets the ordering of check activities, not control-flow topology. The sequential reachability of the check activities has been validated through the DFG. NOTE: The termination_rate reported for each activity measures DIRECT knock-out behaviour — the fraction of cases where the immediately next event after this activity is a terminal activity (e.g. rejection or cancellation). This is stricter than 'eventual termination' and confirms the activity itself acts as a decision gate. Whether the check ordering can be changed depends on information availability at each stage, business rules mandating specific sequences, and regulatory requirements constraining the order of validation activities — none of which can be determined from the event log alone."
+    }
+  ]
+}

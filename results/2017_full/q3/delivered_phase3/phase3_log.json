@@ -1,0 +1,171 @@
+{
+  "phase2_plan": "mabpr_out\\2017_full\\loop\\q3\\confirm_round4\\plan.json",
+  "baseline_bpmn": "inputs\\2017_full\\BPI_Challenge_2017_full.bpmn",
+  "baseline_params": "inputs\\2017_full\\BPI_Challenge_2017_full.json",
+  "output_dir": "mabpr_out\\2017_full\\loop\\q3\\confirm_round4\\phase3",
+  "n_phases": 1,
+  "n_candidates": 5,
+  "entries": [
+    {
+      "phase_id": 1,
+      "candidate_id": "CR-002",
+      "heuristic": "Contact Reduction",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "heuristic": "Contact Reduction",
+        "target_activity": "O_Sent (online only)",
+        "gateway_id": "node_41cf5188-f199-4eaa-b721-ec9e2a96caaa",
+        "loop_probability_before": 0.2525,
+        "loop_probability_after": 0.2285,
+        "loop_probability_reduced": 0.024,
+        "exit_probability_after": 0.7715,
+        "paths_renormalized": 2,
+        "sum_before": 1.0,
+        "sum_after": 1.0
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "AC-001",
+      "heuristic": "Activity Composition",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "composite_name": "O_Create Offer + O_Created",
+        "timers_removed": 1,
+        "timer_h_removed_per_occurrence": 0.0,
+        "kept_node_id": "node_6969977a-8c72-4641-922c-d98a090794fe",
+        "merged_node_id": "node_53926239-c389-4e2e-9176-b1c1a85830b2",
+        "distributions_folded": 130,
+        "distributions_carried_over": 0,
+        "task_resource_distribution_dropped": 1,
+        "assigned_tasks_removed": 130,
+        "assigned_tasks_added": 0,
+        "event_attributes_dropped": 1,
+        "setup_saving_assumed_h": 0.0,
+        "gateway_reconciliation": {
+          "gateways_dropped": 0,
+          "paths_dropped": 0,
+          "paths_remapped": 0,
+          "paths_renormalized": 0,
+          "ambiguous_rewired_gateways": [],
+          "uncovered_decision_gateways": [
+            "node_1b965647-aa09-4534-aff9-046528199a15",
+            "node_1dc26fdd-3fa5-4bd5-b003-1ad389a63d79",
+            "node_1ec69e0b-bb22-4433-bf36-113f9b0333be",
+            "node_314228f3-13fd-46b4-a2a2-8ebd8dac20b8",
+            "node_3a3f3d93-b511-4157-937b-9b0ba389fc0b",
+            "node_4b82021d-d8ba-4ec6-a317-aab309cb1eb7",
+            "node_4d10fe0b-6f15-4307-8eaf-99e7ef6e2d0a",
+            "node_51062f23-a386-4a47-a6f1-6e60f535e801",
+            "node_519a2fbf-9bd7-4769-ac68-9215e3ec5244",
+            "node_564ca150-d3bf-4b86-a752-0abd7c4b4828",
+            "node_5fd5a12c-5116-4e14-b66a-6977affd077e",
+            "node_6eeb471a-fdcb-4e77-a5cc-7938c5bd0f41",
+            "node_7204e102-ebb9-4de7-82a9-889fa75160dd",
+            "node_9b272d42-ce21-4a95-aacd-0b72e35c9a2a",
+            "node_9bbdf336-4a66-48a5-ac2d-30af48ecbc28",
+            "node_a4b9b890-104f-4e17-a5e0-9c0b0eb2eb3d",
+            "node_a84c5ce6-0dce-40f7-ba3b-0b1a926b0ff4",
+            "node_ab73b0fa-f606-40dc-afa8-12af0cece23d",
+            "node_cab71188-d51e-4a14-8efb-7b7a67d07a2b",
+            "node_d6a6de51-2b24-4933-97e0-c5256664906d",
+            "node_f088608d-4be4-4b2c-bf83-f9ffb59d7de9"
+          ]
+        }
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "AC-002",
+      "heuristic": "Activity Composition",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "composite_name": "O_Accepted + A_Pending",
+        "timers_removed": 0,
+        "timer_h_removed_per_occurrence": 0.0,
+        "kept_node_id": "node_ecddeb6d-3d6a-42b3-9b41-4a253c3036d6",
+        "merged_node_id": "node_ecb69dca-7897-42bb-96ab-a7d723951f74",
+        "distributions_folded": 125,
+        "distributions_carried_over": 0,
+        "task_resource_distribution_dropped": 1,
+        "assigned_tasks_removed": 125,
+        "assigned_tasks_added": 0,
+        "event_attributes_dropped": 1,
+        "setup_saving_assumed_h": 0.0,
+        "gateway_reconciliation": {
+          "gateways_dropped": 0,
+          "paths_dropped": 0,
+          "paths_remapped": 0,
+          "paths_renormalized": 0,
+          "ambiguous_rewired_gateways": [],
+          "uncovered_decision_gateways": [
+            "node_1b965647-aa09-4534-aff9-046528199a15",
+            "node_1dc26fdd-3fa5-4bd5-b003-1ad389a63d79",
+            "node_1ec69e0b-bb22-4433-bf36-113f9b0333be",
+            "node_314228f3-13fd-46b4-a2a2-8ebd8dac20b8",
+            "node_3a3f3d93-b511-4157-937b-9b0ba389fc0b",
+            "node_4b82021d-d8ba-4ec6-a317-aab309cb1eb7",
+            "node_4d10fe0b-6f15-4307-8eaf-99e7ef6e2d0a",
+            "node_51062f23-a386-4a47-a6f1-6e60f535e801",
+            "node_519a2fbf-9bd7-4769-ac68-9215e3ec5244",
+            "node_564ca150-d3bf-4b86-a752-0abd7c4b4828",
+            "node_5fd5a12c-5116-4e14-b66a-6977affd077e",
+            "node_6eeb471a-fdcb-4e77-a5cc-7938c5bd0f41",
+            "node_7204e102-ebb9-4de7-82a9-889fa75160dd",
+            "node_9b272d42-ce21-4a95-aacd-0b72e35c9a2a",
+            "node_9bbdf336-4a66-48a5-ac2d-30af48ecbc28",
+            "node_a4b9b890-104f-4e17-a5e0-9c0b0eb2eb3d",
+            "node_a84c5ce6-0dce-40f7-ba3b-0b1a926b0ff4",
+            "node_ab73b0fa-f606-40dc-afa8-12af0cece23d",
+            "node_cab71188-d51e-4a14-8efb-7b7a67d07a2b",
+            "node_d6a6de51-2b24-4933-97e0-c5256664906d",
+            "node_f088608d-4be4-4b2c-bf83-f9ffb59d7de9"
+          ]
+        }
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "CBW-001",
+      "heuristic": "Case-based Work",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "channel": "extraneous_delay_batch_share",
+        "task_id": "node_a38b2535-6f99-4fc1-a8ab-708464876c61",
+        "rules_removed": 0,
+        "timers_removed": 0,
+        "timer_h_before": 2.7322,
+        "timer_h_after": 1.8887,
+        "batch_component_h_removed": 0.8435,
+        "share_of_timer_removed": 0.3087,
+        "delta_h_batched_vs_not": 15.6139,
+        "delta_z": 21.68,
+        "note": "scaled the extraneous-delay timer in front of 'W_Complete application' by 0.6913: 2.73 h -> 1.89 h per occurrence. Only the batching share is removed (30.9% of the timer, from a 15.6139 h gap between batched and non-batched executions at z=21.68); the rest of the wait is left in place because this heuristic does not claim it."
+      }
+    },
+    {
+      "phase_id": 1,
+      "candidate_id": "CBW-002",
+      "heuristic": "Case-based Work",
+      "status": "success",
+      "adapt_report": {
+        "applied": true,
+        "channel": "extraneous_delay_batch_share",
+        "task_id": "node_fae160b6-84e4-40e3-b4e1-a734ad4c72f5",
+        "rules_removed": 0,
+        "timers_removed": 0,
+        "timer_h_before": 189.0207,
+        "timer_h_after": 174.9836,
+        "batch_component_h_removed": 14.0371,
+        "share_of_timer_removed": 0.0743,
+        "delta_h_batched_vs_not": 30.7861,
+        "delta_z": 13.74,
+        "note": "scaled the extraneous-delay timer in front of 'W_Validate application' by 0.9257: 189.02 h -> 174.98 h per occurrence. Only the batching share is removed (7.4% of the timer, from a 30.7861 h gap between batched and non-batched executions at z=13.74); the rest of the wait is left in place because this heuristic does not claim it."
+      }
+    }
+  ]
+}

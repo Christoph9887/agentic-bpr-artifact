@@ -1,0 +1,1736 @@
+{
+  "heuristic": "Exception",
+  "total_candidates": 9,
+  "candidates": [
+    {
+      "candidate_id": "EXC-002",
+      "heuristic": "Exception",
+      "divergence_point": "A_Concept",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_Concept",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "and_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "gw1",
+            "target": "n3"
+          },
+          {
+            "source": "n1",
+            "target": "gw1"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.069091
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "W_Validate application",
+          "A_Validating",
+          "O_Returned",
+          "W_Call incomplete files",
+          "A_Incomplete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.000698
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept"
+        ],
+        "dominant_suffix": [
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_suffix": [
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "W_Validate application",
+          "A_Validating",
+          "O_Returned",
+          "W_Call incomplete files",
+          "A_Incomplete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_exclusive_activities": [
+          "A_Incomplete",
+          "A_Validating",
+          "O_Returned",
+          "W_Call incomplete files",
+          "W_Validate application"
+        ],
+        "missing_activities": [
+          "W_Complete application"
+        ]
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.068393,
+        "throughput_time_dominant": 728.056,
+        "throughput_time_exception": 1218.467,
+        "throughput_time_gap": 490.411,
+        "deviation_point_waiting_time": 0.053,
+        "exception_case_count": 22,
+        "exception_group_frequency": 0.000698,
+        "exception_variant_count": 1,
+        "throughput_time_exception_max": 1218.467
+      },
+      "additional_context": "The exception path takes 1218.5 hours on average, which is 1.7x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 5 activities not present in the dominant flow: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files, W_Validate application. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: W_Complete application. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files, W_Validate application. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Concept' account for 0.1% of total cases (22 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-007",
+      "heuristic": "Exception",
+      "divergence_point": "A_Complete",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_Complete",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n6",
+            "name": "W_Call after offers",
+            "type": "activity",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw5",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw6",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw7",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw8",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "gw1",
+            "target": "gw5"
+          },
+          {
+            "source": "gw1",
+            "target": "gw2"
+          },
+          {
+            "source": "gw1",
+            "target": "gw6"
+          },
+          {
+            "source": "gw1",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "gw8"
+          },
+          {
+            "source": "gw6",
+            "target": "n5"
+          },
+          {
+            "source": "gw8",
+            "target": "n2"
+          },
+          {
+            "source": "n1",
+            "target": "gw1"
+          },
+          {
+            "source": "n6",
+            "target": "gw3"
+          },
+          {
+            "source": "gw4",
+            "target": "gw7"
+          },
+          {
+            "source": "gw5",
+            "target": "n3"
+          },
+          {
+            "source": "gw7",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "n1"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.069091
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (online only)",
+          "A_Cancelled",
+          "O_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.000413
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete"
+        ],
+        "dominant_suffix": [
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_suffix": [
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (online only)",
+          "A_Cancelled",
+          "O_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_exclusive_activities": [
+          "O_Sent (online only)"
+        ],
+        "missing_activities": []
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.068679,
+        "throughput_time_dominant": 728.056,
+        "throughput_time_exception": 1190.754,
+        "throughput_time_gap": 462.698,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 13,
+        "exception_group_frequency": 0.000413,
+        "exception_variant_count": 1,
+        "throughput_time_exception_max": 1190.754
+      },
+      "additional_context": "The exception path takes 1190.8 hours on average, which is 1.6x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 1 activities not present in the dominant flow: O_Sent (online only). These activities represent the additional handling required for exceptional cases. Activities with rework in the exception path: O_Sent (online only). This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Complete' account for 0.0% of total cases (13 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-008",
+      "heuristic": "Exception",
+      "divergence_point": "A_Concept",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_Concept",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "and_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "gw1",
+            "target": "n3"
+          },
+          {
+            "source": "n1",
+            "target": "gw1"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.069091
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (online only)",
+          "A_Cancelled",
+          "O_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.000571
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept"
+        ],
+        "dominant_suffix": [
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_suffix": [
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (online only)",
+          "A_Cancelled",
+          "O_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_exclusive_activities": [
+          "O_Sent (online only)"
+        ],
+        "missing_activities": [
+          "W_Complete application"
+        ]
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.06852,
+        "throughput_time_dominant": 728.056,
+        "throughput_time_exception": 1069.858,
+        "throughput_time_gap": 341.802,
+        "deviation_point_waiting_time": 0.053,
+        "exception_case_count": 18,
+        "exception_group_frequency": 0.000571,
+        "exception_variant_count": 1,
+        "throughput_time_exception_max": 1069.858
+      },
+      "additional_context": "The exception path takes 1069.9 hours on average, which is 1.5x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 1 activities not present in the dominant flow: O_Sent (online only). These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: W_Complete application. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: O_Sent (online only). This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Concept' account for 0.1% of total cases (18 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-005",
+      "heuristic": "Exception",
+      "divergence_point": "A_Submitted",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_Submitted",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "A_Create Application",
+            "type": "activity",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "and_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw5",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n1",
+            "target": "gw2"
+          },
+          {
+            "source": "gw2",
+            "target": "gw3"
+          },
+          {
+            "source": "gw2",
+            "target": "n3"
+          },
+          {
+            "source": "n4",
+            "target": "gw4"
+          },
+          {
+            "source": "gw5",
+            "target": "n2"
+          },
+          {
+            "source": "gw1",
+            "target": "n1"
+          },
+          {
+            "source": "gw4",
+            "target": "gw1"
+          },
+          {
+            "source": "gw3",
+            "target": "gw5"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.069091
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "W_Handle leads",
+          "A_Concept",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "W_Validate application",
+          "A_Validating",
+          "O_Returned",
+          "W_Call incomplete files",
+          "A_Incomplete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.000444
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_Create Application",
+          "A_Submitted"
+        ],
+        "dominant_suffix": [
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_suffix": [
+          "W_Handle leads",
+          "A_Concept",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "W_Validate application",
+          "A_Validating",
+          "O_Returned",
+          "W_Call incomplete files",
+          "A_Incomplete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_exclusive_activities": [
+          "A_Incomplete",
+          "A_Validating",
+          "O_Returned",
+          "W_Call incomplete files",
+          "W_Handle leads",
+          "W_Validate application"
+        ],
+        "missing_activities": [
+          "W_Complete application"
+        ]
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.068647,
+        "throughput_time_dominant": 728.056,
+        "throughput_time_exception": 1062.473,
+        "throughput_time_gap": 334.417,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 14,
+        "exception_group_frequency": 0.000444,
+        "exception_variant_count": 1,
+        "throughput_time_exception_max": 1062.473
+      },
+      "additional_context": "The exception path takes 1062.5 hours on average, which is 1.5x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 6 activities not present in the dominant flow: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files, W_Handle leads, W_Validate application. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: W_Complete application. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files, W_Validate application. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Submitted' account for 0.0% of total cases (14 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-003",
+      "heuristic": "Exception",
+      "divergence_point": "A_Complete",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_Complete",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n6",
+            "name": "W_Call after offers",
+            "type": "activity",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw5",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw6",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw7",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw8",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "gw1",
+            "target": "gw5"
+          },
+          {
+            "source": "gw1",
+            "target": "gw2"
+          },
+          {
+            "source": "gw1",
+            "target": "gw6"
+          },
+          {
+            "source": "gw1",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "gw8"
+          },
+          {
+            "source": "gw6",
+            "target": "n5"
+          },
+          {
+            "source": "gw8",
+            "target": "n2"
+          },
+          {
+            "source": "n1",
+            "target": "gw1"
+          },
+          {
+            "source": "n6",
+            "target": "gw3"
+          },
+          {
+            "source": "gw4",
+            "target": "gw7"
+          },
+          {
+            "source": "gw5",
+            "target": "n3"
+          },
+          {
+            "source": "gw7",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "n1"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.069091
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Validating",
+          "O_Returned",
+          "W_Call incomplete files",
+          "A_Incomplete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.000889
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete"
+        ],
+        "dominant_suffix": [
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_suffix": [
+          "A_Validating",
+          "O_Returned",
+          "W_Call incomplete files",
+          "A_Incomplete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_exclusive_activities": [
+          "A_Incomplete",
+          "A_Validating",
+          "O_Returned",
+          "W_Call incomplete files"
+        ],
+        "missing_activities": []
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.068203,
+        "throughput_time_dominant": 728.056,
+        "throughput_time_exception": 958.184,
+        "throughput_time_gap": 230.128,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 28,
+        "exception_group_frequency": 0.000889,
+        "exception_variant_count": 1,
+        "throughput_time_exception_max": 958.184
+      },
+      "additional_context": "The exception path takes 958.2 hours on average, which is 1.3x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 4 activities not present in the dominant flow: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files. These activities represent the additional handling required for exceptional cases. Activities with rework in the exception path: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Complete' account for 0.1% of total cases (28 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-009",
+      "heuristic": "Exception",
+      "divergence_point": "O_Created",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "O_Created",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "gw4",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "n3"
+          },
+          {
+            "source": "n1",
+            "target": "gw2"
+          },
+          {
+            "source": "gw1",
+            "target": "n2"
+          },
+          {
+            "source": "gw2",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "gw3"
+          },
+          {
+            "source": "gw2",
+            "target": "gw1"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.069091
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Validating",
+          "O_Returned",
+          "A_Incomplete",
+          "A_Validating",
+          "A_Incomplete",
+          "O_Accepted",
+          "A_Pending",
+          "O_Cancelled"
+        ],
+        "frequency": 0.000317
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created"
+        ],
+        "dominant_suffix": [
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_suffix": [
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Validating",
+          "O_Returned",
+          "A_Incomplete",
+          "A_Validating",
+          "A_Incomplete",
+          "O_Accepted",
+          "A_Pending",
+          "O_Cancelled"
+        ],
+        "exception_exclusive_activities": [
+          "A_Incomplete",
+          "A_Pending",
+          "A_Validating",
+          "O_Accepted",
+          "O_Returned"
+        ],
+        "missing_activities": [
+          "A_Cancelled"
+        ]
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.068774,
+        "throughput_time_dominant": 728.056,
+        "throughput_time_exception": 947.668,
+        "throughput_time_gap": 219.612,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 10,
+        "exception_group_frequency": 0.000317,
+        "exception_variant_count": 1,
+        "throughput_time_exception_max": 947.668
+      },
+      "additional_context": "The exception path takes 947.7 hours on average, which is 1.3x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 5 activities not present in the dominant flow: A_Incomplete, A_Pending, A_Validating, O_Accepted, O_Returned. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: A_Cancelled. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: A_Incomplete, A_Validating, O_Returned. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'O_Created' account for 0.0% of total cases (10 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-004",
+      "heuristic": "Exception",
+      "divergence_point": "A_Submitted",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_Submitted",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "A_Create Application",
+            "type": "activity",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "and_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw5",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n1",
+            "target": "gw2"
+          },
+          {
+            "source": "gw2",
+            "target": "gw3"
+          },
+          {
+            "source": "gw2",
+            "target": "n3"
+          },
+          {
+            "source": "n4",
+            "target": "gw4"
+          },
+          {
+            "source": "gw5",
+            "target": "n2"
+          },
+          {
+            "source": "gw1",
+            "target": "n1"
+          },
+          {
+            "source": "gw4",
+            "target": "gw1"
+          },
+          {
+            "source": "gw3",
+            "target": "gw5"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.069091
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "W_Handle leads",
+          "A_Concept",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Cancelled",
+          "O_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.001428
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_Create Application",
+          "A_Submitted"
+        ],
+        "dominant_suffix": [
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_suffix": [
+          "W_Handle leads",
+          "A_Concept",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Cancelled",
+          "O_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_exclusive_activities": [
+          "W_Handle leads"
+        ],
+        "missing_activities": [
+          "W_Complete application"
+        ]
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.067663,
+        "throughput_time_dominant": 728.056,
+        "throughput_time_exception": 933.759,
+        "throughput_time_gap": 205.703,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 45,
+        "exception_group_frequency": 0.001428,
+        "exception_variant_count": 1,
+        "throughput_time_exception_max": 933.759
+      },
+      "additional_context": "The exception path takes 933.8 hours on average, which is 1.3x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 1 activities not present in the dominant flow: W_Handle leads. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: W_Complete application. This may indicate that exceptional cases follow a shortened or alternative procedure. All exception variants diverging at 'A_Submitted' account for 0.1% of total cases (45 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-006",
+      "heuristic": "Exception",
+      "divergence_point": "A_Create Application",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_Create Application",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n4",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n5",
+            "name": "A_Submitted",
+            "type": "activity",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "and_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw3",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw4",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw5",
+            "name": "",
+            "type": "and_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw6",
+            "name": "",
+            "type": "and_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n3",
+            "target": "n1"
+          },
+          {
+            "source": "n1",
+            "target": "gw4"
+          },
+          {
+            "source": "gw2",
+            "target": "n2"
+          },
+          {
+            "source": "gw1",
+            "target": "n5"
+          },
+          {
+            "source": "gw1",
+            "target": "gw3"
+          },
+          {
+            "source": "gw4",
+            "target": "gw1"
+          },
+          {
+            "source": "gw4",
+            "target": "gw6"
+          },
+          {
+            "source": "gw6",
+            "target": "gw2"
+          },
+          {
+            "source": "gw6",
+            "target": "n4"
+          },
+          {
+            "source": "gw3",
+            "target": "gw5"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.069091
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "W_Complete application",
+          "A_Concept",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "W_Validate application",
+          "A_Validating",
+          "O_Returned",
+          "A_Incomplete",
+          "A_Validating",
+          "A_Incomplete",
+          "O_Accepted",
+          "A_Pending",
+          "O_Cancelled"
+        ],
+        "frequency": 0.000413
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_Create Application"
+        ],
+        "dominant_suffix": [
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_suffix": [
+          "W_Complete application",
+          "A_Concept",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "W_Validate application",
+          "A_Validating",
+          "O_Returned",
+          "A_Incomplete",
+          "A_Validating",
+          "A_Incomplete",
+          "O_Accepted",
+          "A_Pending",
+          "O_Cancelled"
+        ],
+        "exception_exclusive_activities": [
+          "A_Incomplete",
+          "A_Pending",
+          "A_Validating",
+          "O_Accepted",
+          "O_Returned",
+          "W_Validate application"
+        ],
+        "missing_activities": [
+          "A_Cancelled",
+          "A_Submitted"
+        ]
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.068679,
+        "throughput_time_dominant": 728.056,
+        "throughput_time_exception": 927.133,
+        "throughput_time_gap": 199.077,
+        "deviation_point_waiting_time": 0.0,
+        "exception_case_count": 13,
+        "exception_group_frequency": 0.000413,
+        "exception_variant_count": 1,
+        "throughput_time_exception_max": 927.133
+      },
+      "additional_context": "The exception path takes 927.1 hours on average, which is 1.3x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 6 activities not present in the dominant flow: A_Incomplete, A_Pending, A_Validating, O_Accepted, O_Returned, W_Validate application. These activities represent the additional handling required for exceptional cases. The exception path skips 2 activities present in the dominant flow: A_Cancelled, A_Submitted. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: A_Incomplete, A_Validating, O_Returned, W_Validate application. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Create Application' account for 0.0% of total cases (13 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    },
+    {
+      "candidate_id": "EXC-001",
+      "heuristic": "Exception",
+      "divergence_point": "A_Concept",
+      "heuristic_context": "Target problem types: rare or atypical cases disturbing normal flow, excessive delays caused by handling exceptional situations within the main process. Applicable structural situations: processes where most cases follow a standard path while a small subset requires special handling but is currently processed within the same flow. How the data is used: Rare process variants with significantly different execution paths or performance patterns compared to the dominant flow indicate exceptional cases that could be isolated from the standard process. Transformation style: redesign the process by separating exceptional cases from the main flow, typically introducing conditional routing that directs rare or complex cases to a dedicated exception-handling branch. Feasibility: Yes. Exceptional cases can be detected through variant frequency and deviation patterns derived from the event log, and they can be separated into dedicated exception branches in the process model.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "A_Concept",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "and_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "gw1",
+            "target": "n3"
+          },
+          {
+            "source": "n1",
+            "target": "gw1"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          }
+        ]
+      },
+      "dominant_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.069091
+      },
+      "exception_variant": {
+        "activity_sequence": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Validating",
+          "O_Returned",
+          "W_Call incomplete files",
+          "A_Incomplete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "frequency": 0.000857
+      },
+      "variant_diff": {
+        "shared_prefix": [
+          "A_Create Application",
+          "A_Submitted",
+          "A_Concept"
+        ],
+        "dominant_suffix": [
+          "W_Complete application",
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_suffix": [
+          "A_Accepted",
+          "O_Create Offer",
+          "O_Created",
+          "O_Sent (mail and online)",
+          "A_Complete",
+          "A_Validating",
+          "O_Returned",
+          "W_Call incomplete files",
+          "A_Incomplete",
+          "A_Cancelled",
+          "O_Cancelled"
+        ],
+        "exception_exclusive_activities": [
+          "A_Incomplete",
+          "A_Validating",
+          "O_Returned",
+          "W_Call incomplete files"
+        ],
+        "missing_activities": [
+          "W_Complete application"
+        ]
+      },
+      "evidence": {
+        "variant_frequency_gap": 0.068234,
+        "throughput_time_dominant": 728.056,
+        "throughput_time_exception": 901.588,
+        "throughput_time_gap": 173.531,
+        "deviation_point_waiting_time": 0.053,
+        "exception_case_count": 27,
+        "exception_group_frequency": 0.000857,
+        "exception_variant_count": 1,
+        "throughput_time_exception_max": 901.588
+      },
+      "additional_context": "The exception path takes 901.6 hours on average, which is 1.2x slower than the dominant path (728.1 hours). Isolating these cases would remove slow outliers from the main flow. The exception path includes 4 activities not present in the dominant flow: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files. These activities represent the additional handling required for exceptional cases. The exception path skips 1 activities present in the dominant flow: W_Complete application. This may indicate that exceptional cases follow a shortened or alternative procedure. Activities with rework in the exception path: A_Incomplete, A_Validating, O_Returned, W_Call incomplete files. This suggests the exception path may involve error correction or repeated attempts. All exception variants diverging at 'A_Concept' account for 0.1% of total cases (27 cases). This represents the total volume that would be routed to the dedicated exception branch. Whether these exception cases correspond to known business rules, whether a dedicated handling process already exists elsewhere, and whether service level agreements apply differently to exception cases cannot be determined from the event log alone."
+    }
+  ],
+  "unactionable_variants": [
+    {
+      "divergence_point": "A_Concept",
+      "case_count": 172,
+      "frequency": 0.005459,
+      "throughput_time_exception": 964.476,
+      "missing_activities": [
+        "W_Complete application"
+      ],
+      "pattern": "skips_dominant_activities",
+      "reason": "no exception-exclusive activities: the Exception redesign has nothing to lift out, and the handler locates the exception branch by exactly these activity names"
+    },
+    {
+      "divergence_point": "A_Complete",
+      "case_count": 185,
+      "frequency": 0.005871,
+      "throughput_time_exception": 944.681,
+      "missing_activities": [],
+      "pattern": "reordering_or_rework",
+      "reason": "no exception-exclusive activities: the Exception redesign has nothing to lift out, and the handler locates the exception branch by exactly these activity names"
+    },
+    {
+      "divergence_point": "O_Created",
+      "case_count": 45,
+      "frequency": 0.001428,
+      "throughput_time_exception": 1024.244,
+      "missing_activities": [],
+      "pattern": "reordering_or_rework",
+      "reason": "no exception-exclusive activities: the Exception redesign has nothing to lift out, and the handler locates the exception branch by exactly these activity names"
+    },
+    {
+      "divergence_point": "A_Create Application",
+      "case_count": 19,
+      "frequency": 0.000603,
+      "throughput_time_exception": 1652.27,
+      "missing_activities": [
+        "A_Submitted"
+      ],
+      "pattern": "skips_dominant_activities",
+      "reason": "no exception-exclusive activities: the Exception redesign has nothing to lift out, and the handler locates the exception branch by exactly these activity names"
+    },
+    {
+      "divergence_point": "A_Create Application",
+      "case_count": 16,
+      "frequency": 0.000508,
+      "throughput_time_exception": 925.458,
+      "missing_activities": [
+        "A_Submitted",
+        "W_Complete application"
+      ],
+      "pattern": "skips_dominant_activities",
+      "reason": "no exception-exclusive activities: the Exception redesign has nothing to lift out, and the handler locates the exception branch by exactly these activity names"
+    },
+    {
+      "divergence_point": "A_Concept",
+      "case_count": 16,
+      "frequency": 0.000508,
+      "throughput_time_exception": 1113.656,
+      "missing_activities": [
+        "W_Complete application"
+      ],
+      "pattern": "skips_dominant_activities",
+      "reason": "no exception-exclusive activities: the Exception redesign has nothing to lift out, and the handler locates the exception branch by exactly these activity names"
+    },
+    {
+      "divergence_point": "A_Complete",
+      "case_count": 12,
+      "frequency": 0.000381,
+      "throughput_time_exception": 1475.608,
+      "missing_activities": [],
+      "pattern": "reordering_or_rework",
+      "reason": "no exception-exclusive activities: the Exception redesign has nothing to lift out, and the handler locates the exception branch by exactly these activity names"
+    },
+    {
+      "divergence_point": "A_Concept",
+      "case_count": 13,
+      "frequency": 0.000413,
+      "throughput_time_exception": 1189.71,
+      "missing_activities": [
+        "W_Complete application"
+      ],
+      "pattern": "skips_dominant_activities",
+      "reason": "no exception-exclusive activities: the Exception redesign has nothing to lift out, and the handler locates the exception branch by exactly these activity names"
+    },
+    {
+      "divergence_point": "A_Create Application",
+      "case_count": 13,
+      "frequency": 0.000413,
+      "throughput_time_exception": 1652.27,
+      "missing_activities": [
+        "A_Submitted"
+      ],
+      "pattern": "skips_dominant_activities",
+      "reason": "no exception-exclusive activities: the Exception redesign has nothing to lift out, and the handler locates the exception branch by exactly these activity names"
+    }
+  ]
+}

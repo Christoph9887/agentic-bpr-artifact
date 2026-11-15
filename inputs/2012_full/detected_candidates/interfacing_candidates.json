@@ -1,0 +1,424 @@
+{
+  "heuristic": "Interfacing",
+  "candidates": [
+    {
+      "candidate_id": "IF-001",
+      "heuristic": "Interfacing",
+      "target_activity": "W_Nabellen offertes",
+      "evidence": {
+        "trigger_activity": "W_Nabellen offertes",
+        "occurrences": 22976,
+        "cases": 5011,
+        "cases_triggering_rework": 1440,
+        "trigger_share": 0.2874,
+        "redone_activities_mean": 1.004,
+        "redone_activities_top": [
+          "O_CREATED",
+          "O_SENT",
+          "O_SELECTED",
+          "O_CANCELLED",
+          "W_Completeren aanvraag"
+        ],
+        "idle_after_mean_h": 56.7605,
+        "loop_probability": 0.7092,
+        "loop_probability_after": 0.5054,
+        "waiting_time_before": 16.313,
+        "gateway_id": "node_0479b775-a217-490d-bb89-61fff3868444"
+      },
+      "heuristic_context": "Target problem types: errors and delays caused by inconsistent information exchange with customers or external partners. Applicable when information is repeatedly corrected, clarified or re-entered due to inconsistent formats or interfaces.",
+      "additional_context": "'W_Nabellen offertes' occurs in 5011 cases, and in 29% of them the case afterwards REDOES work it had already completed — on average 1.00 distinct earlier activities, most often ['O_CREATED', 'O_SENT', 'O_SELECTED']. That is the log signature of information arriving wrong, and it is what separates this from Contact Reduction (where the step merely repeats itself). The case then idles 56.76 h. Standardising the exchange lowers the correction rate at gateway node_0479b77 from 71% to 51%. ⚠️ The idle wait is WALL-CLOCK and the mined model has no construct for it, so 16.313 h/case is an ESTIMATE from the log reported beside the measurement, never added to it.",
+      "process_fragment": {
+        "gateway_id": "node_0479b775-a217-490d-bb89-61fff3868444",
+        "loop_path_id": "node_1b244708-7c94-45f7-a1c3-0b8d56114955",
+        "exit_path_id": "node_d5efc5c0-97c3-4eb4-a2a0-16c489db97c0",
+        "loop_probability_after": 0.5054,
+        "target_activity": "W_Nabellen offertes"
+      }
+    }
+  ],
+  "rejected": [
+    {
+      "activity": "A_ACCEPTED",
+      "cases": 5113,
+      "cases_triggering_rework": 78,
+      "trigger_share": 0.0153,
+      "redone_activities_mean": 0.015,
+      "redone_activities_top": [
+        "W_Completeren aanvraag"
+      ],
+      "idle_after_mean_h": 0.5925,
+      "rejected_because": [
+        "only 1.5% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.01 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "A_ACTIVATED",
+      "cases": 2246,
+      "cases_triggering_rework": 5,
+      "trigger_share": 0.0022,
+      "redone_activities_mean": 0.002,
+      "redone_activities_top": [
+        "W_Nabellen incomplete dossiers",
+        "W_Valideren aanvraag",
+        "W_Nabellen offertes"
+      ],
+      "idle_after_mean_h": 0.0036,
+      "rejected_because": [
+        "only 0.2% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.00 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the case idles 0.00 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "A_APPROVED",
+      "cases": 2246,
+      "cases_triggering_rework": 5,
+      "trigger_share": 0.0022,
+      "redone_activities_mean": 0.002,
+      "redone_activities_top": [
+        "W_Nabellen incomplete dossiers",
+        "W_Valideren aanvraag",
+        "W_Nabellen offertes"
+      ],
+      "idle_after_mean_h": 0.013,
+      "rejected_because": [
+        "only 0.2% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.00 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the case idles 0.01 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "A_CANCELLED",
+      "cases": 2807,
+      "cases_triggering_rework": 316,
+      "trigger_share": 0.1126,
+      "redone_activities_mean": 0.117,
+      "redone_activities_top": [
+        "O_CANCELLED",
+        "W_Nabellen offertes",
+        "W_Completeren aanvraag"
+      ],
+      "idle_after_mean_h": 0.089,
+      "rejected_because": [
+        "on average only 0.12 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the case idles 0.09 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "A_DECLINED",
+      "cases": 7635,
+      "cases_triggering_rework": 0,
+      "trigger_share": 0.0,
+      "redone_activities_mean": 0.0,
+      "redone_activities_top": [],
+      "idle_after_mean_h": 0.0,
+      "rejected_because": [
+        "only 0.0% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.00 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the case idles 0.00 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "A_FINALIZED",
+      "cases": 5015,
+      "cases_triggering_rework": 850,
+      "trigger_share": 0.1695,
+      "redone_activities_mean": 0.17,
+      "redone_activities_top": [
+        "O_SELECTED",
+        "W_Completeren aanvraag"
+      ],
+      "idle_after_mean_h": 0.0007,
+      "rejected_because": [
+        "on average only 0.17 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the case idles 0.00 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "A_PARTLYSUBMITTED",
+      "cases": 13087,
+      "cases_triggering_rework": 0,
+      "trigger_share": 0.0,
+      "redone_activities_mean": 0.0,
+      "redone_activities_top": [],
+      "idle_after_mean_h": 2.0451,
+      "rejected_because": [
+        "only 0.0% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.00 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "A_PREACCEPTED",
+      "cases": 7367,
+      "cases_triggering_rework": 0,
+      "trigger_share": 0.0,
+      "redone_activities_mean": 0.0,
+      "redone_activities_top": [],
+      "idle_after_mean_h": 5.8463,
+      "rejected_because": [
+        "only 0.0% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.00 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "A_REGISTERED",
+      "cases": 2246,
+      "cases_triggering_rework": 5,
+      "trigger_share": 0.0022,
+      "redone_activities_mean": 0.002,
+      "redone_activities_top": [
+        "W_Nabellen incomplete dossiers",
+        "W_Valideren aanvraag",
+        "W_Nabellen offertes"
+      ],
+      "idle_after_mean_h": 0.0004,
+      "rejected_because": [
+        "only 0.2% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.00 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the case idles 0.00 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "A_SUBMITTED",
+      "cases": 13087,
+      "cases_triggering_rework": 0,
+      "trigger_share": 0.0,
+      "redone_activities_mean": 0.0,
+      "redone_activities_top": [],
+      "idle_after_mean_h": 0.0002,
+      "rejected_because": [
+        "only 0.0% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.00 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the case idles 0.00 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "O_ACCEPTED",
+      "cases": 2243,
+      "cases_triggering_rework": 3,
+      "trigger_share": 0.0013,
+      "redone_activities_mean": 0.001,
+      "redone_activities_top": [
+        "W_Nabellen incomplete dossiers",
+        "W_Nabellen offertes",
+        "W_Valideren aanvraag"
+      ],
+      "idle_after_mean_h": 0.0,
+      "rejected_because": [
+        "only 0.1% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.00 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the case idles 0.00 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "O_CANCELLED",
+      "cases": 2660,
+      "cases_triggering_rework": 1479,
+      "trigger_share": 0.556,
+      "redone_activities_mean": 2.162,
+      "redone_activities_top": [
+        "O_CREATED",
+        "O_SENT",
+        "W_Nabellen offertes",
+        "O_SELECTED",
+        "W_Nabellen incomplete dossiers"
+      ],
+      "idle_after_mean_h": 0.018,
+      "rejected_because": [
+        "the case idles 0.02 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "O_CREATED",
+      "cases": 5015,
+      "cases_triggering_rework": 1442,
+      "trigger_share": 0.2875,
+      "redone_activities_mean": 1.1,
+      "redone_activities_top": [
+        "O_SELECTED",
+        "O_SENT",
+        "W_Nabellen offertes",
+        "O_CANCELLED",
+        "W_Nabellen incomplete dossiers"
+      ],
+      "idle_after_mean_h": 0.0,
+      "rejected_because": [
+        "the case idles 0.00 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "O_DECLINED",
+      "cases": 802,
+      "cases_triggering_rework": 0,
+      "trigger_share": 0.0,
+      "redone_activities_mean": 0.0,
+      "redone_activities_top": [],
+      "idle_after_mean_h": 0.0,
+      "rejected_because": [
+        "only 0.0% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.00 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the case idles 0.00 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "O_SELECTED",
+      "cases": 5015,
+      "cases_triggering_rework": 1442,
+      "trigger_share": 0.2875,
+      "redone_activities_mean": 1.054,
+      "redone_activities_top": [
+        "O_CREATED",
+        "O_SENT",
+        "W_Nabellen offertes",
+        "O_CANCELLED",
+        "W_Nabellen incomplete dossiers"
+      ],
+      "idle_after_mean_h": 0.0006,
+      "rejected_because": [
+        "the case idles 0.00 h after it (<0.5 h) — no external exchange is being waited on",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "O_SENT",
+      "cases": 5015,
+      "cases_triggering_rework": 1442,
+      "trigger_share": 0.2875,
+      "redone_activities_mean": 1.1,
+      "redone_activities_top": [
+        "O_CREATED",
+        "O_SELECTED",
+        "W_Nabellen offertes",
+        "O_CANCELLED",
+        "W_Nabellen incomplete dossiers"
+      ],
+      "idle_after_mean_h": 63.9851,
+      "rejected_because": [
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "O_SENT_BACK",
+      "cases": 3254,
+      "cases_triggering_rework": 401,
+      "trigger_share": 0.1232,
+      "redone_activities_mean": 0.475,
+      "redone_activities_top": [
+        "O_CREATED",
+        "O_SENT",
+        "O_SELECTED",
+        "O_CANCELLED",
+        "W_Valideren aanvraag"
+      ],
+      "idle_after_mean_h": 58.6814,
+      "rejected_because": [
+        "on average only 0.47 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "W_Afhandelen leads",
+      "cases": 4755,
+      "cases_triggering_rework": 16,
+      "trigger_share": 0.0034,
+      "redone_activities_mean": 0.003,
+      "redone_activities_top": [
+        "W_Beoordelen fraude"
+      ],
+      "idle_after_mean_h": 0.2476,
+      "rejected_because": [
+        "only 0.3% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.00 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the case idles 0.25 h after it (<0.5 h) — no external exchange is being waited on"
+      ]
+    },
+    {
+      "activity": "W_Beoordelen fraude",
+      "cases": 108,
+      "cases_triggering_rework": 51,
+      "trigger_share": 0.4722,
+      "redone_activities_mean": 0.657,
+      "redone_activities_top": [
+        "W_Valideren aanvraag",
+        "W_Afhandelen leads",
+        "O_CREATED",
+        "O_SENT",
+        "O_SELECTED"
+      ],
+      "idle_after_mean_h": 7.0221,
+      "rejected_because": [
+        "on average only 0.66 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work"
+      ]
+    },
+    {
+      "activity": "W_Completeren aanvraag",
+      "cases": 7367,
+      "cases_triggering_rework": 3,
+      "trigger_share": 0.0004,
+      "redone_activities_mean": 0.001,
+      "redone_activities_top": [
+        "W_Nabellen offertes",
+        "O_CREATED",
+        "O_SELECTED",
+        "O_SENT"
+      ],
+      "idle_after_mean_h": 19.7994,
+      "rejected_because": [
+        "only 0.0% of its cases redo any earlier activity afterwards (<10%) — nothing is coming back wrong, so there is no interface defect to standardise",
+        "on average only 0.00 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work"
+      ]
+    },
+    {
+      "activity": "W_Nabellen incomplete dossiers",
+      "cases": 1647,
+      "cases_triggering_rework": 1389,
+      "trigger_share": 0.8434,
+      "redone_activities_mean": 1.469,
+      "redone_activities_top": [
+        "W_Valideren aanvraag",
+        "O_SENT",
+        "O_SELECTED",
+        "O_CREATED",
+        "O_SENT_BACK"
+      ],
+      "idle_after_mean_h": 15.0172,
+      "rejected_because": [
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    },
+    {
+      "activity": "W_Valideren aanvraag",
+      "cases": 3209,
+      "cases_triggering_rework": 673,
+      "trigger_share": 0.2097,
+      "redone_activities_mean": 0.604,
+      "redone_activities_top": [
+        "W_Nabellen incomplete dossiers",
+        "O_CREATED",
+        "O_SENT",
+        "O_SELECTED",
+        "O_CANCELLED"
+      ],
+      "idle_after_mean_h": 4.3643,
+      "rejected_because": [
+        "on average only 0.60 earlier activities are redone after it; that is repetition of the step itself (Contact Reduction), not correction of prior work",
+        "the mined model has no exclusive two-path gateway whose loop returns to this activity alone, so the correction rate is not a parameter this redesign can lower"
+      ]
+    }
+  ]
+}

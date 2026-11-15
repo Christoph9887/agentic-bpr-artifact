@@ -1,0 +1,41 @@
+version: 5
+common:
+  train_log_path: ../../data/BPO_ServiceProcess_first_3000_cases.csv
+  log_ids:
+    case: "case:concept:name"
+    activity: "concept:name"
+    resource: "org:resource"
+    start_time: "start_timestamp"
+    end_time: "time:timestamp"
+  discover_data_attributes: true
+  perform_final_evaluation: true
+  evaluation_metrics:
+    - cycle_time_distribution
+    - two_gram_distance
+    - absolute_event_distribution
+    - relative_event_distribution
+    - circadian_event_distribution
+  num_final_evaluations: 3
+preprocessing:
+  enable_time_concurrency_threshold: 0.75
+control_flow:
+  optimization_metric: two_gram_distance
+  num_iterations: 5
+  num_evaluations_per_iteration: 5
+  gateway_probabilities: discovery
+resource_model:
+  optimization_metric: cycle_time_distribution
+  num_iterations: 5
+  num_evaluations_per_iteration: 5
+  discover_prioritization_rules: false
+  discover_batching_rules: false
+  resource_profiles:
+    discovery_type: pool
+    granularity: 60
+    confidence: [0.5, 0.85]
+    support: [0.05, 0.5]
+    participation: 0.4
+extraneous_activity_delays:
+  discovery_method: eclipse-aware
+  optimization_metric: cycle_time_distribution
+  num_iterations: 5

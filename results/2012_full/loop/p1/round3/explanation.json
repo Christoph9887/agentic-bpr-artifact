@@ -1,0 +1,613 @@
+{
+  "round": 3,
+  "stage": "measured",
+  "plan_spillover": {
+    "h_per_case": 1.4815,
+    "z": 60.3,
+    "significant": true,
+    "charged_to": null,
+    "activities": [
+      "A_SUBMITTED + A_PARTLYSUBMITTED",
+      "A_DECLINED",
+      "A_CANCELLED",
+      "A_PREACCEPTED",
+      "O_SENT_BACK",
+      "A_ACCEPTED",
+      "O_SELECTED",
+      "O_CANCELLED"
+    ],
+    "note": "Change on activities no applied candidate touches — queueing spillover. More than one candidate was applied, so this cannot be split between them without inventing a share; it belongs to the plan, not to any one candidate."
+  },
+  "accounting": {
+    "available": true,
+    "activity_hours_h_per_case": -10.6814,
+    "explained_by_candidates_h_per_case": -9.3765,
+    "activity_hours_unexplained": -1.3049,
+    "activity_hours_unexplained_share": 0.122,
+    "contested_activities": [
+      {
+        "activity": "W_Completeren aanvraag",
+        "h_per_case": -1.2573,
+        "claimants": [
+          "CR-002",
+          "SPC-002"
+        ],
+        "mechanism_direction": {
+          "activity": "W_Completeren aanvraag",
+          "measured": "the wait FELL (-1.2573 h per case)",
+          "compatible_with_the_measured_sign": [
+            "CR-002"
+          ],
+          "ruled_out_by_mechanism": [
+            "SPC-002"
+          ],
+          "per_claimant": [
+            {
+              "candidate": "CR-002",
+              "direction": "down",
+              "evidence": "loop_probability_reduced=0.3996"
+            },
+            {
+              "candidate": "SPC-002",
+              "direction": "up",
+              "evidence": "assigned_tasks_removed=54; resources_removed=54"
+            }
+          ],
+          "note": "the account cannot attribute a shared activity to one candidate, but a transformation that can only push this wait the OTHER way cannot be the source of what was measured. This is the handlers' own reports plus the measured sign -- no isolation was run, and nothing is decided here."
+        }
+      },
+      {
+        "activity": "O_CREATED",
+        "h_per_case": -0.0477,
+        "claimants": [
+          "AC-002",
+          "CT-001"
+        ]
+      }
+    ],
+    "applied_candidates_owning_no_activity": [],
+    "applied_candidates_that_changed_routing_or_waiting": {
+      "AC-001": {
+        "timers_removed": 1
+      },
+      "AE-002": {
+        "timers_removed": 1,
+        "gateways_dropped": 1
+      },
+      "CBW-002": {
+        "batch_component_h_removed": 6.5664
+      },
+      "CR-001": {
+        "loop_probability_reduced": 0.5345
+      },
+      "CR-002": {
+        "loop_probability_reduced": 0.3996
+      },
+      "CT-001": {
+        "gateways_conditioned": 2,
+        "branch_rules_added": 4
+      }
+    },
+    "case_span_h_per_case": -157.3525,
+    "case_span_not_visible_to_any_column": -146.6711,
+    "note": "The columns measure ACTIVITY HOURS; the loop ranks on CASE SPAN. `case_span_not_visible_to_any_column` is the part of the span change that no per-activity column can show — time the case spends with nothing running (fitted extraneous-delay timers, routing that sends cases down longer paths). When it is large, a candidate in `applied_candidates_that_changed_routing_or_waiting` or `applied_candidates_owning_no_activity` may be driving the KPI while reading as 'nothing attributable to it alone'. A fact, not an accusation: settling it is what a confirmation simulation is for.",
+    "case_span_median_delta": -7.4365,
+    "case_span_mean_delta": -157.3525,
+    "median_and_mean_disagree_in_sign": false
+  },
+  "plan_before": [
+    "AC-001",
+    "AC-002",
+    "AE-002",
+    "CBW-002",
+    "CT-001",
+    "CR-001",
+    "SPC-001",
+    "SPC-002",
+    "CR-002",
+    "SPC-003"
+  ],
+  "plan_after": [
+    "AC-001",
+    "AC-002",
+    "AE-002",
+    "CBW-002",
+    "CT-001",
+    "CR-001",
+    "SPC-001",
+    "SPC-002",
+    "CR-002",
+    "SPC-003"
+  ],
+  "kept": [
+    {
+      "candidate": "AC-001",
+      "heuristic": "Activity Composition",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.9545,
+        "throughput_sd": 0.0394,
+        "throughput_z": -108.29,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -0.955 h per case (z=-108.3)",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (timers_removed=1), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice."
+      },
+      "what_the_handler_did": {
+        "timers_removed": 1,
+        "timer_h_removed_per_occurrence": 0.0,
+        "composite_name": "A_SUBMITTED + A_PARTLYSUBMITTED",
+        "distributions_folded": 1,
+        "distributions_carried_over": 0,
+        "assigned_tasks_removed": 1,
+        "assigned_tasks_added": 0,
+        "setup_saving_assumed_h": 0.0
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Its sole-owner activity hours improved by 0.9545 h/case (z=-108.29), with no significant waiting, duration, or resource measure.",
+      "critic_evidence_ref": "footprint.AC-001",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "n/a",
+        "throughput": "better"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: helped — Its sole-owner activity hours improved by 0.9545 h/case (z=-108.29), with no significant waiting, duration, or resource measure."
+    },
+    {
+      "candidate": "AC-002",
+      "heuristic": "Activity Composition",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.0228,
+        "throughput_sd": 0.0089,
+        "throughput_z": -11.47,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -0.023 h per case (z=-11.5)",
+        "attribution_caveat": "shares ['O_CREATED'] with ['CT-001'] — that part is attributable to neither (-0.048 h per case left unassigned)"
+      },
+      "what_the_handler_did": {
+        "timers_removed": 0,
+        "timer_h_removed_per_occurrence": 0.0,
+        "composite_name": "O_CREATED + O_SENT",
+        "distributions_folded": 64,
+        "distributions_carried_over": 0,
+        "assigned_tasks_removed": 64,
+        "assigned_tasks_added": 0,
+        "setup_saving_assumed_h": 0.0
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "O_SENT improved by 0.0228 h/case (z=-11.47), while the additional O_CREATED improvement of 0.0477 h/case remains shared with CT-001.",
+      "critic_evidence_ref": "activity.O_SENT",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "n/a",
+        "throughput": "better"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: helped — O_SENT improved by 0.0228 h/case (z=-11.47), while the additional O_CREATED improvement of 0.0477 h/case remains shared with CT-001."
+    },
+    {
+      "candidate": "AE-002",
+      "heuristic": "Activity Elimination",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -2.778,
+        "throughput_sd": 0.1291,
+        "throughput_z": -96.24,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -2.778 h per case (z=-96.2)",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (timers_removed=1), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice."
+      },
+      "what_the_handler_did": {
+        "timers_removed": 1,
+        "timer_h_removed_per_occurrence": 73.684,
+        "batch_rules_dropped": 0,
+        "paths_remapped": 0,
+        "assigned_tasks_removed": 56
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Its eliminated activity improved by 2.778 h/case (z=-96.24), and removing AE-002 in the confirmation plan measurably worsened median and mean throughput, waiting, and duration relative to the full plan.",
+      "critic_evidence_ref": "footprint.AE-002",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "n/a",
+        "throughput": "better"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: helped — Its eliminated activity improved by 2.778 h/case (z=-96.24), and removing AE-002 in the confirmation plan measurably worsened median and mean throughput, waiting, and duration relative to the full plan."
+    },
+    {
+      "candidate": "CBW-002",
+      "heuristic": "Case-based Work",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.8904,
+        "throughput_sd": 0.067,
+        "throughput_z": -59.47,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -0.890 h per case (z=-59.5)",
+        "exogenous_absorbed_by_the_edit": "the edit removed or shrank the extraneous-delay timer that holds this wait (batch_component_h_removed=6.5664), so the simulation measured it and the four columns contain it. Reporting the log estimate as well would count the same hours twice."
+      },
+      "what_the_handler_did": {
+        "channel": "extraneous_delay_batch_share",
+        "timers_removed": 0,
+        "batch_component_h_removed": 6.5664,
+        "share_of_timer_removed": 0.2012,
+        "rules_removed": 0,
+        "note": "scaled the extraneous-delay timer in front of 'W_Valideren aanvraag' by 0.7988: 32.63 h -> 26.06 h per occurrence. Only the batching share is removed (20.1% of the timer, from a 13.5712 h gap between batched and non-batched executions at z=14.12); the rest of the wait is left in place because this heuristic does not claim it."
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Its sole-owner activity hours fell by 0.8904 h/case (z=-59.47), with no significant movement in waiting, duration, or resources.",
+      "critic_evidence_ref": "activity.W_Valideren aanvraag",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "n/a",
+        "throughput": "better"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: helped — Its sole-owner activity hours fell by 0.8904 h/case (z=-59.47), with no significant movement in waiting, duration, or resources."
+    },
+    {
+      "candidate": "CT-001",
+      "heuristic": "Case Types",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['O_CREATED'] with ['AC-002'] — that part is attributable to neither (-0.048 h per case left unassigned)"
+      },
+      "what_the_handler_did": {
+        "gateways_conditioned": 2,
+        "branch_rules_added": 4
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "Its only touched activity, O_CREATED, improved by 0.0477 h/case but is shared entirely with AC-002, so CT-001's contribution is not established.",
+      "critic_evidence_ref": "activity.O_CREATED",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "n/a",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_kept": "in the plan that was measured this round; Critic verdict: covered — Its only touched activity, O_CREATED, improved by 0.0477 h/case but is shared entirely with AC-002, so CT-001's contribution is not established."
+    },
+    {
+      "candidate": "CR-001",
+      "heuristic": "Contact Reduction",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.0086,
+        "throughput_sd": 0.0047,
+        "throughput_z": -8.11,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 5,
+        "summary": "0 improved / 0 worsened activity measures; -0.009 h per case (z=-8.1)",
+        "exogenous_saving": "the log says it also removes 14.044 h per occurrence (waiting_time_before) — consolidating the exchange removes the idle wait after every repeat contact beyond the first. The simulator cannot see this, so none of the columns above contain it; it is an estimate, not a measurement."
+      },
+      "what_the_handler_did": {
+        "loop_probability_reduced": 0.5345
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Its activity improved by 0.0086 h/case (z=-8.11) and all nine associated resources improved significantly; the log additionally estimates 0.2949 exogenous hours/case saved, which is not simulated.",
+      "critic_evidence_ref": "activity.W_Beoordelen fraude",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "better",
+        "throughput": "better"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: helped — Its activity improved by 0.0086 h/case (z=-8.11) and all nine associated resources improved significantly; the log additionally estimates 0.2949 exogenous hours/case saved, which is not simulated."
+    },
+    {
+      "candidate": "SPC-001",
+      "heuristic": "Specialize",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -0.4769,
+        "throughput_sd": 0.0463,
+        "throughput_z": -46.06,
+        "throughput_significant": true,
+        "waiting": [
+          "W_Afhandelen leads z=-37.1"
+        ],
+        "duration": [
+          "W_Afhandelen leads z=-4.2"
+        ],
+        "resources_significant": 2,
+        "summary": "2 improved / 0 worsened activity measures; -0.477 h per case (z=-46.1)"
+      },
+      "what_the_handler_did": {
+        "resources_removed": 57,
+        "assigned_tasks_removed": 57
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Waiting fell by z=-37.10, duration by z=-4.19, throughput by 0.4769 h/case (z=-46.06), and both sole resources improved significantly.",
+      "critic_evidence_ref": "activity.W_Afhandelen leads",
+      "critic_dimensions": {
+        "waiting": "better",
+        "duration": "better",
+        "resources": "better",
+        "throughput": "better"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: helped — Waiting fell by z=-37.10, duration by z=-4.19, throughput by 0.4769 h/case (z=-46.06), and both sole resources improved significantly."
+    },
+    {
+      "candidate": "SPC-002",
+      "heuristic": "Specialize",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [
+          "W_Completeren aanvraag z=-23.5"
+        ],
+        "resources_significant": 5,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['W_Completeren aanvraag'] with ['CR-002'] — that part is attributable to neither (-1.257 h per case left unassigned)"
+      },
+      "what_the_handler_did": {
+        "resources_removed": 54,
+        "assigned_tasks_removed": 54
+      },
+      "critic_verdict": "covered",
+      "critic_confidence": "attributed",
+      "critic_note": "All measured movement on W_Completeren aanvraag is shared with CR-002; SPC-002 removed assigned resources, a mechanism inconsistent with causing the observed reduction, but no isolated effect was measured.",
+      "critic_evidence_ref": "activity.W_Completeren aanvraag",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "attribution_unresolved": "the Critic could not separate this candidate's effect from another candidate touching the same activities; its contribution is still open",
+      "why_kept": "in the plan that was measured this round; Critic verdict: covered — All measured movement on W_Completeren aanvraag is shared with CR-002; SPC-002 removed assigned resources, a mechanism inconsistent with causing the observed reduction, but no isolated effect was measured."
+    },
+    {
+      "candidate": "CR-002",
+      "heuristic": "Contact Reduction",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": 0.0,
+        "throughput_sd": 0.0,
+        "throughput_z": null,
+        "throughput_significant": false,
+        "waiting": [],
+        "duration": [
+          "W_Completeren aanvraag z=-23.5"
+        ],
+        "resources_significant": 5,
+        "summary": "nothing attributable to it alone — every measure it touches is shared",
+        "attribution_caveat": "shares ['W_Completeren aanvraag'] with ['SPC-002'] — that part is attributable to neither (-1.257 h per case left unassigned)",
+        "exogenous_saving": "the log says it also removes 74.360 h per occurrence (waiting_time_before) — consolidating the exchange removes the idle wait after every repeat contact beyond the first. The simulator cannot see this, so none of the columns above contain it; it is an estimate, not a measurement."
+      },
+      "what_the_handler_did": {
+        "loop_probability_reduced": 0.3996
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "attributed",
+      "critic_note": "W_Completeren aanvraag improved by 1.2573 h/case in shared measures, and CR-002's loop reduction is compatible with that improvement while SPC-002's resource removal points the other way; the log also estimates 98.5513 exogenous hours/case saved, not simulated.",
+      "critic_evidence_ref": "activity.W_Completeren aanvraag",
+      "critic_dimensions": {
+        "waiting": "shared",
+        "duration": "shared",
+        "resources": "shared",
+        "throughput": "shared"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: helped — W_Completeren aanvraag improved by 1.2573 h/case in shared measures, and CR-002's loop reduction is compatible with that improvement while SPC-002's resource removal points the other way; the log also estimates 98.5513 exogenous hours/case saved, not simulated."
+    },
+    {
+      "candidate": "SPC-003",
+      "heuristic": "Specialize",
+      "contribution": {
+        "measured": true,
+        "throughput_h_per_case": -5.7268,
+        "throughput_sd": 0.6614,
+        "throughput_z": -38.72,
+        "throughput_significant": true,
+        "waiting": [],
+        "duration": [],
+        "resources_significant": 0,
+        "summary": "0 improved / 0 worsened activity measures; -5.727 h per case (z=-38.7)"
+      },
+      "what_the_handler_did": {
+        "resources_removed": 51,
+        "assigned_tasks_removed": 51
+      },
+      "critic_verdict": "helped",
+      "critic_confidence": "measured",
+      "critic_note": "Its sole-owner activity hours fell by 5.7268 h/case (z=-38.72), with no significant waiting, duration, or resource movement.",
+      "critic_evidence_ref": "activity.W_Nabellen incomplete dossiers",
+      "critic_dimensions": {
+        "waiting": "n/a",
+        "duration": "n/a",
+        "resources": "n/a",
+        "throughput": "better"
+      },
+      "why_kept": "in the plan that was measured this round; Critic verdict: helped — Its sole-owner activity hours fell by 5.7268 h/case (z=-38.72), with no significant waiting, duration, or resource movement."
+    }
+  ],
+  "dropped": [],
+  "added": [],
+  "directive": null,
+  "directive_followthrough": {
+    "intent": "",
+    "named": [],
+    "left_named": [],
+    "left_unnamed": [],
+    "added_named": [],
+    "added_unnamed": [],
+    "size_before": 10,
+    "size_after": 10,
+    "net_change": 0
+  },
+  "unresolved_attribution": [
+    "CT-001",
+    "SPC-002"
+  ],
+  "generic_reasons": [],
+  "offered_unmeasured": [],
+  "offered_unmeasured_unanswered": [],
+  "dropped_exogenous_only": [],
+  "per_candidate_missing": [],
+  "per_candidate_malformed": [],
+  "schema_retry": {
+    "violations": [],
+    "after_retry": [],
+    "retried": false
+  },
+  "clean_probe": {
+    "basis": "r2c",
+    "deliverable": [
+      "AC-001",
+      "AC-002",
+      "AE-002",
+      "CBW-002",
+      "CT-001",
+      "CR-001",
+      "CR-002",
+      "SPC-001",
+      "SPC-002",
+      "SPC-003"
+    ],
+    "rule_basis": "r3c",
+    "round_basis": "r3",
+    "qualifying_measurement": "r2c",
+    "dropped_because": [],
+    "excluded_exogenous_only": [],
+    "queue": [],
+    "done": [],
+    "current": null,
+    "deliverable_vs_baseline": "better",
+    "rule_basis_plan": [
+      "AC-001",
+      "AC-002",
+      "CBW-002",
+      "CT-001",
+      "CR-001",
+      "SPC-001",
+      "SPC-002",
+      "CR-002",
+      "SPC-003"
+    ],
+    "rule_basis_dropped_because": [],
+    "round_basis_plan": [
+      "AC-001",
+      "AC-002",
+      "AE-002",
+      "CBW-002",
+      "CT-001",
+      "CR-001",
+      "SPC-001",
+      "SPC-002",
+      "CR-002",
+      "SPC-003"
+    ],
+    "round_basis_dropped_because": [],
+    "compliance_exposed": [],
+    "state": "skipped",
+    "reason": "nothing in the deliverable measured significantly worse, no candidate in it is exposed to a compliance ruling, and it satisfies the improvement rule, so it is delivered as measured"
+  },
+  "plan_vs_baseline": {
+    "verdict": "better",
+    "better_on": [
+      "throughput_median_h_per_case",
+      "throughput_mean_h_per_case",
+      "waiting_h_per_case_mean",
+      "duration_h_per_case_mean"
+    ],
+    "worse_on": []
+  },
+  "plan_reading": {
+    "stated": "better",
+    "measured": "better",
+    "consistent": true,
+    "better_on": [
+      "throughput_h_median",
+      "throughput_h_mean",
+      "waiting_h_per_case_mean",
+      "duration_h_per_case_mean"
+    ],
+    "worse_on": [],
+    "retried": false
+  },
+  "confirmation_counterfactual": {
+    "removed": [
+      "AE-002"
+    ],
+    "added": [],
+    "verdict": {
+      "improved": false,
+      "better_on": [],
+      "worse_on": [
+        "throughput_h_median",
+        "throughput_h_mean",
+        "waiting_h_per_case_mean",
+        "duration_h_per_case_mean"
+      ]
+    },
+    "per_measure": [
+      {
+        "measure": "throughput_h_median",
+        "full_pct": -36.36777937225942,
+        "conf_pct": -32.72791972977516,
+        "vs_full_z": 3.99
+      },
+      {
+        "measure": "throughput_h_mean",
+        "full_pct": -77.36889590477142,
+        "conf_pct": -62.21037604027614,
+        "vs_full_z": 42.26
+      },
+      {
+        "measure": "waiting_h_per_case_mean",
+        "full_pct": -63.86839607676438,
+        "conf_pct": -56.77179732150663,
+        "vs_full_z": 22.45
+      },
+      {
+        "measure": "duration_h_per_case_mean",
+        "full_pct": -86.64823826097017,
+        "conf_pct": -83.6011055715398,
+        "vs_full_z": 6.86
+      },
+      {
+        "measure": "utilization_mean",
+        "full_pct": -26.95068322222422,
+        "conf_pct": -45.92766592571388,
+        "vs_full_z": -6.75
+      }
+    ]
+  },
+  "note": "This round's plan and what each candidate in it contributed. No next plan was chosen (the loop ended here, or has not reached the Proposer yet), so there is nothing dropped or added. Contribution numbers are measured (scorecard); verdicts are the Critic's judgment of them; keep/drop is the Proposer's choice, except where the Arbiter overruled it. `generic_reasons` lists candidates whose reason fell back to the plan-level rationale — for those, 'why this one' is not actually answered."
+}

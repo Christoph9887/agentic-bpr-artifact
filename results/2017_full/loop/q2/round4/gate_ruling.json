@@ -1,0 +1,336 @@
+{
+  "round": 4,
+  "enforced": true,
+  "plan_in": [
+    "CBW-003",
+    "AC-001",
+    "AC-002",
+    "CA-002",
+    "CBW-002",
+    "CR-001",
+    "CR-002"
+  ],
+  "plan_out": [
+    "CBW-003",
+    "AC-001",
+    "AC-002",
+    "CA-002",
+    "CBW-002",
+    "CR-001",
+    "CR-002"
+  ],
+  "compliance": [
+    {
+      "activity": "O_Accepted",
+      "deleted_by": "CBW-003",
+      "verdict": "must_not_delete",
+      "confidence": "hypothesized",
+      "reason": "An accepted-loan status can be part of the legally significant decision and audit trail, including evidence of customer acceptance and the bank's obligations."
+    },
+    {
+      "activity": "O_Create Offer",
+      "deleted_by": "AC-001",
+      "verdict": "must_not_delete",
+      "confidence": "hypothesized",
+      "reason": "Creating a loan offer supports required disclosure of terms and consumer-protection controls before contract formation."
+    },
+    {
+      "activity": "O_Created",
+      "deleted_by": "AC-001",
+      "verdict": "must_not_delete",
+      "confidence": "hypothesized",
+      "reason": "The created-offer record may be required to preserve the terms presented and an auditable history of the lending decision."
+    },
+    {
+      "activity": "A_Pending",
+      "deleted_by": "AC-002",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "This appears to be an internal pending status; from the activity name alone, no specific legal, regulatory, audit, or consumer-protection obligation is apparent."
+    },
+    {
+      "activity": "O_Accepted",
+      "deleted_by": "AC-002",
+      "verdict": "must_not_delete",
+      "confidence": "hypothesized",
+      "reason": "An accepted-loan status can be part of the legally significant decision and audit trail, including evidence of customer acceptance and the bank's obligations."
+    },
+    {
+      "activity": "A_Accepted",
+      "deleted_by": "CA-002",
+      "verdict": "must_not_delete",
+      "confidence": "hypothesized",
+      "reason": "An accepted application status may evidence the controlled lending decision and must be retained for audit and accountability."
+    },
+    {
+      "activity": "A_Concept",
+      "deleted_by": "CA-002",
+      "verdict": "no_objection",
+      "confidence": "hypothesized",
+      "reason": "This appears to be an internal application status; from the activity name alone, no specific deletion prohibition is apparent."
+    },
+    {
+      "activity": "W_Complete application",
+      "deleted_by": "CA-002",
+      "verdict": "must_not_delete",
+      "confidence": "hypothesized",
+      "reason": "Completing a loan application is plausibly necessary to document the information used for creditworthiness, affordability, and consumer-protection checks."
+    },
+    {
+      "activity": "W_Validate application",
+      "deleted_by": "CBW-002",
+      "verdict": "must_not_delete",
+      "confidence": "hypothesized",
+      "reason": "Application validation plausibly carries mandatory creditworthiness, customer-due-diligence, fraud, and responsible-lending obligations."
+    },
+    {
+      "activity": "O_Cancelled",
+      "deleted_by": "CR-001",
+      "verdict": "must_not_delete",
+      "confidence": "hypothesized",
+      "reason": "A cancellation record can be required to explain the disposition of an application and protect consumers and the bank in later complaints or audits."
+    },
+    {
+      "activity": "O_Sent (online only)",
+      "deleted_by": "CR-002",
+      "verdict": "must_not_delete",
+      "confidence": "hypothesized",
+      "reason": "Evidence that an offer or notice was sent, including its online delivery channel, may be needed to demonstrate disclosure and communication compliance."
+    }
+  ],
+  "rulings": [
+    {
+      "candidate_id": "CBW-003",
+      "ruling": "prune",
+      "basis": "compliance",
+      "reason": "Its target O_Accepted is intact, but deleting that acceptance record is barred by the audit and consumer-protection obligation identified above."
+    },
+    {
+      "candidate_id": "AC-001",
+      "ruling": "prune",
+      "basis": "compliance",
+      "reason": "Both targets survive, but creating and recording a loan offer plausibly carries disclosure and audit obligations."
+    },
+    {
+      "candidate_id": "AC-002",
+      "ruling": "prune",
+      "basis": "compliance",
+      "reason": "Although both targets survive, the candidate also targets O_Accepted, whose deletion is barred."
+    },
+    {
+      "candidate_id": "CA-002",
+      "ruling": "prune",
+      "basis": "compliance",
+      "reason": "All three targets survive, and deleting W_Complete application or A_Accepted could remove required creditworthiness or decision evidence."
+    },
+    {
+      "candidate_id": "CBW-002",
+      "ruling": "prune",
+      "basis": "compliance",
+      "reason": "Its validation target survives, but application validation plausibly performs mandatory responsible-lending and due-diligence controls."
+    },
+    {
+      "candidate_id": "CR-001",
+      "ruling": "prune",
+      "basis": "compliance",
+      "reason": "Its O_Cancelled target survives, but removing the cancellation record could defeat auditability and consumer-protection traceability."
+    },
+    {
+      "candidate_id": "CR-002",
+      "ruling": "prune",
+      "basis": "compliance",
+      "reason": "Its online-sent target survives, but removing delivery evidence could undermine proof of required loan communications."
+    }
+  ],
+  "pruned": [],
+  "blocked": [],
+  "reorder_suggestion": null,
+  "survival": {
+    "CBW-003": {
+      "candidate_id": "CBW-003",
+      "heuristic": "Case-based Work",
+      "targets": [
+        "O_Accepted"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "O_Accepted"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "AC-001": {
+      "candidate_id": "AC-001",
+      "heuristic": "Activity Composition",
+      "targets": [
+        "O_Create Offer",
+        "O_Created"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "O_Create Offer",
+        "O_Created"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "AC-002": {
+      "candidate_id": "AC-002",
+      "heuristic": "Activity Composition",
+      "targets": [
+        "A_Pending",
+        "O_Accepted"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "A_Pending",
+        "O_Accepted"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CA-002": {
+      "candidate_id": "CA-002",
+      "heuristic": "Case Assignment",
+      "targets": [
+        "A_Accepted",
+        "A_Concept",
+        "W_Complete application"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "A_Accepted",
+        "A_Concept",
+        "W_Complete application"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CBW-002": {
+      "candidate_id": "CBW-002",
+      "heuristic": "Case-based Work",
+      "targets": [
+        "W_Validate application"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "W_Validate application"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CR-001": {
+      "candidate_id": "CR-001",
+      "heuristic": "Contact Reduction",
+      "targets": [
+        "O_Cancelled"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "O_Cancelled"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "CR-002": {
+      "candidate_id": "CR-002",
+      "heuristic": "Contact Reduction",
+      "targets": [
+        "O_Sent (online only)"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "O_Sent (online only)"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    }
+  },
+  "note": "This is a prior judgment about a Dutch bank loan process, based only on activity names and context; I may be wrong. All survival checks were intact, so no candidate is nullified or degraded. Compliance rulings are deliberately conservative and are not endorsements of the proposed redesign.",
+  "rollback_note": "compliance was claimed for ['CBW-003', 'AC-001', 'AC-002', 'CA-002', 'CBW-002', 'CR-001', 'CR-002'], which delete nothing — kept as an ordinary prune, not an irrevocable block; the gate pruned every candidate; the revocable prunes were rolled back so the round has something to run (there were no compliance blocks)",
+  "halted": false,
+  "grounding": [
+    "knowledge.check_target_survival({\"candidate_id\": \"CBW-003\", \"ordering\": [\"CBW-003\", \"AC-001\", \"AC-002\", \"CA-002\", \"CBW-002\", \"CR-001\", \"CR-002\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"AC-001\", \"ordering\": [\"CBW-003\", \"AC-001\", \"AC-002\", \"CA-002\", \"CBW-002\", \"CR-001\", \"CR-002\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"AC-002\", \"ordering\": [\"CBW-003\", \"AC-001\", \"AC-002\", \"CA-002\", \"CBW-002\", \"CR-001\", \"CR-002\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CA-002\", \"ordering\": [\"CBW-003\", \"AC-001\", \"AC-002\", \"CA-002\", \"CBW-002\", \"CR-001\", \"CR-002\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CBW-002\", \"ordering\": [\"CBW-003\", \"AC-001\", \"AC-002\", \"CA-002\", \"CBW-002\", \"CR-001\", \"CR-002\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CR-001\", \"ordering\": [\"CBW-003\", \"AC-001\", \"AC-002\", \"CA-002\", \"CBW-002\", \"CR-001\", \"CR-002\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"CR-002\", \"ordering\": [\"CBW-003\", \"AC-001\", \"AC-002\", \"CA-002\", \"CBW-002\", \"CR-001\", \"CR-002\"]})",
+    "knowledge.get_heuristic_prior({\"heuristic\": \"Case-based Work\"})",
+    "knowledge.get_heuristic_prior({\"heuristic\": \"Activity Composition\"})",
+    "knowledge.get_heuristic_prior({\"heuristic\": \"Case Assignment\"})",
+    "knowledge.get_heuristic_prior({\"heuristic\": \"Contact Reduction\"})"
+  ],
+  "deleter_probes": {
+    "AE-001": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "AE-002": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "AE-003": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-001": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: no XOR split found within 5 hops of 'A_Concept'",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-002": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: no XOR split found within 5 hops of 'A_Concept'",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-003": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-004": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-005": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-006": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branch from split 'node_8d9cbf77-06fb-4d2d-95f8-7d4a1414af6e' does not cleanly terminate at a XOR join — the branch reaches a ParallelGateway with 2 outgoing flows leading to ['Exclus",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-007": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: branches converge to 4 different joins; structure not a clean XOR sandwich",
+      "why": "probed because another candidate's nullification depends on it"
+    },
+    "EXC-008": {
+      "builds_alone": false,
+      "note": "refuses alone too: locator skipped: no XOR split found within 5 hops of 'A_Concept'",
+      "why": "probed because another candidate's nullification depends on it"
+    }
+  }
+}

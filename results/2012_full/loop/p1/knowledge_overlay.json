@@ -1,0 +1,106 @@
+{
+  "note": "Learned layer over foundation's HI-Graph. foundation is the literature prior and is never edited; everything here was produced by measurement inside the loop.",
+  "contradictions": [
+    {
+      "id": "C1-1",
+      "round": 1,
+      "kind": "hard_wrongly_marked",
+      "subject": [
+        "Case Assignment",
+        "Numerical Involvement"
+      ],
+      "prior_said": "The pair is HARD_CONFLICT and cannot be applied together when they share an affected activity.",
+      "measured_said": "Both candidates shared A_CANCELLED, the condition fired, and Phase-3 successfully built the combined redesign.",
+      "evidence": [
+        "get_pair_relation returned HARD_CONFLICT with condition_fires=true and shared activity A_CANCELLED",
+        "Phase-3 outcome: CA-002 and NI-001 both applied successfully",
+        "The complete redesign built successfully"
+      ],
+      "action": "downgrade_hard_to_weak",
+      "confidence": "measured",
+      "note": "The pair can form a legal model, although their effects may remain difficult to attribute and can produce contention.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-2",
+      "round": 1,
+      "kind": "impact_wrong",
+      "subject": [
+        "Case Assignment"
+      ],
+      "prior_said": "Case Assignment has a weak positive impact on time.",
+      "measured_said": "CA-002 produced worse sole-owned throughput and sharply increased waiting under the merged pool.",
+      "evidence": [
+        "CA-002 sole-owned throughput worsened by 1.059 h per case, z=36.31",
+        "A_DECLINED waiting rose with z=42.61 while duration remained flat",
+        "CA-002 was applied successfully in Phase-3"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "This is strong candidate-level counterevidence but not sufficient to overturn the general heuristic because other case-assignment effects were shared or favorable; retain the prior with a contention caveat.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-3",
+      "round": 1,
+      "kind": "impact_wrong",
+      "subject": [
+        "Numerical Involvement"
+      ],
+      "prior_said": "Numerical Involvement has a strong positive impact on time by reducing coordination and handover waiting.",
+      "measured_said": "NI-001 increased queueing on affected activities, including O_CANCELLED, while service duration stayed flat.",
+      "evidence": [
+        "O_CANCELLED waiting rose with z=7.41 under NI-001",
+        "A_CANCELLED waiting also rose in the CA-002/NI-001 shared change with z=3.50",
+        "NI-001 was applied successfully in Phase-3"
+      ],
+      "action": "note_only",
+      "confidence": "attributed",
+      "note": "The adverse queueing signal is real but attribution is partly shared, so record the need for a pool-capacity caveat rather than revising the general impact yet.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-4",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Activity Elimination"
+      ],
+      "prior_said": "Removing a non-value-adding step strongly improves time and cost.",
+      "measured_said": "AE-002's eliminated activity produced a large sole-attributed throughput improvement.",
+      "evidence": [
+        "W_Nabellen offertes removal reduced time by 2.778 h per case, z=-96.24",
+        "AE-002 applied successfully in Phase-3",
+        "Whole-plan median throughput improved by 34.56%, z=-17.66"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The elimination prior is supported; no correction is needed.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-5",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Specialize"
+      ],
+      "prior_said": "Specialization improves time, while queueing consequences must be measured rather than assumed.",
+      "measured_said": "The specialization candidates produced measured throughput improvement or shared service-time improvement, with no demonstrated refutation of the time direction.",
+      "evidence": [
+        "SPC-003 reduced sole-owned activity time by 5.7268 h per case, z=-38.72",
+        "SPC-002's detector measured a 3.16x specialist service-speed difference, separation z=5.57",
+        "SPC-002 and SPC-001 were applied successfully in Phase-3"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The measured results support the positive service-time direction while confirming that shared attribution and queue effects must remain empirical.",
+      "accepted": true,
+      "refused_reason": ""
+    }
+  ]
+}

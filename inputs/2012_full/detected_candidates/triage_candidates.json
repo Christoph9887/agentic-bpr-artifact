@@ -1,0 +1,391 @@
+{
+  "heuristic": "Triage",
+  "candidates": [],
+  "rejected": [
+    {
+      "activity": "A_ACCEPTED",
+      "occurrences": 5113,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "5113 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_ACTIVATED",
+      "occurrences": 2246,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "2246 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_APPROVED",
+      "occurrences": 2246,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "2246 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_CANCELLED",
+      "occurrences": 2807,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "2807 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_DECLINED",
+      "occurrences": 7635,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "7635 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_FINALIZED",
+      "occurrences": 5015,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "5015 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_PARTLYSUBMITTED",
+      "occurrences": 13087,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "13087 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_PREACCEPTED",
+      "occurrences": 7367,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "7367 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_REGISTERED",
+      "occurrences": 2246,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "2246 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "A_SUBMITTED",
+      "occurrences": 13087,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "13087 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_ACCEPTED",
+      "occurrences": 2243,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "2243 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_CANCELLED",
+      "occurrences": 3655,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "3655 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_CREATED",
+      "occurrences": 7030,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "7030 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_DECLINED",
+      "occurrences": 802,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "802 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_SELECTED",
+      "occurrences": 7030,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "7030 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_SENT",
+      "occurrences": 7030,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "7030 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "O_SENT_BACK",
+      "occurrences": 3454,
+      "mean_s": 0.0,
+      "rejected_because": [
+        "3454 occurrences at 0.0 s mean — a status event or too rare to have an effort profile per case type"
+      ]
+    },
+    {
+      "activity": "W_Afhandelen leads",
+      "split": "case:AMOUNT_REQ <= 5000",
+      "n_in": 1777,
+      "n_out": 4121,
+      "mean_in_s": 993.8,
+      "mean_out_s": 1026.2,
+      "ratio": 1.03,
+      "z": 0.11,
+      "rejected_because": [
+        "the two types differ by only 1.03x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.11, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.03x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Afhandelen leads",
+      "split": "case:AMOUNT_REQ <= 10000",
+      "n_in": 3441,
+      "n_out": 2457,
+      "mean_in_s": 1026.2,
+      "mean_out_s": 1002.8,
+      "ratio": 1.02,
+      "z": -0.09,
+      "rejected_because": [
+        "the two types differ by only 1.02x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.09, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Afhandelen leads",
+      "split": "case:AMOUNT_REQ <= 17620",
+      "n_in": 4405,
+      "n_out": 1493,
+      "mean_in_s": 1067.0,
+      "mean_out_s": 867.2,
+      "ratio": 1.23,
+      "z": -0.78,
+      "rejected_because": [
+        "the two types differ by only 1.23x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.78, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.23x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Beoordelen fraude",
+      "split": "case:AMOUNT_REQ <= 5000",
+      "n_in": 74,
+      "n_out": 196,
+      "mean_in_s": 18.2,
+      "mean_out_s": 759.6,
+      "ratio": 41.66,
+      "z": 1.53,
+      "rejected_because": [
+        "the effort gap is z=1.53, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 41.66x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Beoordelen fraude",
+      "split": "case:AMOUNT_REQ <= 10000",
+      "n_in": 144,
+      "n_out": 126,
+      "mean_in_s": 418.7,
+      "mean_out_s": 713.7,
+      "ratio": 1.7,
+      "z": 0.41,
+      "rejected_because": [
+        "the effort gap is z=0.41, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.70x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Beoordelen fraude",
+      "split": "case:AMOUNT_REQ <= 17620",
+      "n_in": 188,
+      "n_out": 82,
+      "mean_in_s": 378.1,
+      "mean_out_s": 965.3,
+      "ratio": 2.55,
+      "z": 0.6,
+      "rejected_because": [
+        "the effort gap is z=0.60, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 2.55x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Completeren aanvraag",
+      "split": "case:AMOUNT_REQ <= 5000",
+      "n_in": 5101,
+      "n_out": 18866,
+      "mean_in_s": 535.0,
+      "mean_out_s": 619.0,
+      "ratio": 1.16,
+      "z": 1.15,
+      "rejected_because": [
+        "the two types differ by only 1.16x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.15, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.16x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Completeren aanvraag",
+      "split": "case:AMOUNT_REQ <= 10000",
+      "n_in": 12207,
+      "n_out": 11760,
+      "mean_in_s": 593.9,
+      "mean_out_s": 608.6,
+      "ratio": 1.02,
+      "z": 0.21,
+      "rejected_because": [
+        "the two types differ by only 1.02x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.21, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Completeren aanvraag",
+      "split": "case:AMOUNT_REQ <= 17620",
+      "n_in": 16812,
+      "n_out": 7155,
+      "mean_in_s": 618.1,
+      "mean_out_s": 561.3,
+      "ratio": 1.1,
+      "z": -0.88,
+      "rejected_because": [
+        "the two types differ by only 1.10x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.88, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.10x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Nabellen incomplete dossiers",
+      "split": "case:AMOUNT_REQ <= 5000",
+      "n_in": 1680,
+      "n_out": 9727,
+      "mean_in_s": 702.7,
+      "mean_out_s": 773.1,
+      "ratio": 1.1,
+      "z": 0.41,
+      "rejected_because": [
+        "the two types differ by only 1.10x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.41, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.10x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Nabellen incomplete dossiers",
+      "split": "case:AMOUNT_REQ <= 10000",
+      "n_in": 5117,
+      "n_out": 6290,
+      "mean_in_s": 810.8,
+      "mean_out_s": 723.6,
+      "ratio": 1.12,
+      "z": -0.57,
+      "rejected_because": [
+        "the two types differ by only 1.12x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.57, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.12x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Nabellen incomplete dossiers",
+      "split": "case:AMOUNT_REQ <= 17620",
+      "n_in": 7451,
+      "n_out": 3956,
+      "mean_in_s": 780.2,
+      "mean_out_s": 729.9,
+      "ratio": 1.07,
+      "z": -0.31,
+      "rejected_because": [
+        "the two types differ by only 1.07x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.31, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.07x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Nabellen offertes",
+      "split": "case:AMOUNT_REQ <= 5000",
+      "n_in": 3647,
+      "n_out": 19329,
+      "mean_in_s": 517.8,
+      "mean_out_s": 550.0,
+      "ratio": 1.06,
+      "z": 0.27,
+      "rejected_because": [
+        "the two types differ by only 1.06x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.27, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.06x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Nabellen offertes",
+      "split": "case:AMOUNT_REQ <= 10000",
+      "n_in": 10415,
+      "n_out": 12561,
+      "mean_in_s": 612.1,
+      "mean_out_s": 489.2,
+      "ratio": 1.25,
+      "z": -1.26,
+      "rejected_because": [
+        "the two types differ by only 1.25x (<1.5x) — one activity serves both",
+        "the effort gap is z=-1.26, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.25x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Nabellen offertes",
+      "split": "case:AMOUNT_REQ <= 17620",
+      "n_in": 15341,
+      "n_out": 7635,
+      "mean_in_s": 604.4,
+      "mean_out_s": 425.5,
+      "ratio": 1.42,
+      "z": -1.93,
+      "rejected_because": [
+        "the two types differ by only 1.42x (<1.5x) — one activity serves both",
+        "the effort gap is z=-1.93, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.42x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Valideren aanvraag",
+      "split": "case:AMOUNT_REQ <= 5000",
+      "n_in": 1187,
+      "n_out": 6708,
+      "mean_in_s": 1153.2,
+      "mean_out_s": 1273.8,
+      "ratio": 1.1,
+      "z": 0.94,
+      "rejected_because": [
+        "the two types differ by only 1.10x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.94, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.10x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Valideren aanvraag",
+      "split": "case:AMOUNT_REQ <= 10000",
+      "n_in": 3396,
+      "n_out": 4499,
+      "mean_in_s": 1272.3,
+      "mean_out_s": 1243.1,
+      "ratio": 1.02,
+      "z": -0.22,
+      "rejected_because": [
+        "the two types differ by only 1.02x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.22, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "W_Valideren aanvraag",
+      "split": "case:AMOUNT_REQ <= 17620",
+      "n_in": 5111,
+      "n_out": 2784,
+      "mean_in_s": 1252.7,
+      "mean_out_s": 1261.2,
+      "ratio": 1.01,
+      "z": 0.06,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.06, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    }
+  ]
+}

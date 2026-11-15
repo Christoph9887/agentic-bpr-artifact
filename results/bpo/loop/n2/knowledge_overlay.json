@@ -1,0 +1,145 @@
+{
+  "note": "Learned layer over foundation's HI-Graph. foundation is the literature prior and is never edited; everything here was produced by measurement inside the loop.",
+  "contradictions": [
+    {
+      "id": "C1-1",
+      "round": 1,
+      "kind": "hard_wrongly_marked",
+      "subject": [
+        "Case Assignment",
+        "Numerical Involvement"
+      ],
+      "prior_said": "These two heuristics are HARD_CONFLICT because both widen who may perform shared activities, so they cannot be applied together in a legal model.",
+      "measured_said": "The Phase-3 plan built successfully with both CA-001 and NI-001 applied.",
+      "evidence": [
+        "Phase-3 outcome: built=true; CA-001 and NI-001 both applied successfully",
+        "get_pair_relation condition fired on shared activities diagnosis 1st and repair"
+      ],
+      "action": "downgrade_hard_to_weak",
+      "confidence": "measured",
+      "note": "The structural overlap is real, but it did not prevent construction; retain a weaker warning about non-separable effects.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-2",
+      "round": 1,
+      "kind": "hard_wrongly_marked",
+      "subject": [
+        "Exception",
+        "Numerical Involvement"
+      ],
+      "prior_said": "These two heuristics are HARD_CONFLICT because exception routing breaks the contiguous stretch covered by the widened allocation.",
+      "measured_said": "The Phase-3 plan built successfully with EXC-001/EXC-002 and NI-001 applied.",
+      "evidence": [
+        "Phase-3 outcome: built=true; EXC-001, EXC-002, and NI-001 applied successfully",
+        "get_pair_relation condition fired on shared activity diagnosis 1st"
+      ],
+      "action": "downgrade_hard_to_weak",
+      "confidence": "measured",
+      "note": "The candidates may still interact, but the relation is not a construction-blocking incompatibility.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-3",
+      "round": 1,
+      "kind": "impact_wrong",
+      "subject": [
+        "Case Assignment"
+      ],
+      "prior_said": "Case Assignment has a weak positive time impact because keeping one case with one resource should reduce handover overhead.",
+      "measured_said": "CA-001 hurt: attributable throughput worsened by 1466.054 h/case with z=371.67, with waiting also worse.",
+      "evidence": [
+        "CA-001 measured verdict: hurt",
+        "Attributable throughput change +1466.054 h/case, z=371.67",
+        "Confirmation run without NI-004 measured replace waiting +1624.825 h/case, z=443.25"
+      ],
+      "action": "revise_impact",
+      "confidence": "attributed",
+      "note": "The expected handover benefit was overwhelmed by queue and contention effects in this configuration.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-4",
+      "round": 1,
+      "kind": "impact_wrong",
+      "subject": [
+        "Numerical Involvement"
+      ],
+      "prior_said": "Numerical Involvement has a strong positive time impact because fewer hands should remove coordination and waiting.",
+      "measured_said": "NI-001 hurt: its sole-owned intake waiting and duration worsened, and attributable throughput rose by 42.2906 h/case with z=41.06.",
+      "evidence": [
+        "NI-001 measured verdict: hurt",
+        "Attributable throughput change +42.2906 h/case, z=41.06",
+        "NI-001 sole-owned intake waiting and duration both worsened"
+      ],
+      "action": "revise_impact",
+      "confidence": "attributed",
+      "note": "The strong positive time direction is not reliable for this observed stretch; NI-004's counterfactual benefit does not remove the NI-001 contradiction.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-5",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Case-based Work",
+        "Extra Resources"
+      ],
+      "prior_said": "These heuristics have a WEAK_CONFLICT because both alter timing on a shared activity and their effects are difficult to separate.",
+      "measured_said": "Repair improved while diagnosis 1st waiting increased, and repair effects were shared across the applied candidates.",
+      "evidence": [
+        "Displacement conflict at repair: waiting fell by 90.171 h/case, z=-17.65",
+        "Repair effects were shared among CBW-001, XR-001, and other applied candidates"
+      ],
+      "action": "note_only",
+      "confidence": "attributed",
+      "note": "The measured displacement is consistent with the weak-conflict prior, though it does not isolate this pair.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-1",
+      "round": 2,
+      "kind": "impact_wrong",
+      "subject": [
+        "Case Assignment"
+      ],
+      "prior_said": "Case Assignment has weak positive time and quality impacts.",
+      "measured_said": "CA-001 significantly worsened attributable throughput and waiting rather than improving time.",
+      "evidence": [
+        "Attributable throughput worsened by 1466.054 h/case with z=371.67",
+        "CA-001 was not built in Phase-3, so this is an attributed measurement rather than a Phase-3 build result"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "The time direction is contradicted; the quality component was not directly measured here.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-2",
+      "round": 2,
+      "kind": "impact_wrong",
+      "subject": [
+        "Numerical Involvement"
+      ],
+      "prior_said": "Numerical Involvement has a strong positive time impact because fewer participants reduce coordination and waiting.",
+      "measured_said": "NI-001 worsened intake waiting, service duration, and attributable throughput despite being built.",
+      "evidence": [
+        "NI-001 waiting worsened with z=68.82",
+        "NI-001 duration worsened with z=268.29",
+        "NI-001 attributable throughput worsened by 12.5453 h/case with z=261.57",
+        "Phase-3 built NI-001 successfully"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "The strong positive time claim is directly contradicted by the built candidate's attributed results.",
+      "accepted": true,
+      "refused_reason": ""
+    }
+  ]
+}

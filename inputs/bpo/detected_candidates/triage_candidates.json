@@ -1,0 +1,1237 @@
+{
+  "heuristic": "Triage",
+  "candidates": [],
+  "rejected": [
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:ProductCosts <= 33.2875",
+      "n_in": 743,
+      "n_out": 2277,
+      "mean_in_s": 43372.1,
+      "mean_out_s": 43381.5,
+      "ratio": 1.0,
+      "z": 0.02,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.02, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:ProductCosts <= 65.045",
+      "n_in": 1482,
+      "n_out": 1538,
+      "mean_in_s": 43283.0,
+      "mean_out_s": 43471.9,
+      "ratio": 1.0,
+      "z": 0.42,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.42, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:ProductCosts <= 111.052",
+      "n_in": 2240,
+      "n_out": 780,
+      "mean_in_s": 43414.5,
+      "mean_out_s": 43277.6,
+      "ratio": 1.0,
+      "z": -0.26,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.26, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:EstimatedQuality <= 25",
+      "n_in": 801,
+      "n_out": 2272,
+      "mean_in_s": 43405.0,
+      "mean_out_s": 43315.2,
+      "ratio": 1.0,
+      "z": -0.18,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.18, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:EstimatedQuality <= 52",
+      "n_in": 1592,
+      "n_out": 1481,
+      "mean_in_s": 43470.5,
+      "mean_out_s": 43196.8,
+      "ratio": 1.01,
+      "z": -0.61,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.61, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:EstimatedQuality <= 76.25",
+      "n_in": 2321,
+      "n_out": 752,
+      "mean_in_s": 43370.6,
+      "mean_out_s": 43239.9,
+      "ratio": 1.0,
+      "z": -0.25,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.25, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:CustomerType = 'Unknown'",
+      "n_in": 1544,
+      "n_out": 1529,
+      "mean_in_s": 43552.5,
+      "mean_out_s": 43122.6,
+      "ratio": 1.01,
+      "z": -0.96,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.96, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:CustomerType = 'Typical'",
+      "n_in": 637,
+      "n_out": 2436,
+      "mean_in_s": 43129.0,
+      "mean_out_s": 43393.4,
+      "ratio": 1.01,
+      "z": 0.48,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.48, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:CustomerType = 'Rejecter'",
+      "n_in": 319,
+      "n_out": 2754,
+      "mean_in_s": 43652.7,
+      "mean_out_s": 43302.2,
+      "ratio": 1.01,
+      "z": -0.46,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.46, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:CustomerType = 'Keeper'",
+      "n_in": 289,
+      "n_out": 2784,
+      "mean_in_s": 43180.4,
+      "mean_out_s": 43355.0,
+      "ratio": 1.0,
+      "z": 0.23,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.23, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:CustomerType = 'Selective'",
+      "n_in": 284,
+      "n_out": 2789,
+      "mean_in_s": 42454.1,
+      "mean_out_s": 43428.7,
+      "ratio": 1.02,
+      "z": 1.31,
+      "rejected_because": [
+        "the two types differ by only 1.02x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.31, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:Product = 'D'",
+      "n_in": 906,
+      "n_out": 2167,
+      "mean_in_s": 42827.7,
+      "mean_out_s": 43552.2,
+      "ratio": 1.02,
+      "z": 1.48,
+      "rejected_because": [
+        "the two types differ by only 1.02x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.48, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:Product = 'E'",
+      "n_in": 739,
+      "n_out": 2334,
+      "mean_in_s": 44366.1,
+      "mean_out_s": 43013.3,
+      "ratio": 1.03,
+      "z": -2.53,
+      "rejected_because": [
+        "the two types differ by only 1.03x (<1.5x) — one activity serves both",
+        "the effort gap is z=-2.53, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.03x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:Product = 'B'",
+      "n_in": 601,
+      "n_out": 2472,
+      "mean_in_s": 43507.0,
+      "mean_out_s": 43297.7,
+      "ratio": 1.0,
+      "z": -0.38,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.38, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:Product = 'F'",
+      "n_in": 326,
+      "n_out": 2747,
+      "mean_in_s": 43030.6,
+      "mean_out_s": 43375.2,
+      "ratio": 1.01,
+      "z": 0.47,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.47, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:Product = 'A'",
+      "n_in": 320,
+      "n_out": 2753,
+      "mean_in_s": 42493.6,
+      "mean_out_s": 43436.8,
+      "ratio": 1.02,
+      "z": 1.28,
+      "rejected_because": [
+        "the two types differ by only 1.02x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.28, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 1st",
+      "split": "case:Product = 'C'",
+      "n_in": 181,
+      "n_out": 2892,
+      "mean_in_s": 43190.6,
+      "mean_out_s": 43347.9,
+      "ratio": 1.0,
+      "z": 0.16,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.16, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "split": "case:ProductCosts <= 65.045",
+      "n_in": 45,
+      "n_out": 222,
+      "mean_in_s": 44863.3,
+      "mean_out_s": 44694.3,
+      "ratio": 1.0,
+      "z": -0.08,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.08, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "split": "case:ProductCosts <= 111.052",
+      "n_in": 87,
+      "n_out": 180,
+      "mean_in_s": 44618.8,
+      "mean_out_s": 44773.1,
+      "ratio": 1.0,
+      "z": 0.09,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.09, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "split": "case:EstimatedQuality <= 25",
+      "n_in": 85,
+      "n_out": 235,
+      "mean_in_s": 43464.4,
+      "mean_out_s": 44689.3,
+      "ratio": 1.03,
+      "z": 0.75,
+      "rejected_because": [
+        "the two types differ by only 1.03x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.75, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.03x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "split": "case:EstimatedQuality <= 52",
+      "n_in": 189,
+      "n_out": 131,
+      "mean_in_s": 44058.7,
+      "mean_out_s": 44804.3,
+      "ratio": 1.02,
+      "z": 0.53,
+      "rejected_because": [
+        "the two types differ by only 1.02x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.53, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "split": "case:EstimatedQuality <= 76.25",
+      "n_in": 260,
+      "n_out": 60,
+      "mean_in_s": 44869.9,
+      "mean_out_s": 42171.4,
+      "ratio": 1.06,
+      "z": -1.7,
+      "rejected_because": [
+        "the two types differ by only 1.06x (<1.5x) — one activity serves both",
+        "the effort gap is z=-1.70, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.06x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "split": "case:CustomerType = 'Unknown'",
+      "n_in": 145,
+      "n_out": 175,
+      "mean_in_s": 44293.7,
+      "mean_out_s": 44422.1,
+      "ratio": 1.0,
+      "z": 0.09,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.09, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "split": "case:CustomerType = 'Typical'",
+      "n_in": 75,
+      "n_out": 245,
+      "mean_in_s": 44756.9,
+      "mean_out_s": 44243.6,
+      "ratio": 1.01,
+      "z": -0.3,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.30, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "split": "case:CustomerType = 'Rejecter'",
+      "n_in": 45,
+      "n_out": 275,
+      "mean_in_s": 43058.3,
+      "mean_out_s": 44577.6,
+      "ratio": 1.04,
+      "z": 0.73,
+      "rejected_because": [
+        "the two types differ by only 1.04x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.73, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.04x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "diagnosis 2nd",
+      "split": "case:CustomerType = 'Selective'",
+      "n_in": 30,
+      "n_out": 290,
+      "mean_in_s": 46651.9,
+      "mean_out_s": 44127.2,
+      "ratio": 1.06,
+      "z": -1.05,
+      "rejected_because": [
+        "the two types differ by only 1.06x (<1.5x) — one activity serves both",
+        "the effort gap is z=-1.05, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.06x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:ProductCosts <= 33.2875",
+      "n_in": 738,
+      "n_out": 2212,
+      "mean_in_s": 43027.1,
+      "mean_out_s": 42946.4,
+      "ratio": 1.0,
+      "z": -0.15,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.15, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:ProductCosts <= 65.045",
+      "n_in": 1475,
+      "n_out": 1475,
+      "mean_in_s": 42913.0,
+      "mean_out_s": 43020.2,
+      "ratio": 1.0,
+      "z": 0.24,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.24, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:ProductCosts <= 111.052",
+      "n_in": 2212,
+      "n_out": 738,
+      "mean_in_s": 42742.3,
+      "mean_out_s": 43639.0,
+      "ratio": 1.02,
+      "z": 1.72,
+      "rejected_because": [
+        "the two types differ by only 1.02x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.72, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:EstimatedQuality <= 25",
+      "n_in": 762,
+      "n_out": 2238,
+      "mean_in_s": 42580.9,
+      "mean_out_s": 43109.8,
+      "ratio": 1.01,
+      "z": 1.03,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.03, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:EstimatedQuality <= 52",
+      "n_in": 1525,
+      "n_out": 1475,
+      "mean_in_s": 43073.4,
+      "mean_out_s": 42874.2,
+      "ratio": 1.0,
+      "z": -0.44,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.44, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:EstimatedQuality <= 76.25",
+      "n_in": 2250,
+      "n_out": 750,
+      "mean_in_s": 42931.1,
+      "mean_out_s": 43108.8,
+      "ratio": 1.0,
+      "z": 0.34,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.34, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:CustomerType = 'Unknown'",
+      "n_in": 1512,
+      "n_out": 1488,
+      "mean_in_s": 43020.0,
+      "mean_out_s": 42930.3,
+      "ratio": 1.0,
+      "z": -0.2,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.20, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:CustomerType = 'Typical'",
+      "n_in": 626,
+      "n_out": 2374,
+      "mean_in_s": 43481.9,
+      "mean_out_s": 42842.0,
+      "ratio": 1.01,
+      "z": -1.17,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-1.17, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:CustomerType = 'Rejecter'",
+      "n_in": 291,
+      "n_out": 2709,
+      "mean_in_s": 43387.6,
+      "mean_out_s": 42931.2,
+      "ratio": 1.01,
+      "z": -0.6,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.60, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:CustomerType = 'Keeper'",
+      "n_in": 289,
+      "n_out": 2711,
+      "mean_in_s": 41584.9,
+      "mean_out_s": 43123.7,
+      "ratio": 1.04,
+      "z": 1.99,
+      "rejected_because": [
+        "the two types differ by only 1.04x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.99, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.04x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:CustomerType = 'Selective'",
+      "n_in": 282,
+      "n_out": 2718,
+      "mean_in_s": 42612.5,
+      "mean_out_s": 43013.2,
+      "ratio": 1.01,
+      "z": 0.53,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.53, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:Product = 'D'",
+      "n_in": 906,
+      "n_out": 2094,
+      "mean_in_s": 42569.0,
+      "mean_out_s": 43151.4,
+      "ratio": 1.01,
+      "z": 1.19,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.19, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:Product = 'E'",
+      "n_in": 739,
+      "n_out": 2261,
+      "mean_in_s": 43324.1,
+      "mean_out_s": 42861.6,
+      "ratio": 1.01,
+      "z": -0.91,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.91, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:Product = 'B'",
+      "n_in": 601,
+      "n_out": 2399,
+      "mean_in_s": 42603.0,
+      "mean_out_s": 43068.8,
+      "ratio": 1.01,
+      "z": 0.83,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.83, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:Product = 'F'",
+      "n_in": 326,
+      "n_out": 2674,
+      "mean_in_s": 41977.5,
+      "mean_out_s": 43097.2,
+      "ratio": 1.03,
+      "z": 1.55,
+      "rejected_because": [
+        "the two types differ by only 1.03x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.55, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.03x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:Product = 'A'",
+      "n_in": 278,
+      "n_out": 2722,
+      "mean_in_s": 45126.0,
+      "mean_out_s": 42755.9,
+      "ratio": 1.06,
+      "z": -3.08,
+      "rejected_because": [
+        "the two types differ by only 1.06x (<1.5x) — one activity serves both"
+      ]
+    },
+    {
+      "activity": "intake",
+      "split": "case:Product = 'C'",
+      "n_in": 150,
+      "n_out": 2850,
+      "mean_in_s": 43389.0,
+      "mean_out_s": 42953.7,
+      "ratio": 1.01,
+      "z": -0.42,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.42, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:ProductCosts <= 33.2875",
+      "n_in": 742,
+      "n_out": 2256,
+      "mean_in_s": 172870.4,
+      "mean_out_s": 173226.3,
+      "ratio": 1.0,
+      "z": 0.17,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.17, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:ProductCosts <= 65.045",
+      "n_in": 1481,
+      "n_out": 1517,
+      "mean_in_s": 173757.7,
+      "mean_out_s": 172533.5,
+      "ratio": 1.01,
+      "z": -0.67,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.67, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:ProductCosts <= 111.052",
+      "n_in": 2222,
+      "n_out": 776,
+      "mean_in_s": 173062.4,
+      "mean_out_s": 173355.3,
+      "ratio": 1.0,
+      "z": 0.14,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.14, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:EstimatedQuality <= 25",
+      "n_in": 800,
+      "n_out": 2198,
+      "mean_in_s": 172521.0,
+      "mean_out_s": 173362.9,
+      "ratio": 1.0,
+      "z": 0.4,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.40, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:EstimatedQuality <= 52",
+      "n_in": 1572,
+      "n_out": 1426,
+      "mean_in_s": 174016.8,
+      "mean_out_s": 172169.8,
+      "ratio": 1.01,
+      "z": -1.01,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-1.01, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:EstimatedQuality <= 76.25",
+      "n_in": 2288,
+      "n_out": 710,
+      "mean_in_s": 173532.7,
+      "mean_out_s": 171867.2,
+      "ratio": 1.01,
+      "z": -0.78,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.78, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:CustomerType = 'Unknown'",
+      "n_in": 1516,
+      "n_out": 1482,
+      "mean_in_s": 174237.2,
+      "mean_out_s": 172014.0,
+      "ratio": 1.01,
+      "z": -1.21,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-1.21, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:CustomerType = 'Typical'",
+      "n_in": 622,
+      "n_out": 2376,
+      "mean_in_s": 171195.1,
+      "mean_out_s": 173646.9,
+      "ratio": 1.01,
+      "z": 1.09,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.09, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:CustomerType = 'Rejecter'",
+      "n_in": 301,
+      "n_out": 2697,
+      "mean_in_s": 172439.8,
+      "mean_out_s": 173216.2,
+      "ratio": 1.0,
+      "z": 0.25,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.25, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:CustomerType = 'Keeper'",
+      "n_in": 282,
+      "n_out": 2716,
+      "mean_in_s": 172146.5,
+      "mean_out_s": 173241.2,
+      "ratio": 1.01,
+      "z": 0.35,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.35, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:CustomerType = 'Selective'",
+      "n_in": 277,
+      "n_out": 2721,
+      "mean_in_s": 173255.4,
+      "mean_out_s": 173126.3,
+      "ratio": 1.0,
+      "z": -0.04,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.04, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:Product = 'D'",
+      "n_in": 906,
+      "n_out": 2092,
+      "mean_in_s": 174647.3,
+      "mean_out_s": 172484.7,
+      "ratio": 1.01,
+      "z": -1.08,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-1.08, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:Product = 'E'",
+      "n_in": 739,
+      "n_out": 2259,
+      "mean_in_s": 170962.6,
+      "mean_out_s": 173850.0,
+      "ratio": 1.02,
+      "z": 1.36,
+      "rejected_because": [
+        "the two types differ by only 1.02x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.36, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:Product = 'B'",
+      "n_in": 601,
+      "n_out": 2397,
+      "mean_in_s": 174076.5,
+      "mean_out_s": 172903.0,
+      "ratio": 1.01,
+      "z": -0.51,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.51, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:Product = 'F'",
+      "n_in": 326,
+      "n_out": 2672,
+      "mean_in_s": 171677.4,
+      "mean_out_s": 173316.5,
+      "ratio": 1.01,
+      "z": 0.55,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.55, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:Product = 'A'",
+      "n_in": 245,
+      "n_out": 2753,
+      "mean_in_s": 174472.3,
+      "mean_out_s": 173019.5,
+      "ratio": 1.01,
+      "z": -0.43,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.43, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "repair",
+      "split": "case:Product = 'C'",
+      "n_in": 181,
+      "n_out": 2817,
+      "mean_in_s": 172177.1,
+      "mean_out_s": 173200.0,
+      "ratio": 1.01,
+      "z": 0.27,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.27, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:ProductCosts <= 33.2875",
+      "n_in": 699,
+      "n_out": 1873,
+      "mean_in_s": 43966.3,
+      "mean_out_s": 43539.3,
+      "ratio": 1.01,
+      "z": -0.79,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.79, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:ProductCosts <= 65.045",
+      "n_in": 1413,
+      "n_out": 1159,
+      "mean_in_s": 43670.3,
+      "mean_out_s": 43637.1,
+      "ratio": 1.0,
+      "z": -0.07,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.07, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:ProductCosts <= 111.052",
+      "n_in": 2116,
+      "n_out": 456,
+      "mean_in_s": 43670.5,
+      "mean_out_s": 43585.0,
+      "ratio": 1.0,
+      "z": -0.13,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.13, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:EstimatedQuality <= 25",
+      "n_in": 644,
+      "n_out": 1928,
+      "mean_in_s": 44306.3,
+      "mean_out_s": 43437.9,
+      "ratio": 1.02,
+      "z": -1.52,
+      "rejected_because": [
+        "the two types differ by only 1.02x (<1.5x) — one activity serves both",
+        "the effort gap is z=-1.52, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:EstimatedQuality <= 52",
+      "n_in": 1295,
+      "n_out": 1277,
+      "mean_in_s": 43653.3,
+      "mean_out_s": 43657.4,
+      "ratio": 1.0,
+      "z": 0.01,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.01, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:EstimatedQuality <= 76.25",
+      "n_in": 1913,
+      "n_out": 659,
+      "mean_in_s": 43784.3,
+      "mean_out_s": 43280.8,
+      "ratio": 1.01,
+      "z": -0.89,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.89, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:CustomerType = 'Unknown'",
+      "n_in": 1306,
+      "n_out": 1266,
+      "mean_in_s": 43526.4,
+      "mean_out_s": 43788.4,
+      "ratio": 1.01,
+      "z": 0.53,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.53, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:CustomerType = 'Typical'",
+      "n_in": 521,
+      "n_out": 2051,
+      "mean_in_s": 42771.5,
+      "mean_out_s": 43879.8,
+      "ratio": 1.03,
+      "z": 1.76,
+      "rejected_because": [
+        "the two types differ by only 1.03x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.76, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.03x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:CustomerType = 'Rejecter'",
+      "n_in": 255,
+      "n_out": 2317,
+      "mean_in_s": 45799.2,
+      "mean_out_s": 43419.4,
+      "ratio": 1.05,
+      "z": -2.91,
+      "rejected_because": [
+        "the two types differ by only 1.05x (<1.5x) — one activity serves both",
+        "the effort gap is z=-2.91, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.05x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:CustomerType = 'Keeper'",
+      "n_in": 248,
+      "n_out": 2324,
+      "mean_in_s": 43234.9,
+      "mean_out_s": 43700.2,
+      "ratio": 1.01,
+      "z": 0.58,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.58, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:CustomerType = 'Selective'",
+      "n_in": 242,
+      "n_out": 2330,
+      "mean_in_s": 44426.0,
+      "mean_out_s": 43575.3,
+      "ratio": 1.02,
+      "z": -1.05,
+      "rejected_because": [
+        "the two types differ by only 1.02x (<1.5x) — one activity serves both",
+        "the effort gap is z=-1.05, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:Product = 'D'",
+      "n_in": 906,
+      "n_out": 1666,
+      "mean_in_s": 43972.1,
+      "mean_out_s": 43483.1,
+      "ratio": 1.01,
+      "z": -0.95,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.95, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:Product = 'E'",
+      "n_in": 739,
+      "n_out": 1833,
+      "mean_in_s": 43265.1,
+      "mean_out_s": 43812.7,
+      "ratio": 1.01,
+      "z": 1.0,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=1.00, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:Product = 'B'",
+      "n_in": 601,
+      "n_out": 1971,
+      "mean_in_s": 43724.2,
+      "mean_out_s": 43634.3,
+      "ratio": 1.0,
+      "z": -0.16,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.16, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "replace",
+      "split": "case:Product = 'F'",
+      "n_in": 326,
+      "n_out": 2246,
+      "mean_in_s": 43532.8,
+      "mean_out_s": 43673.1,
+      "ratio": 1.0,
+      "z": 0.19,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.19, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "return",
+      "split": "case:ProductCosts <= 33.2875",
+      "n_in": 44,
+      "n_out": 404,
+      "mean_in_s": 43339.7,
+      "mean_out_s": 43330.6,
+      "ratio": 1.0,
+      "z": -0.0,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.00, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "return",
+      "split": "case:ProductCosts <= 65.045",
+      "n_in": 69,
+      "n_out": 379,
+      "mean_in_s": 44593.8,
+      "mean_out_s": 43101.7,
+      "ratio": 1.03,
+      "z": -0.92,
+      "rejected_because": [
+        "the two types differ by only 1.03x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.92, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.03x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "return",
+      "split": "case:ProductCosts <= 111.052",
+      "n_in": 124,
+      "n_out": 324,
+      "mean_in_s": 44222.9,
+      "mean_out_s": 42990.3,
+      "ratio": 1.03,
+      "z": -0.98,
+      "rejected_because": [
+        "the two types differ by only 1.03x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.98, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.03x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "return",
+      "split": "case:EstimatedQuality <= 25",
+      "n_in": 157,
+      "n_out": 344,
+      "mean_in_s": 42780.7,
+      "mean_out_s": 43298.1,
+      "ratio": 1.01,
+      "z": 0.42,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.42, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "return",
+      "split": "case:EstimatedQuality <= 52",
+      "n_in": 297,
+      "n_out": 204,
+      "mean_in_s": 43754.7,
+      "mean_out_s": 42235.2,
+      "ratio": 1.04,
+      "z": -1.38,
+      "rejected_because": [
+        "the two types differ by only 1.04x (<1.5x) — one activity serves both",
+        "the effort gap is z=-1.38, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.04x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "return",
+      "split": "case:EstimatedQuality <= 76.25",
+      "n_in": 408,
+      "n_out": 93,
+      "mean_in_s": 43305.1,
+      "mean_out_s": 42393.9,
+      "ratio": 1.02,
+      "z": -0.67,
+      "rejected_because": [
+        "the two types differ by only 1.02x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.67, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.02x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "return",
+      "split": "case:CustomerType = 'Unknown'",
+      "n_in": 238,
+      "n_out": 263,
+      "mean_in_s": 43208.5,
+      "mean_out_s": 43070.3,
+      "ratio": 1.0,
+      "z": -0.13,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.13, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "return",
+      "split": "case:CustomerType = 'Typical'",
+      "n_in": 116,
+      "n_out": 385,
+      "mean_in_s": 43179.7,
+      "mean_out_s": 43122.8,
+      "ratio": 1.0,
+      "z": -0.04,
+      "rejected_because": [
+        "the two types differ by only 1.00x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.04, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.00x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "return",
+      "split": "case:CustomerType = 'Rejecter'",
+      "n_in": 64,
+      "n_out": 437,
+      "mean_in_s": 42761.2,
+      "mean_out_s": 43190.9,
+      "ratio": 1.01,
+      "z": 0.28,
+      "rejected_because": [
+        "the two types differ by only 1.01x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.28, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.01x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "return",
+      "split": "case:CustomerType = 'Keeper'",
+      "n_in": 41,
+      "n_out": 460,
+      "mean_in_s": 41543.2,
+      "mean_out_s": 43277.9,
+      "ratio": 1.04,
+      "z": 0.87,
+      "rejected_because": [
+        "the two types differ by only 1.04x (<1.5x) — one activity serves both",
+        "the effort gap is z=0.87, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.04x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "return",
+      "split": "case:CustomerType = 'Selective'",
+      "n_in": 42,
+      "n_out": 459,
+      "mean_in_s": 44729.8,
+      "mean_out_s": 42990.1,
+      "ratio": 1.04,
+      "z": -0.78,
+      "rejected_because": [
+        "the two types differ by only 1.04x (<1.5x) — one activity serves both",
+        "the effort gap is z=-0.78, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.04x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "return",
+      "split": "case:Product = 'A'",
+      "n_in": 320,
+      "n_out": 181,
+      "mean_in_s": 44013.3,
+      "mean_out_s": 41584.9,
+      "ratio": 1.06,
+      "z": -2.2,
+      "rejected_because": [
+        "the two types differ by only 1.06x (<1.5x) — one activity serves both",
+        "the effort gap is z=-2.20, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.06x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    },
+    {
+      "activity": "return",
+      "split": "case:Product = 'C'",
+      "n_in": 181,
+      "n_out": 320,
+      "mean_in_s": 41584.9,
+      "mean_out_s": 44013.3,
+      "ratio": 1.06,
+      "z": 2.2,
+      "rejected_because": [
+        "the two types differ by only 1.06x (<1.5x) — one activity serves both",
+        "the effort gap is z=2.20, inside the noise (|z|>3.0 required). Service durations here are heavy-tailed, so a 1.06x ratio between two noisy means is not a measurable difference — the same reason Specialize rejects a 19.52x speedup at z=2.08"
+      ]
+    }
+  ]
+}

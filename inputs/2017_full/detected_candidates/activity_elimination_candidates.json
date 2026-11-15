@@ -1,0 +1,394 @@
+{
+  "heuristic": "Activity Elimination",
+  "total_candidates": 3,
+  "candidates": [
+    {
+      "candidate_id": "AE-003",
+      "heuristic": "Activity Elimination",
+      "target_activity": "W_Assess potential fraud",
+      "heuristic_context": "Target problem types: redundant activities, non-value-adding tasks, excessive verification or control steps. Applicable structural situations: processes where certain activities do not influence the final outcome or mainly act as rechecks or redundant information transfers. How the data is used: Activities with weak causal dependency to subsequent tasks, low impact on case completion, or long waiting times relative to execution time indicate potential non-value-adding steps and become candidates for elimination. Transformation style: remove the redundant activity and reconnect its predecessor and successor tasks (e.g., A → B → C becomes A → C). Feasibility: Maybe. Potentially redundant activities can be detected from event logs, but deciding whether they can be safely removed requires additional compliance or policy information.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "W_Assess potential fraud",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "n1",
+            "target": "gw1"
+          },
+          {
+            "source": "gw1",
+            "target": "n3"
+          }
+        ]
+      },
+      "evidence": {
+        "waiting_time_before": 49.148,
+        "activity_duration": 11.3139,
+        "waiting_to_duration_ratio": 4.3,
+        "bypass_ratio": 0.9999,
+        "activity_frequency": 282,
+        "variant_coverage": 0.0085,
+        "predecessor_activities": [
+          {
+            "name": "O_Returned",
+            "dfg_frequency": 146,
+            "dependency_strength": 0.9932
+          },
+          {
+            "name": "A_Validating",
+            "dfg_frequency": 69,
+            "dependency_strength": 0.9857
+          },
+          {
+            "name": "A_Submitted",
+            "dfg_frequency": 18,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "A_Complete",
+            "dfg_frequency": 12,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "W_Assess potential fraud",
+            "dfg_frequency": 11,
+            "dependency_strength": 0.5
+          },
+          {
+            "name": "A_Incomplete",
+            "dfg_frequency": 8,
+            "dependency_strength": 0.1379
+          },
+          {
+            "name": "A_Concept",
+            "dfg_frequency": 7,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "W_Validate application",
+            "dfg_frequency": 5,
+            "dependency_strength": 0.1087
+          },
+          {
+            "name": "A_Accepted",
+            "dfg_frequency": 4,
+            "dependency_strength": 0.4444
+          },
+          {
+            "name": "O_Cancelled",
+            "dfg_frequency": 1,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "O_Sent (mail and online)",
+            "dfg_frequency": 1,
+            "dependency_strength": 1.0
+          }
+        ],
+        "successor_activities": [
+          {
+            "name": "A_Denied",
+            "dfg_frequency": 121,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "A_Incomplete",
+            "dfg_frequency": 50,
+            "dependency_strength": 0.8621
+          },
+          {
+            "name": "W_Validate application",
+            "dfg_frequency": 41,
+            "dependency_strength": 0.8913
+          },
+          {
+            "name": "W_Handle leads",
+            "dfg_frequency": 17,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "O_Accepted",
+            "dfg_frequency": 16,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "W_Call incomplete files",
+            "dfg_frequency": 10,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "A_Accepted",
+            "dfg_frequency": 5,
+            "dependency_strength": 0.5556
+          },
+          {
+            "name": "O_Create Offer",
+            "dfg_frequency": 4,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "W_Complete application",
+            "dfg_frequency": 3,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "A_Cancelled",
+            "dfg_frequency": 2,
+            "dependency_strength": 1.0
+          }
+        ]
+      },
+      "additional_context": "This activity exhibits rework in 13 cases (0.0% of all cases). Rework may indicate a validation or error-correction role; removal could increase downstream error rates. The activity appears in only 1% of cases, meaning the majority of cases already complete successfully without it. This low coverage reduces the structural risk of elimination. The bypass ratio is 1.00: in over 100% of executions that reach the successor, this activity was not traversed, confirming it is structurally non-essential. Whether this activity can be safely removed depends on compliance requirements, regulatory obligations, and organisational policy — none of which can be determined from the event log alone."
+    },
+    {
+      "candidate_id": "AE-001",
+      "heuristic": "Activity Elimination",
+      "target_activity": "W_Complete application",
+      "heuristic_context": "Target problem types: redundant activities, non-value-adding tasks, excessive verification or control steps. Applicable structural situations: processes where certain activities do not influence the final outcome or mainly act as rechecks or redundant information transfers. How the data is used: Activities with weak causal dependency to subsequent tasks, low impact on case completion, or long waiting times relative to execution time indicate potential non-value-adding steps and become candidates for elimination. Transformation style: remove the redundant activity and reconnect its predecessor and successor tasks (e.g., A → B → C becomes A → C). Feasibility: Maybe. Potentially redundant activities can be detected from event logs, but deciding whether they can be safely removed requires additional compliance or policy information.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "W_Complete application",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "and_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "n1",
+            "target": "gw1"
+          },
+          {
+            "source": "gw2",
+            "target": "n3"
+          },
+          {
+            "source": "gw1",
+            "target": "gw2"
+          }
+        ]
+      },
+      "evidence": {
+        "waiting_time_before": 4.522,
+        "activity_duration": 0.3988,
+        "waiting_to_duration_ratio": 11.3,
+        "bypass_ratio": 0.9998,
+        "activity_frequency": 19104,
+        "variant_coverage": 0.6062,
+        "predecessor_activities": [
+          {
+            "name": "A_Concept",
+            "dfg_frequency": 10483,
+            "dependency_strength": 0.5497
+          },
+          {
+            "name": "A_Create Application",
+            "dfg_frequency": 6953,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "W_Handle leads",
+            "dfg_frequency": 1558,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "A_Submitted",
+            "dfg_frequency": 74,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "A_Accepted",
+            "dfg_frequency": 17,
+            "dependency_strength": 0.0016
+          },
+          {
+            "name": "O_Created",
+            "dfg_frequency": 14,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "W_Assess potential fraud",
+            "dfg_frequency": 3,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "O_Cancelled",
+            "dfg_frequency": 2,
+            "dependency_strength": 1.0
+          }
+        ],
+        "successor_activities": [
+          {
+            "name": "A_Accepted",
+            "dfg_frequency": 10485,
+            "dependency_strength": 0.9984
+          },
+          {
+            "name": "O_Create Offer",
+            "dfg_frequency": 19,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "O_Sent (mail and online)",
+            "dfg_frequency": 12,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "A_Cancelled",
+            "dfg_frequency": 2,
+            "dependency_strength": 1.0
+          }
+        ]
+      },
+      "additional_context": "This activity exhibits rework in 2 cases (0.0% of all cases). Rework may indicate a validation or error-correction role; removal could increase downstream error rates. The bypass ratio is 1.00: in over 100% of executions that reach the successor, this activity was not traversed, confirming it is structurally non-essential. Whether this activity can be safely removed depends on compliance requirements, regulatory obligations, and organisational policy — none of which can be determined from the event log alone."
+    },
+    {
+      "candidate_id": "AE-002",
+      "heuristic": "Activity Elimination",
+      "target_activity": "W_Handle leads",
+      "heuristic_context": "Target problem types: redundant activities, non-value-adding tasks, excessive verification or control steps. Applicable structural situations: processes where certain activities do not influence the final outcome or mainly act as rechecks or redundant information transfers. How the data is used: Activities with weak causal dependency to subsequent tasks, low impact on case completion, or long waiting times relative to execution time indicate potential non-value-adding steps and become candidates for elimination. Transformation style: remove the redundant activity and reconnect its predecessor and successor tasks (e.g., A → B → C becomes A → C). Feasibility: Maybe. Potentially redundant activities can be detected from event logs, but deciding whether they can be safely removed requires additional compliance or policy information.",
+      "process_fragment": {
+        "nodes": [
+          {
+            "id": "n1",
+            "name": "W_Handle leads",
+            "type": "activity",
+            "is_target": true
+          },
+          {
+            "id": "n2",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "n3",
+            "name": "",
+            "type": "event",
+            "is_target": false
+          },
+          {
+            "id": "gw1",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          },
+          {
+            "id": "gw2",
+            "name": "",
+            "type": "xor_gateway",
+            "is_target": false
+          }
+        ],
+        "edges": [
+          {
+            "source": "gw2",
+            "target": "n3"
+          },
+          {
+            "source": "n2",
+            "target": "n1"
+          },
+          {
+            "source": "n1",
+            "target": "gw1"
+          },
+          {
+            "source": "gw1",
+            "target": "gw2"
+          }
+        ]
+      },
+      "evidence": {
+        "waiting_time_before": 5.947,
+        "activity_duration": 0.0722,
+        "waiting_to_duration_ratio": 82.4,
+        "bypass_ratio": 0.9386,
+        "activity_frequency": 3493,
+        "variant_coverage": 0.1109,
+        "predecessor_activities": [
+          {
+            "name": "A_Submitted",
+            "dfg_frequency": 3476,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "W_Assess potential fraud",
+            "dfg_frequency": 17,
+            "dependency_strength": 1.0
+          }
+        ],
+        "successor_activities": [
+          {
+            "name": "A_Concept",
+            "dfg_frequency": 1935,
+            "dependency_strength": 1.0
+          },
+          {
+            "name": "W_Complete application",
+            "dfg_frequency": 1558,
+            "dependency_strength": 1.0
+          }
+        ]
+      },
+      "additional_context": "The activity appears in only 11% of cases, meaning the majority of cases already complete successfully without it. This low coverage reduces the structural risk of elimination. The bypass ratio is 0.94: in over 94% of executions that reach the successor, this activity was not traversed, confirming it is structurally non-essential. Whether this activity can be safely removed depends on compliance requirements, regulatory obligations, and organisational policy — none of which can be determined from the event log alone."
+    }
+  ]
+}

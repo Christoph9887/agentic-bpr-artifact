@@ -1,0 +1,86 @@
+{
+  "note": "Learned layer over foundation's HI-Graph. foundation is the literature prior and is never edited; everything here was produced by measurement inside the loop.",
+  "contradictions": [
+    {
+      "id": "C1-1",
+      "round": 1,
+      "kind": "hard_wrongly_marked",
+      "subject": [
+        "Case Assignment",
+        "Numerical Involvement"
+      ],
+      "prior_said": "The pair is a HARD_CONFLICT when both candidates share an affected activity.",
+      "measured_said": "Both candidates were applied successfully and Phase 3 built a legal model despite sharing A_CANCELLED.",
+      "evidence": [
+        "get_pair_relation reported condition_fires=true with shared activity A_CANCELLED",
+        "Phase 3 outcome: CA-002 applied=true and NI-001 applied=true",
+        "Measured conflict at A_CANCELLED showed contention rising by 0.2928 h, z=5.47"
+      ],
+      "action": "downgrade_hard_to_weak",
+      "confidence": "measured",
+      "note": "The pair can coexist structurally, although their shared-resource contention should remain a soft warning.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-2",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Activity Elimination"
+      ],
+      "prior_said": "Eliminating a non-value-adding step should strongly improve time.",
+      "measured_said": "Removing W_Nabellen offertes improved throughput.",
+      "evidence": [
+        "AE-002 was applied successfully in Phase 3",
+        "Measured saving was 2.778 h/case, z=-96.24",
+        "The whole-plan mean throughput improved by 156.99 h/case, z=-88.4"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The strong positive time direction was supported.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-3",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Activity Composition"
+      ],
+      "prior_said": "Merging consecutive activities should weakly improve time by removing seams and handovers.",
+      "measured_said": "Both activity-composition candidates were applied and their sole-owned activity times improved.",
+      "evidence": [
+        "AC-001 and AC-002 both succeeded in Phase 3",
+        "AC-001 sole-owned A_SUBMITTED time fell by 0.9445 h/case, z=-107.4",
+        "AC-002 sole-owned O_SENT time fell by 0.0228 h/case, z=-11.47"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The measured direction supports the prior.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-1",
+      "round": 2,
+      "kind": "impact_wrong",
+      "subject": [
+        "Case Assignment"
+      ],
+      "prior_said": "Case Assignment has a weak positive time impact because assigning one case to one resource should reduce handover overhead.",
+      "measured_said": "CA-002 produced significant time harm and queueing increases, so the time effect is context-dependent rather than reliably positive.",
+      "evidence": [
+        "CA-002 activity throughput worsened by 1.572 h/case (z=55.48)",
+        "CA-002 A_DECLINED waiting increased significantly (z=35.11), with similar contention at A_ACCEPTED (z=8.16), A_CANCELLED (z=18.20), and A_PREACCEPTED (z=18.66)",
+        "CA-001 and CA-003 were measured as helped, so the plan comparison shows heterogeneous Case Assignment effects rather than a universal reversal"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "Revise the Case Assignment time prior to reflect strong dependence on pool composition and contention; do not treat Case Assignment as uniformly weak-positive.",
+      "accepted": true,
+      "refused_reason": ""
+    }
+  ]
+}

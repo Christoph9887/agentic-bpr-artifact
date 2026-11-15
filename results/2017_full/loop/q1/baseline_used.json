@@ -1,0 +1,245 @@
+{
+  "source": "mabpr_out\\2017_full\\compare_all\\comparison.json",
+  "recomputed_in_memory_from_n_csvs": null,
+  "shared_file_rewritten": false,
+  "baseline": {
+    "n_cases_mean": 3000.0,
+    "n_cases_std": 0.0,
+    "n_events_mean": 43925.75,
+    "n_events_std": 255.05187810779944,
+    "throughput_h_mean_mean": 488.30660058252545,
+    "throughput_h_mean_std": 6.012265815789877,
+    "throughput_h_median_mean": 433.5159287696667,
+    "throughput_h_median_std": 5.343241748383719,
+    "throughput_h_p90_mean": 883.8532294045028,
+    "throughput_h_p90_std": 19.72265466165472,
+    "throughput_h_p99_mean": 1669.5589666437852,
+    "throughput_h_p99_std": 69.51714012763995,
+    "throughput_h_max_mean": 3085.533194312555,
+    "throughput_h_max_std": 348.64579966388357,
+    "waiting_h_per_event_mean_mean": 1.3243589441205588,
+    "waiting_h_per_event_mean_std": 0.014821804548074585,
+    "waiting_h_per_case_mean_mean": 19.391683600754558,
+    "waiting_h_per_case_mean_std": 0.285911543326583,
+    "duration_h_mean_mean": 0.09533088568475195,
+    "duration_h_mean_std": 0.017645483194764108,
+    "utilization_mean_mean": 0.009216775667000774,
+    "utilization_mean_std": 0.0017522304654487622,
+    "obs_window_h_mean": 3379.6181963920135,
+    "obs_window_h_std": 336.10566662326323,
+    "waiting_h_mean_mean": 1.3243589441205588,
+    "waiting_h_mean_std": 0.014821804548074585,
+    "per_activity": {
+      "A_Accepted": {
+        "waiting_h_mean": 3.32376469432225,
+        "waiting_h_std": 0.08931657140657127,
+        "duration_h_mean": 2.777777777777778e-07,
+        "duration_h_std": 5.2032545089308176e-14,
+        "n_mean": 3000.0,
+        "n_runs_observed": 20
+      },
+      "A_Cancelled": {
+        "waiting_h_mean": 3.241522495437663,
+        "waiting_h_std": 0.11523852472818134,
+        "duration_h_mean": 2.600565232889653e-07,
+        "duration_h_std": 1.517650079768942e-09,
+        "n_mean": 1032.8,
+        "n_runs_observed": 20
+      },
+      "A_Complete": {
+        "waiting_h_mean": 0.03860911395448107,
+        "waiting_h_std": 0.009699133919876788,
+        "duration_h_mean": 2.777777551418683e-07,
+        "duration_h_std": 7.107613505531175e-14,
+        "n_mean": 3085.75,
+        "n_runs_observed": 20
+      },
+      "A_Concept": {
+        "waiting_h_mean": 0.20092395208427316,
+        "waiting_h_std": 0.02823022365047409,
+        "duration_h_mean": 2.7777776851851857e-07,
+        "duration_h_std": 4.140866624324738e-14,
+        "n_mean": 3000.0,
+        "n_runs_observed": 20
+      },
+      "A_Create Application": {
+        "waiting_h_mean": 3.2390657406518977,
+        "waiting_h_std": 0.1299306527075291,
+        "duration_h_mean": 2.7777778703703705e-07,
+        "duration_h_std": 4.140866625508502e-14,
+        "n_mean": 3000.0,
+        "n_runs_observed": 20
+      },
+      "A_Denied": {
+        "waiting_h_mean": 3.0455040399739866,
+        "waiting_h_std": 0.2136580477939618,
+        "duration_h_mean": 2.777777777777778e-07,
+        "duration_h_std": 5.431484171161239e-23,
+        "n_mean": 340.55,
+        "n_runs_observed": 20
+      },
+      "A_Incomplete": {
+        "waiting_h_mean": 2.834154490135966,
+        "waiting_h_std": 0.15847198252115918,
+        "duration_h_mean": 2.7777784342575434e-07,
+        "duration_h_std": 1.4915834343471433e-13,
+        "n_mean": 2096.95,
+        "n_runs_observed": 20
+      },
+      "A_Pending": {
+        "waiting_h_mean": 0.07160158002766312,
+        "waiting_h_std": 0.023064178422592476,
+        "duration_h_mean": 2.777777691457773e-07,
+        "duration_h_std": 3.860348003276533e-14,
+        "n_mean": 1626.65,
+        "n_runs_observed": 20
+      },
+      "A_Submitted": {
+        "waiting_h_mean": 0.14485318134745392,
+        "waiting_h_std": 0.010871601418772655,
+        "duration_h_mean": 2.777777777777778e-07,
+        "duration_h_std": 5.431484171161239e-23,
+        "n_mean": 1474.0,
+        "n_runs_observed": 20
+      },
+      "A_Validating": {
+        "waiting_h_mean": 3.209783761362894,
+        "waiting_h_std": 0.09374520007279123,
+        "duration_h_mean": 2.777777780449199e-07,
+        "duration_h_std": 4.325177835956257e-14,
+        "n_mean": 3609.8,
+        "n_runs_observed": 20
+      },
+      "O_Accepted": {
+        "waiting_h_mean": 0.7256482851600703,
+        "waiting_h_std": 0.05549878187156441,
+        "duration_h_mean": 2.777778456162113e-07,
+        "duration_h_std": 1.011742834530377e-13,
+        "n_mean": 1626.65,
+        "n_runs_observed": 20
+      },
+      "O_Cancelled": {
+        "waiting_h_mean": 0.19683684893441772,
+        "waiting_h_std": 0.03460388924780927,
+        "duration_h_mean": 2.6572790188741153e-07,
+        "duration_h_std": 1.612938075489002e-09,
+        "n_mean": 1904.95,
+        "n_runs_observed": 20
+      },
+      "O_Create Offer": {
+        "waiting_h_mean": 0.9800638833328066,
+        "waiting_h_std": 0.03764900717042098,
+        "duration_h_mean": 2.777777742021007e-07,
+        "duration_h_std": 3.572482895812021e-14,
+        "n_mean": 3984.15,
+        "n_runs_observed": 20
+      },
+      "O_Created": {
+        "waiting_h_mean": 0.1007107480680193,
+        "waiting_h_std": 0.01619092965440262,
+        "duration_h_mean": 2.777777672428922e-07,
+        "duration_h_std": 3.4196978949043804e-14,
+        "n_mean": 3984.15,
+        "n_runs_observed": 20
+      },
+      "O_Refused": {
+        "waiting_h_mean": 0.23605176058255833,
+        "waiting_h_std": 0.07458960907885837,
+        "duration_h_mean": 2.777777777777778e-07,
+        "duration_h_std": 5.431484171161239e-23,
+        "n_mean": 431.75,
+        "n_runs_observed": 20
+      },
+      "O_Returned": {
+        "waiting_h_mean": 0.5218974068492251,
+        "waiting_h_std": 0.04809989034947918,
+        "duration_h_mean": 2.7777781542716206e-07,
+        "duration_h_std": 8.279947391254517e-14,
+        "n_mean": 2188.4,
+        "n_runs_observed": 20
+      },
+      "O_Sent (mail and online)": {
+        "waiting_h_mean": 0.09741874372409816,
+        "waiting_h_std": 0.019529799007016173,
+        "duration_h_mean": 2.777777662420232e-07,
+        "duration_h_std": 2.8177205822632913e-14,
+        "n_mean": 3622.5,
+        "n_runs_observed": 20
+      },
+      "O_Sent (online only)": {
+        "waiting_h_mean": 0.09925660077839447,
+        "waiting_h_std": 0.06688647765435828,
+        "duration_h_mean": 2.777777777777778e-07,
+        "duration_h_std": 5.431484171161239e-23,
+        "n_mean": 229.35,
+        "n_runs_observed": 20
+      },
+      "W_Assess potential fraud": {
+        "waiting_h_mean": 3.083090591302656,
+        "waiting_h_std": 0.7671652534735623,
+        "duration_h_mean": 1.8216231692190206,
+        "duration_h_std": 2.045105820230261,
+        "n_mean": 24.35,
+        "n_runs_observed": 20
+      },
+      "W_Call after offers": {
+        "waiting_h_mean": 0.0005614726608422939,
+        "waiting_h_std": 0.0025109820743021067,
+        "duration_h_mean": 0.6197464108724027,
+        "duration_h_std": 0.3825917031869648,
+        "n_mean": 35.55,
+        "n_runs_observed": 20
+      },
+      "W_Call incomplete files": {
+        "waiting_h_mean": 3.160748446425484,
+        "waiting_h_std": 0.22353062036492616,
+        "duration_h_mean": 1.865188937693084,
+        "duration_h_std": 1.7897404427049097,
+        "n_mean": 262.45,
+        "n_runs_observed": 20
+      },
+      "W_Complete application": {
+        "waiting_h_mean": 1.1674961270741027,
+        "waiting_h_std": 0.10529701293081871,
+        "duration_h_mean": 0.4766434573653001,
+        "duration_h_std": 0.04013983911014489,
+        "n_mean": 1526.0,
+        "n_runs_observed": 20
+      },
+      "W_Handle leads": {
+        "waiting_h_mean": 1.9661932877642099,
+        "waiting_h_std": 0.27353143185668816,
+        "duration_h_mean": 0.1771092259896703,
+        "duration_h_std": 0.04311182033564814,
+        "n_mean": 250.65,
+        "n_runs_observed": 20
+      },
+      "W_Validate application": {
+        "waiting_h_mean": 3.0599795758413713,
+        "waiting_h_std": 0.1197255051274295,
+        "duration_h_mean": 1.800072381312987,
+        "duration_h_std": 0.3680714138930119,
+        "n_mean": 1588.35,
+        "n_runs_observed": 20
+      }
+    },
+    "case_endings_mean": {
+      "A_Pending": 1238.0,
+      "O_Cancelled": 1421.45,
+      "O_Refused": 340.55
+    },
+    "case_endings_std": {
+      "A_Pending": 22.056745000112777,
+      "O_Cancelled": 25.45088407108877,
+      "O_Refused": 22.191158149136786
+    },
+    "duration_h_per_case_mean_mean": 1.3958169807713194,
+    "duration_h_per_case_mean_std": 0.2523983429886122
+  },
+  "config": {
+    "dataset": "2017_full",
+    "total_cases": 3000,
+    "n_runs": 20,
+    "starting_at": "2016-01-01T00:00:00Z"
+  }
+}

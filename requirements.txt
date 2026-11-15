@@ -1,0 +1,21 @@
+# The environment the nine reported runs were produced in. Every pin is the
+# version installed there, for the packages this artifact actually imports;
+# nothing is inferred and nothing is added for taste.
+#
+# Python 3.9.25
+# pm4py's XES importer and prosimos are the two that decide whether a run
+# can be reproduced at all, so they are pinned exactly like the rest.
+#
+#   python reproduce_results.py            # the records; no key, no simulation
+#   python reproduce_run.py --dataset bpo  # a run from scratch; needs a key
+
+langgraph==0.6.11    # the graph the closed loop is: nodes, conditional edges, checkpointer
+networkx==3.2.1    # graph operations on the mined model
+numpy==1.26.4    # the distributions and the z statistics
+openai==2.32.0    # the agents' model calls
+pandas==2.3.3    # every detector, every measurement
+pix-framework==0.13.17    # the log-id and calendar helpers simod and the split share
+pm4py==2.7.22.2    # reads the event log and the BPMN model
+prosimos==2.0.6    # the simulator every measurement runs (launched as a subprocess)
+python-dotenv==1.2.1    # reads OPENAI_API_KEY from .env
+simod==5.1.6    # its event-log loader and configuration reader, for the batching split

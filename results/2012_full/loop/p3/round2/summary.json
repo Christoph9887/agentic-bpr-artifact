@@ -1,0 +1,417 @@
+{
+  "n_runs": 20,
+  "kpi": {
+    "throughput_h_median": 13.368280764562503,
+    "throughput_h_median_std": 0.5628204582463766,
+    "vs_baseline_pct": -34.62335554928529,
+    "vs_baseline_z": -17.65502706787547
+  },
+  "aggregate": {
+    "n_cases_mean": 3000.0,
+    "n_cases_std": 0.0,
+    "n_events_mean": 11594.0,
+    "n_events_std": 98.64983260849564,
+    "throughput_h_mean_mean": 45.903204542355724,
+    "throughput_h_mean_std": 1.6591028835882384,
+    "throughput_h_median_mean": 13.368280764562503,
+    "throughput_h_median_std": 0.5628204582463766,
+    "throughput_h_p90_mean": 127.91507884928328,
+    "throughput_h_p90_std": 4.734604984512616,
+    "throughput_h_p99_mean": 447.9898132997858,
+    "throughput_h_p99_std": 25.086004643347447,
+    "throughput_h_max_mean": 861.5961327715971,
+    "throughput_h_max_std": 109.96064063645989,
+    "waiting_h_per_event_mean_mean": 1.4096235662554482,
+    "waiting_h_per_event_mean_std": 0.030730835687866134,
+    "waiting_h_per_case_mean_mean": 5.447431680537866,
+    "waiting_h_per_case_mean_std": 0.11375545378432922,
+    "duration_h_mean_mean": 0.04555406550736838,
+    "duration_h_mean_std": 0.007625886822706053,
+    "utilization_mean_mean": 0.005981911003294353,
+    "utilization_mean_std": 0.0012593701076827996,
+    "obs_window_h_mean": 1313.2323101335555,
+    "obs_window_h_std": 122.94617563384057,
+    "waiting_h_mean_mean": 1.4096235662554482,
+    "waiting_h_mean_std": 0.030730835687866134,
+    "per_activity": {
+      "A_ACCEPTED": {
+        "waiting_h_mean": 2.0013277063419763,
+        "waiting_h_std": 0.33061421010040254,
+        "duration_h_mean": 2.7777782091097316e-07,
+        "duration_h_std": 1.9289751359417473e-13,
+        "n_mean": 340.4,
+        "n_runs_observed": 20
+      },
+      "A_CANCELLED": {
+        "waiting_h_mean": 2.4087058458225035,
+        "waiting_h_std": 0.14317507816086128,
+        "duration_h_mean": 2.777777771796963e-07,
+        "duration_h_std": 9.354697364130296e-14,
+        "n_mean": 968.55,
+        "n_runs_observed": 20
+      },
+      "A_DECLINED": {
+        "waiting_h_mean": 2.454053818480314,
+        "waiting_h_std": 0.16236270876773495,
+        "duration_h_mean": 2.7777777753815463e-07,
+        "duration_h_std": 5.2429053299252463e-14,
+        "n_mean": 1691.05,
+        "n_runs_observed": 20
+      },
+      "A_FINALIZED": {
+        "waiting_h_mean": 0.38587126871527305,
+        "waiting_h_std": 0.08124713362963594,
+        "duration_h_mean": 2.777777777777778e-07,
+        "duration_h_std": 6.192844773773005e-23,
+        "n_mean": 242.45,
+        "n_runs_observed": 20
+      },
+      "A_PREACCEPTED": {
+        "waiting_h_mean": 2.412973281713902,
+        "waiting_h_std": 0.12438981395847402,
+        "duration_h_mean": 2.7777779877459834e-07,
+        "duration_h_std": 6.462816262244549e-14,
+        "n_mean": 1308.95,
+        "n_runs_observed": 20
+      },
+      "A_SUBMITTED + A_PARTLYSUBMITTED": {
+        "waiting_h_mean": 0.9225466706579166,
+        "waiting_h_std": 0.05247773904381393,
+        "duration_h_mean": 5.555555787037038e-07,
+        "duration_h_std": 4.1135338750085144e-14,
+        "n_mean": 3000.0,
+        "n_runs_observed": 20
+      },
+      "O_CANCELLED": {
+        "waiting_h_mean": 1.3216151277808823,
+        "waiting_h_std": 0.24641057821006776,
+        "duration_h_mean": 2.777777777777778e-07,
+        "duration_h_std": 5.431484171161239e-23,
+        "n_mean": 340.4,
+        "n_runs_observed": 20
+      },
+      "O_CREATED + O_SENT": {
+        "waiting_h_mean": 0.10640818098087346,
+        "waiting_h_std": 0.08465914059272266,
+        "duration_h_mean": 5.555555555555556e-07,
+        "duration_h_std": 1.0862968342322478e-22,
+        "n_mean": 340.4,
+        "n_runs_observed": 20
+      },
+      "O_SELECTED": {
+        "waiting_h_mean": 0.4616402018999162,
+        "waiting_h_std": 0.11349694841902268,
+        "duration_h_mean": 2.777777777777778e-07,
+        "duration_h_std": 5.431484171161239e-23,
+        "n_mean": 340.4,
+        "n_runs_observed": 20
+      },
+      "W_Afhandelen leads": {
+        "waiting_h_mean": 0.5085038471116217,
+        "waiting_h_std": 0.04421521693372401,
+        "duration_h_mean": 0.09918888536907045,
+        "duration_h_std": 0.009991990515836671,
+        "n_mean": 1211.8,
+        "n_runs_observed": 20
+      },
+      "W_Beoordelen fraude": {
+        "waiting_h_mean": 0.5553907730383327,
+        "waiting_h_std": 0.31650747928201683,
+        "duration_h_mean": 0.01776254261496004,
+        "duration_h_std": 0.012646980774629024,
+        "n_mean": 25.5,
+        "n_runs_observed": 20
+      },
+      "W_Completeren aanvraag": {
+        "waiting_h_mean": 1.0559782199024719,
+        "waiting_h_std": 0.04651056190490947,
+        "duration_h_mean": 0.22816562273817106,
+        "duration_h_std": 0.05006730139676063,
+        "n_mean": 1784.1,
+        "n_runs_observed": 20
+      }
+    },
+    "case_endings_mean": {
+      "A_CANCELLED": 968.55,
+      "A_DECLINED": 1691.05,
+      "O_CANCELLED": 340.4
+    },
+    "case_endings_std": {
+      "A_CANCELLED": 23.608208318294718,
+      "A_DECLINED": 23.70543186697935,
+      "O_CANCELLED": 13.8144851514633
+    },
+    "duration_h_per_case_mean_mean": 0.17606179909913425,
+    "duration_h_per_case_mean_std": 0.028754636072961404
+  },
+  "significant_waiting_h": [
+    {
+      "activity": "W_Afhandelen leads",
+      "base": 1.8274096565163194,
+      "redes": 0.5085038471116217,
+      "z": -45.33280240998653,
+      "status": "changed"
+    },
+    {
+      "activity": "A_DECLINED",
+      "base": 1.0278706643241777,
+      "redes": 2.454053818480314,
+      "z": 35.10649867955364,
+      "status": "changed"
+    },
+    {
+      "activity": "A_PREACCEPTED",
+      "base": 1.597763217861957,
+      "redes": 2.412973281713902,
+      "z": 18.664067829011096,
+      "status": "changed"
+    },
+    {
+      "activity": "A_CANCELLED",
+      "base": 1.3966961412783419,
+      "redes": 2.4087058458225035,
+      "z": 18.202286724630884,
+      "status": "changed"
+    },
+    {
+      "activity": "A_ACCEPTED",
+      "base": 1.3219555208031664,
+      "redes": 2.0013277063419763,
+      "z": 8.155514351995421,
+      "status": "changed"
+    },
+    {
+      "activity": "O_SELECTED",
+      "base": 0.7436258935989966,
+      "redes": 0.4616402018999162,
+      "z": -8.128521554587586,
+      "status": "changed"
+    },
+    {
+      "activity": "A_ACTIVATED",
+      "base": 0.3785102020846438,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "A_APPROVED",
+      "base": 0.6465513826405441,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "A_PARTLYSUBMITTED",
+      "base": 0.010071167596944444,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "A_REGISTERED",
+      "base": 0.3546704796452073,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "A_SUBMITTED",
+      "base": 0.944452288960602,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "A_SUBMITTED + A_PARTLYSUBMITTED",
+      "base": null,
+      "redes": 0.9225466706579166,
+      "z": null,
+      "status": "NEW"
+    },
+    {
+      "activity": "O_ACCEPTED",
+      "base": 0.5956455916657695,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "O_CREATED",
+      "base": 0.1725686752947902,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "O_CREATED + O_SENT",
+      "base": null,
+      "redes": 0.10640818098087346,
+      "z": null,
+      "status": "NEW"
+    },
+    {
+      "activity": "O_DECLINED",
+      "base": 1.403721569796392,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "O_SENT",
+      "base": 0.08282267020020853,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "O_SENT_BACK",
+      "base": 1.4610717706239187,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "W_Nabellen incomplete dossiers",
+      "base": 2.1396604010529803,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "W_Nabellen offertes",
+      "base": 2.817852165711734,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "W_Valideren aanvraag",
+      "base": 2.9362297905455286,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    }
+  ],
+  "significant_duration_h": [
+    {
+      "activity": "W_Completeren aanvraag",
+      "base": 0.45692909125401215,
+      "redes": 0.22816562273817106,
+      "z": -16.670361195476204,
+      "status": "changed"
+    },
+    {
+      "activity": "W_Afhandelen leads",
+      "base": 0.21288818213126492,
+      "redes": 0.09918888536907045,
+      "z": -13.524662207839151,
+      "status": "changed"
+    },
+    {
+      "activity": "A_ACTIVATED",
+      "base": 2.7777780143857657e-07,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "A_APPROVED",
+      "base": 2.777777777777778e-07,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "A_PARTLYSUBMITTED",
+      "base": 2.777777731481482e-07,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "A_REGISTERED",
+      "base": 2.777778211805556e-07,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "A_SUBMITTED",
+      "base": 2.777777731481482e-07,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "A_SUBMITTED + A_PARTLYSUBMITTED",
+      "base": null,
+      "redes": 5.555555787037038e-07,
+      "z": null,
+      "status": "NEW"
+    },
+    {
+      "activity": "O_ACCEPTED",
+      "base": 2.777777777777778e-07,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "O_CREATED",
+      "base": 2.7777777801231716e-07,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "O_CREATED + O_SENT",
+      "base": null,
+      "redes": 5.555555555555556e-07,
+      "z": null,
+      "status": "NEW"
+    },
+    {
+      "activity": "O_DECLINED",
+      "base": 2.7777802144249516e-07,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "O_SENT",
+      "base": 2.777777777777778e-07,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "O_SENT_BACK",
+      "base": 2.7777775027502756e-07,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "W_Nabellen incomplete dossiers",
+      "base": 0.27169206774779386,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "W_Nabellen offertes",
+      "base": 0.12133756396585008,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    },
+    {
+      "activity": "W_Valideren aanvraag",
+      "base": 0.39918915583208603,
+      "redes": null,
+      "z": null,
+      "status": "REMOVED"
+    }
+  ]
+}

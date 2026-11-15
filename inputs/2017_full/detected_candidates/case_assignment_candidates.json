@@ -1,0 +1,285 @@
+{
+  "heuristic": "Case Assignment",
+  "total_candidates": 4,
+  "candidates": [
+    {
+      "candidate_id": "CA-003",
+      "heuristic": "Case Assignment",
+      "target_activities": [
+        "A_Submitted",
+        "W_Handle leads"
+      ],
+      "heuristic_context": "Target problem types: excessive handovers, repeated re-familiarization with the same case, fragmented responsibility across activities. Applicable structural situations: processes where multiple activities of the same case are performed by different resources although they could potentially be handled by the same person. How the data is used: A high number of handovers within a case, frequent switching of resources between consecutive activities, and increased waiting times after handovers indicate that assigning more steps of the same case to the same resource may improve continuity and efficiency. Transformation style: redesign resource allocation so that one resource handles as many activities of the same case as possible, especially for consecutive or strongly related tasks. Feasibility: Maybe. Excessive handovers can be detected from the event log, but assigning multiple activities to the same resource depends on role definitions, skills, and authorization constraints.",
+      "evidence": {
+        "handover_count_mean": 0.946,
+        "resource_continuity_rate": 0.0495,
+        "waiting_time_after_handover_mean": 6.283,
+        "resource_return_rate": 0.0,
+        "cross_activity_resource_overlap": 0.0123,
+        "cross_trained_resource_count": 1,
+        "resource_profile": {
+          "A_Submitted": {
+            "User_1": 1.0
+          },
+          "W_Handle leads": {
+            "User_14": 0.1005,
+            "User_2": 0.0739,
+            "User_5": 0.0638,
+            "User_28": 0.0507,
+            "User_26": 0.0495,
+            "other": 0.6616
+          }
+        },
+        "handover_pairs": [
+          {
+            "source": "A_Submitted",
+            "target": "W_Handle leads",
+            "handover_rate": 0.9505,
+            "consecutive_count": 3476,
+            "waiting_time_after_handover": 6.283
+          }
+        ]
+      },
+      "additional_context": "The highest handover rate within this group is 'A_Submitted' → 'W_Handle leads': 95% across 3476 consecutive occurrences (mean waiting time after handover: 6.3 hours). In the event log, 1 distinct resource(s) have executed at least 2 different target activities (across all cases). The pairwise Jaccard overlap of full resource sets across target activities is 1.23%. This group contains 2 activities."
+    },
+    {
+      "candidate_id": "CA-001",
+      "heuristic": "Case Assignment",
+      "target_activities": [
+        "A_Validating",
+        "A_Incomplete",
+        "W_Assess potential fraud",
+        "O_Cancelled"
+      ],
+      "heuristic_context": "Target problem types: excessive handovers, repeated re-familiarization with the same case, fragmented responsibility across activities. Applicable structural situations: processes where multiple activities of the same case are performed by different resources although they could potentially be handled by the same person. How the data is used: A high number of handovers within a case, frequent switching of resources between consecutive activities, and increased waiting times after handovers indicate that assigning more steps of the same case to the same resource may improve continuity and efficiency. Transformation style: redesign resource allocation so that one resource handles as many activities of the same case as possible, especially for consecutive or strongly related tasks. Feasibility: Maybe. Excessive handovers can be detected from the event log, but assigning multiple activities to the same resource depends on role definitions, skills, and authorization constraints.",
+      "evidence": {
+        "handover_count_mean": 0.907,
+        "resource_continuity_rate": 0.246,
+        "waiting_time_after_handover_mean": 59.023,
+        "resource_return_rate": 0.2372,
+        "cross_activity_resource_overlap": 0.4227,
+        "cross_trained_resource_count": 127,
+        "resource_profile": {
+          "A_Validating": {
+            "User_123": 0.0829,
+            "User_116": 0.0756,
+            "User_121": 0.0755,
+            "User_113": 0.0641,
+            "User_126": 0.0577,
+            "other": 0.6442
+          },
+          "A_Incomplete": {
+            "User_100": 0.1078,
+            "User_29": 0.0819,
+            "User_75": 0.0743,
+            "User_30": 0.0701,
+            "User_87": 0.059,
+            "other": 0.6068
+          },
+          "W_Assess potential fraud": {
+            "User_138": 0.4184,
+            "User_144": 0.3156,
+            "User_143": 0.2163,
+            "User_55": 0.0142,
+            "User_99": 0.0071,
+            "other": 0.0284
+          },
+          "O_Cancelled": {
+            "User_1": 0.4777,
+            "User_29": 0.0289,
+            "User_109": 0.02,
+            "User_68": 0.0189,
+            "User_75": 0.0179,
+            "other": 0.4365
+          }
+        },
+        "handover_pairs": [
+          {
+            "source": "A_Validating",
+            "target": "W_Assess potential fraud",
+            "handover_rate": 1.0,
+            "consecutive_count": 39,
+            "waiting_time_after_handover": 36.32
+          },
+          {
+            "source": "W_Assess potential fraud",
+            "target": "A_Incomplete",
+            "handover_rate": 1.0,
+            "consecutive_count": 57,
+            "waiting_time_after_handover": 64.399
+          },
+          {
+            "source": "A_Incomplete",
+            "target": "O_Cancelled",
+            "handover_rate": 1.0,
+            "consecutive_count": 69,
+            "waiting_time_after_handover": 86.84
+          },
+          {
+            "source": "O_Cancelled",
+            "target": "A_Validating",
+            "handover_rate": 0.9885,
+            "consecutive_count": 347,
+            "waiting_time_after_handover": 197.546
+          },
+          {
+            "source": "A_Incomplete",
+            "target": "A_Validating",
+            "handover_rate": 0.9563,
+            "consecutive_count": 12235,
+            "waiting_time_after_handover": 64.95
+          },
+          {
+            "source": "A_Validating",
+            "target": "A_Incomplete",
+            "handover_rate": 0.9065,
+            "consecutive_count": 4821,
+            "waiting_time_after_handover": 31.854
+          },
+          {
+            "source": "O_Cancelled",
+            "target": "O_Cancelled",
+            "handover_rate": 0.0011,
+            "consecutive_count": 4429,
+            "waiting_time_after_handover": 271.217
+          }
+        ]
+      },
+      "additional_context": "The highest handover rate within this group is 'A_Validating' → 'W_Assess potential fraud': 100% across 39 consecutive occurrences (mean waiting time after handover: 36.3 hours). In the event log, 127 distinct resource(s) have executed at least 2 different target activities (across all cases). The pairwise Jaccard overlap of full resource sets across target activities is 42.27%. In 24% of relevant cases, a resource that participated earlier in the group re-appears at a later position after being replaced by a different resource in between. This group contains 4 activities."
+    },
+    {
+      "candidate_id": "CA-002",
+      "heuristic": "Case Assignment",
+      "target_activities": [
+        "A_Concept",
+        "A_Accepted",
+        "W_Complete application"
+      ],
+      "heuristic_context": "Target problem types: excessive handovers, repeated re-familiarization with the same case, fragmented responsibility across activities. Applicable structural situations: processes where multiple activities of the same case are performed by different resources although they could potentially be handled by the same person. How the data is used: A high number of handovers within a case, frequent switching of resources between consecutive activities, and increased waiting times after handovers indicate that assigning more steps of the same case to the same resource may improve continuity and efficiency. Transformation style: redesign resource allocation so that one resource handles as many activities of the same case as possible, especially for consecutive or strongly related tasks. Feasibility: Maybe. Excessive handovers can be detected from the event log, but assigning multiple activities to the same resource depends on role definitions, skills, and authorization constraints.",
+      "evidence": {
+        "handover_count_mean": 0.726,
+        "resource_continuity_rate": 0.3917,
+        "waiting_time_after_handover_mean": 40.45,
+        "resource_return_rate": 0.0002,
+        "cross_activity_resource_overlap": 0.9489,
+        "cross_trained_resource_count": 113,
+        "resource_profile": {
+          "A_Concept": {
+            "User_1": 0.5394,
+            "User_14": 0.0216,
+            "User_5": 0.0208,
+            "User_10": 0.0165,
+            "User_16": 0.0156,
+            "other": 0.386
+          },
+          "A_Accepted": {
+            "User_49": 0.0381,
+            "User_3": 0.0343,
+            "User_10": 0.0343,
+            "User_42": 0.0269,
+            "User_61": 0.0254,
+            "other": 0.841
+          },
+          "W_Complete application": {
+            "User_49": 0.0462,
+            "User_3": 0.0428,
+            "User_10": 0.0273,
+            "User_61": 0.0271,
+            "User_46": 0.0244,
+            "other": 0.8322
+          }
+        },
+        "handover_pairs": [
+          {
+            "source": "A_Concept",
+            "target": "W_Complete application",
+            "handover_rate": 0.9891,
+            "consecutive_count": 5519,
+            "waiting_time_after_handover": 15.722
+          },
+          {
+            "source": "A_Concept",
+            "target": "A_Accepted",
+            "handover_rate": 0.6488,
+            "consecutive_count": 25990,
+            "waiting_time_after_handover": 49.418
+          },
+          {
+            "source": "A_Accepted",
+            "target": "W_Complete application",
+            "handover_rate": 0.5951,
+            "consecutive_count": 568,
+            "waiting_time_after_handover": 1.181
+          },
+          {
+            "source": "W_Complete application",
+            "target": "A_Accepted",
+            "handover_rate": 0.0374,
+            "consecutive_count": 5513,
+            "waiting_time_after_handover": 26.082
+          }
+        ]
+      },
+      "additional_context": "The highest handover rate within this group is 'A_Concept' → 'W_Complete application': 99% across 5519 consecutive occurrences (mean waiting time after handover: 15.7 hours). In the event log, 113 distinct resource(s) have executed at least 2 different target activities (across all cases). The pairwise Jaccard overlap of full resource sets across target activities is 94.89%. This group contains 3 activities."
+    },
+    {
+      "candidate_id": "CA-004",
+      "heuristic": "Case Assignment",
+      "target_activities": [
+        "W_Call incomplete files",
+        "O_Returned"
+      ],
+      "heuristic_context": "Target problem types: excessive handovers, repeated re-familiarization with the same case, fragmented responsibility across activities. Applicable structural situations: processes where multiple activities of the same case are performed by different resources although they could potentially be handled by the same person. How the data is used: A high number of handovers within a case, frequent switching of resources between consecutive activities, and increased waiting times after handovers indicate that assigning more steps of the same case to the same resource may improve continuity and efficiency. Transformation style: redesign resource allocation so that one resource handles as many activities of the same case as possible, especially for consecutive or strongly related tasks. Feasibility: Maybe. Excessive handovers can be detected from the event log, but assigning multiple activities to the same resource depends on role definitions, skills, and authorization constraints.",
+      "evidence": {
+        "handover_count_mean": 0.038,
+        "resource_continuity_rate": 0.1844,
+        "waiting_time_after_handover_mean": 23.642,
+        "resource_return_rate": 0.0028,
+        "cross_activity_resource_overlap": 0.3451,
+        "cross_trained_resource_count": 39,
+        "resource_profile": {
+          "W_Call incomplete files": {
+            "User_2": 0.0763,
+            "User_41": 0.0634,
+            "User_3": 0.058,
+            "User_5": 0.0516,
+            "User_28": 0.0498,
+            "other": 0.701
+          },
+          "O_Returned": {
+            "User_123": 0.097,
+            "User_121": 0.0852,
+            "User_118": 0.0746,
+            "User_116": 0.0725,
+            "User_113": 0.0708,
+            "other": 0.5999
+          }
+        },
+        "handover_pairs": [
+          {
+            "source": "W_Call incomplete files",
+            "target": "O_Returned",
+            "handover_rate": 1.0,
+            "consecutive_count": 32,
+            "waiting_time_after_handover": 85.679
+          },
+          {
+            "source": "O_Returned",
+            "target": "W_Call incomplete files",
+            "handover_rate": 0.8532,
+            "consecutive_count": 109,
+            "waiting_time_after_handover": 0.0
+          },
+          {
+            "source": "O_Returned",
+            "target": "O_Returned",
+            "handover_rate": 0.5526,
+            "consecutive_count": 38,
+            "waiting_time_after_handover": 33.81
+          }
+        ]
+      },
+      "additional_context": "The highest handover rate within this group is 'W_Call incomplete files' → 'O_Returned': 100% across 32 consecutive occurrences (mean waiting time after handover: 85.7 hours). In the event log, 39 distinct resource(s) have executed at least 2 different target activities (across all cases). The pairwise Jaccard overlap of full resource sets across target activities is 34.51%. This group contains 2 activities."
+    }
+  ]
+}

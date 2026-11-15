@@ -1,0 +1,180 @@
+{
+  "note": "Learned layer over foundation's HI-Graph. foundation is the literature prior and is never edited; everything here was produced by measurement inside the loop.",
+  "contradictions": [
+    {
+      "id": "C1-1",
+      "round": 1,
+      "kind": "hard_wrongly_marked",
+      "subject": [
+        "Case Assignment",
+        "Numerical Involvement"
+      ],
+      "prior_said": "These heuristics are a hard conflict when they share an affected activity.",
+      "measured_said": "Both candidates were applied and Phase-3 built the combined model despite sharing A_CANCELLED.",
+      "evidence": [
+        "get_pair_relation found condition_fires=true with shared activity A_CANCELLED",
+        "Phase-3 outcome: built=true; CA-002 and NI-001 both applied successfully"
+      ],
+      "action": "downgrade_hard_to_weak",
+      "confidence": "measured",
+      "note": "The hard incompatibility claim is false for this pair; their effects were confounded, but the model remained legal.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-2",
+      "round": 1,
+      "kind": "impact_wrong",
+      "subject": [
+        "Case Assignment"
+      ],
+      "prior_said": "Case Assignment has a weak positive time impact.",
+      "measured_said": "The CA-002 assignment redesign materially worsened queueing and throughput, although other Case Assignment candidates helped.",
+      "evidence": [
+        "CA-002 A_DECLINED waiting increased with z=51.29",
+        "CA-002 sole-owned throughput worsened by 1.0676 h/case with z=41.19",
+        "CA-001 improved throughput by 0.9445 h/case with z=-108.29 and CA-003 contributed to improvement"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The evidence is strongly heterogeneous rather than a clean refutation of the heuristic: pooled assignment can create contention, while focused assignment can help.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-3",
+      "round": 1,
+      "kind": "impact_wrong",
+      "subject": [
+        "Numerical Involvement"
+      ],
+      "prior_said": "Numerical Involvement has a strong positive time impact.",
+      "measured_said": "NI-001 coincided with materially worse waiting at O_CANCELLED, while its sole-owned throughput signal was insignificant.",
+      "evidence": [
+        "O_CANCELLED waiting increased by 0.4125 h with z=5.39",
+        "NI-001 sole-owned throughput was insignificant with z=-0.28"
+      ],
+      "action": "note_only",
+      "confidence": "attributed",
+      "note": "The effect is attributed rather than isolated and is confounded with shared activities and CA-002; retain the prior but record this contention counterexample.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-4",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Activity Composition"
+      ],
+      "prior_said": "Activity Composition has a weak positive time impact.",
+      "measured_said": "Both applied Activity Composition candidates improved throughput without measurable duration or resource changes.",
+      "evidence": [
+        "AC-001 improved footprint-owned throughput by 0.9445 h/case with z=-108.29",
+        "AC-002 improved O_SENT throughput by 0.0228 h/case with z=-11.47"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The measured pattern is consistent with removing handover seams rather than changing service duration.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-5",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Activity Elimination"
+      ],
+      "prior_said": "Activity Elimination has a strong positive time impact.",
+      "measured_said": "Deleting W_Nabellen offertes materially improved throughput.",
+      "evidence": [
+        "AE-002 produced a measured -2.778 h/case change with z=-96.24"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The observed throughput improvement supports the elimination prior.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-6",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Contact Reduction"
+      ],
+      "prior_said": "Contact Reduction has a strong positive time impact.",
+      "measured_said": "CR-001 produced a significant simulated throughput improvement, with additional log evidence of removed repeat-contact waiting.",
+      "evidence": [
+        "CR-001 solely owned a -0.0078 h/case improvement with z=-6.95",
+        "The log estimates 14.0442 hours saved per repeat occurrence"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The simulated and exogenous log evidence agree, but the exogenous estimate remains outside the simulation ranking.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C1-7",
+      "round": 1,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Specialize"
+      ],
+      "prior_said": "Specialization has a weak positive time impact through faster service.",
+      "measured_said": "SPC-001 improved waiting, duration, and throughput in the confirmation run.",
+      "evidence": [
+        "SPC-001 waiting improved with z=-36.51",
+        "SPC-001 duration improved with z=-3.995",
+        "SPC-001 throughput improved by 0.4658 h/case with z=-44.39"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "This confirms the predicted service-time and throughput direction for at least one isolated specialization.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-1",
+      "round": 2,
+      "kind": "impact_wrong",
+      "subject": [
+        "Case Assignment"
+      ],
+      "prior_said": "Case Assignment has a weakly positive time impact because assigning one case to one resource reduces handover overhead.",
+      "measured_said": "CA-002 significantly worsened waiting and sole-owned throughput, showing that case assignment can create queueing harm rather than a time gain.",
+      "evidence": [
+        "CA-002 sole-owned throughput worsened by 1.0089 h/case (z=35.53)",
+        "Waiting on A_DECLINED rose significantly (z=48.29)",
+        "Phase-3 built CA-002 successfully"
+      ],
+      "action": "revise_impact",
+      "confidence": "measured",
+      "note": "The prior is too uniformly positive for time: assignment benefits are conditional on capacity and contention, although this round does not establish a universally negative effect.",
+      "accepted": true,
+      "refused_reason": ""
+    },
+    {
+      "id": "C2-2",
+      "round": 2,
+      "kind": "prior_confirmed",
+      "subject": [
+        "Specialize"
+      ],
+      "prior_said": "Specialization should improve service time, while its queueing effect must be measured rather than assumed.",
+      "measured_said": "SPC-003 improved waiting, duration, throughput, and resources; SPC-002's shared activity showed queueing contention, but its marginal effect was not separable.",
+      "evidence": [
+        "SPC-003 throughput improved by 3.7986 h/case (z=-24.62)",
+        "SPC-003 waiting improved (z=-125.72) and duration improved (z=-26.01)",
+        "SPC-005/CBW-002 shared W_Valideren aanvraag waiting worsened (z=24.10), with SPC-002 remaining covered"
+      ],
+      "action": "note_only",
+      "confidence": "measured",
+      "note": "The measured evidence supports the service-time direction while confirming that queueing is context-dependent; no impact correction is warranted.",
+      "accepted": true,
+      "refused_reason": ""
+    }
+  ]
+}

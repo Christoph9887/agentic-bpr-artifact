@@ -1,0 +1,216 @@
+{
+  "heuristic": "Numerical Involvement",
+  "candidates": [
+    {
+      "candidate_id": "NI-001",
+      "heuristic": "Numerical Involvement",
+      "target_activities": [
+        "diagnosis 1st",
+        "intake",
+        "repair"
+      ],
+      "evidence": {
+        "target_activities": [
+          "diagnosis 1st",
+          "intake",
+          "repair"
+        ],
+        "cases": 3000,
+        "cases_fragmented": 3000,
+        "fragmented_share": 1.0,
+        "handover_rate_mean": 0.9997,
+        "unique_resources_mean": 4.14,
+        "unique_resources_max": 47,
+        "events_per_case_mean": 4.15,
+        "pool_before": 300,
+        "pool_after": 300,
+        "overlaps_case_assignment": [],
+        "overlap_share": 0.0
+      },
+      "heuristic_context": "Target problem types: excessive coordination overhead, delays caused by involving too many departments or participants in handling a case. Applicable when a single case is handled by many different resources or organizational units.",
+      "additional_context": "100% of the 3000 cases that reach 'diagnosis 1st' are passed between a new person at 60% or more of their steps, involving 4.1 people on average and up to 47. ⚠️ The rate is LENGTH-CONTROLLED (handovers / transitions), because raw participant counts measure how long a case is: unique resources per case tracks events per case at 0.29-0.36 on these logs. The redesign widens the allocation across ['diagnosis 1st', 'intake', 'repair'] so one person can carry the whole stretch — 300 resources currently serve it. No Case Assignment candidate claims these activities, so this is a stretch CA's waiting-based selection does not reach.",
+      "process_fragment": {
+        "target_activities": [
+          "diagnosis 1st",
+          "intake",
+          "repair"
+        ]
+      }
+    },
+    {
+      "candidate_id": "NI-002",
+      "heuristic": "Numerical Involvement",
+      "target_activities": [
+        "diagnosis 2nd",
+        "diagnosis 1st",
+        "repair"
+      ],
+      "evidence": {
+        "target_activities": [
+          "diagnosis 2nd",
+          "diagnosis 1st",
+          "repair"
+        ],
+        "cases": 278,
+        "cases_fragmented": 278,
+        "fragmented_share": 1.0,
+        "handover_rate_mean": 0.9964,
+        "unique_resources_mean": 5.28,
+        "unique_resources_max": 47,
+        "events_per_case_mean": 5.33,
+        "pool_before": 200,
+        "pool_after": 200,
+        "overlaps_case_assignment": [],
+        "overlap_share": 0.0
+      },
+      "heuristic_context": "Target problem types: excessive coordination overhead, delays caused by involving too many departments or participants in handling a case. Applicable when a single case is handled by many different resources or organizational units.",
+      "additional_context": "100% of the 278 cases that reach 'diagnosis 2nd' are passed between a new person at 60% or more of their steps, involving 5.3 people on average and up to 47. ⚠️ The rate is LENGTH-CONTROLLED (handovers / transitions), because raw participant counts measure how long a case is: unique resources per case tracks events per case at 0.29-0.36 on these logs. The redesign widens the allocation across ['diagnosis 2nd', 'diagnosis 1st', 'repair'] so one person can carry the whole stretch — 200 resources currently serve it. No Case Assignment candidate claims these activities, so this is a stretch CA's waiting-based selection does not reach.",
+      "process_fragment": {
+        "target_activities": [
+          "diagnosis 2nd",
+          "diagnosis 1st",
+          "repair"
+        ]
+      }
+    },
+    {
+      "candidate_id": "NI-003",
+      "heuristic": "Numerical Involvement",
+      "target_activities": [
+        "intake",
+        "diagnosis 1st"
+      ],
+      "evidence": {
+        "target_activities": [
+          "intake",
+          "diagnosis 1st"
+        ],
+        "cases": 3000,
+        "cases_fragmented": 3000,
+        "fragmented_share": 1.0,
+        "handover_rate_mean": 0.9997,
+        "unique_resources_mean": 4.14,
+        "unique_resources_max": 47,
+        "events_per_case_mean": 4.15,
+        "pool_before": 200,
+        "pool_after": 200,
+        "overlaps_case_assignment": [],
+        "overlap_share": 0.0
+      },
+      "heuristic_context": "Target problem types: excessive coordination overhead, delays caused by involving too many departments or participants in handling a case. Applicable when a single case is handled by many different resources or organizational units.",
+      "additional_context": "100% of the 3000 cases that reach 'intake' are passed between a new person at 60% or more of their steps, involving 4.1 people on average and up to 47. ⚠️ The rate is LENGTH-CONTROLLED (handovers / transitions), because raw participant counts measure how long a case is: unique resources per case tracks events per case at 0.29-0.36 on these logs. The redesign widens the allocation across ['intake', 'diagnosis 1st'] so one person can carry the whole stretch — 200 resources currently serve it. No Case Assignment candidate claims these activities, so this is a stretch CA's waiting-based selection does not reach.",
+      "process_fragment": {
+        "target_activities": [
+          "intake",
+          "diagnosis 1st"
+        ]
+      }
+    },
+    {
+      "candidate_id": "NI-004",
+      "heuristic": "Numerical Involvement",
+      "target_activities": [
+        "repair",
+        "diagnosis 1st",
+        "replace"
+      ],
+      "evidence": {
+        "target_activities": [
+          "repair",
+          "diagnosis 1st",
+          "replace"
+        ],
+        "cases": 2950,
+        "cases_fragmented": 2950,
+        "fragmented_share": 1.0,
+        "handover_rate_mean": 0.9997,
+        "unique_resources_mean": 4.14,
+        "unique_resources_max": 47,
+        "events_per_case_mean": 4.15,
+        "pool_before": 300,
+        "pool_after": 300,
+        "overlaps_case_assignment": [],
+        "overlap_share": 0.0
+      },
+      "heuristic_context": "Target problem types: excessive coordination overhead, delays caused by involving too many departments or participants in handling a case. Applicable when a single case is handled by many different resources or organizational units.",
+      "additional_context": "100% of the 2950 cases that reach 'repair' are passed between a new person at 60% or more of their steps, involving 4.1 people on average and up to 47. ⚠️ The rate is LENGTH-CONTROLLED (handovers / transitions), because raw participant counts measure how long a case is: unique resources per case tracks events per case at 0.29-0.36 on these logs. The redesign widens the allocation across ['repair', 'diagnosis 1st', 'replace'] so one person can carry the whole stretch — 300 resources currently serve it. No Case Assignment candidate claims these activities, so this is a stretch CA's waiting-based selection does not reach.",
+      "process_fragment": {
+        "target_activities": [
+          "repair",
+          "diagnosis 1st",
+          "replace"
+        ]
+      }
+    },
+    {
+      "candidate_id": "NI-005",
+      "heuristic": "Numerical Involvement",
+      "target_activities": [
+        "replace",
+        "repair"
+      ],
+      "evidence": {
+        "target_activities": [
+          "replace",
+          "repair"
+        ],
+        "cases": 2572,
+        "cases_fragmented": 2572,
+        "fragmented_share": 1.0,
+        "handover_rate_mean": 1.0,
+        "unique_resources_mean": 3.99,
+        "unique_resources_max": 4,
+        "events_per_case_mean": 4.0,
+        "pool_before": 200,
+        "pool_after": 200,
+        "overlaps_case_assignment": [],
+        "overlap_share": 0.0
+      },
+      "heuristic_context": "Target problem types: excessive coordination overhead, delays caused by involving too many departments or participants in handling a case. Applicable when a single case is handled by many different resources or organizational units.",
+      "additional_context": "100% of the 2572 cases that reach 'replace' are passed between a new person at 60% or more of their steps, involving 4.0 people on average and up to 4. ⚠️ The rate is LENGTH-CONTROLLED (handovers / transitions), because raw participant counts measure how long a case is: unique resources per case tracks events per case at 0.29-0.36 on these logs. The redesign widens the allocation across ['replace', 'repair'] so one person can carry the whole stretch — 200 resources currently serve it. No Case Assignment candidate claims these activities, so this is a stretch CA's waiting-based selection does not reach.",
+      "process_fragment": {
+        "target_activities": [
+          "replace",
+          "repair"
+        ]
+      }
+    },
+    {
+      "candidate_id": "NI-006",
+      "heuristic": "Numerical Involvement",
+      "target_activities": [
+        "return",
+        "repair",
+        "diagnosis 2nd"
+      ],
+      "evidence": {
+        "target_activities": [
+          "return",
+          "repair",
+          "diagnosis 2nd"
+        ],
+        "cases": 428,
+        "cases_fragmented": 428,
+        "fragmented_share": 1.0,
+        "handover_rate_mean": 0.9977,
+        "unique_resources_mean": 5.04,
+        "unique_resources_max": 47,
+        "events_per_case_mean": 5.08,
+        "pool_before": 200,
+        "pool_after": 200,
+        "overlaps_case_assignment": [],
+        "overlap_share": 0.0
+      },
+      "heuristic_context": "Target problem types: excessive coordination overhead, delays caused by involving too many departments or participants in handling a case. Applicable when a single case is handled by many different resources or organizational units.",
+      "additional_context": "100% of the 428 cases that reach 'return' are passed between a new person at 60% or more of their steps, involving 5.0 people on average and up to 47. ⚠️ The rate is LENGTH-CONTROLLED (handovers / transitions), because raw participant counts measure how long a case is: unique resources per case tracks events per case at 0.29-0.36 on these logs. The redesign widens the allocation across ['return', 'repair', 'diagnosis 2nd'] so one person can carry the whole stretch — 200 resources currently serve it. No Case Assignment candidate claims these activities, so this is a stretch CA's waiting-based selection does not reach.",
+      "process_fragment": {
+        "target_activities": [
+          "return",
+          "repair",
+          "diagnosis 2nd"
+        ]
+      }
+    }
+  ],
+  "rejected": []
+}

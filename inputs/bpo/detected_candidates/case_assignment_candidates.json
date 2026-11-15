@@ -1,0 +1,120 @@
+{
+  "heuristic": "Case Assignment",
+  "total_candidates": 1,
+  "candidates": [
+    {
+      "candidate_id": "CA-001",
+      "heuristic": "Case Assignment",
+      "target_activities": [
+        "diagnosis 1st",
+        "repair",
+        "diagnosis 2nd",
+        "return",
+        "replace"
+      ],
+      "heuristic_context": "Target problem types: excessive handovers, repeated re-familiarization with the same case, fragmented responsibility across activities. Applicable structural situations: processes where multiple activities of the same case are performed by different resources although they could potentially be handled by the same person. How the data is used: A high number of handovers within a case, frequent switching of resources between consecutive activities, and increased waiting times after handovers indicate that assigning more steps of the same case to the same resource may improve continuity and efficiency. Transformation style: redesign resource allocation so that one resource handles as many activities of the same case as possible, especially for consecutive or strongly related tasks. Feasibility: Maybe. Excessive handovers can be detected from the event log, but assigning multiple activities to the same resource depends on role definitions, skills, and authorization constraints.",
+      "evidence": {
+        "handover_count_mean": 2.153,
+        "resource_continuity_rate": 0.0008,
+        "waiting_time_after_handover_mean": 61.49,
+        "resource_return_rate": 0.0013,
+        "cross_activity_resource_overlap": 0.195,
+        "cross_trained_resource_count": 195,
+        "resource_profile": {
+          "diagnosis 1st": {
+            "f69": 0.0107,
+            "f9": 0.0104,
+            "f83": 0.0104,
+            "f26": 0.0104,
+            "f13": 0.0104,
+            "other": 0.9476
+          },
+          "repair": {
+            "s46": 0.0113,
+            "s51": 0.011,
+            "s89": 0.011,
+            "s56": 0.011,
+            "s47": 0.011,
+            "other": 0.9446
+          },
+          "diagnosis 2nd": {
+            "s72": 0.025,
+            "s6": 0.025,
+            "s42": 0.025,
+            "s33": 0.0219,
+            "s8": 0.0187,
+            "other": 0.8844
+          },
+          "return": {
+            "g4": 0.02,
+            "g40": 0.018,
+            "g60": 0.018,
+            "g42": 0.018,
+            "g92": 0.018,
+            "other": 0.9082
+          },
+          "replace": {
+            "g15": 0.0148,
+            "g45": 0.0136,
+            "g73": 0.0128,
+            "g74": 0.0128,
+            "g19": 0.0128,
+            "other": 0.9331
+          }
+        },
+        "handover_pairs": [
+          {
+            "source": "diagnosis 1st",
+            "target": "repair",
+            "handover_rate": 1.0,
+            "consecutive_count": 2753,
+            "waiting_time_after_handover": 132.463
+          },
+          {
+            "source": "repair",
+            "target": "replace",
+            "handover_rate": 1.0,
+            "consecutive_count": 2572,
+            "waiting_time_after_handover": 0.0
+          },
+          {
+            "source": "diagnosis 1st",
+            "target": "diagnosis 2nd",
+            "handover_rate": 1.0,
+            "consecutive_count": 320,
+            "waiting_time_after_handover": 1.166
+          },
+          {
+            "source": "repair",
+            "target": "return",
+            "handover_rate": 1.0,
+            "consecutive_count": 426,
+            "waiting_time_after_handover": 0.0
+          },
+          {
+            "source": "diagnosis 2nd",
+            "target": "return",
+            "handover_rate": 1.0,
+            "consecutive_count": 75,
+            "waiting_time_after_handover": 0.0
+          },
+          {
+            "source": "return",
+            "target": "diagnosis 1st",
+            "handover_rate": 1.0,
+            "consecutive_count": 73,
+            "waiting_time_after_handover": 0.0
+          },
+          {
+            "source": "diagnosis 2nd",
+            "target": "repair",
+            "handover_rate": 0.9796,
+            "consecutive_count": 245,
+            "waiting_time_after_handover": 133.821
+          }
+        ]
+      },
+      "additional_context": "The highest handover rate within this group is 'diagnosis 1st' → 'repair': 100% across 2753 consecutive occurrences (mean waiting time after handover: 132.5 hours). In the event log, 195 distinct resource(s) have executed at least 2 different target activities (across all cases). The pairwise Jaccard overlap of full resource sets across target activities is 19.50%. This group contains 5 activities."
+    }
+  ]
+}

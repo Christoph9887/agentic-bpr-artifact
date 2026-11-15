@@ -1,0 +1,132 @@
+{
+  "round": 4,
+  "enforced": true,
+  "plan_in": [
+    "CT-001",
+    "NI-001",
+    "NI-004",
+    "XR-001"
+  ],
+  "plan_out": [
+    "CT-001",
+    "NI-001",
+    "NI-004",
+    "XR-001"
+  ],
+  "compliance": [],
+  "rulings": [
+    {
+      "candidate_id": "CT-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its sole target, \"diagnosis 2nd,\" survives intact."
+    },
+    {
+      "candidate_id": "NI-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "All three targets—\"diagnosis 1st,\" \"intake,\" and \"repair\"—survive intact."
+    },
+    {
+      "candidate_id": "NI-004",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "All three targets—\"diagnosis 1st,\" \"repair,\" and \"replace\"—survive intact."
+    },
+    {
+      "candidate_id": "XR-001",
+      "ruling": "keep",
+      "basis": "ok",
+      "reason": "Its sole target, \"repair,\" survives intact."
+    }
+  ],
+  "pruned": [],
+  "blocked": [],
+  "reorder_suggestion": null,
+  "survival": {
+    "CT-001": {
+      "candidate_id": "CT-001",
+      "heuristic": "Case Types",
+      "targets": [
+        "diagnosis 2nd"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "diagnosis 2nd"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "NI-001": {
+      "candidate_id": "NI-001",
+      "heuristic": "Numerical Involvement",
+      "targets": [
+        "diagnosis 1st",
+        "intake",
+        "repair"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "diagnosis 1st",
+        "intake",
+        "repair"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "NI-004": {
+      "candidate_id": "NI-004",
+      "heuristic": "Numerical Involvement",
+      "targets": [
+        "diagnosis 1st",
+        "repair",
+        "replace"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "diagnosis 1st",
+        "repair",
+        "replace"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    },
+    "XR-001": {
+      "candidate_id": "XR-001",
+      "heuristic": "Extra Resources",
+      "targets": [
+        "repair"
+      ],
+      "removed_by_earlier_candidate": [],
+      "removed_by_earlier": [],
+      "removed_by": [],
+      "surviving": [
+        "repair"
+      ],
+      "fraction_surviving": 1.0,
+      "signal": "intact"
+    }
+  },
+  "note": "This is a prior judgement and may be wrong. No activities were listed for deletion, so there was no compliance ruling to make.",
+  "rollback_note": "",
+  "halted": false,
+  "grounding": [
+    "knowledge.check_target_survival({\"candidate_id\": \"CT-001\", \"ordering\": [\"CT-001\", \"NI-001\", \"NI-004\", \"XR-001\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"NI-001\", \"ordering\": [\"CT-001\", \"NI-001\", \"NI-004\", \"XR-001\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"NI-004\", \"ordering\": [\"CT-001\", \"NI-001\", \"NI-004\", \"XR-001\"]})",
+    "knowledge.check_target_survival({\"candidate_id\": \"XR-001\", \"ordering\": [\"CT-001\", \"NI-001\", \"NI-004\", \"XR-001\"]})"
+  ],
+  "deleter_probes": {
+    "AE-001": {
+      "builds_alone": true,
+      "note": "builds alone on the pristine baseline",
+      "why": "probed because another candidate's nullification depends on it"
+    }
+  }
+}

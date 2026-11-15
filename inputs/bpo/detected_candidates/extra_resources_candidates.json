@@ -1,0 +1,125 @@
+{
+  "heuristic": "Extra Resources",
+  "candidates": [
+    {
+      "candidate_id": "XR-001",
+      "heuristic": "Extra Resources",
+      "target_activity": "repair",
+      "evidence": {
+        "waiting_time_before": 105.5075,
+        "service_time_mean": 48.00991,
+        "occurrences": 2391,
+        "resources_serving": 100,
+        "calendar_utilisation": 2.47875,
+        "arrival_rate_per_h": 1.97843,
+        "service_capacity_per_h": 2.0829,
+        "contention_ratio": 0.9498,
+        "waiting_share_of_activity_time": 0.6873,
+        "queue_length_mean": 208.7396
+      },
+      "heuristic_context": "Target problem types: long queue times and delays caused by insufficient processing capacity. Applicable when cases wait before an activity because the resources able to perform it are saturated.",
+      "additional_context": "2391 occurrences served by 100 resources at 248% utilisation of the hours they are open. Arrivals 1.98/h against capacity 2.08/h — a contention ratio of 0.95. Mean queue 208.7 cases (Little's law). Waiting is 69% of the time a case spends here, and the service time of 48.010 h confirms real work is being done, so the wait is contention rather than calendar.",
+      "process_fragment": {}
+    }
+  ],
+  "rejected": [
+    {
+      "activity": "diagnosis 2nd",
+      "rejected_because": [
+        "saturation 0.087 of the hours its pool is open — the servers it already has are not the constraint (wall-clock contention 0.033 for reference)"
+      ],
+      "measured_over": "operating window 1,209 h of 2,366 (51%): ends at the last case arrival, dropping a drain tail with no arrivals in it. 84% of the work falls inside, and hours are clipped to the window so a straddling instance is counted only for the part within it",
+      "evidence": {
+        "waiting_time_before": 1.1579,
+        "service_time_mean": 12.33972,
+        "occurrences": 304,
+        "resources_serving": 94,
+        "calendar_utilisation": 0.08705,
+        "arrival_rate_per_h": 0.25155,
+        "service_capacity_per_h": 7.61768,
+        "contention_ratio": 0.033,
+        "waiting_share_of_activity_time": 0.0858,
+        "queue_length_mean": 0.2913
+      }
+    },
+    {
+      "activity": "diagnosis 1st",
+      "rejected_because": [
+        "waiting 0.000 h is below the log's own 75% percentile (1.158 h)"
+      ],
+      "measured_over": "operating window 1,209 h of 2,366 (51%): ends at the last case arrival, dropping a drain tail with no arrivals in it. 84% of the work falls inside, and hours are clipped to the window so a straddling instance is counted only for the part within it",
+      "evidence": {
+        "waiting_time_before": 0.0,
+        "service_time_mean": 12.05204,
+        "occurrences": 3021,
+        "resources_serving": 100,
+        "calendar_utilisation": 1.16935,
+        "arrival_rate_per_h": 2.49973,
+        "service_capacity_per_h": 8.29735,
+        "contention_ratio": 0.3013,
+        "waiting_share_of_activity_time": 0.0,
+        "queue_length_mean": 0.0
+      }
+    },
+    {
+      "activity": "intake",
+      "rejected_because": [
+        "waiting 0.000 h is below the log's own 75% percentile (1.158 h)",
+        "saturation 0.295 of the hours its pool is open — the servers it already has are not the constraint (wall-clock contention 0.296 for reference)"
+      ],
+      "measured_over": "operating window 1,209 h of 2,366 (51%): ends at the last case arrival, dropping a drain tail with no arrivals in it. 84% of the work falls inside, and hours are clipped to the window so a straddling instance is counted only for the part within it",
+      "evidence": {
+        "waiting_time_before": 0.0,
+        "service_time_mean": 11.93764,
+        "occurrences": 3000,
+        "resources_serving": 100,
+        "calendar_utilisation": 0.29468,
+        "arrival_rate_per_h": 2.48235,
+        "service_capacity_per_h": 8.37687,
+        "contention_ratio": 0.2963,
+        "waiting_share_of_activity_time": 0.0,
+        "queue_length_mean": 0.0
+      }
+    },
+    {
+      "activity": "replace",
+      "rejected_because": [
+        "waiting 0.000 h is below the log's own 75% percentile (1.158 h)",
+        "saturation 0.198 of the hours its pool is open — the servers it already has are not the constraint (wall-clock contention 0.199 for reference)"
+      ],
+      "measured_over": "operating window 1,209 h of 2,366 (51%): ends at the last case arrival, dropping a drain tail with no arrivals in it. 84% of the work falls inside, and hours are clipped to the window so a straddling instance is counted only for the part within it",
+      "evidence": {
+        "waiting_time_before": 0.0,
+        "service_time_mean": 12.11677,
+        "occurrences": 1981,
+        "resources_serving": 100,
+        "calendar_utilisation": 0.19769,
+        "arrival_rate_per_h": 1.63918,
+        "service_capacity_per_h": 8.25303,
+        "contention_ratio": 0.1986,
+        "waiting_share_of_activity_time": 0.0,
+        "queue_length_mean": 0.0
+      }
+    },
+    {
+      "activity": "return",
+      "rejected_because": [
+        "waiting 0.000 h is below the log's own 75% percentile (1.158 h)",
+        "saturation 0.039 of the hours its pool is open — the servers it already has are not the constraint (wall-clock contention 0.039 for reference)"
+      ],
+      "measured_over": "operating window 1,209 h of 2,366 (51%): ends at the last case arrival, dropping a drain tail with no arrivals in it. 84% of the work falls inside, and hours are clipped to the window so a straddling instance is counted only for the part within it",
+      "evidence": {
+        "waiting_time_before": 0.0,
+        "service_time_mean": 12.04213,
+        "occurrences": 386,
+        "resources_serving": 98,
+        "calendar_utilisation": 0.0392,
+        "arrival_rate_per_h": 0.3194,
+        "service_capacity_per_h": 8.13809,
+        "contention_ratio": 0.0392,
+        "waiting_share_of_activity_time": 0.0,
+        "queue_length_mean": 0.0
+      }
+    }
+  ]
+}
